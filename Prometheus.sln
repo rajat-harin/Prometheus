@@ -5,6 +5,14 @@ VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prometheus.PresentationLayer", "Prometheus.PresentationLayer\Prometheus.PresentationLayer.csproj", "{19CA38FA-79F9-444F-B5B6-F442FE5150DC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prometheus.DataAccessLayer", "Prometheus.DataAccessLayer\Prometheus.DataAccessLayer.csproj", "{607AA1CE-8847-42D0-B7B9-BD06696FB409}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prometheus.Entities", "Prometheus.Entities\Prometheus.Entities.csproj", "{D0DCC3F7-0473-40C3-8F3D-33421599AB5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prometheus.BusinessLayer", "Prometheus.BusinessLayer\Prometheus.BusinessLayer.csproj", "{E3F3A996-685D-46E4-90C6-B5C75474B02E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prometheus.Exceptions", "Prometheus.Exceptions\Prometheus.Exceptions.csproj", "{3DB2B839-4016-4B30-9073-741E86274602}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +23,22 @@ Global
 		{19CA38FA-79F9-444F-B5B6-F442FE5150DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19CA38FA-79F9-444F-B5B6-F442FE5150DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19CA38FA-79F9-444F-B5B6-F442FE5150DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{607AA1CE-8847-42D0-B7B9-BD06696FB409}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{607AA1CE-8847-42D0-B7B9-BD06696FB409}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{607AA1CE-8847-42D0-B7B9-BD06696FB409}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{607AA1CE-8847-42D0-B7B9-BD06696FB409}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0DCC3F7-0473-40C3-8F3D-33421599AB5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0DCC3F7-0473-40C3-8F3D-33421599AB5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0DCC3F7-0473-40C3-8F3D-33421599AB5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0DCC3F7-0473-40C3-8F3D-33421599AB5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3F3A996-685D-46E4-90C6-B5C75474B02E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3F3A996-685D-46E4-90C6-B5C75474B02E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3F3A996-685D-46E4-90C6-B5C75474B02E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3F3A996-685D-46E4-90C6-B5C75474B02E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DB2B839-4016-4B30-9073-741E86274602}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DB2B839-4016-4B30-9073-741E86274602}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DB2B839-4016-4B30-9073-741E86274602}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DB2B839-4016-4B30-9073-741E86274602}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

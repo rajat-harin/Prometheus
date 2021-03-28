@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{607AA1CE-8847-42D0-B7B9-BD06696FB409}</ProjectGuid>
+    <ProjectGuid>{3DB2B839-4016-4B30-9073-741E86274602}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Prometheus.DataAccessLayer</RootNamespace>
-    <AssemblyName>Prometheus.DataAccessLayer</AssemblyName>
+    <RootNamespace>Prometheus.Exceptions</RootNamespace>
+    <AssemblyName>Prometheus.Exceptions</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -32,7 +32,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,19 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database.cs" />
+    <Compile Include="PrometheusException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\StudentDAL.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Prometheus.Entities\Prometheus.Entities.csproj">
-      <Project>{D0DCC3F7-0473-40C3-8F3D-33421599AB5B}</Project>
-      <Name>Prometheus.Entities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Prometheus.Exceptions\Prometheus.Exceptions.csproj">
-      <Project>{3DB2B839-4016-4B30-9073-741E86274602}</Project>
-      <Name>Prometheus.Exceptions</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

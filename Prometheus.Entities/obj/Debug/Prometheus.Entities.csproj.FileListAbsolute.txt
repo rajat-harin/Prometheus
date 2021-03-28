@@ -1,0 +1,6 @@
+D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.Entities\bin\Debug\Prometheus.Entities.dll
+D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.Entities\bin\Debug\Prometheus.Entities.pdb
+D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.Entities\obj\Debug\Prometheus.Entities.csprojAssemblyReference.cache
+D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.Entities\obj\Debug\Prometheus.Entities.csproj.CoreCompileInputs.cache
+D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.Entities\obj\Debug\Prometheus.Entities.dll
+D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.Entities\obj\Debug\Prometheus.Entities.pdb

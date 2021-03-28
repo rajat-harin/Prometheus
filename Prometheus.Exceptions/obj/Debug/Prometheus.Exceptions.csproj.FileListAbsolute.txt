@@ -1,0 +1,6 @@
+D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.Exceptions\bin\Debug\Prometheus.Exceptions.dll
+D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.Exceptions\bin\Debug\Prometheus.Exceptions.pdb
+D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.Exceptions\obj\Debug\Prometheus.Exceptions.csprojAssemblyReference.cache
+D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.Exceptions\obj\Debug\Prometheus.Exceptions.csproj.CoreCompileInputs.cache
+D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.Exceptions\obj\Debug\Prometheus.Exceptions.dll
+D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.Exceptions\obj\Debug\Prometheus.Exceptions.pdb
