@@ -23,7 +23,7 @@ namespace Prometheus.DataAccessLayer
         {
             get
             {
-                return ConfigurationManager.ConnectionStrings["myConStrDotNetFSLS150221"].ConnectionString;
+                return ConfigurationManager.ConnectionStrings["prometheusDb"].ConnectionString;
             }
         }
     }

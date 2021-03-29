@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Prometheus.BusinessLayer
 {
-    public class Class1
+    public class StudentBL
     {
+
     }
 }

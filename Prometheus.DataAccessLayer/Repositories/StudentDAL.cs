@@ -124,6 +124,7 @@ namespace Prometheus.DataAccessLayer.Repositories
 
         public DataSet GetStudents()
         {
+            DataSet objDS = new DataSet();
             SqlConnection objCon = new SqlConnection(Database.ConnectionString);
             SqlCommand objCom = new SqlCommand(Database.GETSTUDENTS, objCon);
             //setting command type to stored procedure
@@ -131,8 +132,8 @@ namespace Prometheus.DataAccessLayer.Repositories
             try
             {
                 objCon.Open();
+                //Creating an Adapter for connection
                 SqlDataAdapter objDA = new SqlDataAdapter(objCom);
-                DataSet objDS = new DataSet();
                 objDA.MissingSchemaAction = MissingSchemaAction.AddWithKey;
                 objDA.Fill(objDS);
             }
