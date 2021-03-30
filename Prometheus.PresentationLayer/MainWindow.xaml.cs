@@ -28,8 +28,9 @@ namespace Prometheus.PresentationLayer
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ViewMyCoursesWindow obj = new ViewMyCoursesWindow();
+            StudentMainWindow obj = new StudentMainWindow();
             obj.Show();
+            this.Hide();
         }
     }
 }

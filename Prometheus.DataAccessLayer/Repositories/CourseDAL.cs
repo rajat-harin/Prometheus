@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Prometheus.DataAccessLayer.Repositories
 {
-    class CourseDAL
+    public class CourseDAL
     {
         public DataSet GetCourses()
         {

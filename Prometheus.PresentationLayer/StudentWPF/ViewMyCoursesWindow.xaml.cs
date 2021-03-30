@@ -30,10 +30,16 @@ namespace Prometheus.PresentationLayer.StudentWPF
         }
         public void LoadMyCourses()//method to load my courses data grid on ViewMyCoursesWindow
         {
-            StudentBL student = new StudentBL();
-            ViewMyCoursesDG.ItemsSource =student.GetMyCourses(1).DefaultView;
-
-
+            try
+            {
+                StudentBL student = new StudentBL();
+                ViewMyCoursesDG.ItemsSource = student.GetMyCourses(1).DefaultView;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -16,6 +16,7 @@ namespace Prometheus.Entities
         public string Address { get; set; }
         public DateTime DOB { get; set; }
         public string City { get; set; }
+        public string Password { get; set; }
         public string MobileNo { get; set; }
 
         public Student()
@@ -27,7 +28,26 @@ namespace Prometheus.Entities
             Address = String.Empty;
             DOB = DateTime.Now;
             City = String.Empty;
+            Password = String.Empty;
             MobileNo = String.Empty;
+        }
+        public Student(string userName, string password)
+        {
+            UserName = userName;
+            Password = password;
+        }
+
+        public Student(int id, string fName, string lName, string userName, string address, DateTime dOB, string city, string password, string mobileNo)
+        {
+            StudentID = id;
+            FName = fName;
+            LName = lName;
+            UserName = userName;
+            Address = address;
+            DOB = dOB;
+            City = city;
+            Password = password;
+            MobileNo = mobileNo;
         }
     }
 }
