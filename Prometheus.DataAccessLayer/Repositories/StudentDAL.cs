@@ -26,6 +26,7 @@ namespace Prometheus.DataAccessLayer.Repositories
             objSqlParams[0] = new SqlParameter("@Id", s.StudentID);
             objSqlParams[1] = new SqlParameter("@FName", s.FName);
             objSqlParams[2] = new SqlParameter("@LName", s.LName);
+            objSqlParams[2] = new SqlParameter("@UserName", s.UserName);
             objSqlParams[3] = new SqlParameter("@Address", s.Address);
             objSqlParams[4] = new SqlParameter("@DOB", s.DOB);
             objSqlParams[5] = new SqlParameter("@City", s.City);
