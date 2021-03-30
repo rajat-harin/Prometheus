@@ -17,6 +17,13 @@ namespace Prometheus.DataAccessLayer
         public const string DELETESTUDENT = "DeleteStudent";
         public const string GETSTUDENTS = "GetStudents";
         public const string SEARCHSTUDENT = "SearchStudent";
+        public const string GETCOURSESOFSTUDENT = "GetCoursesOfStudent";
+
+        //Stored Procedures related to Course
+        public const string GETCOURSES = "GetCourses";
+
+        //Stored Procedures related to Enrollment
+        public const string ADDENROLLMENT = "AddEnrollment";
 
         // this field returns connection string from App.config
         public static string ConnectionString

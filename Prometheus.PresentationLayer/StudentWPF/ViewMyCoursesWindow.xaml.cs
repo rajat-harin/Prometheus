@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Data;
+using Prometheus.BusinessLayer;
 
 namespace Prometheus.PresentationLayer.StudentWPF
 {
@@ -27,18 +28,18 @@ namespace Prometheus.PresentationLayer.StudentWPF
             LoadMyCourses();
 
         }
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-6FKA8SI;Initial Catalog=Prometheus;Integrated Security=True");
         public void LoadMyCourses()//method to load my courses data grid on ViewMyCoursesWindow
         {
-            SqlCommand cmd = new SqlCommand("select * from course", con);
-            DataTable MyCoursesDT = new DataTable();
-            con.Open();
-            SqlDataReader sdr = cmd.ExecuteReader();
-            MyCoursesDT.Load(sdr);
-            con.Close();
-            ViewMyCoursesDG.ItemsSource = MyCoursesDT.DefaultView;
-
-
+            try
+            {
+                StudentBL student = new StudentBL();
+                ViewMyCoursesDG.ItemsSource = student.GetMyCourses(1).DefaultView;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            
         }
 
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)

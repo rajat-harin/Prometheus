@@ -129,5 +129,19 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Prometheus.BusinessLayer\Prometheus.BusinessLayer.csproj">
+      <Project>{e3f3a996-685d-46e4-90c6-b5c75474b02e}</Project>
+      <Name>Prometheus.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Prometheus.Entities\Prometheus.Entities.csproj">
+      <Project>{d0dcc3f7-0473-40c3-8f3d-33421599ab5b}</Project>
+      <Name>Prometheus.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Prometheus.Exceptions\Prometheus.Exceptions.csproj">
+      <Project>{3db2b839-4016-4b30-9073-741e86274602}</Project>
+      <Name>Prometheus.Exceptions</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Prometheus.DataAccessLayer.Repositories
 {
-    class StudentDAL
+    public class StudentDAL
     {
         public bool InsertStudent(Student s)
         {
@@ -26,6 +26,7 @@ namespace Prometheus.DataAccessLayer.Repositories
             objSqlParams[0] = new SqlParameter("@Id", s.StudentID);
             objSqlParams[1] = new SqlParameter("@FName", s.FName);
             objSqlParams[2] = new SqlParameter("@LName", s.LName);
+            objSqlParams[2] = new SqlParameter("@UserName", s.UserName);
             objSqlParams[3] = new SqlParameter("@Address", s.Address);
             objSqlParams[4] = new SqlParameter("@DOB", s.DOB);
             objSqlParams[5] = new SqlParameter("@City", s.City);
@@ -193,6 +194,70 @@ namespace Prometheus.DataAccessLayer.Repositories
                 objCon.Close();
             }
             return objStudent;
+        }
+
+        public DataSet GetMyCourses(int id)
+        {
+            DataSet objDS = new DataSet();
+            SqlConnection objCon = new SqlConnection(Database.ConnectionString);
+            SqlCommand objCom = new SqlCommand(Database.GETCOURSESOFSTUDENT, objCon);
+            //setting command type to stored procedure
+            objCom.CommandType = CommandType.StoredProcedure;
+            SqlParameter objSqlParams = new SqlParameter("@StudentID", id);
+            objCom.Parameters.Add(objSqlParams);
+            try
+            {
+                objCon.Open();
+                //Creating an Adapter for connection
+                SqlDataAdapter objDA = new SqlDataAdapter(objCom);
+                objDA.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                objDA.Fill(objDS);
+            }
+            catch (Exception ex)
+            {
+                throw new PrometheusException(ex.Message);
+            }
+            finally
+            {
+                objCon.Close();
+            }
+            return objDS;
+        }
+
+        public bool EnrollStudentInCourse(int studentId, int courseId)
+        {
+            bool isEnrolled = false;
+            //Connection to database
+            SqlConnection objCon = new SqlConnection(Database.ConnectionString);
+            SqlCommand objCom = new SqlCommand(Database.ADDENROLLMENT, objCon);
+            //setting command type to stored procedure
+            objCom.CommandType = CommandType.StoredProcedure;
+
+            //Defining parameters for StoredProcedure
+            SqlParameter[] objSqlParams = new SqlParameter[2];
+            objSqlParams[0] = new SqlParameter("@StudentID", studentId);
+            objSqlParams[1] = new SqlParameter("@CourseID", courseId);
+
+            objCom.Parameters.AddRange(objSqlParams);
+
+            try
+            {
+                objCon.Open();
+                int affectedRows = objCom.ExecuteNonQuery();
+                if (affectedRows > 0)
+                    isEnrolled = true;
+                else
+                    throw new PrometheusException("Error enrolling student in the course");
+            }
+            catch (Exception ex)
+            {
+                throw new PrometheusException(ex.Message);
+            }
+            finally
+            {
+                objCon.Close();
+            }
+            return isEnrolled;
         }
     }
 }
