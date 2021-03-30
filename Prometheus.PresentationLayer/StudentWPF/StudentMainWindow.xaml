@@ -1,0 +1,23 @@
+﻿<Window x:Class="Prometheus.PresentationLayer.StudentWPF.StudentMainWindow"
+       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Prometheus.PresentationLayer.StudentWPF"
+        mc:Ignorable="d"
+        Background="BlanchedAlmond"
+        Title="StudentMainWindow" Height="450" Width="800">
+    <Grid VerticalAlignment="Top">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="404*"/>
+            <ColumnDefinition Width="389*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock HorizontalAlignment="Left" Margin="307,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="148" Grid.ColumnSpan="2"><Run FontWeight="Bold" Text="Prometheus" FontSize="22"/></TextBlock>
+        <Button x:Name="CourseEnrollBt" Content="Enroll For Course" HorizontalAlignment="Left" Margin="285,107,0,0" VerticalAlignment="Top" Width="170" Height="30" Grid.ColumnSpan="2" FontWeight="Bold" Click="CourseEnrollBt_Click" Background="#FFFCFCFC"/>
+        <Button x:Name="DeviseHomeworkPlanBt" Content="Devise Homework Plan" HorizontalAlignment="Left" Margin="285,258,0,0" VerticalAlignment="Top" Width="170" Height="30" Grid.ColumnSpan="2" FontWeight="Bold" Click="DeviseHomeworkPlanBt_Click" Background="White"/>
+        <Button x:Name="ViewMyHomeworkBt" Content="View my Homeworks" HorizontalAlignment="Left" Margin="285,207,0,0" VerticalAlignment="Top" Width="170" Height="30" Click="ViewMyHomeworkBt_Click" Grid.ColumnSpan="2" FontWeight="Bold" Background="White"/>
+        <Button x:Name="ViewMyCourseBt" Content="View my Courses" HorizontalAlignment="Left" Margin="285,156,0,0" VerticalAlignment="Top" Width="170" Height="30" Grid.ColumnSpan="2" FontWeight="Bold" Click="ViewMyCourseBt_Click" Background="White"/>
+        <TextBlock Grid.ColumnSpan="2" Height="29" Margin="270,56,312.6,0" TextWrapping="Wrap" Width="211" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left"><Run FontWeight="Bold" Text="Dear Student, Welcome!"/></TextBlock>
+
+    </Grid>
+</Window>
