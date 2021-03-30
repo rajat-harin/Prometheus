@@ -48,3 +48,12 @@ D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.PresentationLayer\obj\Debug
 D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.PresentationLayer\obj\Debug\Prometheus.PresentationLayer.csproj.CoreCompileInputs.cache
 D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.PresentationLayer\obj\Debug\Prometheus.PresentationLayer.exe
 D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.PresentationLayer\obj\Debug\Prometheus.PresentationLayer.pdb
+D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.PresentationLayer\bin\Debug\Prometheus.BusinessLayer.dll
+D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.PresentationLayer\bin\Debug\Prometheus.DataAccessLayer.dll
+D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.PresentationLayer\bin\Debug\Prometheus.Entities.dll
+D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.PresentationLayer\bin\Debug\Prometheus.Exceptions.dll
+D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.PresentationLayer\bin\Debug\Prometheus.BusinessLayer.pdb
+D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.PresentationLayer\bin\Debug\Prometheus.DataAccessLayer.pdb
+D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.PresentationLayer\bin\Debug\Prometheus.Entities.pdb
+D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.PresentationLayer\bin\Debug\Prometheus.Exceptions.pdb
+D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.PresentationLayer\obj\Debug\Prometheus.PresentationLayer.csproj.CopyComplete

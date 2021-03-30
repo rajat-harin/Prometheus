@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\lenovo\source\repos\New folder\Prometheus\Prometheus.PresentationLayer\obj\Debug\
+D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.PresentationLayer\obj\Debug\
 Prometheus.PresentationLayer
 none
 false
 DEBUG;TRACE
-C:\Users\lenovo\source\repos\New folder\Prometheus\Prometheus.PresentationLayer\App.xaml
+D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.PresentationLayer\App.xaml
 6-241299653
 
 11-1252740086
-131254293103
+16389682403
 MainWindow.xaml;StudentWPF\DeviseHomeworkPlanWindow.xaml;StudentWPF\EnrollForCourseWindow.xaml;StudentWPF\StudentMainWindow.xaml;StudentWPF\ViewMyCoursesWindow.xaml;StudentWPF\ViewMyHomeworkWindow.xaml;
 
 True
