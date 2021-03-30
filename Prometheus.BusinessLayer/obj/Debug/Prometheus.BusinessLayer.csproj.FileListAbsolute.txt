@@ -1,0 +1,6 @@
+C:\Users\lenovo\source\repos\New folder\Prometheus\Prometheus.BusinessLayer\bin\Debug\Prometheus.BusinessLayer.dll
+C:\Users\lenovo\source\repos\New folder\Prometheus\Prometheus.BusinessLayer\bin\Debug\Prometheus.BusinessLayer.pdb
+C:\Users\lenovo\source\repos\New folder\Prometheus\Prometheus.BusinessLayer\obj\Debug\Prometheus.BusinessLayer.csprojAssemblyReference.cache
+C:\Users\lenovo\source\repos\New folder\Prometheus\Prometheus.BusinessLayer\obj\Debug\Prometheus.BusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\source\repos\New folder\Prometheus\Prometheus.BusinessLayer\obj\Debug\Prometheus.BusinessLayer.dll
+C:\Users\lenovo\source\repos\New folder\Prometheus\Prometheus.BusinessLayer\obj\Debug\Prometheus.BusinessLayer.pdb

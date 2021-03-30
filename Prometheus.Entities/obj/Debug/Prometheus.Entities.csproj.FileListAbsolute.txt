@@ -4,3 +4,9 @@ D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.Entities\obj\Debug\Promethe
 D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.Entities\obj\Debug\Prometheus.Entities.csproj.CoreCompileInputs.cache
 D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.Entities\obj\Debug\Prometheus.Entities.dll
 D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.Entities\obj\Debug\Prometheus.Entities.pdb
+C:\Users\lenovo\source\repos\New folder\Prometheus\Prometheus.Entities\bin\Debug\Prometheus.Entities.dll
+C:\Users\lenovo\source\repos\New folder\Prometheus\Prometheus.Entities\bin\Debug\Prometheus.Entities.pdb
+C:\Users\lenovo\source\repos\New folder\Prometheus\Prometheus.Entities\obj\Debug\Prometheus.Entities.csprojAssemblyReference.cache
+C:\Users\lenovo\source\repos\New folder\Prometheus\Prometheus.Entities\obj\Debug\Prometheus.Entities.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\source\repos\New folder\Prometheus\Prometheus.Entities\obj\Debug\Prometheus.Entities.dll
+C:\Users\lenovo\source\repos\New folder\Prometheus\Prometheus.Entities\obj\Debug\Prometheus.Entities.pdb

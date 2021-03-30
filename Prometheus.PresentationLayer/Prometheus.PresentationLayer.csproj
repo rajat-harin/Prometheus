@@ -55,6 +55,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="StudentWPF\DeviseHomeworkPlanWindow.xaml.cs">
+      <DependentUpon>DeviseHomeworkPlanWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StudentWPF\EnrollForCourseWindow.xaml.cs">
+      <DependentUpon>EnrollForCourseWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StudentWPF\StudentMainWindow.xaml.cs">
+      <DependentUpon>StudentMainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StudentWPF\ViewMyCoursesWindow.xaml.cs">
+      <DependentUpon>ViewMyCoursesWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StudentWPF\ViewMyHomeworkWindow.xaml.cs">
+      <DependentUpon>ViewMyHomeworkWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,6 +82,26 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="StudentWPF\DeviseHomeworkPlanWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StudentWPF\EnrollForCourseWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StudentWPF\StudentMainWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StudentWPF\ViewMyCoursesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StudentWPF\ViewMyHomeworkWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

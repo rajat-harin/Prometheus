@@ -9,3 +9,14 @@ D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.DataAccessLayer\obj\Debug\P
 D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.DataAccessLayer\obj\Debug\Prometheus.DataAccessLayer.csproj.CopyComplete
 D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.DataAccessLayer\obj\Debug\Prometheus.DataAccessLayer.dll
 D:\Workspace\CAPGEMINI\Sprint1\Prometheus\Prometheus.DataAccessLayer\obj\Debug\Prometheus.DataAccessLayer.pdb
+C:\Users\lenovo\source\repos\New folder\Prometheus\Prometheus.DataAccessLayer\bin\Debug\Prometheus.DataAccessLayer.dll
+C:\Users\lenovo\source\repos\New folder\Prometheus\Prometheus.DataAccessLayer\bin\Debug\Prometheus.DataAccessLayer.pdb
+C:\Users\lenovo\source\repos\New folder\Prometheus\Prometheus.DataAccessLayer\bin\Debug\Prometheus.Entities.dll
+C:\Users\lenovo\source\repos\New folder\Prometheus\Prometheus.DataAccessLayer\bin\Debug\Prometheus.Exceptions.dll
+C:\Users\lenovo\source\repos\New folder\Prometheus\Prometheus.DataAccessLayer\bin\Debug\Prometheus.Entities.pdb
+C:\Users\lenovo\source\repos\New folder\Prometheus\Prometheus.DataAccessLayer\bin\Debug\Prometheus.Exceptions.pdb
+C:\Users\lenovo\source\repos\New folder\Prometheus\Prometheus.DataAccessLayer\obj\Debug\Prometheus.DataAccessLayer.csprojAssemblyReference.cache
+C:\Users\lenovo\source\repos\New folder\Prometheus\Prometheus.DataAccessLayer\obj\Debug\Prometheus.DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\source\repos\New folder\Prometheus\Prometheus.DataAccessLayer\obj\Debug\Prometheus.DataAccessLayer.csproj.CopyComplete
+C:\Users\lenovo\source\repos\New folder\Prometheus\Prometheus.DataAccessLayer\obj\Debug\Prometheus.DataAccessLayer.dll
+C:\Users\lenovo\source\repos\New folder\Prometheus\Prometheus.DataAccessLayer\obj\Debug\Prometheus.DataAccessLayer.pdb

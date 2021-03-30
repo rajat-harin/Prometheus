@@ -1,0 +1,15 @@
+﻿<Window x:Class="Prometheus.PresentationLayer.StudentWPF.ViewMyHomeworkWindow"
+         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Prometheus.PresentationLayer.StudentWPF"
+        mc:Ignorable="d"
+        Background="BlanchedAlmond"
+        Title="ViewMyHomeworkWindow" Height="450" Width="800">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="298,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Width="175" FontSize="22"><Run FontWeight="Bold" Text="My Homeworks"/></TextBlock>
+        <DataGrid x:Name="ViewHomeworkDG" HorizontalAlignment="Left" Height="234" Margin="93,129,0,0" VerticalAlignment="Top" Width="644" SelectionChanged="DataGrid_SelectionChanged" AlternatingRowBackground="Gray">
+        </DataGrid>
+    </Grid>
+</Window>
