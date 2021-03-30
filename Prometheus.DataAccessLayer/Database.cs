@@ -25,6 +25,11 @@ namespace Prometheus.DataAccessLayer
         //Stored Procedures related to Enrollment
         public const string ADDENROLLMENT = "AddEnrollment";
 
+        //Stored Procedures related to Homework
+        public const string GETASSIGNEDHOMEWORK = "GetAssignedHomework";
+
+
+
         // this field returns connection string from App.config
         public static string ConnectionString
         {

@@ -82,5 +82,21 @@ namespace Prometheus.BusinessLayer
             }
             return isEnrolled;
         }
+        //Method to Get Assigned Homework
+        public DataTable GetAssignedHomework(int id)
+        {
+            DataTable MyCoursesTable = new DataTable();
+            try
+            {
+                MyCoursesTable = new StudentDAL().GetAssignedHomework(id).Tables[0];
+            }
+            catch (Exception ex)
+            {
+                throw new PrometheusException(ex.Message);
+            }
+
+            return MyCoursesTable;
+
+        }
     }
 }

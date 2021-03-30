@@ -196,6 +196,7 @@ namespace Prometheus.DataAccessLayer.Repositories
             return objStudent;
         }
 
+        //can be moved to different DAL
         public DataSet GetMyCourses(int id)
         {
             DataSet objDS = new DataSet();
@@ -258,6 +259,34 @@ namespace Prometheus.DataAccessLayer.Repositories
                 objCon.Close();
             }
             return isEnrolled;
+        }
+
+        public DataSet GetAssignedHomework(int id)
+        {
+            DataSet objDS = new DataSet();
+            SqlConnection objCon = new SqlConnection(Database.ConnectionString);
+            SqlCommand objCom = new SqlCommand(Database.GETASSIGNEDHOMEWORK, objCon);
+            //setting command type to stored procedure
+            objCom.CommandType = CommandType.StoredProcedure;
+            SqlParameter objSqlParams = new SqlParameter("@StudentID", id);
+            objCom.Parameters.Add(objSqlParams);
+            try
+            {
+                objCon.Open();
+                //Creating an Adapter for connection
+                SqlDataAdapter objDA = new SqlDataAdapter(objCom);
+                objDA.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                objDA.Fill(objDS);
+            }
+            catch (Exception ex)
+            {
+                throw new PrometheusException(ex.Message);
+            }
+            finally
+            {
+                objCon.Close();
+            }
+            return objDS;
         }
     }
 }

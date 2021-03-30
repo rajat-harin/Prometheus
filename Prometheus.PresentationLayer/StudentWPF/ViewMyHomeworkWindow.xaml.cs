@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Data;
+using Prometheus.BusinessLayer;
 
 namespace Prometheus.PresentationLayer.StudentWPF
 {
@@ -32,14 +33,15 @@ namespace Prometheus.PresentationLayer.StudentWPF
 
         public void LoadHomeworkGrid() //Creating a function to load homework grid.
         {
-            SqlCommand cmd = new SqlCommand("select * from Homework ", con);
-            DataTable HomeworkDT = new DataTable();
-            con.Open();
-            SqlDataReader sdr = cmd.ExecuteReader();
-            HomeworkDT.Load(sdr);
-            con.Close();
-            ViewHomeworkDG.ItemsSource = HomeworkDT.DefaultView;
-
+            try
+            {
+                StudentBL student = new StudentBL();
+                ViewHomeworkDG.ItemsSource = student.GetAssignedHomework(1).DefaultView;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
 
         }
         private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
