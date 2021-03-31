@@ -44,8 +44,9 @@
   <ItemGroup>
     <Compile Include="Database.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\CourseDAL.cs" />
-    <Compile Include="Repositories\StudentDAL.cs" />
+    <Compile Include="Repositories\CourseRepo.cs" />
+    <Compile Include="Repositories\EnrollmentRepo.cs" />
+    <Compile Include="Repositories\StudentRepo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Prometheus.Entities\Prometheus.Entities.csproj">

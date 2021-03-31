@@ -42,7 +42,7 @@ namespace Prometheus.PresentationLayer.StudentWPF
             catch (Exception ex)
             {
 
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             
         }
