@@ -70,6 +70,21 @@
     <Compile Include="StudentWPF\ViewMyHomeworkWindow.xaml.cs">
       <DependentUpon>ViewMyHomeworkWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TeacherWPF\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherWPF\HomeworkActivity.xaml.cs">
+      <DependentUpon>HomeworkActivity.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherWPF\ViewAllCourses.xaml.cs">
+      <DependentUpon>ViewAllCourses.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherWPF\ViewMyStudents.xaml.cs">
+      <DependentUpon>ViewMyStudents.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherWPF\ViewStudentCourses.xaml.cs">
+      <DependentUpon>ViewStudentCourses.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -101,6 +116,26 @@
     <Page Include="StudentWPF\ViewMyHomeworkWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TeacherWPF\HomePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TeacherWPF\HomeworkActivity.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TeacherWPF\ViewAllCourses.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TeacherWPF\ViewMyStudents.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TeacherWPF\ViewStudentCourses.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
