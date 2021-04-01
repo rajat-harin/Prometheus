@@ -7,7 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using Prometheus.Entities;
-
+using Prometheus.Exceptions;
 namespace Prometheus.DataAccessLayer.Repositories
 {
     public class TeacherRepo
@@ -15,30 +15,42 @@ namespace Prometheus.DataAccessLayer.Repositories
         static string conn = ConfigurationManager.ConnectionStrings["TeacherConnection"].ConnectionString;
         SqlConnection objCon = new SqlConnection(conn);
         SqlParameter[] objSqlParams;
-        public bool AddTeacher(Teacher T)
+        public bool AddTeacher(Teacher teachers)
         {
-            bool Addteacher = false;
-            SqlCommand objCom = new SqlCommand("AddTeacher", objCon);
-            objCom.CommandType = CommandType.StoredProcedure;
-            objSqlParams = new SqlParameter[9];
-            //Defining parameters for StoredProcedure
-            objSqlParams[0] = new SqlParameter("@FName", T.FName);
-            objSqlParams[1] = new SqlParameter("@LName", T.LName);
-            objSqlParams[2] = new SqlParameter("@Address", T.Address);
-            objSqlParams[3] = new SqlParameter("@DOB", T.DOB);
-            objSqlParams[4] = new SqlParameter("@City", T.City);
-            objSqlParams[5] = new SqlParameter("@MobileNo", T.MobileNo);
-            objSqlParams[6] = new SqlParameter("@IsAdmin", T.isAdmin);
-            objSqlParams[7] = new SqlParameter("@UserName", T.UserName);
-            objSqlParams[8] = new SqlParameter("@Password", T.Password);
-            objCom.Parameters.AddRange(objSqlParams);
             try
             {
-                objCon.Open();
-                int affectedRows = objCom.ExecuteNonQuery();
-                if (affectedRows > 0)
-                    Addteacher = true;
+                if (teachers != null)
+                {
+
+                    using (var connection = new SqlConnection(conn))
+                    {
+                        using (SqlCommand sqlCommand = new SqlCommand("AddTeacher", connection))
+                        {
+                            connection.Open();
+                            sqlCommand.CommandType = CommandType.StoredProcedure;
+
+
+                            sqlCommand.Parameters.AddWithValue("@FName", teachers.FName);
+                            sqlCommand.Parameters.AddWithValue("@LName", teachers.LName);
+                            sqlCommand.Parameters.AddWithValue("@Address", teachers.Address);
+                            sqlCommand.Parameters.AddWithValue("@DOB", teachers.DOB);
+                            sqlCommand.Parameters.AddWithValue("@City", teachers.City);
+                            sqlCommand.Parameters.AddWithValue("@MobileNo", teachers.MobileNo);
+                            sqlCommand.Parameters.AddWithValue("@IsAdmin", teachers.isAdmin);
+                            sqlCommand.Parameters.AddWithValue("@UserID", teachers.UserID);
+
+                            sqlCommand.Parameters.AddRange(objSqlParams);
+
+                            objCon.Open();
+                            int affectedRows = sqlCommand.ExecuteNonQuery();
+                            if (affectedRows > 0)
+                                return true;
+                        }
+                    }
+
+                }
             }
+
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
@@ -47,33 +59,43 @@ namespace Prometheus.DataAccessLayer.Repositories
             {
                 objCon.Close();
             }
-            return Addteacher;
-        }
+            return false;
 
-        public bool UpdateTeacher(Teacher  T)
+        }
+        public bool UpdateTeacher(Teacher teachers)
         {
-            bool Updateteacher = false;
-            SqlCommand objCom = new SqlCommand("UpdateTeacher", objCon);
-            objCom.CommandType = CommandType.StoredProcedure;
-            objSqlParams = new SqlParameter[9];
-            //Defining parameters for StoredProcedure
-            objSqlParams[0] = new SqlParameter("@FName", T.FName);
-            objSqlParams[1] = new SqlParameter("@LName", T.LName);
-            objSqlParams[2] = new SqlParameter("@Address", T.Address);
-            objSqlParams[3] = new SqlParameter("@DOB", T.DOB);
-            objSqlParams[4] = new SqlParameter("@City", T.City);
-            objSqlParams[5] = new SqlParameter("@MobileNo", T.MobileNo);
-            objSqlParams[6] = new SqlParameter("@TeacherID",T.TeacherID);
-            objSqlParams[7] = new SqlParameter("@UserName", T.UserName);
-            objSqlParams[8] = new SqlParameter("@Password", T.Password);
-            objCom.Parameters.AddRange(objSqlParams);
             try
             {
-                objCon.Open();
-                int affectedRows = objCom.ExecuteNonQuery();
-                if (affectedRows > 0)
-                    Updateteacher = true;
+                if (teachers != null)
+                {
+
+                    using (var connection = new SqlConnection(conn))
+                    {
+                        using (SqlCommand sqlCommand = new SqlCommand("UpdateTeacher", connection))
+                        {
+                            connection.Open();
+
+                            sqlCommand.CommandType = CommandType.StoredProcedure;
+                            sqlCommand.Parameters.AddWithValue("@FName", teachers.FName);
+                            sqlCommand.Parameters.AddWithValue("@LName", teachers.LName);
+                            sqlCommand.Parameters.AddWithValue("@Address", teachers.Address);
+                            sqlCommand.Parameters.AddWithValue("@DOB", teachers.DOB);
+                            sqlCommand.Parameters.AddWithValue("@City", teachers.City);
+                            sqlCommand.Parameters.AddWithValue("@MobileNo", teachers.MobileNo);
+                            sqlCommand.Parameters.AddWithValue("@IsAdmin", teachers.isAdmin);
+                            sqlCommand.Parameters.AddWithValue("@UserID", teachers.UserID);
+
+                            sqlCommand.Parameters.AddRange(objSqlParams);
+
+                            int affectedRows = sqlCommand.ExecuteNonQuery();
+                            if (affectedRows > 0)
+                                return true;
+                        }
+                    }
+
+                }
             }
+
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
@@ -82,17 +104,143 @@ namespace Prometheus.DataAccessLayer.Repositories
             {
                 objCon.Close();
             }
-            return Updateteacher;
+            return false;
+
+
+        }
+        public bool DeleteTeacher(Teacher teachers)
+        {
+            try
+            {
+                if (teachers != null)
+                {
+                    using (var connection = new SqlConnection(conn))
+                    {
+                        using (SqlCommand sqlCommand = new SqlCommand("DeleteTeacher", connection))
+                        {
+                            connection.Open();
+                            sqlCommand.CommandType = CommandType.StoredProcedure;
+                            SqlParameter objSqlParam_Id = new SqlParameter("@Id", teachers.TeacherID);
+                            sqlCommand.Parameters.Add(objSqlParam_Id);
+
+                            int affectedRows = sqlCommand.ExecuteNonQuery();
+                            if (affectedRows > 0)
+                                return true;
+                        }
+                    }
+
+
+                }
+            }
+
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                objCon.Close();
+            }
+            return false;
+        }
+        public Teacher SearchTeacher(int teacherid)
+        {
+            Teacher teachers;
+
+            try
+            {
+
+
+                using (var connection = new SqlConnection(conn))
+                {
+                    using (SqlCommand sqlCommand = new SqlCommand("SearchTeacher", connection))
+                    {
+                        connection.Open();
+                        sqlCommand.CommandType = CommandType.StoredProcedure;
+                        sqlCommand.Parameters.AddWithValue("@TeacherId", teacherid);
+                        int affectedRows = sqlCommand.ExecuteNonQuery();
+                        sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                        SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+                        sqlDataAdapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                        DataSet dataSet = new DataSet();
+                        sqlDataAdapter.Fill(dataSet);
+
+                        DataRow RowOfTeacher = dataSet.Tables["Teacher"].AsEnumerable()
+                               .Single(dataRow => dataRow.Field<int>("TeacherID") == teacherid);
+
+                        teachers = new Teacher
+                        {
+                            TeacherID = RowOfTeacher.Field<int>("TeacherID"),
+                            FName = RowOfTeacher.Field<string>("FName"),
+                            LName = RowOfTeacher.Field<string>("LName"),
+                            Address = RowOfTeacher.Field<string>("Address"),
+                            City = RowOfTeacher.Field<string>("City"),
+                            UserID = RowOfTeacher.Field<string>("UserID"),
+                            isAdmin = RowOfTeacher.Field<bool>("isAdmin"),
+                            DOB = RowOfTeacher.Field<DateTime>("DOB"),
+                            MobileNo = RowOfTeacher.Field<string>("MobileNo")
+                        };
+                        sqlCommand.Parameters.AddRange(objSqlParams);
+                        connection.Open();
+                        sqlCommand.ExecuteNonQuery();
+
+
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+            return teachers;
         }
 
-        public void SearchTeacher(int TeacherID)
+
+        public List<Teacher> GetTeachers()
         {
-            SqlCommand objCom = new SqlCommand("SearchTeacher", objCon);
-            objCom.CommandType = CommandType.StoredProcedure;
-            //Defining parameters for StoredProcedure
-            objCom.Parameters.AddWithValue("@TeacherID", TeacherID);
+            List<Teacher> teachers;
+            try
+            {
+                DataSet dataSet = new DataSet();
+                using (var connection = new SqlConnection(conn))
+                {
+                    using (SqlCommand sqlCommand = new SqlCommand("GetAllTeachers", connection))
+                    {
+                        sqlCommand.CommandType = CommandType.StoredProcedure;
+                        connection.Open();
+                        //Creating an Adapter for connection
+                        SqlDataAdapter objDA = new SqlDataAdapter(sqlCommand);
+                        objDA.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                        objDA.Fill(dataSet);
+
+                    }
+
+                }
+                teachers = dataSet.Tables["Teacher"].AsEnumerable().
+                                         Select(dataRow => new Teacher
+                                         {
+                                             TeacherID = dataRow.Field<int>("TeacherID"),
+                                             FName = dataRow.Field<string>("FName"),
+                                             LName = dataRow.Field<string>("LName"),
+                                             UserID = dataRow.Field<string>("UserID"),
+                                             Address = dataRow.Field<string>("Address"),
+                                             DOB = dataRow.Field<DateTime>("DOB"),
+                                             City = dataRow.Field<string>("City"),
+                                             MobileNo = dataRow.Field<string>("MobileNo")
+                                         }).ToList();
+
+            }
+            catch (Exception ex)
+            {
+                throw new PrometheusException(ex.Message);
+            }
+
+            return teachers;
         }
     }
+
 }
-
-
