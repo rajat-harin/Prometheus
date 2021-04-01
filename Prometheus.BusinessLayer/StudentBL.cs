@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Prometheus.BusinessLayer.Models;
 using Prometheus.DataAccessLayer.Repositories;
 using Prometheus.Entities;
 using Prometheus.Exceptions;
@@ -13,41 +14,42 @@ namespace Prometheus.BusinessLayer
     public class StudentBL
     {
         //Get List of Courses in which student is Enrolled
-        public List<object> GetCoursesByStudentID(int id)
+        public List<EnrolledCourse> GetCoursesByStudentID(int id)
         {
-            /*
-            List<Student> StudentCoursesList = new List<Student>();
             try
             {
-                MyCoursesTable =  new StudentRepo().GetMyCourses(id).Tables[0];
-            }
-            catch (Exception ex)
-            {
-                throw new PrometheusException(ex.Message);
-            }
+                EnrollmentRepo enrollmentRepo = new EnrollmentRepo();
+                List<Enrollment> enrollments = enrollmentRepo.GetEnrollments();
+                CourseRepo courseRepo = new CourseRepo();
+                List<Course> courses = courseRepo.GetCourses();
 
-            return MyCoursesTable;
-            /
-            */
-            EnrollmentRepo enrollmentRepo = new EnrollmentRepo();
-            List<Enrollment> enrollments = enrollmentRepo.GetEnrollments();
-            CourseRepo courseRepo = new CourseRepo();
-            List<Course> courses = courseRepo.GetCourses();
-
-            var result = enrollments.Join(
-                courses,
-                enrollment => enrollment.CourseID,
-                course => course.CourseID,
-                (enrollment, course) => new 
+                var result = enrollments.Where(item => item.StudentID == id).Join(
+                    courses,
+                    enrollment => enrollment.CourseID,
+                    course => course.CourseID,
+                    (enrollment, course) => new EnrolledCourse
+                    {
+                        EnrollmentID = enrollment.EnrollmentID,
+                        CourseID = enrollment.CourseID,
+                        Name = course.Name,
+                        StartDate = course.StartDate,
+                        EndDate = course.EndDate
+                    }
+                    ).ToList();
+                if (result.Any())
                 {
-                    EnrollmentID = enrollment.EnrollmentID,
-                    CourseID = enrollment.CourseID,
-                    Name = course.Name,
-                    StartDate = course.StartDate,
-                    EndDate = course.EndDate
+                    return result;
                 }
-                ).Cast<object>().ToList();
-            return result;
+                else
+                {
+                    throw new PrometheusException("No Enrollments Found!");
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            
         }
 
         // Can be moved to CourseBL
@@ -58,13 +60,20 @@ namespace Prometheus.BusinessLayer
             try
             {
                 CourseList = new CourseRepo().GetCourses();
+                if(CourseList.Any())
+                {
+                    return CourseList;
+                }
+                else
+                {
+                    throw new PrometheusException("No Courses Found!");
+                }
             }
             catch (Exception ex)
             {
 
                 throw new PrometheusException(ex.Message);
             }
-            return CourseList;
         }
 
         //Method to Enroll a student is a course
@@ -75,16 +84,19 @@ namespace Prometheus.BusinessLayer
             {
                 StudentRepo studentDAL = new StudentRepo();
                 int sId;
-                if(!Int32.TryParse(studentId, out sId))
+                if(string.IsNullOrEmpty(studentId))
                 {
-                    throw new PrometheusException("Invalid Student ID!");
+                    if (!Int32.TryParse(studentId, out sId))
+                    {
+                        throw new PrometheusException("Invalid Student ID!");
+                    }
+                    isEnrolled = new EnrollmentRepo().Insert(new Enrollment
+                    {
+                        StudentID = sId,
+                        CourseID = courseId
+                    });
                 }
-
-                isEnrolled = new EnrollmentRepo().Insert(new Enrollment
-                {
-                    StudentID = sId,
-                    CourseID = courseId
-                }) ;
+                    
             }
             catch (Exception ex)
             {

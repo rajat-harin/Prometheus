@@ -36,6 +36,12 @@ namespace Prometheus.DataAccessLayer
         //Stored Procedures related to Homework
         public const string GETASSIGNEDHOMEWORK = "GetAssignedHomework";
 
+        //Stored Procedures related to HomeworkPlan
+        public const string GETHOMEWORKPLAN = "GetHomeworkPlan";
+        public const string GETHOMEWORKPLANBYKEY = "GetHomeworkPlanByKey";
+        public const string ADDHOMEWORKPLAN = "AddHomeworkPlan";
+        public const string UPDATEHOMEWORKPLAN = "UpdateHomeworkPlan";
+        public const string DELETEHOMEWORKPLAN = "DeleteHomeworkPlan";
 
 
         // this field returns connection string from App.config

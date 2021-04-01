@@ -12,11 +12,10 @@ namespace Prometheus.Entities
         public int StudentID { get; set; }
         public string FName { get; set; }
         public string LName { get; set; }
-        public string UserName { get; set; }
+        public string UserID { get; set; }
         public string Address { get; set; }
         public DateTime DOB { get; set; }
         public string City { get; set; }
-        public string Password { get; set; }
         public string MobileNo { get; set; }
 
         public Student()
@@ -24,29 +23,21 @@ namespace Prometheus.Entities
             StudentID = 0;
             FName = String.Empty;
             LName = String.Empty;
-            UserName = String.Empty;
+            UserID = String.Empty;
             Address = String.Empty;
             DOB = DateTime.Now;
             City = String.Empty;
-            Password = String.Empty;
             MobileNo = String.Empty;
         }
-        public Student(string userName, string password)
-        {
-            UserName = userName;
-            Password = password;
-        }
-
-        public Student(int id, string fName, string lName, string userName, string address, DateTime dOB, string city, string password, string mobileNo)
+        public Student(int id, string fName, string lName, string userId, string address, DateTime dOB, string city, string mobileNo)
         {
             StudentID = id;
             FName = fName;
             LName = lName;
-            UserName = userName;
+            UserID = userId;
             Address = address;
             DOB = dOB;
             City = city;
-            Password = password;
             MobileNo = mobileNo;
         }
     }

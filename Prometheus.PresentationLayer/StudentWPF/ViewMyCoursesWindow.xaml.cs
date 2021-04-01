@@ -35,7 +35,7 @@ namespace Prometheus.PresentationLayer.StudentWPF
             try
             {                
                 ViewMyCoursesDG.ItemsSource = from course in objStudentBL.GetCoursesByStudentID(1)
-                                              select course;
+                                              select course; //id set to 1 just for testing
             }
             catch (Exception ex)
             {

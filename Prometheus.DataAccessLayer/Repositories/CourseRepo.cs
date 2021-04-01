@@ -195,7 +195,7 @@ namespace Prometheus.DataAccessLayer.Repositories
                         sqlDataAdapter.Fill(dataSet);
                     }
                 }
-                DataRow dataRowOfCourse = dataSet.Tables["Course"].AsEnumerable()
+                DataRow dataRowOfCourse = dataSet.Tables["Table"].AsEnumerable()
                                 .Single(dataRow => dataRow.Field<int>("CourseID") == id);
                 course = new Course
                 {
