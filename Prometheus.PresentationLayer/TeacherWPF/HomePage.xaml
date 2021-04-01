@@ -1,0 +1,17 @@
+﻿<Window x:Class="PrometheusApplication.PL.HomePage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PrometheusApplication.PL"
+        mc:Ignorable="d"
+        Title="HomePage" Height="450" Width="800" Background="DeepSkyBlue">
+    <Grid>
+        <Label Content="Prometheus"  Canvas.Left="10" Canvas.Top="10"  
+    FontSize="24" FontFamily="Georgia" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="295,10,0,0" Width="222"/>
+        <Label Content="Dear Teacher, Welcome!"   FontFamily="Georgia" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="259,57,0,0" Width="298"/>
+        <Button Content="View My Courses"  FontFamily="Georgia" FontSize="18" Background="white" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Width="191" Margin="295,126,0,0" Height="41" Click="Button_Click"/>
+        <Button Content="View My Students" FontFamily="Georgia" FontSize="18" Background="white" FontWeight="Bold" HorizontalAlignment="Left" Margin="295,188,0,0" VerticalAlignment="Top" Width="191" Height="42" Click="Button_Click_1"/>
+        <Button Content="HomeWork Activity" HorizontalAlignment="Left" Margin="280,263,0,0" FontFamily="Georgia" FontSize="18" Background="white" FontWeight="Bold" VerticalAlignment="Top" Width="223" Height="45" Click="Button_Click_2"/>
+    </Grid>
+</Window>

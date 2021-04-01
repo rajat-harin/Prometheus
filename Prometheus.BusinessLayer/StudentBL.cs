@@ -13,12 +13,13 @@ namespace Prometheus.BusinessLayer
     public class StudentBL
     {
         //Get List of Courses in which student is Enrolled
-        public DataTable GetMyCourses(int id)
+        public List<object> GetCoursesByStudentID(int id)
         {
-            DataTable MyCoursesTable = new DataTable();
+            /*
+            List<Student> StudentCoursesList = new List<Student>();
             try
             {
-                MyCoursesTable =  new StudentDAL().GetMyCourses(id).Tables[0];
+                MyCoursesTable =  new StudentRepo().GetMyCourses(id).Tables[0];
             }
             catch (Exception ex)
             {
@@ -26,37 +27,42 @@ namespace Prometheus.BusinessLayer
             }
 
             return MyCoursesTable;
-                       
+            /
+            */
+            EnrollmentRepo enrollmentRepo = new EnrollmentRepo();
+            List<Enrollment> enrollments = enrollmentRepo.GetEnrollments();
+            CourseRepo courseRepo = new CourseRepo();
+            List<Course> courses = courseRepo.GetCourses();
+
+            var result = enrollments.Join(
+                courses,
+                enrollment => enrollment.CourseID,
+                course => course.CourseID,
+                (enrollment, course) => new 
+                {
+                    EnrollmentID = enrollment.EnrollmentID,
+                    CourseID = enrollment.CourseID,
+                    Name = course.Name,
+                    StartDate = course.StartDate,
+                    EndDate = course.EndDate
+                }
+                ).Cast<object>().ToList();
+            return result;
         }
 
         // Can be moved to CourseBL
         // Returns List of Courses
         public List<Course> GetCoursesAsList()
         {
-            List<Course> CourseList = new List<Course>();
-            DataTable CourseDT = new DataTable();
+            List<Course> CourseList;
             try
             {
-                CourseDT = new CourseDAL().GetCourses().Tables[0];
+                CourseList = new CourseRepo().GetCourses();
             }
             catch (Exception ex)
             {
 
                 throw new PrometheusException(ex.Message);
-            }
-            
-            var result = from course in CourseDT.AsEnumerable()
-                         select course;
-            foreach (var item in result)
-            {
-                CourseList.Add(
-                    new Course(
-                        item.Field<int>("CourseID"),
-                        item.Field<string>("Name"),
-                        item.Field<DateTime>("StartDate"),
-                        item.Field<DateTime>("EndDate")
-                    )
-                );
             }
             return CourseList;
         }
@@ -67,14 +73,18 @@ namespace Prometheus.BusinessLayer
             bool isEnrolled = false;
             try
             {
-                StudentDAL studentDAL = new StudentDAL();
+                StudentRepo studentDAL = new StudentRepo();
                 int sId;
                 if(!Int32.TryParse(studentId, out sId))
                 {
                     throw new PrometheusException("Invalid Student ID!");
                 }
 
-                isEnrolled =  studentDAL.EnrollStudentInCourse(sId,courseId);
+                isEnrolled = new EnrollmentRepo().Insert(new Enrollment
+                {
+                    StudentID = sId,
+                    CourseID = courseId
+                }) ;
             }
             catch (Exception ex)
             {
@@ -83,12 +93,13 @@ namespace Prometheus.BusinessLayer
             return isEnrolled;
         }
         //Method to Get Assigned Homework
+        /*
         public DataTable GetAssignedHomework(int id)
         {
             DataTable MyCoursesTable = new DataTable();
             try
             {
-                MyCoursesTable = new StudentDAL().GetAssignedHomework(id).Tables[0];
+                MyCoursesTable = new StudentRepo().GetAssignedHomework(id).Tables[0];
             }
             catch (Exception ex)
             {
@@ -98,5 +109,6 @@ namespace Prometheus.BusinessLayer
             return MyCoursesTable;
 
         }
+        */
     }
 }

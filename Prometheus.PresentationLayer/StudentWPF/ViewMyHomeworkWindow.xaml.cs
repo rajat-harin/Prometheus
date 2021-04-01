@@ -36,7 +36,7 @@ namespace Prometheus.PresentationLayer.StudentWPF
             try
             {
                 StudentBL student = new StudentBL();
-                ViewHomeworkDG.ItemsSource = student.GetAssignedHomework(1).DefaultView;
+                //ViewHomeworkDG.ItemsSource = student.GetAssignedHomework(1).DefaultView;
             }
             catch (Exception ex)
             {

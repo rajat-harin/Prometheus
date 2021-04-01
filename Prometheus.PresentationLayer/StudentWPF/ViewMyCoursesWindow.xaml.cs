@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Data;
 using Prometheus.BusinessLayer;
+using Prometheus.Entities;
 
 namespace Prometheus.PresentationLayer.StudentWPF
 {
@@ -22,18 +23,19 @@ namespace Prometheus.PresentationLayer.StudentWPF
     /// </summary>
     public partial class ViewMyCoursesWindow : Window
     {
+        private StudentBL objStudentBL;
         public ViewMyCoursesWindow()
         {
             InitializeComponent();
+            objStudentBL = new StudentBL();
             LoadMyCourses();
-
         }
         public void LoadMyCourses()//method to load my courses data grid on ViewMyCoursesWindow
         {
             try
-            {
-                StudentBL student = new StudentBL();
-                ViewMyCoursesDG.ItemsSource = student.GetMyCourses(1).DefaultView;
+            {                
+                ViewMyCoursesDG.ItemsSource = from course in objStudentBL.GetCoursesByStudentID(1)
+                                              select course;
             }
             catch (Exception ex)
             {

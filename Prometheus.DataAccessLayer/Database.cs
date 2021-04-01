@@ -21,9 +21,17 @@ namespace Prometheus.DataAccessLayer
 
         //Stored Procedures related to Course
         public const string GETCOURSES = "GetCourses";
+        public const string INSERTCOURSE = "InsertCourse";
+        public const string UPDATECOURSE = "UpdateCourse";
+        public const string DELETECOURSE = "DeleteCourse";
+        public const string GETCOURSEBYID = "GetCourseById";
 
         //Stored Procedures related to Enrollment
         public const string ADDENROLLMENT = "AddEnrollment";
+        public const string UPDATEENROLLMENT = "UpdateEnrollment";
+        public const string DELETEENROLLMENT = "DeleteEnrollment";
+        public const string GETENROLLMENTS = "GetEnrollments";
+        public const string GETENROLLMENTBYID = "GetEnrollmentById";
 
         //Stored Procedures related to Homework
         public const string GETASSIGNEDHOMEWORK = "GetAssignedHomework";
