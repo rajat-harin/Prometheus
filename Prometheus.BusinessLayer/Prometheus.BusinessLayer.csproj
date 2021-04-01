@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\AssignedHomework.cs" />
     <Compile Include="Models\EnrolledCourse.cs" />
     <Compile Include="HomeworkBL.cs" />
+    <Compile Include="Models\ExtendedHomeworkPlan.cs" />
     <Compile Include="StudentBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

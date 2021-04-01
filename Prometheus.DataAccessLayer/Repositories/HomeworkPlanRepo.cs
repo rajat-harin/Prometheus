@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Prometheus.DataAccessLayer.Repositories
 {
-    class HomeworkPlanRepo
+    public class HomeworkPlanRepo
     {
         public bool Insert(HomeworkPlan homeworkPlan)
         {
@@ -29,7 +29,7 @@ namespace Prometheus.DataAccessLayer.Repositories
                             SqlParameter studentID = new SqlParameter("@StudentID", homeworkPlan.StudentID);
                             SqlParameter homeworkID = new SqlParameter("@HomeworkID", homeworkPlan.HomeworkID);
                             SqlParameter priorityLevel = new SqlParameter("@PriorityLevel", homeworkPlan.PriorityLevel);
-                            SqlParameter isCompleted = new SqlParameter("@HomeworkID", homeworkPlan.isCompleted);
+                            SqlParameter isCompleted = new SqlParameter("@isCompleted", homeworkPlan.isCompleted);
 
                             sqlCommand.Parameters.Add(studentID);
                             sqlCommand.Parameters.Add(homeworkID);
@@ -68,7 +68,7 @@ namespace Prometheus.DataAccessLayer.Repositories
                             SqlParameter studentID = new SqlParameter("@StudentID", homeworkPlan.StudentID);
                             SqlParameter homeworkID = new SqlParameter("@HomeworkID", homeworkPlan.HomeworkID);
                             SqlParameter priorityLevel = new SqlParameter("@PriorityLevel", homeworkPlan.PriorityLevel);
-                            SqlParameter isCompleted = new SqlParameter("@HomeworkID", homeworkPlan.isCompleted);
+                            SqlParameter isCompleted = new SqlParameter("@isCompleted", homeworkPlan.isCompleted);
 
                             sqlCommand.Parameters.Add(studentID);
                             sqlCommand.Parameters.Add(homeworkID);
@@ -116,6 +116,38 @@ namespace Prometheus.DataAccessLayer.Repositories
                         }
                     }
                 }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return false;
+        }
+
+        public bool DeleteAll(int studentId)
+        {
+            try
+            {
+                
+                    using (var connection = new SqlConnection(Database.ConnectionString))
+                    {
+                        using (SqlCommand sqlCommand = new SqlCommand(Database.DELETEHOMEWORKPLANFORSTUDENT, connection))
+                        {
+                            //setting command type to stored procedure
+                            sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                            //Defining parameters for StoredProcedure
+                            SqlParameter studentID = new SqlParameter("@StudentID", studentId);
+
+                            sqlCommand.Parameters.Add(studentID);
+                          
+                            connection.Open();
+                            int affectedRows = sqlCommand.ExecuteNonQuery();
+                            if (affectedRows > 0)
+                                return true;
+                        }
+                    }
+                
             }
             catch (Exception)
             {

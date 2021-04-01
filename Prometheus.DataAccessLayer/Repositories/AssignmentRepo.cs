@@ -5,16 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
-using Entities;
 using System.Configuration;
+using Prometheus.Entities;
 
-namespace Prometheus.Teacher.DAL.Repositories
+namespace Prometheus.DataAccessLayer.Repositories
 {
     public class AssignmentRepo
     {
-        string ConnectionString = ConfigurationManager.ConnectionStrings["TeacherConnection"].ConnectionString;
+        string ConnectionString = ConfigurationManager.ConnectionStrings["prometheusDb"].ConnectionString;
 
-        DataSet dataset = new DataSet();
         public bool AddAssignment(Assignment assignment)
         {
             try
@@ -115,9 +114,10 @@ namespace Prometheus.Teacher.DAL.Repositories
             {
                 if (assignment != null)
                 {
+                    DataSet dataset = new DataSet();
                     using (SqlConnection connection = new SqlConnection(ConnectionString))
                     {
-                        using (SqlCommand objCmd = new SqlCommand("AddAssignment", connection))
+                        using (SqlCommand objCmd = new SqlCommand("GetAssignments", connection))
                         {
                             objCmd.CommandType = CommandType.StoredProcedure;
                             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(objCmd);
@@ -125,10 +125,10 @@ namespace Prometheus.Teacher.DAL.Repositories
                             sqlDataAdapter.Fill(dataset);
                         }
                     }
-                    assignment = dataset.Tables["Assignment"].AsEnumerable().Select(
+                    assignment = dataset.Tables["Table"].AsEnumerable().Select(
                             dataRow => new Assignment
                             {
-                                AssignmentID = dataRow.Field<int>("AssignemntID"),
+                                AssignmentID = dataRow.Field<int>("AssignmentID"),
                                 CourseID = dataRow.Field<int>("CourseID"),
                                 TeacherID = dataRow.Field<int>("TeacherID"),
                                 HomeWorkID = dataRow.Field<int>("HomeWorkID"),
@@ -148,6 +148,7 @@ namespace Prometheus.Teacher.DAL.Repositories
             Assignment assignment;
             try
             {
+                DataSet dataset = new DataSet();
                 using (SqlConnection connection = new SqlConnection(ConnectionString))
                 {
                     using (SqlCommand objCmd = new SqlCommand("SearchAssignment", connection))
