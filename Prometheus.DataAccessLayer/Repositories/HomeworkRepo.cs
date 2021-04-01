@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Entities;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using Prometheus.Entities;
 
-namespace Prometheus.Teacher.DAL.Repositories
+namespace Prometheus.DataAccessLayer.Repositories
 {
     public class HomeworkRepo
     {

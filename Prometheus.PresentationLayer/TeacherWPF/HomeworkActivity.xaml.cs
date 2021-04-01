@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Prometheus.BusinessLayer;
+using Prometheus.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,10 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Prometheus.Teacher.BL;
-using Entities;
-
-namespace Prometheus.Teacher
+namespace Prometheus.PresentationLayer.TeacherWPF
 {
     /// <summary>
     /// Interaction logic for HomeworkActivity.xaml

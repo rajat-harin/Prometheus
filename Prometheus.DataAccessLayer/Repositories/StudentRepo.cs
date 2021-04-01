@@ -30,7 +30,7 @@ namespace Prometheus.DataAccessLayer.Repositories
                             objSqlParams[0] = new SqlParameter("@Id", student.StudentID);
                             objSqlParams[1] = new SqlParameter("@FName", student.FName);
                             objSqlParams[2] = new SqlParameter("@LName", student.LName);
-                            objSqlParams[2] = new SqlParameter("@UserName", student.UserName);
+                            objSqlParams[2] = new SqlParameter("@UserID", student.UserID);
                             objSqlParams[3] = new SqlParameter("@Address", student.Address);
                             objSqlParams[4] = new SqlParameter("@DOB", student.DOB);
                             objSqlParams[5] = new SqlParameter("@City", student.City);
@@ -47,9 +47,9 @@ namespace Prometheus.DataAccessLayer.Repositories
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new PrometheusException(ex.Message);
+                throw;
             }
             return false;
         }
@@ -88,9 +88,9 @@ namespace Prometheus.DataAccessLayer.Repositories
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new PrometheusException(ex.Message);
+                throw;
             }
             return false;
         }
@@ -121,9 +121,9 @@ namespace Prometheus.DataAccessLayer.Repositories
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new PrometheusException(ex.Message);
+                throw;
             }
             return false;
         }
@@ -154,17 +154,16 @@ namespace Prometheus.DataAccessLayer.Repositories
                                     StudentID = dataRow.Field<int>("StudentID"),
                                     FName = dataRow.Field<string>("FName"),
                                     LName = dataRow.Field<string>("LName"),
-                                    UserName = dataRow.Field<string>("UserName"),
+                                    UserID = dataRow.Field<string>("UserName"),
                                     Address = dataRow.Field<string>("Address"),
                                     DOB = dataRow.Field<DateTime>("DOB"),
                                     City = dataRow.Field<string>("City"),
-                                    Password = dataRow.Field<string>("Password"),
                                     MobileNo = dataRow.Field<string>("MobileNo")
                                 }).ToList();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new PrometheusException(ex.Message);
+                throw;
             }
             
             return students;
@@ -191,7 +190,7 @@ namespace Prometheus.DataAccessLayer.Repositories
                         objSqlParams[0] = new SqlParameter("@Id", student.StudentID);
                         objSqlParams[1] = new SqlParameter("@FName", student.FName);
                         objSqlParams[2] = new SqlParameter("@LName", student.LName);
-                        objSqlParams[2] = new SqlParameter("@UserName", student.UserName);
+                        objSqlParams[2] = new SqlParameter("@UserID", student.UserID);
                         objSqlParams[3] = new SqlParameter("@Address", student.Address);
                         objSqlParams[4] = new SqlParameter("@DOB", student.DOB);
                         objSqlParams[5] = new SqlParameter("@City", student.City);
@@ -213,9 +212,9 @@ namespace Prometheus.DataAccessLayer.Repositories
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new PrometheusException(ex.Message);
+                throw;
             }
             return student;
         }

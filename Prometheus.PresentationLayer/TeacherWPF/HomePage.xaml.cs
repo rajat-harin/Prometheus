@@ -1,5 +1,4 @@
-﻿using Prometheus.Teacher;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace PrometheusApplication.PL
+namespace Prometheus.PresentationLayer.TeacherWPF
 {
     /// <summary>
     /// Interaction logic for HomePage.xaml

@@ -1,0 +1,22 @@
+﻿<Window x:Class="Prometheus.PresentationLayer.AdminWPF.Add_Course_Page"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Prometheus.PresentationLayer.AdminWPF"
+        mc:Ignorable="d"
+        Background="BlanchedAlmond"
+        Title="Add_Course_Page" Height="450" Width="800">
+    <Grid>
+        <Label Content="ADD COURSE" HorizontalAlignment="Left" Margin="264,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Width="221"/>
+        <Label Content="Course Name" HorizontalAlignment="Left" Margin="93,136,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Course Start Date" HorizontalAlignment="Left" Margin="93,196,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Course End Date" HorizontalAlignment="Left" Margin="93,261,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.431,-0.51"/>
+        <TextBox x:Name="CName" HorizontalAlignment="Left" Height="23" Margin="252,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" TextChanged="TextBox_TextChanged_1"/>
+        <Button Content="Back To Homepage" HorizontalAlignment="Left" Margin="581,12,0,0" VerticalAlignment="Top" Width="201" FontWeight="Bold" Height="45" Click="Button_Click"/>
+        <Button Content="Save" HorizontalAlignment="Left" Margin="338,352,0,0" VerticalAlignment="Top" Width="75" Height="30" FontWeight="Bold" Click="Button_Click_1"/>
+        <DatePicker x:Name="StartDate" HorizontalAlignment="Left" Margin="252,196,0,0" VerticalAlignment="Top" Width="182"/>
+        <DatePicker x:Name="EndDate" HorizontalAlignment="Left" Margin="252,261,0,0" VerticalAlignment="Top" Width="182"/>
+    </Grid>
+</Window>
+

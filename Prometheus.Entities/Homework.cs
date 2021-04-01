@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Prometheus.Entities
 {
-    class Homework
+    public class Homework
     {
-        public int HomeWorkID { get; set; }
+        public int HomeworkID { get; set; }
         public string Description { get; set; }
         public DateTime Deadline { get; set; }
         public DateTime ReqTime { get; set; }
         public string LongDescription { get; set; }
         public Homework()
         {
-            HomeWorkID = 0;
+            HomeworkID = 0;
             Description = String.Empty;
             Deadline = DateTime.Now;
             ReqTime = DateTime.Now;
@@ -23,7 +23,7 @@ namespace Prometheus.Entities
         }
         public Homework(int id, string description, DateTime deadline, DateTime reqTime, string longDescription)
         {
-            HomeWorkID = id;
+            HomeworkID = id;
             Description = description;
             Deadline = deadline;
             ReqTime = reqTime;

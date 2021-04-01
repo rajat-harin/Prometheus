@@ -11,9 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using Prometheus.Teacher.BL;
 
-namespace PrometheusApplication.PL
+namespace Prometheus.PresentationLayer.TeacherWPF
 {
     /// <summary>
     /// Interaction logic for ViewAllCourses.xaml
@@ -26,7 +25,7 @@ namespace PrometheusApplication.PL
         }
         private void ShowCourses_Click(object sender, RoutedEventArgs e)
         {
-            grid.ItemsSource = new CoursesBL().viewCourse().DefaultView;
+            //grid.ItemsSource = new CoursesBL().viewCourse().DefaultView;
         }
     }
 }

@@ -12,11 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data;
-using Prometheus.Teacher.BL;
 using System.Data.SqlClient;
 using System.Configuration;
 
-namespace Prometheus.Teacher
+namespace Prometheus.PresentationLayer.TeacherWPF
 {
     /// <summary>
     /// Interaction logic for ViewMyStudents.xaml
@@ -36,7 +35,7 @@ namespace Prometheus.Teacher
         }
         private void GetCourses(ComboBox cmbname)
         {
-            dt = new CoursesBL().viewCourse();//Make my course function here so that there will always be one course for one teacher
+            //dt = new CoursesBL().viewCourse();//Make my course function here so that there will always be one course for one teacher
             cmbname.ItemsSource = dt.DefaultView;
             cmbname.DisplayMemberPath = dt.Columns["CourseName"].ToString();
             cmbname.SelectedValuePath = dt.Columns["CourseID"].ToString();
@@ -67,7 +66,7 @@ namespace Prometheus.Teacher
         {
             int courseId;
             courseId = Convert.ToInt32(coursecmb.SelectedValue);
-            studentgrid.ItemsSource = new MyStudentBL().Getstudent(courseId).DefaultView;
+            //studentgrid.ItemsSource = new MyStudentBL().Getstudent(courseId).DefaultView;
             /*
             string conection = ConfigurationManager.ConnectionStrings["TeacherConnection"].ConnectionString;
             SqlConnection objCon = new SqlConnection(conection);
