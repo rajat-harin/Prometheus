@@ -44,9 +44,10 @@
     <Compile Include="Course.cs" />
     <Compile Include="Enrollment.cs" />
     <Compile Include="Homework.cs" />
+    <Compile Include="HomeworkPlan.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Teachers.cs" />
+    <Compile Include="Teacher.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

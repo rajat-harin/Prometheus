@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
-using Entities;
+using Prometheus.Entities;
 
-namespace Prometheus.Teacher.DAL.Repositories
+namespace Prometheus.DataAccessLayer.Repositories
 {
     public class TeacherRepo
     {
         static string conn = ConfigurationManager.ConnectionStrings["TeacherConnection"].ConnectionString;
         SqlConnection objCon = new SqlConnection(conn);
         SqlParameter[] objSqlParams;
-        public bool AddTeacher(Teachers T)
+        public bool AddTeacher(Teacher T)
         {
             bool Addteacher = false;
             SqlCommand objCom = new SqlCommand("AddTeacher", objCon);
@@ -50,7 +50,7 @@ namespace Prometheus.Teacher.DAL.Repositories
             return Addteacher;
         }
 
-        public bool UpdateTeacher(Teachers  T)
+        public bool UpdateTeacher(Teacher  T)
         {
             bool Updateteacher = false;
             SqlCommand objCom = new SqlCommand("UpdateTeacher", objCon);

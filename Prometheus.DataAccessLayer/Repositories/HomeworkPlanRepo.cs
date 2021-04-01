@@ -10,27 +10,32 @@ using System.Threading.Tasks;
 
 namespace Prometheus.DataAccessLayer.Repositories
 {
-    public class EnrollmentRepo
+    class HomeworkPlanRepo
     {
-        public bool Insert(Enrollment enrollment)
+        public bool Insert(HomeworkPlan homeworkPlan)
         {
             try
             {
-                if (enrollment != null)
+                if (homeworkPlan != null)
                 {
                     using (var connection = new SqlConnection(Database.ConnectionString))
                     {
-                        using (SqlCommand sqlCommand = new SqlCommand(Database.ADDENROLLMENT, connection))
+                        using (SqlCommand sqlCommand = new SqlCommand(Database.ADDHOMEWORKPLAN, connection))
                         {
                             //setting command type to stored procedure
                             sqlCommand.CommandType = CommandType.StoredProcedure;
 
                             //Defining parameters for StoredProcedure
-                            SqlParameter studentID = new SqlParameter("@StudentID", enrollment.StudentID);
-                            SqlParameter courseID = new SqlParameter("@CourseID", enrollment.CourseID);
+                            SqlParameter studentID = new SqlParameter("@StudentID", homeworkPlan.StudentID);
+                            SqlParameter homeworkID = new SqlParameter("@HomeworkID", homeworkPlan.HomeworkID);
+                            SqlParameter priorityLevel = new SqlParameter("@PriorityLevel", homeworkPlan.PriorityLevel);
+                            SqlParameter isCompleted = new SqlParameter("@HomeworkID", homeworkPlan.isCompleted);
 
                             sqlCommand.Parameters.Add(studentID);
-                            sqlCommand.Parameters.Add(courseID);
+                            sqlCommand.Parameters.Add(homeworkID);
+                            sqlCommand.Parameters.Add(priorityLevel);
+                            sqlCommand.Parameters.Add(isCompleted);
+
                             connection.Open();
                             int affectedRows = sqlCommand.ExecuteNonQuery();
                             if (affectedRows > 0)
@@ -46,27 +51,30 @@ namespace Prometheus.DataAccessLayer.Repositories
             return false;
         }
 
-        public bool Update(Enrollment enrollment)
+        public bool Update(HomeworkPlan homeworkPlan)
         {
             try
             {
-                if (enrollment != null)
+                if (homeworkPlan != null)
                 {
                     using (var connection = new SqlConnection(Database.ConnectionString))
                     {
-                        using (SqlCommand sqlCommand = new SqlCommand(Database.UPDATEENROLLMENT, connection))
+                        using (SqlCommand sqlCommand = new SqlCommand(Database.UPDATEHOMEWORKPLAN, connection))
                         {
                             //setting command type to stored procedure
                             sqlCommand.CommandType = CommandType.StoredProcedure;
 
                             //Defining parameters for StoredProcedure
-                            SqlParameter enrollmentID = new SqlParameter("@EnrollmentID", enrollment.EnrollmentID);
-                            SqlParameter studentID = new SqlParameter("@StudentID", enrollment.StudentID);
-                            SqlParameter courseID = new SqlParameter("@CourseID", enrollment.CourseID);
+                            SqlParameter studentID = new SqlParameter("@StudentID", homeworkPlan.StudentID);
+                            SqlParameter homeworkID = new SqlParameter("@HomeworkID", homeworkPlan.HomeworkID);
+                            SqlParameter priorityLevel = new SqlParameter("@PriorityLevel", homeworkPlan.PriorityLevel);
+                            SqlParameter isCompleted = new SqlParameter("@HomeworkID", homeworkPlan.isCompleted);
 
-                            sqlCommand.Parameters.Add(enrollmentID);
                             sqlCommand.Parameters.Add(studentID);
-                            sqlCommand.Parameters.Add(courseID);
+                            sqlCommand.Parameters.Add(homeworkID);
+                            sqlCommand.Parameters.Add(priorityLevel);
+                            sqlCommand.Parameters.Add(isCompleted);
+
                             connection.Open();
                             int affectedRows = sqlCommand.ExecuteNonQuery();
                             if (affectedRows > 0)
@@ -80,25 +88,27 @@ namespace Prometheus.DataAccessLayer.Repositories
                 throw;
             }
             return false;
-        } //Not Needed. Can be removed
+        } 
 
-        public bool Delete(Enrollment enrollment)
+        public bool Delete(HomeworkPlan homeworkPlan)
         {
             try
             {
-                if (enrollment != null)
+                if (homeworkPlan != null)
                 {
                     using (var connection = new SqlConnection(Database.ConnectionString))
                     {
-                        using (SqlCommand sqlCommand = new SqlCommand(Database.DELETEENROLLMENT, connection))
+                        using (SqlCommand sqlCommand = new SqlCommand(Database.DELETEHOMEWORKPLAN, connection))
                         {
                             //setting command type to stored procedure
                             sqlCommand.CommandType = CommandType.StoredProcedure;
 
                             //Defining parameters for StoredProcedure
-                            SqlParameter enrollmentID = new SqlParameter("@EnrollmentID", enrollment.EnrollmentID);                           
+                            SqlParameter studentID = new SqlParameter("@StudentID", homeworkPlan.StudentID);
+                            SqlParameter homeworkID = new SqlParameter("@HomeworkID", homeworkPlan.HomeworkID);
 
-                            sqlCommand.Parameters.Add(enrollmentID);
+                            sqlCommand.Parameters.Add(studentID);
+                            sqlCommand.Parameters.Add(homeworkID);
                             connection.Open();
                             int affectedRows = sqlCommand.ExecuteNonQuery();
                             if (affectedRows > 0)
@@ -114,15 +124,15 @@ namespace Prometheus.DataAccessLayer.Repositories
             return false;
         }
 
-        public List<Enrollment> GetEnrollments()
+        public List<HomeworkPlan> GetHomeworkPlans()
         {
-            List<Enrollment> enrollments;
+            List<HomeworkPlan> homeworkPlans;
             try
             {
                 DataSet dataSet = new DataSet();
                 using (var connection = new SqlConnection(Database.ConnectionString))
                 {
-                    using (SqlCommand sqlCommand = new SqlCommand(Database.GETENROLLMENTS, connection))
+                    using (SqlCommand sqlCommand = new SqlCommand(Database.GETHOMEWORKPLAN, connection))
                     {
                         //setting command type to stored procedure
                         sqlCommand.CommandType = CommandType.StoredProcedure;
@@ -133,24 +143,32 @@ namespace Prometheus.DataAccessLayer.Repositories
                         sqlDataAdapter.Fill(dataSet);
                     }
                 }
-                enrollments = dataSet.Tables["Table"].AsEnumerable()
-                                .Select(dataRow => new Enrollment
+                homeworkPlans = dataSet.Tables["Table"].AsEnumerable()
+                                .Select(dataRow => new HomeworkPlan
                                 {
-                                    EnrollmentID = dataRow.Field<int>("EnrollmentID"),
                                     StudentID = dataRow.Field<int>("StudentID"),
-                                    CourseID = dataRow.Field<int>("CourseID")
+                                    HomeworkID = dataRow.Field<int>("HomeworkID"),
+                                    PriorityLevel = dataRow.Field<int>("PriorityLevel"),
+                                    isCompleted = dataRow.Field<bool>("isCompleted")
                                 }).ToList();
+                if (homeworkPlans.Any())
+                {
+                    return homeworkPlans;
+                }
+                else
+                {
+                    throw new PrometheusException("No Enrollments Found!");
+                }
             }
             catch (Exception)
             {
                 throw;
             }
-            return enrollments;
         }
 
-        public Enrollment GetEnrollmentByID(int id)
+        public HomeworkPlan GetHomeworkPlanByKey(int studentId, int homeworkId)
         {
-            Enrollment enrollment;
+            HomeworkPlan homeworkPlan;
             try
             {
                 DataSet dataSet = new DataSet();
@@ -162,8 +180,12 @@ namespace Prometheus.DataAccessLayer.Repositories
                         //setting command type to stored procedure
                         sqlCommand.CommandType = CommandType.StoredProcedure;
                         //Defining parameters for StoredProcedure
-                        SqlParameter enrollmentID = new SqlParameter("@EnrollmentID", id);
-                        sqlCommand.Parameters.Add(enrollmentID);
+                        //Defining parameters for StoredProcedure
+                        SqlParameter studentID = new SqlParameter("@StudentID", studentId);
+                        SqlParameter homeworkID = new SqlParameter("@HomeworkID", homeworkId);
+
+                        sqlCommand.Parameters.Add(studentID);
+                        sqlCommand.Parameters.Add(homeworkID);
 
                         connection.Open();
 
@@ -172,20 +194,22 @@ namespace Prometheus.DataAccessLayer.Repositories
                         sqlDataAdapter.Fill(dataSet);
                     }
                 }
-                DataRow dataRowOfEnrollment = dataSet.Tables["Table"].AsEnumerable()
-                                .Single(dataRow => dataRow.Field<int>("EnrollmentID") == id);
-                enrollment = new Enrollment
+                DataRow dataRowOfPlan = dataSet.Tables["Table"].AsEnumerable()
+                                .Single(dataRow => 
+                                dataRow.Field<int>("StudentID") == studentId && dataRow.Field<int>("HomeworkID") == homeworkId);
+                homeworkPlan = new HomeworkPlan
                 {
-                    EnrollmentID = dataRowOfEnrollment.Field<int>("EnrollmentID"),
-                    StudentID = dataRowOfEnrollment.Field<int>("StudentID"),
-                    CourseID = dataRowOfEnrollment.Field<int>("CourseID")
-                };   
+                    StudentID = dataRowOfPlan.Field<int>("StudentID"),
+                    HomeworkID = dataRowOfPlan.Field<int>("HomeworkID"),
+                    PriorityLevel = dataRowOfPlan.Field<int>("PriorityLevel"),
+                    isCompleted = dataRowOfPlan.Field<bool>("isCompleted")
+                };
             }
             catch (Exception)
             {
                 throw;
             }
-            return enrollment;
+            return homeworkPlan;
         }
     }
 }

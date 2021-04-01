@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entities
+namespace Prometheus.Entities
 {
-    public class Teachers
+    public class Teacher
     {
         public int TeacherID { get; set; }
         public string FName { get; set; }
