@@ -74,5 +74,17 @@ namespace Prometheus.PresentationLayer.StudentWPF
                 MessageBox.Show(ex.Message,"Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+        private void BackButton_Click(object sender, RoutedEventArgs e) //implentation of Back Button
+        {
+            this.Close();
+        }
+
+        private void Window_Closed(object sender, EventArgs e)//to implement: close buttons opens student main window.
+        {
+                this.Close();
+                StudentMainWindow studentMainWindowobj = new StudentMainWindow();
+                studentMainWindowobj.Show();
+            }
+        }
     }
-}
+

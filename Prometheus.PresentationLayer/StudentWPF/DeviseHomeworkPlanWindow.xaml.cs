@@ -23,5 +23,17 @@ namespace Prometheus.PresentationLayer.StudentWPF
         {
             InitializeComponent();
         }
-    }  //The coding here depends upon the Teacher Module Completion.
+        //The coding here depends upon the Teacher Module Completion.
+        private void BackButton_Click(object sender, RoutedEventArgs e)// pressing back button get us back to student main window.
+        {
+            this.Close();
+        }
+
+        private void Window_Closed(object sender, EventArgs e) // pressing close button takes us back to student main window.
+        {
+            this.Close();
+            StudentMainWindow studentMainWindowobj = new StudentMainWindow();
+            studentMainWindowobj.Show();
+        }
+    }  
 }
