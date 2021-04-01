@@ -15,7 +15,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 
-namespace Prometheus.Teacher
+namespace Prometheus.PresentationLayer.TeacherWPF
 {
     /// <summary>
     /// Interaction logic for ViewMyStudents.xaml
