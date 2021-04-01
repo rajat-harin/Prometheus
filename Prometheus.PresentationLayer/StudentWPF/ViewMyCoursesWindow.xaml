@@ -6,9 +6,11 @@
         xmlns:local="clr-namespace:Prometheus.PresentationLayer.StudentWPF"
         mc:Ignorable="d"
         Background="BlanchedAlmond"
-        Title="ViewMyCoursesWindow" Height="450" Width="800">
+        Title="ViewMyCoursesWindow" Height="450" Width="800" Closed="Window_Closed">
     <Grid>
+                <Button x:Name="BackButton" Content="Go Back" HorizontalAlignment="Left" Margin="64,29,0,0" VerticalAlignment="Top" Width="75" FontSize="14" FontWeight="Bold" Click="BackButton_Click"/>
+
         <TextBlock HorizontalAlignment="Left" Margin="322,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Width="133" FontSize="22"><Run FontWeight="Bold" Text="My Courses"/></TextBlock>
-        <DataGrid x:Name="ViewMyCoursesDG" HorizontalAlignment="Left" Height="277" Margin="40,86,0,0" VerticalAlignment="Top" Width="706" SelectionChanged="DataGrid_SelectionChanged"/>
+        <DataGrid x:Name="ViewMyCoursesDG" HorizontalAlignment="Left" Height="277" Margin="40,86,0,0" VerticalAlignment="Top" Width="706" SelectionChanged="DataGrid_SelectionChanged" AlternatingRowBackground="DarkGray"/>
     </Grid>
 </Window>

@@ -47,7 +47,9 @@
     <Compile Include="Repositories\CourseRepo.cs" />
     <Compile Include="Repositories\EnrollmentRepo.cs" />
     <Compile Include="Repositories\HomeworkPlanRepo.cs" />
+    <Compile Include="Repositories\HomeworkRepo.cs" />
     <Compile Include="Repositories\StudentRepo.cs" />
+    <Compile Include="Repositories\TeacherRepo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Prometheus.Entities\Prometheus.Entities.csproj">
