@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Prometheus.Teacher.DAL.Repositories;
-using Entities;
+using Prometheus.DataAccessLayer.Repositories;
+using Prometheus.Entities;
 
-namespace Prometheus.Teacher.BL
+namespace Prometheus.BusinessLayer
 {
     public class HomeworkBL
     {

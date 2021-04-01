@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data;
-using Prometheus.Teacher.BL;
 
 namespace Prometheus.Teacher
 {
@@ -29,7 +28,7 @@ namespace Prometheus.Teacher
         }
         public void GetAllCourses(int studentId)
         {
-            coursegrid.ItemsSource = new StudentOtherCoursesBL().Getstudent(studentId).DefaultView;        
+            //coursegrid.ItemsSource = new StudentOtherCoursesBL().Getstudent(studentId).DefaultView;        
         }
     }
 }
