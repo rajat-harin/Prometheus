@@ -27,6 +27,7 @@ namespace Prometheus.PresentationLayer.StudentWPF
 
         private void ViewMyHomeworkBt_Click(object sender, RoutedEventArgs e) //opens ViewMyHomeworkWindow
         {
+            this.Hide();
             ViewMyHomeworkWindow ViewMyHW = new ViewMyHomeworkWindow();
             ViewMyHW.Show();
 
@@ -44,18 +45,21 @@ namespace Prometheus.PresentationLayer.StudentWPF
 
         private void ViewMyCourseBt_Click(object sender, RoutedEventArgs e) //opens ViewMyCoursesWindow 
         {
+            this.Hide();
             ViewMyCoursesWindow ViewMyCourse = new ViewMyCoursesWindow();
             ViewMyCourse.Show();
         }
 
         private void DeviseHomeworkPlanBt_Click(object sender, RoutedEventArgs e) //opens DeviseHomeworkPlanWindow
         {
+            this.Hide();
             DeviseHomeworkPlanWindow DevisePlanWindow = new DeviseHomeworkPlanWindow();
             DevisePlanWindow.Show();
         }
 
         private void CourseEnrollBt_Click(object sender, RoutedEventArgs e) //opens EnrollForCourseWindow
         {
+            this.Hide();
             EnrollForCourseWindow CourseEnrollWindow = new EnrollForCourseWindow();
             CourseEnrollWindow.Show();
         }
