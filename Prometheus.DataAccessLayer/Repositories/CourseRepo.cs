@@ -47,9 +47,9 @@ namespace Prometheus.DataAccessLayer.Repositories
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new PrometheusException(ex.Message);
+                throw;
             }
             return false;
         }
@@ -126,9 +126,9 @@ namespace Prometheus.DataAccessLayer.Repositories
                     throw new PrometheusException("Can not delete null object!");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new PrometheusException(ex.Message);
+                throw;
             }
             return false;
         }
@@ -164,9 +164,9 @@ namespace Prometheus.DataAccessLayer.Repositories
                                     EndDate = dataRow.Field<DateTime>("EndDate")
                                 }).ToList();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new PrometheusException(ex.Message);
+                throw;
             }
             return courseList;
         }
@@ -205,51 +205,11 @@ namespace Prometheus.DataAccessLayer.Repositories
                     EndDate = dataRowOfCourse.Field<DateTime>("EndDate")
                 };
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new PrometheusException(ex.Message);
+                throw;
             }
             return course;
         }
-
-        /*
-        // NOTE: FOLLOWING METHOD IS TO BE MOVED
-        public List<Course> GetCoursesByStudentID(int id)
-        {
-            DataSet objDS = new DataSet();
-            List<Course> courseList = new List<Course>();
-            SqlConnection objCon = new SqlConnection(Database.ConnectionString);
-            SqlCommand objCom = new SqlCommand(Database.GETCOURSESOFSTUDENT, objCon);
-            //setting command type to stored procedure
-            objCom.CommandType = CommandType.StoredProcedure;
-            SqlParameter objSqlParams = new SqlParameter("@StudentID", id);
-            objCom.Parameters.Add(objSqlParams);
-            try
-            {
-                objCon.Open();
-                //Creating an Adapter for connection
-                SqlDataAdapter objDA = new SqlDataAdapter(objCom);
-                objDA.MissingSchemaAction = MissingSchemaAction.AddWithKey;
-                objDA.Fill(objDS);
-                courseList = objDS.Tables[0].AsEnumerable()
-                                .Select(dataRow => new Course
-                                {
-                                    CourseID = dataRow.Field<int>("CourseID"),
-                                    Name = dataRow.Field<string>("Name"),
-                                    StartDate = dataRow.Field<DateTime>("StartDate"),
-                                    EndDate = dataRow.Field<DateTime>("EndDate")
-                                }).ToList();
-            }
-            catch (Exception ex)
-            {
-                throw new PrometheusException(ex.Message);
-            }
-            finally
-            {
-                objCon.Close();
-            }
-            return courseList;
-        }
-        */
     }
 }

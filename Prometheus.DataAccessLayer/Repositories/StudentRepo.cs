@@ -47,9 +47,9 @@ namespace Prometheus.DataAccessLayer.Repositories
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new PrometheusException(ex.Message);
+                throw;
             }
             return false;
         }
@@ -88,9 +88,9 @@ namespace Prometheus.DataAccessLayer.Repositories
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new PrometheusException(ex.Message);
+                throw;
             }
             return false;
         }
@@ -121,9 +121,9 @@ namespace Prometheus.DataAccessLayer.Repositories
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new PrometheusException(ex.Message);
+                throw;
             }
             return false;
         }
@@ -161,9 +161,9 @@ namespace Prometheus.DataAccessLayer.Repositories
                                     MobileNo = dataRow.Field<string>("MobileNo")
                                 }).ToList();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new PrometheusException(ex.Message);
+                throw;
             }
             
             return students;
@@ -212,9 +212,9 @@ namespace Prometheus.DataAccessLayer.Repositories
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new PrometheusException(ex.Message);
+                throw;
             }
             return student;
         }

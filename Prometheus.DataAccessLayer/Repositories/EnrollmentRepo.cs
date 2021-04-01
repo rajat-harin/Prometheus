@@ -39,9 +39,9 @@ namespace Prometheus.DataAccessLayer.Repositories
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new PrometheusException(ex.Message);
+                throw;
             }
             return false;
         }
@@ -75,9 +75,9 @@ namespace Prometheus.DataAccessLayer.Repositories
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new PrometheusException(ex.Message);
+                throw;
             }
             return false;
         } //Not Needed. Can be removed
@@ -107,9 +107,9 @@ namespace Prometheus.DataAccessLayer.Repositories
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new PrometheusException(ex.Message);
+                throw;
             }
             return false;
         }
@@ -141,9 +141,9 @@ namespace Prometheus.DataAccessLayer.Repositories
                                     CourseID = dataRow.Field<int>("CourseID")
                                 }).ToList();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new PrometheusException(ex.Message);
+                throw;
             }
             return enrollments;
         }
@@ -181,9 +181,9 @@ namespace Prometheus.DataAccessLayer.Repositories
                     CourseID = dataRowOfEnrollment.Field<int>("CourseID")
                 };   
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new PrometheusException(ex.Message);
+                throw;
             }
             return enrollment;
         }

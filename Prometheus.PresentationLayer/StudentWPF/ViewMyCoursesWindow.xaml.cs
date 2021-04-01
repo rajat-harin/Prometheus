@@ -15,6 +15,8 @@ using System.Data.SqlClient;
 using System.Data;
 using Prometheus.BusinessLayer;
 using Prometheus.Entities;
+using Prometheus.BusinessLayer.Models;
+using Prometheus.Exceptions;
 
 namespace Prometheus.PresentationLayer.StudentWPF
 {
@@ -33,9 +35,17 @@ namespace Prometheus.PresentationLayer.StudentWPF
         public void LoadMyCourses()//method to load my courses data grid on ViewMyCoursesWindow
         {
             try
-            {                
-                ViewMyCoursesDG.ItemsSource = from course in objStudentBL.GetCoursesByStudentID(1)
-                                              select course; //id set to 1 just for testing
+            {
+                List<EnrolledCourse> enrolledCourses = objStudentBL.GetCoursesByStudentID(1);//id set to 1 just for testing
+                if (enrolledCourses.Any())
+                {
+                    ViewMyCoursesDG.ItemsSource = enrolledCourses;
+                }
+                else
+                {
+                    throw new PrometheusException("No Courses Found!");
+                }
+                 
             }
             catch (Exception ex)
             {
