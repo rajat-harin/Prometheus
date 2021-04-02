@@ -43,14 +43,14 @@ namespace Prometheus.PresentationLayer.AdminWPF
             if (string.IsNullOrEmpty(role))
             {
                 MessageBox.Show("Login Unsuccessfull....");
-                
+
             }
             else
             {
                 MessageBox.Show("Login Successful....");
                 if (role.Equals("admin"))
                 {
-                    AdminHomePage adminHomePage = new AdminHomePage();
+                    Admin_Main_Page adminHomePage = new Admin_Main_Page();
                     adminHomePage.Show();
                 }
                 else if (role.Equals("teacher"))
