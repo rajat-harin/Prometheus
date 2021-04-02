@@ -36,7 +36,7 @@ namespace Prometheus.PresentationLayer.StudentWPF
             studentMainWindowobj.Show();
         }
 
-        private void DeviseHomeworkPlanDG_SelectionChanged()
+        private void DeviseHomeworkPlanDG_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
