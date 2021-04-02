@@ -55,10 +55,7 @@ namespace Prometheus.DataAccessLayer.Repositories
             {
                 throw new Exception(ex.Message);
             }
-            finally
-            {
-                objCon.Close();
-            }
+            
             return false;
 
         }
@@ -100,10 +97,7 @@ namespace Prometheus.DataAccessLayer.Repositories
             {
                 throw new Exception(ex.Message);
             }
-            finally
-            {
-                objCon.Close();
-            }
+            
             return false;
 
 
@@ -137,10 +131,7 @@ namespace Prometheus.DataAccessLayer.Repositories
             {
                 throw new Exception(ex.Message);
             }
-            finally
-            {
-                objCon.Close();
-            }
+            
             return false;
         }
         public Teacher SearchTeacher(int teacherid)

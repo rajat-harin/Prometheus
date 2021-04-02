@@ -55,6 +55,39 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AdminWPF\Add Course Page.xaml.cs">
+      <DependentUpon>Add Course Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminWPF\Admin Main Page.xaml.cs">
+      <DependentUpon>Admin Main Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminWPF\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminWPF\StudentRegistration.xaml.cs">
+      <DependentUpon>StudentRegistration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminWPF\TeacherRegistration.xaml.cs">
+      <DependentUpon>TeacherRegistration.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminWPF\User Login Page.xaml.cs">
+      <DependentUpon>User Login Page.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminWPF\UserChangePassword.xaml.cs">
+      <DependentUpon>UserChangePassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminWPF\UserForgotPassword.xaml.cs">
+      <DependentUpon>UserForgotPassword.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminWPF\ViewCoursePage.xaml.cs">
+      <DependentUpon>ViewCoursePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminWPF\ViewStudentPage.xaml.cs">
+      <DependentUpon>ViewStudentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminWPF\ViewTeacherPage.xaml.cs">
+      <DependentUpon>ViewTeacherPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StudentWPF\DeviseHomeworkPlanWindow.xaml.cs">
       <DependentUpon>DeviseHomeworkPlanWindow.xaml</DependentUpon>
     </Compile>
@@ -85,6 +118,50 @@
     <Compile Include="TeacherWPF\ViewStudentCourses.xaml.cs">
       <DependentUpon>ViewStudentCourses.xaml</DependentUpon>
     </Compile>
+    <Page Include="AdminWPF\Add Course Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AdminWPF\Admin Main Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AdminWPF\Login.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AdminWPF\StudentRegistration.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AdminWPF\TeacherRegistration.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AdminWPF\User Login Page.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AdminWPF\UserChangePassword.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AdminWPF\UserForgotPassword.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AdminWPF\ViewCoursePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AdminWPF\ViewStudentPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AdminWPF\ViewTeacherPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -177,6 +254,12 @@
       <Project>{3db2b839-4016-4b30-9073-741e86274602}</Project>
       <Name>Prometheus.Exceptions</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="AdminWPF\admin.jpg" />
+    <Resource Include="AdminWPF\login.jpg" />
+    <Resource Include="AdminWPF\Student clip art.png" />
+    <Resource Include="AdminWPF\teacher.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
