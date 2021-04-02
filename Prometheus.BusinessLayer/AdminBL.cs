@@ -57,10 +57,8 @@ namespace Prometheus.BusinessLayer
                     UserRepo userRepo = new UserRepo();
                     TeacherRepo teacherRepo = new TeacherRepo();
                     User user = new User { UserID = teacher.UserID, Password = Password, Role = "teacher" };
-                    if (teacher.IsAdmin)
+                    if (teacher.IsAdmin.Equals("admin"))
                     {
-                        user.Role = "admin";
-                    }
                         if (userRepo.InsertUser(user))
                         {
                             if (teacherRepo.InsertTeacher(teacher))
@@ -73,6 +71,7 @@ namespace Prometheus.BusinessLayer
                                 throw new PrometheusException("user registration failed");
                             }
                         }
+                    }
                     else
                     {
                         throw new PrometheusException("user registration failed");
@@ -220,23 +219,27 @@ namespace Prometheus.BusinessLayer
 
         }
 
-        public bool ForgotPassword(User guest)
+        public bool ForgotPassword(User user)
         {
-
             try
             {
                 UserRepo userRepo = new UserRepo();
-                User user = new User();
-                user = userRepo.GetUserByID(guest.UserID);
+                User guest = new User();
+                guest = userRepo.GetUserByID(user.UserID);
                 if (user != null)
                 {
-
-                    return true;
-                    
+                    if (user.UserID.Equals(guest.UserID))
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        throw new PrometheusException("Incorrect password!");
+                    }
                 }
                 else
                 {
-                    return false;
+                    throw new PrometheusException("User does not exists!");
                 }
             }
             catch (Exception)

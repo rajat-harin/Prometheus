@@ -71,8 +71,6 @@ namespace Prometheus.PresentationLayer.AdminWPF
         {
             try
             {
-
-
                 Teacher teacher = new Teacher();
                 teacher.FName = FName.Text.ToString();
                 teacher.LName = LName.Text.ToString();

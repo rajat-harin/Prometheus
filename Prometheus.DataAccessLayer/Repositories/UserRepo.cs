@@ -169,7 +169,8 @@ namespace Prometheus.DataAccessLayer.Repositories
                 //SqlConnection connection;
                 using (var connection = new SqlConnection(Database.ConnectionString))
                 {
-                    using (SqlCommand sqlCommand = new SqlCommand(Database.GETUSERBYID, connection))
+                    using (SqlCommand sqlCommand = new 
+                        SqlCommand(Database.GETUSERBYID, connection))
                     {
                         //setting command type to stored procedure
                         sqlCommand.CommandType = CommandType.StoredProcedure;
