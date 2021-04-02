@@ -22,21 +22,19 @@ namespace Prometheus.PresentationLayer.StudentWPF
     /// </summary>
     public partial class ViewMyHomeworkWindow : Window
     {
+        StudentBL studentBL;
         public ViewMyHomeworkWindow()
         {
             InitializeComponent();
-            LoadHomeworkGrid();
+            studentBL = new StudentBL();
+            LoadHomeworkGrid();    
         }
-
-        readonly SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-6FKA8SI;Initial Catalog=Prometheus;Integrated Security=True");
-
-
         public void LoadHomeworkGrid() //Creating a function to load homework grid.
         {
             try
             {
-                StudentBL student = new StudentBL();
-                //ViewHomeworkDG.ItemsSource = student.GetAssignedHomework(1).DefaultView;
+                
+                ViewHomeworkDG.ItemsSource = studentBL.GetAssignedHomework(1);
             }
             catch (Exception ex)
             {
