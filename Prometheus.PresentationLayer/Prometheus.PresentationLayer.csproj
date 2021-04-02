@@ -61,6 +61,9 @@
     <Compile Include="AdminWPF\Admin Main Page.xaml.cs">
       <DependentUpon>Admin Main Page.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdminWPF\AdminHomePage.xaml.cs">
+      <DependentUpon>AdminHomePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdminWPF\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -126,6 +129,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+
+
+    <Page Include="AdminWPF\AdminHomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+
     <Page Include="AdminWPF\Login.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -249,6 +259,10 @@
     <ProjectReference Include="..\Prometheus.BusinessLayer\Prometheus.BusinessLayer.csproj">
       <Project>{e3f3a996-685d-46e4-90c6-b5c75474b02e}</Project>
       <Name>Prometheus.BusinessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Prometheus.DataAccessLayer\Prometheus.DataAccessLayer.csproj">
+      <Project>{607aa1ce-8847-42d0-b7b9-bd06696fb409}</Project>
+      <Name>Prometheus.DataAccessLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\Prometheus.Entities\Prometheus.Entities.csproj">
       <Project>{d0dcc3f7-0473-40c3-8f3d-33421599ab5b}</Project>

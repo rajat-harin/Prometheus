@@ -1,4 +1,5 @@
-﻿using Prometheus.PresentationLayer.StudentWPF;
+﻿using Prometheus.PresentationLayer.AdminWPF;
+using Prometheus.PresentationLayer.StudentWPF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,12 @@ namespace Prometheus.PresentationLayer
             StudentMainWindow obj = new StudentMainWindow();
             obj.Show();
             this.Hide();
+        }
+
+        private void btnAdmin_Click(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
         }
     }
 }

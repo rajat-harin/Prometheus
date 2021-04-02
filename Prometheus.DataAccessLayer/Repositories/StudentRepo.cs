@@ -26,17 +26,23 @@ namespace Prometheus.DataAccessLayer.Repositories
                             sqlCommand.CommandType = CommandType.StoredProcedure;
 
                             //Defining parameters for StoredProcedure
-                            SqlParameter[] objSqlParams = new SqlParameter[7];
-                            objSqlParams[0] = new SqlParameter("@Id", student.StudentID);
-                            objSqlParams[1] = new SqlParameter("@FName", student.FName);
-                            objSqlParams[2] = new SqlParameter("@LName", student.LName);
-                            objSqlParams[2] = new SqlParameter("@UserID", student.UserID);
-                            objSqlParams[3] = new SqlParameter("@Address", student.Address);
-                            objSqlParams[4] = new SqlParameter("@DOB", student.DOB);
-                            objSqlParams[5] = new SqlParameter("@City", student.City);
-                            objSqlParams[6] = new SqlParameter("@MobileNo", student.MobileNo);
+ 
+                            SqlParameter FName = new SqlParameter("@FName", student.FName);
+                            SqlParameter LName = new SqlParameter("@Lname", student.LName);
+                            SqlParameter UserID = new SqlParameter("@UserID", student.UserID);
+                            SqlParameter Address = new SqlParameter("@Address", student.Address);
+                            SqlParameter DOB = new SqlParameter("@DOB", student.DOB);
+                            SqlParameter City = new SqlParameter("@City", student.City);
+                            SqlParameter MobileNo = new SqlParameter("@MobileNo", student.MobileNo);
+                            
 
-                            sqlCommand.Parameters.AddRange(objSqlParams);
+                            sqlCommand.Parameters.Add(FName);
+                            sqlCommand.Parameters.Add(LName);
+                            sqlCommand.Parameters.Add(UserID);
+                            sqlCommand.Parameters.Add(Address);
+                            sqlCommand.Parameters.Add(DOB);
+                            sqlCommand.Parameters.Add(City);
+                            sqlCommand.Parameters.Add(MobileNo);
 
 
                             connection.Open();
@@ -47,7 +53,7 @@ namespace Prometheus.DataAccessLayer.Repositories
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }
@@ -68,17 +74,24 @@ namespace Prometheus.DataAccessLayer.Repositories
                             sqlCommand.CommandType = CommandType.StoredProcedure;
 
                             //Defining parameters for StoredProcedure
-                            SqlParameter[] objSqlParams = new SqlParameter[7];
-                            objSqlParams[0] = new SqlParameter("@Id", student.StudentID);
-                            objSqlParams[1] = new SqlParameter("@FName", student.FName);
-                            objSqlParams[2] = new SqlParameter("@LName", student.LName);
-                            objSqlParams[3] = new SqlParameter("@Address", student.Address);
-                            objSqlParams[4] = new SqlParameter("@DOB", student.DOB);
-                            objSqlParams[5] = new SqlParameter("@City", student.City);
-                            objSqlParams[6] = new SqlParameter("@MobileNo", student.MobileNo);
 
-                            sqlCommand.Parameters.AddRange(objSqlParams);
+                            SqlParameter FName = new SqlParameter("@FName", student.FName);
+                            SqlParameter LName = new SqlParameter("@Lname", student.LName);
+                            SqlParameter UserID = new SqlParameter("@UserID", student.UserID);
+                            SqlParameter Address = new SqlParameter("@Address", student.Address);
+                            SqlParameter DOB = new SqlParameter("@DOB", student.DOB);
+                            SqlParameter City = new SqlParameter("@City", student.City);
+                            SqlParameter MobileNo = new SqlParameter("@MobileNo", student.MobileNo);
 
+
+                            sqlCommand.Parameters.Add(FName);
+                            sqlCommand.Parameters.Add(LName);
+                            sqlCommand.Parameters.Add(UserID);
+                            sqlCommand.Parameters.Add(Address);
+                            sqlCommand.Parameters.Add(DOB);
+                            sqlCommand.Parameters.Add(FName);
+                            sqlCommand.Parameters.Add(City);
+                            sqlCommand.Parameters.Add(MobileNo);
 
                             connection.Open();
                             int affectedRows = sqlCommand.ExecuteNonQuery();
@@ -186,25 +199,24 @@ namespace Prometheus.DataAccessLayer.Repositories
                         sqlCommand.CommandType = CommandType.StoredProcedure;
 
                         //Defining parameters for StoredProcedure
-                        SqlParameter[] objSqlParams = new SqlParameter[7];
-                        objSqlParams[0] = new SqlParameter("@Id", student.StudentID);
-                        objSqlParams[1] = new SqlParameter("@FName", student.FName);
-                        objSqlParams[2] = new SqlParameter("@LName", student.LName);
-                        objSqlParams[2] = new SqlParameter("@UserID", student.UserID);
-                        objSqlParams[3] = new SqlParameter("@Address", student.Address);
-                        objSqlParams[4] = new SqlParameter("@DOB", student.DOB);
-                        objSqlParams[5] = new SqlParameter("@City", student.City);
-                        objSqlParams[6] = new SqlParameter("@MobileNo", student.MobileNo);
 
-                        objSqlParams[0].Direction = ParameterDirection.Input;
-                        objSqlParams[1].Direction = ParameterDirection.Output;
-                        objSqlParams[2].Direction = ParameterDirection.Output;
-                        objSqlParams[3].Direction = ParameterDirection.Output;
-                        objSqlParams[4].Direction = ParameterDirection.Output;
-                        objSqlParams[5].Direction = ParameterDirection.Output;
-                        objSqlParams[6].Direction = ParameterDirection.Output;
+                        SqlParameter FName = new SqlParameter("@FName", student.FName);
+                        SqlParameter LName = new SqlParameter("@Lname", student.LName);
+                        SqlParameter UserID = new SqlParameter("@UserID", student.UserID);
+                        SqlParameter Address = new SqlParameter("@Address", student.Address);
+                        SqlParameter DOB = new SqlParameter("@DOB", student.DOB);
+                        SqlParameter City = new SqlParameter("@City", student.City);
+                        SqlParameter MobileNo = new SqlParameter("@MobileNo", student.MobileNo);
 
-                        sqlCommand.Parameters.AddRange(objSqlParams);
+
+                        sqlCommand.Parameters.Add(FName);
+                        sqlCommand.Parameters.Add(LName);
+                        sqlCommand.Parameters.Add(UserID);
+                        sqlCommand.Parameters.Add(Address);
+                        sqlCommand.Parameters.Add(DOB);
+                        sqlCommand.Parameters.Add(FName);
+                        sqlCommand.Parameters.Add(City);
+                        sqlCommand.Parameters.Add(MobileNo);
 
 
                         connection.Open();

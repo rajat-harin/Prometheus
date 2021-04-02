@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Prometheus.BusinessLayer;
+using Prometheus.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Prometheus.DataAccessLayer.Repositories;
 
 namespace Prometheus.PresentationLayer.AdminWPF
 {
@@ -41,22 +44,20 @@ namespace Prometheus.PresentationLayer.AdminWPF
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Course st = new Course();
-            st.Name = CName.Text.ToString();
-            st.StartDate = StartDate.SelectedDate.GetValueOrDefault();
-            st.EndDate = EndDate.SelectedDate.GetValueOrDefault();
-
-            CourseBL bl = new CourseBL();
-            bool result = bl.AddNewCourse(st);
-            if (result == true)
+            Course course = new Course();
+            course.Name = CName.Text.ToString();
+            course.StartDate = StartDate.SelectedDate.GetValueOrDefault();
+            course.EndDate = EndDate.SelectedDate.GetValueOrDefault();
+            CourseBL courseBL = new CourseBL();
+            bool courseAdd = courseBL.AddNewCourse(course);
+            if (courseAdd == true)
             {
-                MessageBox.Show("Course Added");
-                Admin_Main_Page f = new Admin_Main_Page();
-                f.Show();
+                MessageBox.Show("Course Added Successfully...");
+
             }
             else
             {
-                MessageBox.Show("Course not Added");
+                MessageBox.Show("Course Not Added");
             }
         }
     }
