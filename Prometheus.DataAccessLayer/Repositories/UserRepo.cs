@@ -174,8 +174,8 @@ namespace Prometheus.DataAccessLayer.Repositories
                         //setting command type to stored procedure
                         sqlCommand.CommandType = CommandType.StoredProcedure;
                         //Defining parameters for StoredProcedure
-                        SqlParameter courseID = new SqlParameter("@UserID", id);
-                        sqlCommand.Parameters.Add(courseID);
+                        SqlParameter userID = new SqlParameter("@UserID", id);
+                        sqlCommand.Parameters.Add(userID);
 
                         connection.Open();
 
@@ -184,14 +184,29 @@ namespace Prometheus.DataAccessLayer.Repositories
                         sqlDataAdapter.Fill(dataSet);
                     }
                 }
-                DataRow dataRowOfCourse = dataSet.Tables["Users"].AsEnumerable()
-                                .Single(dataRow => dataRow.Field<string>("UserID") == id);
-                user = new User
+                try
                 {
-                    UserID = dataRowOfCourse.Field<string>("UserID"),
-                    Password = dataRowOfCourse.Field<string>("Password"),
-                    Role = dataRowOfCourse.Field<string>("Role")
-                };
+                    DataRow dataRowOfUser = dataSet.Tables["Table"].AsEnumerable()
+                                .SingleOrDefault(dataRow => dataRow.Field<string>("UserID") == id);
+                    if(dataRowOfUser != null)
+                    {
+                        user = new User
+                        {
+                            UserID = dataRowOfUser.Field<string>("UserID"),
+                            Password = dataRowOfUser.Field<string>("Password"),
+                            Role = dataRowOfUser.Field<string>("Role")
+                        };
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+                catch(Exception)
+                {
+                    return null;
+                }
+                
             }
             catch (Exception ex)
             {

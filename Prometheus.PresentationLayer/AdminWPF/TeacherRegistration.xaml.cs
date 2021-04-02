@@ -74,7 +74,6 @@ namespace Prometheus.PresentationLayer.AdminWPF
 
 
                 Teacher teacher = new Teacher();
-                User user = new User();
                 teacher.FName = FName.Text.ToString();
                 teacher.LName = LName.Text.ToString();
                 teacher.UserID = UserName.Text.ToString();

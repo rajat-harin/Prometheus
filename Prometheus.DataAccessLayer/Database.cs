@@ -20,6 +20,11 @@ namespace Prometheus.DataAccessLayer
         public const string INSERTCOURSE = "InsertCourse";
         public const string INSERTSTUDENT = "InsertStudent";
         public const string INSERTUSER = "InsertUser";
+        public const string INSERTTEACHER = "InsertTeacher";
+        public const string UPDATETEACHER = "UpdateTeacher";
+        public const string GETTEACHERS = "GetTeachers";
+        public const string GETTEACHERBYID = "GetTeacherByUserID";
+        public const string DELETETEACHER = "DeleteTeacher";
 
 
         //Stored Procedures related to Student

@@ -4,6 +4,14 @@
              xmlns:local="clr-namespace:Prometheus.PresentationLayer"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        
+            <ResourceDictionary>
+                <ResourceDictionary.MergedDictionaries>
+                <!--Paste the full path of ButtonResourceDictionary.xaml in Source below.-->
+                <ResourceDictionary Source = ".\ButtonResourceDictionary.xaml" />
+                
+                </ResourceDictionary.MergedDictionaries>
+            </ResourceDictionary>
+        
     </Application.Resources>
 </Application>

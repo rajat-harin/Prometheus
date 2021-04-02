@@ -8,12 +8,12 @@
         Background="BlanchedAlmond"
         Title="EnrollForCourseWindow" Height="450" Width="800" Closed="Window_Closed">
     <Grid>
-        <Button x:Name="BackButton" Content="Go Back" HorizontalAlignment="Left" Margin="64,29,0,0" VerticalAlignment="Top" Width="60" FontSize="14" FontWeight="Bold" Click="BackButton_Click" Height="26"/>
+        <Button x:Name="BackButton" Content="Go Back" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="64,29,0,0" VerticalAlignment="Top" Width="60" FontSize="14" FontWeight="Bold" Click="BackButton_Click" Height="26"/>
         <TextBlock HorizontalAlignment="Left" Height="45" Margin="294,10,0,0" TextWrapping="Wrap" Text="Enroll to a Course" VerticalAlignment="Top" Width="177" FontSize="20" FontWeight="Bold"/>
         <Label Content="Select a Course ID you want to Enroll" HorizontalAlignment="Left" Height="29" Margin="75,74,0,0" VerticalAlignment="Top" Width="256" FontWeight="Bold" FontSize="14"/>
         <Label Content="Enter your Student ID" HorizontalAlignment="Left" Height="41" Margin="167,132,0,0" VerticalAlignment="Top" Width="256" FontWeight="Bold" FontSize="14"/>
         <TextBox x:Name="EnrollCourseStdID" HorizontalAlignment="Left" Height="31" Margin="364,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="218" FontWeight="Bold"/>
-        <Button Content="Enroll" HorizontalAlignment="Left" Margin="294,235,0,0" VerticalAlignment="Top" Width="160" Height="44" FontWeight="Bold" FontSize="16" Click="Button_Click"/>
+        <Button Content="Enroll" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="294,235,0,0" VerticalAlignment="Top" Width="160" Height="44" FontWeight="Bold" FontSize="16" Click="Button_Click"/>
         <ComboBox x:Name="EnrollCourseComboBox" HorizontalAlignment="Left" Margin="364,74,0,0" VerticalAlignment="Top" Width="218" Height="29" BorderBrush="#FFF6F5F5" SelectionChanged="EnrollCourseComboBox_SelectionChanged">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">

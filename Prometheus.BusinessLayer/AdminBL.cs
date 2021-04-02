@@ -53,6 +53,7 @@ namespace Prometheus.BusinessLayer
             {
                 if (teacher != null)
                 {
+                    
                     UserRepo userRepo = new UserRepo();
                     TeacherRepo teacherRepo = new TeacherRepo();
                     User user = new User { UserID = teacher.UserID, Password = Password, Role = "teacher" };
@@ -72,7 +73,6 @@ namespace Prometheus.BusinessLayer
                                 throw new PrometheusException("user registration failed");
                             }
                         }
-                    
                     else
                     {
                         throw new PrometheusException("user registration failed");
@@ -94,7 +94,7 @@ namespace Prometheus.BusinessLayer
             {
                 UserRepo userRepo = new UserRepo();
                 User user = new User();
-                user = userRepo.GetUserByID(user.UserID);
+                user = userRepo.GetUserByID(guest.UserID);
                 if (user!=null)
                 {
                     if (guest.Password.Equals(user.Password))
@@ -220,27 +220,23 @@ namespace Prometheus.BusinessLayer
 
         }
 
-        public string ForgotPassword(User user)
+        public bool ForgotPassword(User guest)
         {
+
             try
             {
                 UserRepo userRepo = new UserRepo();
-                User guest = new User();
-                guest = userRepo.GetUserByID(user.UserID);
+                User user = new User();
+                user = userRepo.GetUserByID(guest.UserID);
                 if (user != null)
                 {
-                    if (user.UserID.Equals(guest.UserID))
-                    {
-                        return user.UserID;
-                    }
-                    else
-                    {
-                        throw new PrometheusException("Incorrect password!");
-                    }
+
+                    return true;
+                    
                 }
                 else
                 {
-                    throw new PrometheusException("User does not exists!");
+                    return false;
                 }
             }
             catch (Exception)

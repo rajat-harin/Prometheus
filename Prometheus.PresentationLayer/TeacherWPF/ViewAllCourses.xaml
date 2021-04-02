@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Prometheus.PresentationLayer.TeacherWPF"
         mc:Ignorable="d"
-        Title="ViewAllCourses" Height="450" Width="800" Background="DeepSkyBlue">
+        Title="ViewAllCourses" Height="450" Width="800" Background="BlanchedAlmond">
     <Grid>
         <Label Content="Prometheus"  Canvas.Left="10" Canvas.Top="10"  
     FontSize="24" FontFamily="Georgia" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="295,10,0,0" Width="222"/>
         <Label Content="Courses Information"   FontFamily="Georgia" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,52,0,0" Width="298"/>
         <DataGrid x:Name="grid" HorizontalAlignment="Left" Height="294" Margin="10,116,0,0" VerticalAlignment="Top" Width="774"/>
-        <Button Content="ShowCourses" Name="ShowCourses" FontFamily="Georgia" FontSize="20" FontWeight="Bold" Background="white" HorizontalAlignment="Left" Margin="542,52,0,0" VerticalAlignment="Top" Width="178" RenderTransformOrigin="0.624,-0.266" Height="36" Click="ShowCourses_Click"/>
+        <Button Content="Show Courses" Name="ShowCourses"  FontSize="18" FontWeight="Bold" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="542,52,0,0" VerticalAlignment="Top" Width="178" RenderTransformOrigin="0.624,-0.266" Height="36" Click="ShowCourses_Click"/>
 
     </Grid>
 </Window>
