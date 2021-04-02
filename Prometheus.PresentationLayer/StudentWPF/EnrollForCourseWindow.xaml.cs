@@ -22,10 +22,11 @@ namespace Prometheus.PresentationLayer.StudentWPF
     /// </summary>
     public partial class EnrollForCourseWindow : Window
     {
-
+        StudentBL studentBL;
         public EnrollForCourseWindow()
         {
             InitializeComponent();
+            studentBL; = new StudentBL();
             LoadEnrollCourseComboBox();
         }
         SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-6FKA8SI;Initial Catalog=Prometheus;Integrated Security=True");
@@ -34,7 +35,7 @@ namespace Prometheus.PresentationLayer.StudentWPF
             
             try
             {
-                StudentBL studentBL = new StudentBL();
+                
                 EnrollCourseComboBox.ItemsSource = studentBL.GetCoursesAsList();
                 EnrollCourseComboBox.SelectedValuePath = "CourseID";
                 EnrollCourseComboBox.DisplayMemberPath = "Name";

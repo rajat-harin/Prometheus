@@ -158,6 +158,7 @@ namespace Prometheus.BusinessLayer
                              on plan.HomeworkID equals homework.HomeworkID
                              select new ExtendedHomeworkPlan
                              {
+                                 StudentID = id,
                                  HomeworkID = homework.HomeworkID,
                                  Description = homework.Description,
                                  Deadline = homework.Deadline,
@@ -204,6 +205,27 @@ namespace Prometheus.BusinessLayer
             }
             return false;
         }
+        public bool UpdateHomeworkPlan(HomeworkPlan plan)
+        {
+            try
+            {
+                if (plan != null)
+                {
+                    HomeworkPlanRepo homeworkPlanRepo = new HomeworkPlanRepo();
+                    if (homeworkPlanRepo.Update(plan))
+                    {
+                        return true;
+                    }
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return false;
+        }
         public void DeviseHomeworkPlanByDeadline(int id)
         {
             try
@@ -223,6 +245,36 @@ namespace Prometheus.BusinessLayer
                 }).ToList();
 
                 foreach(var item in result)
+                {
+                    AddHomeworkPlan(item);
+                }
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public void UpdateHomeworkPlanList(int id)
+        {
+            try
+            {
+                HomeworkPlanRepo homeworkPlanRepo = new HomeworkPlanRepo();
+                homeworkPlanRepo.DeleteAll(id);
+                List<AssignedHomework> assignedHomeworks = GetAssignedHomework(id);
+                //List<HomeworkPlan> homeworkPlans = new HomeworkPlanRepo().GetHomeworkPlans()
+                //    .Where(homeworkPlan => homeworkPlan.StudentID == id).ToList();
+                int count = assignedHomeworks.Count;
+                var result = assignedHomeworks.OrderBy(homework => homework.Deadline).Select(homework => new HomeworkPlan
+                {
+                    StudentID = id,
+                    HomeworkID = homework.HomeworkID,
+                    PriorityLevel = count--,
+                    isCompleted = false
+                }).ToList();
+
+                foreach (var item in result)
                 {
                     AddHomeworkPlan(item);
                 }
