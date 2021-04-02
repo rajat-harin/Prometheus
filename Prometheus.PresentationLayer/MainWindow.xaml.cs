@@ -41,5 +41,12 @@ namespace Prometheus.PresentationLayer
             newform.Show();
 
         }
+
+        private void btnAdmin_Click(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+        }
+
     }
 }

@@ -39,7 +39,7 @@ namespace Prometheus.PresentationLayer.AdminWPF
             frm2.Show();
         }
 
-        
+
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
             User_Login_Page user_Login_Page = new User_Login_Page();
@@ -51,7 +51,7 @@ namespace Prometheus.PresentationLayer.AdminWPF
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            
+
         }
     }
 }

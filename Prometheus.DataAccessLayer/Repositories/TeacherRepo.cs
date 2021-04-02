@@ -184,7 +184,7 @@ namespace Prometheus.DataAccessLayer.Repositories
             return teachers;
         }
 
-        public Teacher SearchtTeacher(int id)
+        public Teacher SearchTeacher(int id)
         {
             Teacher teacher;
             try
