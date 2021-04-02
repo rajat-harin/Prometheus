@@ -24,5 +24,11 @@ namespace Prometheus.Entities
             UserID = userId;
             Password = password;
         }
+        public User(string userId, string password, string role)
+        {
+            UserID = userId;
+            Password = password;
+            Role = role;
+        }
     }
 }

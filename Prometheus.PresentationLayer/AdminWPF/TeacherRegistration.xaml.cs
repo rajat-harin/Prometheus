@@ -72,16 +72,16 @@ namespace Prometheus.PresentationLayer.AdminWPF
             User user = new User();
             teacher.FName = FName.Text.ToString();
             teacher.LName = LName.Text.ToString();
-            user.UserID = UserName.Text.ToString();
+            teacher.UserID = UserName.Text.ToString();
             teacher.Address = Address.Text.ToString();
             teacher.DOB = DatePicker.SelectedDate.GetValueOrDefault();
             teacher.City = City.Text.ToString();
-            user.Password = txtPassword.Password.ToString();
+            string Password = txtPassword.Password.ToString();
             teacher.MobileNo = MobileNo.Text.ToString();
-            teacher.IsAdmin = Rolebtn.SelectedItem.ToString();
-
+            teacher.IsAdmin = Rolebtn.Text.ToString();
+         
             AdminBL bl = new AdminBL();
-            bool result = bl.RegisterTeacher(teacher, user.Password);
+            bool result = bl.RegisterTeacher(teacher, Password);
             if (result == true)
             {
                 MessageBox.Show("Teacher Added");

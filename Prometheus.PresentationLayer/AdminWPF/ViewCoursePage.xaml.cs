@@ -51,7 +51,7 @@ namespace Prometheus.PresentationLayer.AdminWPF
             course.Name = txtCName.Text.ToString();
             CourseBL courseBL = new CourseBL();
             User user = new User();
-            grid.ItemsSource = courseBL.GetCourseByName(user.UserID);
+            grid.ItemsSource = courseBL.GetCourseByName(course.Name);
         }
     }
 }

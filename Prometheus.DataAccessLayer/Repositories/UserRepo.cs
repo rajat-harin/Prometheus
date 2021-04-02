@@ -174,8 +174,8 @@ namespace Prometheus.DataAccessLayer.Repositories
                         //setting command type to stored procedure
                         sqlCommand.CommandType = CommandType.StoredProcedure;
                         //Defining parameters for StoredProcedure
-                        SqlParameter courseID = new SqlParameter("@UserID", id);
-                        sqlCommand.Parameters.Add(courseID);
+                        SqlParameter userID = new SqlParameter("@UserID", id);
+                        sqlCommand.Parameters.Add(userID);
 
                         connection.Open();
 
@@ -184,7 +184,7 @@ namespace Prometheus.DataAccessLayer.Repositories
                         sqlDataAdapter.Fill(dataSet);
                     }
                 }
-                DataRow dataRowOfCourse = dataSet.Tables["Users"].AsEnumerable()
+                DataRow dataRowOfCourse = dataSet.Tables["Table"].AsEnumerable()
                                 .Single(dataRow => dataRow.Field<string>("UserID") == id);
                 user = new User
                 {
