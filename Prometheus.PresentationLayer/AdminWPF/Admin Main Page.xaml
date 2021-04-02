@@ -15,6 +15,7 @@
         <Button Content="View Teachers" HorizontalAlignment="Left" Margin="75,106,0,0" VerticalAlignment="Top" Width="127" Height="61" FontWeight="Bold" FontSize="14" Click="Button_Click_4"/>
         <Button Content="View Students" HorizontalAlignment="Left" Margin="75,210,0,0" VerticalAlignment="Top" Width="127" Height="60" FontWeight="Bold" FontSize="14" Click="Button_Click_5"/>
         <Button Content="View Course" HorizontalAlignment="Left" Margin="75,319,0,0" VerticalAlignment="Top" Width="117" RenderTransformOrigin="0.468,1.95" Height="60" FontWeight="Bold" FontSize="14" Click="Button_Click_6"/>
+        <Button Content="LogOut" HorizontalAlignment="Left" Margin="709,10,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Height="30"/>
 
     </Grid>
 </Window>
