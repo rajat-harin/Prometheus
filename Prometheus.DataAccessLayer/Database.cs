@@ -53,6 +53,7 @@ namespace Prometheus.DataAccessLayer
         public const string ADDHOMEWORKPLAN = "AddHomeworkPlan";
         public const string UPDATEHOMEWORKPLAN = "UpdateHomeworkPlan";
         public const string DELETEHOMEWORKPLAN = "DeleteHomeworkPlan";
+        public const string DELETEHOMEWORKPLANFORSTUDENT = "DeleteHomeworkPlanForStudent";
 
 
         // this field returns connection string from App.config
