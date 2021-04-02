@@ -51,14 +51,15 @@
     <Compile Include="Repositories\HomeworkRepo.cs" />
     <Compile Include="Repositories\StudentRepo.cs" />
     <Compile Include="Repositories\TeacherRepo.cs" />
+    <Compile Include="Repositories\UserRepo.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Prometheus.Entities\Prometheus.Entities.csproj">
-      <Project>{D0DCC3F7-0473-40C3-8F3D-33421599AB5B}</Project>
+      <Project>{d0dcc3f7-0473-40c3-8f3d-33421599ab5b}</Project>
       <Name>Prometheus.Entities</Name>
     </ProjectReference>
     <ProjectReference Include="..\Prometheus.Exceptions\Prometheus.Exceptions.csproj">
-      <Project>{3DB2B839-4016-4B30-9073-741E86274602}</Project>
+      <Project>{3db2b839-4016-4b30-9073-741e86274602}</Project>
       <Name>Prometheus.Exceptions</Name>
     </ProjectReference>
   </ItemGroup>

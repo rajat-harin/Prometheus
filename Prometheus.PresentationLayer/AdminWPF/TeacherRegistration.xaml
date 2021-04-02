@@ -27,11 +27,8 @@
         <Label Content="Is Admin ?" HorizontalAlignment="Left" Margin="204,329,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
         <Label Content="Enter UserName" HorizontalAlignment="Left" Margin="188,163,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.037,-0.607" FontWeight="Bold" FontSize="14"/>
         <TextBox x:Name="UserName" HorizontalAlignment="Left" Height="23" Margin="324,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" TextChanged="TextBox_TextChanged_2"/>
-        <ComboBox x:Name="Rolebtn" HorizontalAlignment="Left" Margin="324,342,0,0" VerticalAlignment="Top" Width="216" SelectionChanged="ComboBox_SelectionChanged">
-            <Button Content="Yes"/>
-            <Button Content="No"/>
-        </ComboBox>
         <DatePicker x:Name="DatePicker" HorizontalAlignment="Left" Margin="324,214,0,0" VerticalAlignment="Top" Width="216"/>
+        <CheckBox x:Name="checkBoxIsAdmin" Content="Admin" HorizontalAlignment="Left" Margin="324,337,0,0" VerticalAlignment="Top" Checked="checkBox_Checked" IsThreeState="True"/>
 
     </Grid>
 </Window>

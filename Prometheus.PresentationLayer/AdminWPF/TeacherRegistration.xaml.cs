@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Prometheus.BusinessLayer;
+using Prometheus.Entities;
+using Prometheus.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -66,31 +69,47 @@ namespace Prometheus.PresentationLayer.AdminWPF
 
         private void btnSaveData_Click_1(object sender, RoutedEventArgs e)
         {
-            Teacher st = new Teacher();
-            st.FName = FName.Text.ToString();
-            st.LName = LName.Text.ToString();
-            st.UserName = UserName.Text.ToString();
-            st.Address = Address.Text.ToString();
-            st.DOB = DatePicker.SelectedDate.GetValueOrDefault();
-            st.City = City.Text.ToString();
-            st.Password = txtPassword.Password.ToString();
-            st.MobileNo = MobileNo.Text.ToString();
-            st.IsAdmin = Rolebtn.Text.ToString();
-
-
-            TeacherBL bl = new TeacherBL();
-            bool result = bl.AddTeacherRegistration(st);
-            if (result == true)
+            try
             {
-                MessageBox.Show("Teacher Added");
+
+
+                Teacher teacher = new Teacher();
+                User user = new User();
+                teacher.FName = FName.Text.ToString();
+                teacher.LName = LName.Text.ToString();
+                teacher.UserID = UserName.Text.ToString();
+                teacher.Address = Address.Text.ToString();
+                teacher.DOB = DatePicker.SelectedDate.GetValueOrDefault();
+                teacher.City = City.Text.ToString();
+                string Password = txtPassword.Password.ToString();
+                teacher.MobileNo = MobileNo.Text.ToString();
+                teacher.IsAdmin = (bool)checkBoxIsAdmin.IsChecked;
+
+                AdminBL bl = new AdminBL();
+                bool result = bl.RegisterTeacher(teacher, Password);
+                if (result == true)
+                {
+                    MessageBox.Show("Teacher Added");
+                    Admin_Main_Page p = new Admin_Main_Page();
+                    p.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Teacher not Added");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Teacher not Added");
+                MessageBox.Show(ex.Message);
             }
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void checkBox_Checked(object sender, RoutedEventArgs e)
         {
 
         }

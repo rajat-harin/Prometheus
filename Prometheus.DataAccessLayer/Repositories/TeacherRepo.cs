@@ -12,10 +12,10 @@ namespace Prometheus.DataAccessLayer.Repositories
 {
     public class TeacherRepo
     {
-        static string conn = ConfigurationManager.ConnectionStrings["TeacherConnection"].ConnectionString;
+        static string conn = ConfigurationManager.ConnectionStrings["prometheusDb"].ConnectionString;
         SqlConnection objCon = new SqlConnection(conn);
         SqlParameter[] objSqlParams;
-        public bool AddTeacher(Teacher teachers)
+        public bool InsertTeacher(Teacher teachers)
         {
             try
             {
@@ -36,7 +36,7 @@ namespace Prometheus.DataAccessLayer.Repositories
                             sqlCommand.Parameters.AddWithValue("@DOB", teachers.DOB);
                             sqlCommand.Parameters.AddWithValue("@City", teachers.City);
                             sqlCommand.Parameters.AddWithValue("@MobileNo", teachers.MobileNo);
-                            sqlCommand.Parameters.AddWithValue("@IsAdmin", teachers.isAdmin);
+                            sqlCommand.Parameters.AddWithValue("@IsAdmin", teachers.IsAdmin);
                             sqlCommand.Parameters.AddWithValue("@UserID", teachers.UserID);
 
                             sqlCommand.Parameters.AddRange(objSqlParams);
@@ -55,7 +55,7 @@ namespace Prometheus.DataAccessLayer.Repositories
             {
                 throw new Exception(ex.Message);
             }
-            
+
             return false;
 
         }
@@ -79,7 +79,7 @@ namespace Prometheus.DataAccessLayer.Repositories
                             sqlCommand.Parameters.AddWithValue("@DOB", teachers.DOB);
                             sqlCommand.Parameters.AddWithValue("@City", teachers.City);
                             sqlCommand.Parameters.AddWithValue("@MobileNo", teachers.MobileNo);
-                            sqlCommand.Parameters.AddWithValue("@IsAdmin", teachers.isAdmin);
+                            sqlCommand.Parameters.AddWithValue("@IsAdmin", teachers.IsAdmin);
                             sqlCommand.Parameters.AddWithValue("@UserID", teachers.UserID);
 
                             sqlCommand.Parameters.AddRange(objSqlParams);
@@ -97,7 +97,7 @@ namespace Prometheus.DataAccessLayer.Repositories
             {
                 throw new Exception(ex.Message);
             }
-            
+
             return false;
 
 
@@ -131,7 +131,7 @@ namespace Prometheus.DataAccessLayer.Repositories
             {
                 throw new Exception(ex.Message);
             }
-            
+
             return false;
         }
         public Teacher SearchTeacher(int teacherid)
@@ -157,7 +157,7 @@ namespace Prometheus.DataAccessLayer.Repositories
                         DataSet dataSet = new DataSet();
                         sqlDataAdapter.Fill(dataSet);
 
-                        DataRow RowOfTeacher = dataSet.Tables["Teacher"].AsEnumerable()
+                        DataRow RowOfTeacher = dataSet.Tables["Table"].AsEnumerable()
                                .Single(dataRow => dataRow.Field<int>("TeacherID") == teacherid);
 
                         teachers = new Teacher
@@ -168,7 +168,7 @@ namespace Prometheus.DataAccessLayer.Repositories
                             Address = RowOfTeacher.Field<string>("Address"),
                             City = RowOfTeacher.Field<string>("City"),
                             UserID = RowOfTeacher.Field<string>("UserID"),
-                            isAdmin = RowOfTeacher.Field<bool>("isAdmin"),
+                            IsAdmin = RowOfTeacher.Field<bool>("IsAdmin"),
                             DOB = RowOfTeacher.Field<DateTime>("DOB"),
                             MobileNo = RowOfTeacher.Field<string>("MobileNo")
                         };
@@ -233,5 +233,4 @@ namespace Prometheus.DataAccessLayer.Repositories
             return teachers;
         }
     }
-
 }
