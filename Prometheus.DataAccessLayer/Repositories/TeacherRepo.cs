@@ -11,7 +11,7 @@ using Prometheus.Exceptions;
 namespace Prometheus.DataAccessLayer.Repositories
 {
     public class TeacherRepo
-    {
+    { 
         public bool InsertTeacher(Teacher teacher)
         {
             try

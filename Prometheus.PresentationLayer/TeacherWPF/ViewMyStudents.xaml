@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Prometheus.PresentationLayer.TeacherWPF"
         mc:Ignorable="d"
-        Title="ViewMyStudents" Height="450" Width="800" Background="DeepSkyBlue">
+        Title="ViewMyStudents" Height="450" Width="800" Background="BlanchedAlmond">
     <Grid>
         <Label Content="Prometheus"  Canvas.Left="10" Canvas.Top="10"  
     FontSize="24" FontFamily="Georgia" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="295,10,0,0" Width="222"/>

@@ -27,9 +27,8 @@ namespace Prometheus.PresentationLayer.AdminWPF
         }
         private void btnChangePass_Click(object sender, RoutedEventArgs e)
         {
-            Teacher teacher = new Teacher();
             User user = new User();
-            teacher.UserID = txtUserName.Text.ToString();
+            user.UserID = txtUserName.Text.ToString();
             user.Password = txtPassword.Password.ToString();
             AdminBL adminBL = new AdminBL();
             bool result = adminBL.ChangePassword(user, user.UserID, user.Password);

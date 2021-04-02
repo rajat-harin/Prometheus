@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Prometheus.PresentationLayer.TeacherWPF"
         mc:Ignorable="d"
-        Title="HomeworkActivity" Height="450" Width="800"  Background="DeepSkyBlue">
+        Title="HomeworkActivity" Height="450" Width="800"  Background="BlanchedAlmond">
     <Grid RenderTransformOrigin="0.497,1.01" Margin="0,0,3.6,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="266*"/>
@@ -26,8 +26,8 @@
         <Label Content="Description" HorizontalAlignment="Left" Margin="26,248,0,0" VerticalAlignment="Top" RenderTransformOrigin="-6.395,2.731" FontSize="14" FontWeight="Bold"/>
         <TextBox x:Name="HomeworkDescription_txt" HorizontalAlignment="Left" Height="118" Margin="26,286,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="221"/>
         <DataGrid x:Name="DataGrid_txt" Grid.Column="1" HorizontalAlignment="Left" Height="176" Margin="10.6,118,0,0" VerticalAlignment="Top" Width="506" Grid.ColumnSpan="3"/>
-        <Button x:Name="AddHW_txt" FontSize="14" Content="ADD" Grid.Column="1" HorizontalAlignment="Left" Margin="10.4,338,0,0" VerticalAlignment="Top" Width="91" Height="45" FontFamily="Arial Black" Background="SkyBlue" Click="Add_Homework"/>
-        <Button x:Name="UpdateHW"   FontSize="14" Content="Update" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97" Grid.Column="1" Margin="127.6,338,0,0" Height="45" FontFamily="Arial Black" Background="SkyBlue" Click="UpdateHW_Click"/>
-        <Button Content="Search" x:Name="SearchHW" FontSize="14" Grid.Column="2" HorizontalAlignment="Left" Margin="0.4,338,0,0" VerticalAlignment="Top" Width="92" Height="45" FontFamily="Arial Black" Background="SkyBlue" Click="SearchHW_Click" />
+        <Button x:Name="AddHW_txt" FontSize="14" Content="ADD" Grid.Column="1" HorizontalAlignment="Left" Margin="10.4,338,0,0" VerticalAlignment="Top" Width="91" Height="45" Template="{StaticResource buttonTemplate}" Click="Add_Homework" FontWeight="Bold"/>
+        <Button x:Name="UpdateHW"   FontSize="14" Content="Update" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97" Grid.Column="1" Margin="127.6,338,0,0" Height="45" Template="{StaticResource buttonTemplate}" Click="UpdateHW_Click" FontWeight="Bold"/>
+        <Button Content="Search" x:Name="SearchHW" FontSize="14" Grid.Column="2" HorizontalAlignment="Left" Margin="0.4,338,0,0" VerticalAlignment="Top" Width="92" Height="45" Template="{StaticResource buttonTemplate}" Click="SearchHW_Click" FontWeight="Bold" />
     </Grid>
 </Window>

@@ -33,12 +33,12 @@ namespace Prometheus.PresentationLayer.AdminWPF
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            Teacher teacher = new Teacher();
-            teacher.UserID = txtUserName.Text.ToString();
-            AdminBL adminBL = new AdminBL();
             User user = new User();
-            string result = adminBL.ForgotPassword(user);
-            if (result == user.UserID)
+            user.UserID = txtUserName.Text.ToString();
+            AdminBL adminBL = new AdminBL();
+            
+            bool result = adminBL.ForgotPassword(user);
+            if (result)
             {
                 MessageBox.Show("Match Found");
                 UserChangePassword userChangePassword = new UserChangePassword();

@@ -17,7 +17,7 @@ namespace Prometheus.Entities
         public string MobileNo { get; set; }
 
         public string UserID{ get; set; }
-        public string IsAdmin { get; set; }
+        public bool IsAdmin { get; set; }
 
         public Teacher()
         {
@@ -29,7 +29,6 @@ namespace Prometheus.Entities
             DOB = DateTime.Now;
             City = String.Empty;
             MobileNo = String.Empty;
-            IsAdmin = String.Empty;
         }
 
         
