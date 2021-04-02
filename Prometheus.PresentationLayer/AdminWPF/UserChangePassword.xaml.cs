@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prometheus.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Prometheus.BusinessLayer;
 
 namespace Prometheus.PresentationLayer.AdminWPF
 {
@@ -25,15 +27,15 @@ namespace Prometheus.PresentationLayer.AdminWPF
         }
         private void btnChangePass_Click(object sender, RoutedEventArgs e)
         {
-            Teacher st = new Teacher();
-            st.UserName = txtUserName.Text.ToString();
-            st.Password = txtPassword.Password.ToString();
-            TeacherBL bl = new TeacherBL();
-            bool result = bl.LoginTeacherChangePassword(st);
+            User user = new User();
+            user.UserID = txtUserName.Text.ToString();
+            user.Password = txtPassword.Password.ToString();
+            AdminBL adminBL = new AdminBL();
+            bool result = adminBL.ChangePassword(user, user.UserID, user.Password);
             if (result == true)
             {
                 MessageBox.Show("Change Successfully");
-                Teacher_Login_Page t = new Teacher_Login_Page();
+                User_Login_Page t = new User_Login_Page();
                 t.Show();
             }
         }

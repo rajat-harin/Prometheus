@@ -12,7 +12,7 @@ namespace Prometheus.DataAccessLayer.Repositories
 {
     public class HomeworkRepo
     {
-        string ConnectionString = ConfigurationManager.ConnectionStrings["TeacherConnection"].ConnectionString;
+        string ConnectionString = ConfigurationManager.ConnectionStrings["prometheusDb"].ConnectionString;
         public bool AddHomework(Homework homework)///nullor not
         {
             try
@@ -151,7 +151,7 @@ namespace Prometheus.DataAccessLayer.Repositories
             {
                 using (SqlConnection connection = new SqlConnection(ConnectionString))
                 {
-                    using (SqlCommand objCmd = new SqlCommand("SearchHomeWork", connection))
+                    using (SqlCommand objCmd = new SqlCommand("GetHomeworks", connection))
                     {
                         objCmd.CommandType = CommandType.StoredProcedure;
                         connection.Open();
@@ -161,12 +161,12 @@ namespace Prometheus.DataAccessLayer.Repositories
                     }
 
                 }
-                homeworkList = dataset.Tables["Homework"].AsEnumerable().Select(
+                homeworkList = dataset.Tables["Table"].AsEnumerable().Select(
                 dataRow => new Homework
                 {
                     HomeworkID = dataRow.Field<int>("HomeworkID"),
                     Description = dataRow.Field<string>("Description"),
-                    LongDescription = dataRow.Field<string>("Long Description"),
+                    LongDescription = dataRow.Field<string>("LongDescription"),
                     Deadline = dataRow.Field<DateTime>("Deadline")
                 }).ToList();
 

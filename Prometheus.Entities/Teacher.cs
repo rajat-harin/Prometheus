@@ -16,8 +16,34 @@ namespace Prometheus.Entities
         public string City { get; set; }
         public string MobileNo { get; set; }
 
-        public string UserName { get; set; }
-        public string Password { get; set; }
-        public bool isAdmin { get; }
+        public string UserID{ get; set; }
+        public bool IsAdmin { get; set; }
+
+        public Teacher()
+        {
+            TeacherID = 0;
+            FName = String.Empty;
+            LName = String.Empty;
+            UserID = String.Empty;
+            Address = String.Empty;
+            DOB = DateTime.Now;
+            City = String.Empty;
+            MobileNo = String.Empty;
+        }
+
+        
+
+        
+        public Teacher(int id, string fName, string lName, string userName, string address, DateTime dOB, string city, string mobileNo)
+        {
+            TeacherID = id;
+            FName = fName;
+            LName = lName;
+            UserID = userName;
+            Address = address;
+            DOB = dOB;
+            City = city;
+            MobileNo = mobileNo;
+        }
     }
 }

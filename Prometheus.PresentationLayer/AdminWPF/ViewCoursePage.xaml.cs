@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Prometheus.BusinessLayer;
+using Prometheus.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -40,15 +42,16 @@ namespace Prometheus.PresentationLayer.AdminWPF
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             CourseBL course = new CourseBL();
-            grid.ItemsSource = course.ViewAllCourses(1).DefaultView;
+            grid.ItemsSource = course.GetCourses();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Course st = new Course();
-            st.Name = txtCName.Text.ToString();
-            CourseBL course = new CourseBL();
-            grid.ItemsSource = course.ViewCourse(st).DefaultView;
+            Course course = new Course();
+            course.Name = txtCName.Text.ToString();
+            CourseBL courseBL = new CourseBL();
+            User user = new User();
+            grid.ItemsSource = courseBL.GetCourseByName(course.Name);
         }
     }
 }

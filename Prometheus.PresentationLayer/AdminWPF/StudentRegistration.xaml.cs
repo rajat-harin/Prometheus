@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Prometheus.BusinessLayer;
+using Prometheus.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -60,18 +62,20 @@ namespace Prometheus.PresentationLayer.AdminWPF
 
         private void btnSaveData_Click_1(object sender, RoutedEventArgs e)
         {
-            Student st = new Student();
-            st.FName = FName.Text.ToString();
-            st.LName = LName.Text.ToString();
-            st.UserName = UserName.Text.ToString();
-            st.Address = Address.Text.ToString();
-            st.DOB = DatePicker.SelectedDate.GetValueOrDefault();
-            st.City = City.Text.ToString();
-            st.Password = txtPassword.Password.ToString();
-            st.MobileNo = MobileNo.Text.ToString();
+            Student student = new Student();
 
-            StudentBL bl = new StudentBL();
-            bool result = bl.AddStudentRegistration(st);
+            User user = new User();
+            student.FName = FName.Text.ToString();
+            student.LName = LName.Text.ToString();
+            student.UserID = UserName.Text.ToString();
+            student.Address = Address.Text.ToString();
+            student.DOB = DatePicker.SelectedDate.GetValueOrDefault();
+            student.City = City.Text.ToString();
+             string Password = txtPassword.Password.ToString();
+            student.MobileNo = MobileNo.Text.ToString();
+            MessageBox.Show(user.UserID);
+            AdminBL bl = new AdminBL();
+            bool result = bl.RegisterStudent(student,Password);
             if (result == true)
             {
                 MessageBox.Show("Student Added");

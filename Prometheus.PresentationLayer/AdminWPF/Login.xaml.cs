@@ -35,20 +35,23 @@ namespace Prometheus.PresentationLayer.AdminWPF
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Student_Login_Page frm2 = new Student_Login_Page();
+            Admin_Main_Page frm2 = new Admin_Main_Page();
             frm2.Show();
         }
 
+        
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            Teacher_Login_Page frm2 = new Teacher_Login_Page();
-            frm2.Show();
+            User_Login_Page user_Login_Page = new User_Login_Page();
+            user_Login_Page.Show();
+
+
+
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            Admin_Login_Page frm2 = new Admin_Login_Page();
-            frm2.Show();
+            
         }
     }
 }

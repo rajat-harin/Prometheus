@@ -7,92 +7,231 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using Prometheus.Entities;
-
+using Prometheus.Exceptions;
 namespace Prometheus.DataAccessLayer.Repositories
 {
     public class TeacherRepo
-    {
-        static string conn = ConfigurationManager.ConnectionStrings["TeacherConnection"].ConnectionString;
-        SqlConnection objCon = new SqlConnection(conn);
-        SqlParameter[] objSqlParams;
-        public bool AddTeacher(Teacher T)
+    { 
+        public bool InsertTeacher(Teacher teacher)
         {
-            bool Addteacher = false;
-            SqlCommand objCom = new SqlCommand("AddTeacher", objCon);
-            objCom.CommandType = CommandType.StoredProcedure;
-            objSqlParams = new SqlParameter[9];
-            //Defining parameters for StoredProcedure
-            objSqlParams[0] = new SqlParameter("@FName", T.FName);
-            objSqlParams[1] = new SqlParameter("@LName", T.LName);
-            objSqlParams[2] = new SqlParameter("@Address", T.Address);
-            objSqlParams[3] = new SqlParameter("@DOB", T.DOB);
-            objSqlParams[4] = new SqlParameter("@City", T.City);
-            objSqlParams[5] = new SqlParameter("@MobileNo", T.MobileNo);
-            objSqlParams[6] = new SqlParameter("@IsAdmin", T.isAdmin);
-            objSqlParams[7] = new SqlParameter("@UserName", T.UserName);
-            objSqlParams[8] = new SqlParameter("@Password", T.Password);
-            objCom.Parameters.AddRange(objSqlParams);
             try
             {
-                objCon.Open();
-                int affectedRows = objCom.ExecuteNonQuery();
-                if (affectedRows > 0)
-                    Addteacher = true;
+                if (teacher != null)
+                {
+                    using (var connection = new SqlConnection(Database.ConnectionString))
+                    {
+                        using (SqlCommand sqlCommand = new SqlCommand(Database.INSERTTEACHER, connection))
+                        {
+                            //setting command type to stored procedure
+                            sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                            //Defining parameters for StoredProcedure
+
+                            SqlParameter FName = new SqlParameter("@FName", teacher.FName);
+                            SqlParameter LName = new SqlParameter("@Lname", teacher.LName);
+                            SqlParameter UserID = new SqlParameter("@UserID", teacher.UserID);
+                            SqlParameter Address = new SqlParameter("@Address", teacher.Address);
+                            SqlParameter DOB = new SqlParameter("@DOB", teacher.DOB);
+                            SqlParameter City = new SqlParameter("@City", teacher.City);
+                            SqlParameter MobileNo = new SqlParameter("@MobileNo", teacher.MobileNo);
+                            SqlParameter IsAdmin = new SqlParameter("@IsAdmin", teacher.IsAdmin);
+
+
+                            sqlCommand.Parameters.Add(FName);
+                            sqlCommand.Parameters.Add(LName);
+                            sqlCommand.Parameters.Add(UserID);
+                            sqlCommand.Parameters.Add(Address);
+                            sqlCommand.Parameters.Add(DOB);
+                            sqlCommand.Parameters.Add(City);
+                            sqlCommand.Parameters.Add(MobileNo);
+                            sqlCommand.Parameters.Add(IsAdmin);
+
+
+                            connection.Open();
+                            int affectedRows = sqlCommand.ExecuteNonQuery();
+                            if (affectedRows > 0)
+                                return true;
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                throw;
             }
-            finally
-            {
-                objCon.Close();
-            }
-            return Addteacher;
+            return false;
         }
 
-        public bool UpdateTeacher(Teacher  T)
+        public bool UpdateTeacher(Teacher teacher)
         {
-            bool Updateteacher = false;
-            SqlCommand objCom = new SqlCommand("UpdateTeacher", objCon);
-            objCom.CommandType = CommandType.StoredProcedure;
-            objSqlParams = new SqlParameter[9];
-            //Defining parameters for StoredProcedure
-            objSqlParams[0] = new SqlParameter("@FName", T.FName);
-            objSqlParams[1] = new SqlParameter("@LName", T.LName);
-            objSqlParams[2] = new SqlParameter("@Address", T.Address);
-            objSqlParams[3] = new SqlParameter("@DOB", T.DOB);
-            objSqlParams[4] = new SqlParameter("@City", T.City);
-            objSqlParams[5] = new SqlParameter("@MobileNo", T.MobileNo);
-            objSqlParams[6] = new SqlParameter("@TeacherID",T.TeacherID);
-            objSqlParams[7] = new SqlParameter("@UserName", T.UserName);
-            objSqlParams[8] = new SqlParameter("@Password", T.Password);
-            objCom.Parameters.AddRange(objSqlParams);
             try
             {
-                objCon.Open();
-                int affectedRows = objCom.ExecuteNonQuery();
-                if (affectedRows > 0)
-                    Updateteacher = true;
+                if (teacher != null)
+                {
+                    using (var connection = new SqlConnection(Database.ConnectionString))
+                    {
+                        using (SqlCommand sqlCommand = new SqlCommand(Database.UPDATETEACHER, connection))
+                        {
+                            //setting command type to stored procedure
+                            sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                            //Defining parameters for StoredProcedure
+
+                            SqlParameter FName = new SqlParameter("@FName", teacher.FName);
+                            SqlParameter LName = new SqlParameter("@Lname", teacher.LName);
+                            SqlParameter UserID = new SqlParameter("@UserID", teacher.UserID);
+                            SqlParameter Address = new SqlParameter("@Address", teacher.Address);
+                            SqlParameter DOB = new SqlParameter("@DOB", teacher.DOB);
+                            SqlParameter City = new SqlParameter("@City", teacher.City);
+                            SqlParameter MobileNo = new SqlParameter("@MobileNo", teacher.MobileNo);
+
+
+                            sqlCommand.Parameters.Add(FName);
+                            sqlCommand.Parameters.Add(LName);
+                            sqlCommand.Parameters.Add(UserID);
+                            sqlCommand.Parameters.Add(Address);
+                            sqlCommand.Parameters.Add(DOB);
+                            sqlCommand.Parameters.Add(FName);
+                            sqlCommand.Parameters.Add(City);
+                            sqlCommand.Parameters.Add(MobileNo);
+
+                            connection.Open();
+                            int affectedRows = sqlCommand.ExecuteNonQuery();
+                            if (affectedRows > 0)
+                                return true;
+                        }
+                    }
+                }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                throw new Exception(ex.Message);
+                throw;
             }
-            finally
-            {
-                objCon.Close();
-            }
-            return Updateteacher;
+            return false;
         }
 
-        public void SearchTeacher(int TeacherID)
+        public bool DeleteTeacher(Teacher teacher)
         {
-            SqlCommand objCom = new SqlCommand("SearchTeacher", objCon);
-            objCom.CommandType = CommandType.StoredProcedure;
-            //Defining parameters for StoredProcedure
-            objCom.Parameters.AddWithValue("@TeacherID", TeacherID);
+            try
+            {
+                if (teacher != null)
+                {
+                    using (var connection = new SqlConnection(Database.ConnectionString))
+                    {
+                        using (SqlCommand sqlCommand = new SqlCommand(Database.DELETETEACHER, connection))
+                        {
+                            sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                            //Defining parameters for StoredProcedure
+                            SqlParameter objSqlParam_Id = new SqlParameter("@Id", teacher.TeacherID);
+
+                            sqlCommand.Parameters.Add(objSqlParam_Id);
+
+
+                            connection.Open();
+                            int affectedRows = sqlCommand.ExecuteNonQuery();
+                            if (affectedRows > 0)
+                                return true;
+                        }
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return false;
         }
+
+        public List<Teacher> GetTeachers()
+        {
+            List<Teacher> teachers;
+            try
+            {
+                DataSet dataSet = new DataSet();
+                using (var connection = new SqlConnection(Database.ConnectionString))
+                {
+                    using (SqlCommand sqlCommand = new SqlCommand(Database.GETTEACHERS, connection))
+                    {
+                        //setting command type to stored procedure
+                        sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                        connection.Open();
+                        //Creating an Adapter for connection
+                        SqlDataAdapter objDA = new SqlDataAdapter(sqlCommand);
+                        objDA.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                        objDA.Fill(dataSet);
+                    }
+                }
+                teachers = dataSet.Tables["Table"].AsEnumerable()
+                                .Select(dataRow => new Teacher
+                                {
+                                    TeacherID = dataRow.Field<int>("TeacherID"),
+                                    FName = dataRow.Field<string>("FName"),
+                                    LName = dataRow.Field<string>("LName"),
+                                    UserID = dataRow.Field<string>("UserID"),
+                                    Address = dataRow.Field<string>("Address"),
+                                    DOB = dataRow.Field<DateTime>("DOB"),
+                                    City = dataRow.Field<string>("City"),
+                                    MobileNo = dataRow.Field<string>("MobileNo")
+                                }).ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return teachers;
+        }
+
+        public Teacher SearchtTeacher(int id)
+        {
+            Teacher teacher;
+            try
+            {
+                DataSet objDS = new DataSet();
+                teacher = new Teacher();
+                teacher.TeacherID = id;
+                //Connection to database
+                using (var connection = new SqlConnection(Database.ConnectionString))
+                {
+                    using (SqlCommand sqlCommand = new SqlCommand(Database.GETTEACHERBYID, connection))
+                    {
+                        //setting command type to stored procedure
+                        sqlCommand.CommandType = CommandType.StoredProcedure;
+
+                        //Defining parameters for StoredProcedure
+
+                        SqlParameter FName = new SqlParameter("@FName", teacher.FName);
+                        SqlParameter LName = new SqlParameter("@Lname", teacher.LName);
+                        SqlParameter UserID = new SqlParameter("@UserID", teacher.UserID);
+                        SqlParameter Address = new SqlParameter("@Address", teacher.Address);
+                        SqlParameter DOB = new SqlParameter("@DOB", teacher.DOB);
+                        SqlParameter City = new SqlParameter("@City", teacher.City);
+                        SqlParameter MobileNo = new SqlParameter("@MobileNo", teacher.MobileNo);
+
+
+                        sqlCommand.Parameters.Add(FName);
+                        sqlCommand.Parameters.Add(LName);
+                        sqlCommand.Parameters.Add(UserID);
+                        sqlCommand.Parameters.Add(Address);
+                        sqlCommand.Parameters.Add(DOB);
+                        sqlCommand.Parameters.Add(FName);
+                        sqlCommand.Parameters.Add(City);
+                        sqlCommand.Parameters.Add(MobileNo);
+
+
+                        connection.Open();
+                        sqlCommand.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return teacher;
+        }
+
     }
 }
-
-

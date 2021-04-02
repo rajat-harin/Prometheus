@@ -8,7 +8,7 @@
         Background="BlanchedAlmond"
         Title="ViewMyHomeworkWindow" Height="450" Width="800" Closed="Window_Closed">
     <Grid>
-        <Button x:Name="BackButton" Content="Go Back" HorizontalAlignment="Left" Margin="64,29,0,0" VerticalAlignment="Top" Width="75" FontSize="14" FontWeight="Bold" Click="BackButton_Click" Height="22"/>
+        <Button x:Name="BackButton" Content="Go Back" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="64,29,0,0" VerticalAlignment="Top" Width="75" FontSize="14" FontWeight="Bold" Click="BackButton_Click" Height="22"/>
         <TextBlock HorizontalAlignment="Left" Margin="298,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Width="175" FontSize="22"><Run FontWeight="Bold" Text="My Homeworks"/></TextBlock>
         <DataGrid x:Name="ViewHomeworkDG" HorizontalAlignment="Left" Height="234" Margin="93,129,0,0" VerticalAlignment="Top" Width="644" SelectionChanged="DataGrid_SelectionChanged" AlternatingRowBackground="Gray">
         </DataGrid>

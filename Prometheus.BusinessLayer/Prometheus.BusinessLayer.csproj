@@ -41,10 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminBL.cs" />
+    <Compile Include="CourseBL.cs" />
+    <Compile Include="Models\AssignedHomework.cs" />
     <Compile Include="Models\EnrolledCourse.cs" />
     <Compile Include="HomeworkBL.cs" />
+    <Compile Include="Models\ExtendedHomeworkPlan.cs" />
     <Compile Include="StudentBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TeacherBL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Prometheus.DataAccessLayer\Prometheus.DataAccessLayer.csproj">
@@ -60,6 +65,5 @@
       <Name>Prometheus.Exceptions</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
