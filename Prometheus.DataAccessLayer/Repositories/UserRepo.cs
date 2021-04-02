@@ -10,34 +10,33 @@ using System.Threading.Tasks;
 
 namespace Prometheus.DataAccessLayer.Repositories
 {
-    public class CourseRepo
+    public class UserRepo
     {
-        
-        public bool InsertCourse(Course course)
+        public bool InsertUser(User user)
         {
             try
             {
-                if (course != null)
+                if (user != null)
                 {
                     //SqlConnection connection;
                     using (var connection = new SqlConnection(Database.ConnectionString))
                     {
-                        using (SqlCommand sqlCommand = new SqlCommand(Database.INSERTCOURSE, connection))
+                        using (SqlCommand sqlCommand = new SqlCommand(Database.INSERTUSER, connection))
                         {
                             //setting command type to stored procedure
                             sqlCommand.CommandType = CommandType.StoredProcedure;
 
                             //Defining parameters for StoredProcedure
 
-                            //SqlParameter courseID = new SqlParameter("@CourseID", course.CourseID);
-                            SqlParameter name = new SqlParameter("@Name", course.Name);
-                            SqlParameter startDate = new SqlParameter("@StartDate", course.StartDate);
-                            SqlParameter endDate = new SqlParameter("@EndDate", course.EndDate);
+                            SqlParameter userID = new SqlParameter("@UserID", user.UserID);
+                            SqlParameter password = new SqlParameter("@Password", user.Password);
+                            SqlParameter role = new SqlParameter("@Role", user.Role);
 
-                            //sqlCommand.Parameters.Add(courseID);
-                            sqlCommand.Parameters.Add(name);
-                            sqlCommand.Parameters.Add(startDate);
-                            sqlCommand.Parameters.Add(endDate);
+
+                            sqlCommand.Parameters.Add(userID);
+                            sqlCommand.Parameters.Add(password);
+                            sqlCommand.Parameters.Add(role);
+
 
                             connection.Open();
                             int affectedRows = sqlCommand.ExecuteNonQuery();
@@ -47,38 +46,34 @@ namespace Prometheus.DataAccessLayer.Repositories
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw new PrometheusException(ex.Message);
             }
             return false;
         }
 
-        public bool UpdateCourse(Course course)
+        public bool UpdateUser(User user)
         {
             try
             {
-                if (course != null)
+                if (user != null)
                 {
                     //SqlConnection connection;
                     using (var connection = new SqlConnection(Database.ConnectionString))
                     {
-                        using (SqlCommand sqlCommand = new SqlCommand(Database.UPDATECOURSE, connection))
+                        using (SqlCommand sqlCommand = new SqlCommand(Database.USERUPDATEPASSWORD, connection))
                         {
                             //setting command type to stored procedure
                             sqlCommand.CommandType = CommandType.StoredProcedure;
 
                             //Defining parameters for StoredProcedure
 
-                            SqlParameter courseID = new SqlParameter("@CourseID", course.CourseID);
-                            SqlParameter name = new SqlParameter("@Name", course.Name);
-                            SqlParameter startDate = new SqlParameter("@StartDate", course.StartDate);
-                            SqlParameter endDate = new SqlParameter("@EndDate", course.EndDate);
+                            SqlParameter userID = new SqlParameter("@UserID", user.UserID);
+                            SqlParameter password = new SqlParameter("@Password", user.Password);
 
-                            sqlCommand.Parameters.Add(courseID);
-                            sqlCommand.Parameters.Add(name);
-                            sqlCommand.Parameters.Add(startDate);
-                            sqlCommand.Parameters.Add(endDate);
+                            sqlCommand.Parameters.Add(userID);
+                            sqlCommand.Parameters.Add(password);
 
                             connection.Open();
                             int affectedRows = sqlCommand.ExecuteNonQuery();
@@ -96,23 +91,23 @@ namespace Prometheus.DataAccessLayer.Repositories
 
         }
 
-        public bool DeleteCourse(Course course)
+        public bool DeleteUser(User user)
         {
             try
             {
-                if (course != null)
+                if (user != null)
                 {
                     //SqlConnection connection;
                     using (var connection = new SqlConnection(Database.ConnectionString))
                     {
-                        using (SqlCommand sqlCommand = new SqlCommand(Database.DELETECOURSE, connection))
+                        using (SqlCommand sqlCommand = new SqlCommand(Database.DELETEUSER, connection))
                         {
                             //setting command type to stored procedure
                             sqlCommand.CommandType = CommandType.StoredProcedure;
 
                             //Defining parameters for StoredProcedure
-                            SqlParameter courseID = new SqlParameter("@CourseID", course.CourseID);
-                            sqlCommand.Parameters.Add(courseID);
+                            SqlParameter userID = new SqlParameter("@UserID", user.UserID);
+                            sqlCommand.Parameters.Add(userID);
                             connection.Open();
                             int affectedRows = sqlCommand.ExecuteNonQuery();
                             if (affectedRows > 0)
@@ -120,72 +115,66 @@ namespace Prometheus.DataAccessLayer.Repositories
                         }
                     }
                 }
-                // NOTE: Ask if following should be done or not
-                else
-                {
-                    throw new PrometheusException("Can not delete null object!");
-                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw new PrometheusException(ex.Message);
             }
             return false;
         }
 
-        public List<Course> GetCourses()
+        public List<User> GetAllUsers()
         {
-            List<Course> courseList; 
+            List<User> userList;
             try
             {
-                courseList = new List<Course>();
+                userList = new List<User>();
                 DataSet dataSet = new DataSet();
                 //SqlConnection connection;
                 using (var connection = new SqlConnection(Database.ConnectionString))
                 {
-                    using (SqlCommand sqlCommand = new SqlCommand(Database.GETCOURSES, connection))
+                    using (SqlCommand sqlCommand = new SqlCommand(Database.GETALLUSERS, connection))
                     {
                         //setting command type to stored procedure
                         sqlCommand.CommandType = CommandType.StoredProcedure;
 
                         connection.Open();
-                        
+
                         SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
                         sqlDataAdapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
                         sqlDataAdapter.Fill(dataSet);
                     }
                 }
-                courseList = dataSet.Tables["Table"].AsEnumerable()
-                                .Select(dataRow => new Course
+                userList = dataSet.Tables["Users"].AsEnumerable()
+                                .Select(dataRow => new User
                                 {
-                                    CourseID = dataRow.Field<int>("CourseID"),
-                                    Name = dataRow.Field<string>("Name"),
-                                    StartDate = dataRow.Field<DateTime>("StartDate"),
-                                    EndDate = dataRow.Field<DateTime>("EndDate")
+                                    UserID = dataRow.Field<string>("UserID"),
+                                    Password = dataRow.Field<string>("Password"),
+                                    Role = dataRow.Field<string>("Role")
                                 }).ToList();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw new PrometheusException(ex.Message);
             }
-            return courseList;
+            return userList;
         }
 
-        public Course GetCourseByID(int id)
+        public User GetUserByID(string id)
         {
-            Course course;
+            User user;
             try
             {
                 DataSet dataSet = new DataSet();
                 //SqlConnection connection;
                 using (var connection = new SqlConnection(Database.ConnectionString))
                 {
-                    using (SqlCommand sqlCommand = new SqlCommand(Database.GETCOURSEBYID, connection))
+                    using (SqlCommand sqlCommand = new SqlCommand(Database.GETUSERBYID, connection))
                     {
                         //setting command type to stored procedure
                         sqlCommand.CommandType = CommandType.StoredProcedure;
                         //Defining parameters for StoredProcedure
-                        SqlParameter courseID = new SqlParameter("@CourseID", id);
+                        SqlParameter courseID = new SqlParameter("@UserID", id);
                         sqlCommand.Parameters.Add(courseID);
 
                         connection.Open();
@@ -195,21 +184,21 @@ namespace Prometheus.DataAccessLayer.Repositories
                         sqlDataAdapter.Fill(dataSet);
                     }
                 }
-                DataRow dataRowOfCourse = dataSet.Tables["Table"].AsEnumerable()
-                                .Single(dataRow => dataRow.Field<int>("CourseID") == id);
-                course = new Course
+                DataRow dataRowOfCourse = dataSet.Tables["Users"].AsEnumerable()
+                                .Single(dataRow => dataRow.Field<string>("UserID") == id);
+                user = new User
                 {
-                    CourseID = dataRowOfCourse.Field<int>("CourseID"),
-                    Name = dataRowOfCourse.Field<string>("Name"),
-                    StartDate = dataRowOfCourse.Field<DateTime>("StartDate"),
-                    EndDate = dataRowOfCourse.Field<DateTime>("EndDate")
+                    UserID = dataRowOfCourse.Field<string>("UserID"),
+                    Password = dataRowOfCourse.Field<string>("Password"),
+                    Role = dataRowOfCourse.Field<string>("Role")
                 };
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                throw new PrometheusException(ex.Message);
             }
-            return course;
+            return user;
         }
+
     }
 }

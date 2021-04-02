@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Prometheus.BusinessLayer;
+using Prometheus.Entities;
+using Prometheus.PresentationLayer.StudentWPF;
+using Prometheus.PresentationLayer.TeacherWPF;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -31,27 +35,45 @@ namespace Prometheus.PresentationLayer.AdminWPF
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Teacher st = new Teacher();
-            st.UserName = txtUserName.Text.ToString();
-            st.Password = txtPassword.Password.ToString();
-            TeacherBL bl = new TeacherBL();
-            bool result = bl.LoginTeacher(st);
-            if (result == true)
+            User guest = new User();
+            guest.UserID = txtUserName.Text.ToString();
+            guest.Password = txtPassword.Password.ToString();
+            AdminBL adminBL = new AdminBL();
+            string role = adminBL.Login(guest);
+            if (string.IsNullOrEmpty(role))
             {
-                MessageBox.Show("Login Successful....");
-                TeacherMenu menu = new TeacherMenu();
-                menu.Show();
+                MessageBox.Show("Login Unsuccessfull....");
+                
             }
             else
             {
-                MessageBox.Show("Login Unsuccessfull....");
+                MessageBox.Show("Login Successful....");
+                if (role.Equals("admin"))
+                {
+                    AdminHomePage adminHomePage = new AdminHomePage();
+                    adminHomePage.Show();
+                }
+                else if (role.Equals("teacher"))
+                {
+                    HomePage homePage = new HomePage();
+                    homePage.Show();
+                }
+                else if (role.Equals("student"))
+                {
+                    StudentMainWindow studentMainWindow = new StudentMainWindow();
+                    studentMainWindow.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Something went wrong...");
+                }
             }
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            TeacherForgotPassword from = new TeacherForgotPassword();
-            from.Show();
+            UserForgotPassword UserForgotPassword = new UserForgotPassword();
+            UserForgotPassword.Show();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)

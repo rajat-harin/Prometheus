@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Prometheus.BusinessLayer;
+using Prometheus.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,8 +31,8 @@ namespace Prometheus.PresentationLayer.AdminWPF
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            StudentBL student = new StudentBL();
-            grid.ItemsSource = student.ViewAllStudents(1).DefaultView;
+            AdminBL adminBL = new AdminBL();
+            grid.ItemsSource = adminBL.GetStudents();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -45,10 +47,11 @@ namespace Prometheus.PresentationLayer.AdminWPF
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Student st = new Student();
-            st.UserName = txtUserName.Text.ToString();
-            StudentBL student = new StudentBL();
-            grid.ItemsSource = student.ViewStudent(st).DefaultView;
+            Student student = new Student();
+            student.UserID = txtUserName.Text.ToString();
+            AdminBL adminBL = new AdminBL();
+            User user = new User();
+            grid.ItemsSource = adminBL.GetStudentByUserID(user.UserID);
         }
     }
 }

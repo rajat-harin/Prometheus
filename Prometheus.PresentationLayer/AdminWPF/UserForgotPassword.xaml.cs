@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Prometheus.BusinessLayer;
+using Prometheus.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,23 +27,22 @@ namespace Prometheus.PresentationLayer.AdminWPF
         }
         private void btnChPassword_Click(object sender, RoutedEventArgs e)
         {
-            TeacherChangePassword frm2 = new TeacherChangePassword();
+            UserChangePassword frm2 = new UserChangePassword();
             frm2.Show();
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            Teacher st = new Teacher();
-            st.UserName = txtUserName.Text.ToString();
-            TeacherBL bl = new TeacherBL();
-            bool result = bl.LoginTeacherForgot(st);
-            if (result == true)
+            Teacher teacher = new Teacher();
+            teacher.UserID = txtUserName.Text.ToString();
+            AdminBL adminBL = new AdminBL();
+            User user = new User();
+            string result = adminBL.ForgotPassword(user);
+            if (result == user.UserID)
             {
                 MessageBox.Show("Match Found");
-                TeacherChangePassword c = new TeacherChangePassword();
-                c.Show();
-                TeacherForgotPassword n = new TeacherForgotPassword();
-                n.Hide();
+                UserChangePassword userChangePassword = new UserChangePassword();
+                userChangePassword.Show();
             }
         }
 
