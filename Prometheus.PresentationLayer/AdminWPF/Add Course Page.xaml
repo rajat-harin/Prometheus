@@ -13,8 +13,8 @@
         <Label Content="Course Start Date" HorizontalAlignment="Left" Margin="93,196,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
         <Label Content="Course End Date" HorizontalAlignment="Left" Margin="93,261,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" RenderTransformOrigin="0.431,-0.51"/>
         <TextBox x:Name="CName" HorizontalAlignment="Left" Height="23" Margin="252,136,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" TextChanged="TextBox_TextChanged_1"/>
-        <Button Content="Back To Homepage" HorizontalAlignment="Left" Margin="581,12,0,0" VerticalAlignment="Top" Width="201" FontWeight="Bold" Height="45" Click="Button_Click"/>
-        <Button Content="Save" HorizontalAlignment="Left" Margin="338,352,0,0" VerticalAlignment="Top" Width="75" Height="30" FontWeight="Bold" Click="Button_Click_1"/>
+        <Button Content="Back To Homepage" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="18,29,0,0" VerticalAlignment="Top" Width="152" FontWeight="Bold" Height="38" Click="Button_Click" FontSize="14"/>
+        <Button Content="Save" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="338,352,0,0" VerticalAlignment="Top" Width="75" Height="30" FontWeight="Bold" Click="Button_Click_1" FontSize="14"/>
         <DatePicker x:Name="StartDate" HorizontalAlignment="Left" Margin="252,196,0,0" VerticalAlignment="Top" Width="182"/>
         <DatePicker x:Name="EndDate" HorizontalAlignment="Left" Margin="252,261,0,0" VerticalAlignment="Top" Width="182"/>
     </Grid>
