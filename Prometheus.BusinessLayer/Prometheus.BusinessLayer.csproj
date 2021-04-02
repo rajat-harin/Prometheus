@@ -42,7 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdminBL.cs" />
-	  <Compile Include="CourseBL.cs" />
+    <Compile Include="CourseBL.cs" />
     <Compile Include="Models\AssignedHomework.cs" />
     <Compile Include="Models\EnrolledCourse.cs" />
     <Compile Include="HomeworkBL.cs" />
@@ -65,6 +65,5 @@
       <Name>Prometheus.Exceptions</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

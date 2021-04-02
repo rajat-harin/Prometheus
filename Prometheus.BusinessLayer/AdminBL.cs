@@ -56,8 +56,10 @@ namespace Prometheus.BusinessLayer
                     UserRepo userRepo = new UserRepo();
                     TeacherRepo teacherRepo = new TeacherRepo();
                     User user = new User { UserID = teacher.UserID, Password = Password, Role = "teacher" };
-                    if (teacher.IsAdmin.Equals("admin"))
+                    if (teacher.IsAdmin)
                     {
+                        user.Role = "admin";
+                    }
                         if (userRepo.InsertUser(user))
                         {
                             if (teacherRepo.InsertTeacher(teacher))
@@ -70,7 +72,7 @@ namespace Prometheus.BusinessLayer
                                 throw new PrometheusException("user registration failed");
                             }
                         }
-                    }
+                    
                     else
                     {
                         throw new PrometheusException("user registration failed");

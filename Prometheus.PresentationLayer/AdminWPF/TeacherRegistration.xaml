@@ -9,29 +9,28 @@
         Title="TeacherRegistration" Height="450" Width="800">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="219,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="37" Width="442" FontSize="22" Text="NEW TEACHER REGISTRATION" FontWeight="Bold"/>
-        <Label Content="Enter First Name" HorizontalAlignment="Left" Margin="182,99,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-        <Label Content="Enter Last Name" HorizontalAlignment="Left" Margin="185,128,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.786,-0.31" FontWeight="Bold" FontSize="14"/>
-        <Label Content="Enter Address" HorizontalAlignment="Left" Margin="201,183,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.037,-0.607" FontWeight="Bold" FontSize="14"/>
-        <Label Content="Enter DOB" HorizontalAlignment="Left" Margin="219,210,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.037,-0.596" FontWeight="Bold" FontSize="14"/>
-        <Label Content="Enter City" HorizontalAlignment="Left" Margin="224,233,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.397,0.994" FontWeight="Bold" FontSize="14"/>
-        <Label Content="Enter Mobile No" HorizontalAlignment="Left" Margin="185,290,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.482,0.623" FontWeight="Bold" FontSize="14"/>
-        <Label Content="Password" HorizontalAlignment="Left" Margin="224,262,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.25,-0.038" FontWeight="Bold" FontSize="14"/>
-        <TextBox x:Name="FName" HorizontalAlignment="Left" Height="23" Margin="324,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" TextChanged="TextBox_TextChanged_1"/>
-        <TextBox x:Name="LName" HorizontalAlignment="Left" Height="23" Margin="324,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" TextChanged="TextBox_TextChanged_2"/>
-        <TextBox x:Name="Address" HorizontalAlignment="Left" Height="23" Margin="324,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" RenderTransformOrigin="0.5,0.5" TextChanged="TextBox_TextChanged_3"/>
-        <TextBox x:Name="City" HorizontalAlignment="Left" Height="23" Margin="324,239,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" TextChanged="TextBox_TextChanged_5"/>
-        <TextBox x:Name="MobileNo" HorizontalAlignment="Left" Height="23" Margin="324,296,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" TextChanged="TextBox_TextChanged_7"/>
-        <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" Margin="324,267,0,0" VerticalAlignment="Top" Width="216" Height="24"/>
-        <Button x:Name="btnHome" Content="Back To Homepage" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top" Width="136" Click="btnHome_Click" Height="31" FontWeight="Bold"/>
-        <Button x:Name="btnSaveData" Content="SAVE" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="389,369,0,0" VerticalAlignment="Top" Width="89" Click="btnSaveData_Click_1" Height="41" FontWeight="Bold" FontSize="14"/>
-        <Label Content="Is Admin ?" HorizontalAlignment="Left" Margin="218,324,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-        <Label Content="Enter UserName" HorizontalAlignment="Left" Margin="185,155,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.037,-0.607" FontWeight="Bold" FontSize="14"/>
-        <TextBox x:Name="UserName" HorizontalAlignment="Left" Height="23" Margin="324,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" TextChanged="TextBox_TextChanged_2"/>
-        <ComboBox x:Name="Rolebtn" HorizontalAlignment="Left" Margin="324,329,0,0" VerticalAlignment="Top" Width="216" SelectionChanged="ComboBox_SelectionChanged">
-            <Button Content="Yes"/>
-            <Button Content="No"/>
-        </ComboBox>
-        <DatePicker x:Name="DatePicker" HorizontalAlignment="Left" Margin="324,211,0,0" VerticalAlignment="Top" Width="216"/>
+
+        <Label Content="Enter First Name" HorizontalAlignment="Left" Margin="182,111,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Enter Last Name" HorizontalAlignment="Left" Margin="182,138,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.786,-0.31" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Enter Address" HorizontalAlignment="Left" Margin="182,192,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.037,-0.607" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Enter DOB" HorizontalAlignment="Left" Margin="182,212,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.037,-0.596" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Enter City" HorizontalAlignment="Left" Margin="182,239,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.397,0.994" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Enter Mobile No" HorizontalAlignment="Left" Margin="182,296,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.482,0.623" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="188,267,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.25,-0.038" FontWeight="Bold" FontSize="14"/>
+        <TextBox x:Name="FName" HorizontalAlignment="Left" Height="21" Margin="324,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" TextChanged="TextBox_TextChanged_1"/>
+        <TextBox x:Name="LName" HorizontalAlignment="Left" Height="23" Margin="324,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" TextChanged="TextBox_TextChanged_2"/>
+        <TextBox x:Name="Address" HorizontalAlignment="Left" Height="23" Margin="324,187,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" RenderTransformOrigin="0.5,0.5" TextChanged="TextBox_TextChanged_3"/>
+        <TextBox x:Name="City" HorizontalAlignment="Left" Height="24" Margin="324,243,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" TextChanged="TextBox_TextChanged_5"/>
+        <TextBox x:Name="MobileNo" HorizontalAlignment="Left" Height="23" Margin="324,307,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" TextChanged="TextBox_TextChanged_7"/>
+        <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" Margin="324,278,0,0" VerticalAlignment="Top" Width="216"/>
+        <Button x:Name="btnHome" Content="Back To Homepage" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top" Width="136" Click="btnHome_Click" Height="31" FontWeight="Bold"/>
+        <Button x:Name="btnSaveData" Content="SAVE" HorizontalAlignment="Left" Margin="389,369,0,0" VerticalAlignment="Top" Width="89" Click="btnSaveData_Click_1" Height="41" FontWeight="Bold"/>
+        <Label Content="Is Admin ?" HorizontalAlignment="Left" Margin="204,329,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Enter UserName" HorizontalAlignment="Left" Margin="188,163,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.037,-0.607" FontWeight="Bold" FontSize="14"/>
+        <TextBox x:Name="UserName" HorizontalAlignment="Left" Height="23" Margin="324,166,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" TextChanged="TextBox_TextChanged_2"/>
+        <DatePicker x:Name="DatePicker" HorizontalAlignment="Left" Margin="324,214,0,0" VerticalAlignment="Top" Width="216"/>
+        <CheckBox x:Name="checkBoxIsAdmin" Content="Admin" HorizontalAlignment="Left" Margin="324,337,0,0" VerticalAlignment="Top" Checked="checkBox_Checked" IsThreeState="True"/>
+
 
     </Grid>
 </Window>
