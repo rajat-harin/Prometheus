@@ -26,7 +26,7 @@ namespace Prometheus.PresentationLayer.StudentWPF
         public EnrollForCourseWindow()
         {
             InitializeComponent();
-            studentBL; = new StudentBL();
+            studentBL = new StudentBL();
             LoadEnrollCourseComboBox();
         }
         SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-6FKA8SI;Initial Catalog=Prometheus;Integrated Security=True");

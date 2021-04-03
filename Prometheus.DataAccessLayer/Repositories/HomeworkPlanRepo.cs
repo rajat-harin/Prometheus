@@ -189,7 +189,7 @@ namespace Prometheus.DataAccessLayer.Repositories
                 }
                 else
                 {
-                    throw new PrometheusException("No Enrollments Found!");
+                    throw new PrometheusException("No Homework Plans Found!");
                 }
             }
             catch (Exception)

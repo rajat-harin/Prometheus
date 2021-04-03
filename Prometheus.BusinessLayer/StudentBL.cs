@@ -256,27 +256,32 @@ namespace Prometheus.BusinessLayer
             }
         }
 
-        public void UpdateHomeworkPlanList(int id)
+        public bool UpdateHomeworkPlanList(List<ExtendedHomeworkPlan> extendedplans, int id)
         {
+            bool flag = false;
             try
             {
-                HomeworkPlanRepo homeworkPlanRepo = new HomeworkPlanRepo();
-                homeworkPlanRepo.DeleteAll(id);
-                List<AssignedHomework> assignedHomeworks = GetAssignedHomework(id);
-                //List<HomeworkPlan> homeworkPlans = new HomeworkPlanRepo().GetHomeworkPlans()
-                //    .Where(homeworkPlan => homeworkPlan.StudentID == id).ToList();
-                int count = assignedHomeworks.Count;
-                var result = assignedHomeworks.OrderBy(homework => homework.Deadline).Select(homework => new HomeworkPlan
+                List<HomeworkPlan> plans = new List<HomeworkPlan>();
+                if(extendedplans.Any())
                 {
-                    StudentID = id,
-                    HomeworkID = homework.HomeworkID,
-                    PriorityLevel = count--,
-                    isCompleted = false
-                }).ToList();
-
-                foreach (var item in result)
+                    extendedplans.ForEach(item => {
+                        plans.Add(
+                            new HomeworkPlan
+                            {
+                                 StudentID = item.StudentID,
+                                 HomeworkID = item.HomeworkID,
+                                 PriorityLevel = item.PriorityLevel,
+                                 isCompleted = item.isCompleted
+                            }
+                        );
+                    });
+                }
+                if(plans.Any())
                 {
-                    AddHomeworkPlan(item);
+                    foreach (HomeworkPlan item in plans)
+                    {
+                        flag = UpdateHomeworkPlan(item);
+                    }
                 }
 
             }
@@ -284,6 +289,7 @@ namespace Prometheus.BusinessLayer
             {
                 throw;
             }
+            return flag;
         }
     }
 }
