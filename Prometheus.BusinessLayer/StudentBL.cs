@@ -82,7 +82,7 @@ namespace Prometheus.BusinessLayer
             bool isEnrolled = false;
             try
             {
-                StudentRepo studentDAL = new StudentRepo();
+               
                 int sId;
                 if(string.IsNullOrEmpty(studentId))
                 {
@@ -158,6 +158,7 @@ namespace Prometheus.BusinessLayer
                              on plan.HomeworkID equals homework.HomeworkID
                              select new ExtendedHomeworkPlan
                              {
+                                 StudentID = id,
                                  HomeworkID = homework.HomeworkID,
                                  Description = homework.Description,
                                  Deadline = homework.Deadline,
@@ -204,6 +205,27 @@ namespace Prometheus.BusinessLayer
             }
             return false;
         }
+        public bool UpdateHomeworkPlan(HomeworkPlan plan)
+        {
+            try
+            {
+                if (plan != null)
+                {
+                    HomeworkPlanRepo homeworkPlanRepo = new HomeworkPlanRepo();
+                    if (homeworkPlanRepo.Update(plan))
+                    {
+                        return true;
+                    }
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return false;
+        }
         public void DeviseHomeworkPlanByDeadline(int id)
         {
             try
@@ -232,6 +254,50 @@ namespace Prometheus.BusinessLayer
             {
                 throw;
             }
+        }
+
+        public bool UpdateHomeworkPlanList(List<ExtendedHomeworkPlan> extendedplans, int id)
+        {
+            bool flag = true;
+            try
+            {
+                List<HomeworkPlan> plans = new List<HomeworkPlan>();
+                if(extendedplans.Any())
+                {
+                    extendedplans.ForEach(item => {
+                        plans.Add(
+                            new HomeworkPlan
+                            {
+                                 StudentID = item.StudentID,
+                                 HomeworkID = item.HomeworkID,
+                                 PriorityLevel = item.PriorityLevel,
+                                 isCompleted = item.isCompleted
+                            }
+                        );
+                    });
+                }
+                if(plans.Any())
+                {
+                    foreach (HomeworkPlan item in plans)
+                    {
+                        if(!flag)
+                        {
+                            break;
+                        }
+                       
+                            flag = UpdateHomeworkPlan(item);
+                       
+                        
+                        
+                    }
+                }
+
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            return flag;
         }
     }
 }

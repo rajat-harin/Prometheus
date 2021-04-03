@@ -1,4 +1,6 @@
 ﻿using Prometheus.BusinessLayer;
+using Prometheus.BusinessLayer.Models;
+using Prometheus.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,14 +23,30 @@ namespace Prometheus.PresentationLayer.StudentWPF
     public partial class DeviseHomeworkPlanWindow : Window
     {
         StudentBL studentBL;
+        List<ExtendedHomeworkPlan> homeworkPlans;
         public DeviseHomeworkPlanWindow()
         {
             InitializeComponent();
             studentBL = new StudentBL();
-            DeviseHomeworkPlan();
+            InitializeHomeworkList();
             LoadHomeworkGrid();
         }
         //The coding here depends upon the Teacher Module Completion.
+        private void InitializeHomeworkList()
+        {
+            try
+            {
+                homeworkPlans = studentBL.GetExtendedHomeworkPlan(1);
+            }
+            catch(PrometheusException ex)
+            {
+                if(ex.Message.Equals("No Homework Plans Found!"))
+                {
+                    DeviseHomeworkPlan();
+                }
+            }
+            
+        }
         private void BackButton_Click(object sender, RoutedEventArgs e)// pressing back button get us back to student main window.
         {
             this.Close();
@@ -51,7 +69,9 @@ namespace Prometheus.PresentationLayer.StudentWPF
             try
             {
 
-                DeviseHomeworkPlanDG.ItemsSource = studentBL.GetExtendedHomeworkPlan(1);
+                DeviseHomeworkPlanDG.ItemsSource = homeworkPlans;
+               
+
             }
             catch (Exception ex)
             {
@@ -68,6 +88,29 @@ namespace Prometheus.PresentationLayer.StudentWPF
 
         private void DeviseHomeworkPlanDG_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                List<ExtendedHomeworkPlan> extendedHomeworkPlans = new List<ExtendedHomeworkPlan>();
+                foreach (ExtendedHomeworkPlan item in DeviseHomeworkPlanDG.ItemsSource)
+                {
+                    extendedHomeworkPlans.Add(item);
+                }
+                if(studentBL.UpdateHomeworkPlanList(extendedHomeworkPlans, 1))
+                {
+                    MessageBox.Show("Homework Plan is Saved!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
 
         }
     }  

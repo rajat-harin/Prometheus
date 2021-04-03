@@ -22,19 +22,19 @@ namespace Prometheus.PresentationLayer.StudentWPF
     /// </summary>
     public partial class EnrollForCourseWindow : Window
     {
-
+        StudentBL studentBL;
         public EnrollForCourseWindow()
         {
             InitializeComponent();
+            studentBL = new StudentBL();
             LoadEnrollCourseComboBox();
         }
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-6FKA8SI;Initial Catalog=Prometheus;Integrated Security=True");
         public void LoadEnrollCourseComboBox() //function to load the CourseID column values into the combobox. This function is called as soon as the EnrollForCourse Window is opened.
         {
             
             try
             {
-                StudentBL studentBL = new StudentBL();
+                
                 EnrollCourseComboBox.ItemsSource = studentBL.GetCoursesAsList();
                 EnrollCourseComboBox.SelectedValuePath = "CourseID";
                 EnrollCourseComboBox.DisplayMemberPath = "Name";
@@ -58,7 +58,6 @@ namespace Prometheus.PresentationLayer.StudentWPF
             {
                 string studentId = EnrollCourseStdID.Text;
                 int courseId = (int) EnrollCourseComboBox.SelectedValue;
-                StudentBL studentBL = new StudentBL();
                 bool isEnrolled = studentBL.EnrollInCourse(studentId, courseId);
                 if(isEnrolled)
                 {
