@@ -82,7 +82,7 @@ namespace Prometheus.BusinessLayer
             bool isEnrolled = false;
             try
             {
-                StudentRepo studentDAL = new StudentRepo();
+               
                 int sId;
                 if(string.IsNullOrEmpty(studentId))
                 {
@@ -258,7 +258,7 @@ namespace Prometheus.BusinessLayer
 
         public bool UpdateHomeworkPlanList(List<ExtendedHomeworkPlan> extendedplans, int id)
         {
-            bool flag = false;
+            bool flag = true;
             try
             {
                 List<HomeworkPlan> plans = new List<HomeworkPlan>();
@@ -280,7 +280,15 @@ namespace Prometheus.BusinessLayer
                 {
                     foreach (HomeworkPlan item in plans)
                     {
-                        flag = UpdateHomeworkPlan(item);
+                        if(!flag)
+                        {
+                            break;
+                        }
+                       
+                            flag = UpdateHomeworkPlan(item);
+                       
+                        
+                        
                     }
                 }
 

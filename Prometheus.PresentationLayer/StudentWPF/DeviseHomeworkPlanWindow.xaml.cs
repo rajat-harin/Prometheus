@@ -71,10 +71,6 @@ namespace Prometheus.PresentationLayer.StudentWPF
 
                 DeviseHomeworkPlanDG.ItemsSource = homeworkPlans;
                
-                //DeviseHomeworkPlanDG.Columns[0].IsReadOnly = true;
-                //DeviseHomeworkPlanDG.Columns[1].IsReadOnly = true;
-                //DeviseHomeworkPlanDG.Columns[2].IsReadOnly = true;
-                //DeviseHomeworkPlanDG.Columns[3].IsReadOnly = true;
 
             }
             catch (Exception ex)

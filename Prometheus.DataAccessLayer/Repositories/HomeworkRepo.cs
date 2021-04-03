@@ -122,7 +122,7 @@ namespace Prometheus.DataAccessLayer.Repositories
                         sqlDataAdapter.Fill(dataSet);
                         //null or not null
                         DataRow RowOfHomework = dataSet.Tables["Homework"].AsEnumerable()
-                            .Single(dataRow => dataRow.Field<int>("HomeworkID") == HomeWorkID);
+                            .SingleOrDefault(dataRow => dataRow.Field<int>("HomeworkID") == HomeWorkID);
 
                         homework = new Homework
                         {

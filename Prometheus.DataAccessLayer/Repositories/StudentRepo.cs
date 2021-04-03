@@ -161,7 +161,7 @@ namespace Prometheus.DataAccessLayer.Repositories
                         objDA.Fill(dataSet);
                     }
                 }
-                students = dataSet.Tables["Student"].AsEnumerable()
+                students = dataSet.Tables["Table"].AsEnumerable()
                                 .Select(dataRow => new Student
                                 {
                                     StudentID = dataRow.Field<int>("StudentID"),
@@ -181,7 +181,7 @@ namespace Prometheus.DataAccessLayer.Repositories
             
             return students;
         }
-
+        //testing not  DOne.
         public Student SearchStudent(int id)
         {
             Student student;
