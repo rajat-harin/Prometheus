@@ -19,7 +19,7 @@ namespace Prometheus.Entities
         public string UserID{ get; set; }
         public bool IsAdmin { get; set; }
 
-        public Teacher()
+       public Teacher()
         {
             TeacherID = 0;
             FName = String.Empty;
@@ -29,12 +29,13 @@ namespace Prometheus.Entities
             DOB = DateTime.Now;
             City = String.Empty;
             MobileNo = String.Empty;
+            IsAdmin = false;
         }
 
         
 
         
-        public Teacher(int id, string fName, string lName, string userName, string address, DateTime dOB, string city, string mobileNo)
+        public Teacher(int id, string fName, string lName, string userName, string address, DateTime dOB, string city, string mobileNo, bool isAdmin)
         {
             TeacherID = id;
             FName = fName;
@@ -44,6 +45,7 @@ namespace Prometheus.Entities
             DOB = dOB;
             City = city;
             MobileNo = mobileNo;
+            IsAdmin = isAdmin;
         }
     }
 }

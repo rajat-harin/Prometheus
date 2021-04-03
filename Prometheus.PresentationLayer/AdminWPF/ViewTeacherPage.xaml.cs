@@ -31,6 +31,7 @@ namespace Prometheus.PresentationLayer.AdminWPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            Teacher teacher = new Teacher();
             AdminBL adminBL = new AdminBL();
             grid.ItemsSource = adminBL.GetTeachers();
         }
@@ -50,8 +51,8 @@ namespace Prometheus.PresentationLayer.AdminWPF
             Teacher teacher = new Teacher();
             teacher.UserID = txtUserName.Text.ToString();
             AdminBL adminBL = new AdminBL();
-            User user = new User();
-            grid.ItemsSource = adminBL.GetTeachersByUserID(user.UserID);
+            grid.ItemsSource = adminBL.GetTeachersByUserID(teacher.UserID);
+            teacher.IsAdmin.ToString();
         }
     }
 }

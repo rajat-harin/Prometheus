@@ -73,14 +73,13 @@ namespace Prometheus.PresentationLayer.AdminWPF
             student.City = City.Text.ToString();
             string Password = txtPassword.Password.ToString();
             student.MobileNo = MobileNo.Text.ToString();
-            MessageBox.Show(user.UserID);
+            
             AdminBL bl = new AdminBL();
-            bool result = bl.RegisterStudent(student, Password);
+            bool result = bl.RegisterStudent(student, Password, user);
             if (result == true)
             {
                 MessageBox.Show("Student Added");
-                Admin_Main_Page p = new Admin_Main_Page();
-                p.Show();
+                
             }
             else
             {
@@ -92,6 +91,18 @@ namespace Prometheus.PresentationLayer.AdminWPF
         {
             MainWindow frm2 = new MainWindow();
             frm2.Show();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            FName.Clear();
+            LName.Clear();
+            UserName.Clear();
+            Address.Clear();
+            
+            City.Clear();
+            txtPassword.Clear();
+            MobileNo.Clear();
         }
     }
 }

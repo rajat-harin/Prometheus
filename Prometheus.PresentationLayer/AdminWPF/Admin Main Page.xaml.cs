@@ -64,5 +64,13 @@ namespace Prometheus.PresentationLayer.AdminWPF
             ViewCoursePage form = new ViewCoursePage();
             form.Show();
         }
+
+        private void Button_Click_7(object sender, RoutedEventArgs e)
+        {
+            User_Login_Page user_Login_Page = new User_Login_Page();
+            user_Login_Page.Show();
+            Admin_Main_Page admin_Main_Page = new Admin_Main_Page();
+            admin_Main_Page.Hide();
+        }
     }
 }

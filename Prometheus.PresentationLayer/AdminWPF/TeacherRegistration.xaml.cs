@@ -81,9 +81,11 @@ namespace Prometheus.PresentationLayer.AdminWPF
                 string Password = txtPassword.Password.ToString();
                 teacher.MobileNo = MobileNo.Text.ToString();
                 teacher.IsAdmin = (bool)checkBoxIsAdmin.IsChecked;
+                User user = new User();
 
                 AdminBL bl = new AdminBL();
-                bool result = bl.RegisterTeacher(teacher, Password);
+                bool result = bl.RegisterTeacher(user, teacher, Password
+                    );
                 if (result == true)
                 {
                     MessageBox.Show("Teacher Added");

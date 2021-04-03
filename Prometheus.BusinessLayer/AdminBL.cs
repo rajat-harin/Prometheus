@@ -11,32 +11,39 @@ namespace Prometheus.BusinessLayer
 {
     public class AdminBL
     {
-        public bool RegisterStudent(Student student, string Password)
+        public bool RegisterStudent(Student student, string Password, User user)
         {
             try
             {
                 if (student != null)
                 {
-                    UserRepo userRepo = new UserRepo();
-                    StudentRepo studentRepo = new StudentRepo();
-                    User user = new User { UserID = student.UserID, Password = Password, Role = "student" };
+                    if (ValidateUser(user))
+                    {
+                        if (ValidateStudent(student))
+                        {
+                            UserRepo userRepo = new UserRepo();
+                            StudentRepo studentRepo = new StudentRepo();
+                            User guest = new User { UserID = student.UserID, Password = Password, Role = "student" };
 
-                    if (userRepo.InsertUser(user))
-                    {
-                        if (studentRepo.InsertStudent(student))
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            userRepo.DeleteUser(user);
-                            throw new PrometheusException("user registration failed");
+                            if (userRepo.InsertUser(guest))
+                            {
+                                if (studentRepo.InsertStudent(student))
+                                {
+                                    return true;
+                                }
+                                else
+                                {
+                                    userRepo.DeleteUser(guest);
+                                    throw new PrometheusException("user registration failed");
+                                }
+                            }
+                            else
+                            {
+                                throw new PrometheusException("user registration failed");
+                            }
                         }
                     }
-                    else
-                    {
-                        throw new PrometheusException("user registration failed");
-                    }
+                    
                 }
             }
             catch (Exception)
@@ -47,28 +54,34 @@ namespace Prometheus.BusinessLayer
 
         }
 
-        public bool RegisterTeacher(Teacher teacher, string Password)
+        public bool RegisterTeacher(User user, Teacher teacher, string Password)
         {
             try
             {
                 if (teacher != null)
                 {
-                    
-                    UserRepo userRepo = new UserRepo();
-                    TeacherRepo teacherRepo = new TeacherRepo();
-                    User user = new User { UserID = teacher.UserID, Password = Password, Role = "teacher" };
-                    if (teacher.IsAdmin.Equals("admin"))
+                    if (ValidateUser(user))
                     {
-                        if (userRepo.InsertUser(user))
+                        if (ValidateTeacher(teacher))
                         {
-                            if (teacherRepo.InsertTeacher(teacher))
+                            UserRepo userRepo = new UserRepo();
+                            TeacherRepo teacherRepo = new TeacherRepo();
+                            User guest = new User { UserID = teacher.UserID, Password = Password, Role = "teacher" };
+                            if (teacher.IsAdmin)
                             {
-                                return true;
+                                user.Role = "admin";
                             }
-                            else
+                            if (userRepo.InsertUser(user))
                             {
-                                userRepo.DeleteUser(user);
-                                throw new PrometheusException("user registration failed");
+                                if (teacherRepo.InsertTeacher(teacher))
+                                {
+                                    return true;
+                                }
+                                else
+                                {
+                                    userRepo.DeleteUser(user);
+                                    throw new PrometheusException("user registration failed");
+                                }
                             }
                         }
                     }
@@ -86,30 +99,33 @@ namespace Prometheus.BusinessLayer
 
         }
 
-        public string Login(User guest)
+        public string Login(User user)
         {
             
             try
             {
-                UserRepo userRepo = new UserRepo();
-                User user = new User();
-                user = userRepo.GetUserByID(guest.UserID);
-                if (user!=null)
-                {
-                    if (guest.Password.Equals(user.Password))
+                    UserRepo userRepo = new UserRepo();
+                    User guest = new User();
+                    guest = userRepo.GetUserByID(user.UserID);
+                    if (user != null)
                     {
-                        return user.Role;
+                        if (guest.Password.Equals(user.Password))
+                        {
+                            return user.Role;
+                        }
+                        else
+                        {
+                            throw new PrometheusException("Incorrect password!");
+                        }
                     }
                     else
                     {
-                        throw new PrometheusException("Incorrect password!");
+                        throw new PrometheusException("User does not exists!");
                     }
                 }
-                else
-                {
-                    throw new PrometheusException("User does not exists!");
-                }
-            }
+            
+                
+            
             catch (Exception)
             {
                 throw;
@@ -124,13 +140,11 @@ namespace Prometheus.BusinessLayer
             {
                 User user = new User();
                 studentList = new StudentRepo().GetStudents();
-                if (user.Role.Equals("student"))
-                {
-                    if (studentList.Any())
+                if (studentList.Any())
                     {
                         return studentList;
                     }
-                }
+                
                 else
                 {
                     throw new PrometheusException("No Students Found!");
@@ -141,7 +155,7 @@ namespace Prometheus.BusinessLayer
 
                 throw new PrometheusException(ex.Message);
             }
-            return studentList;
+            
         }
 
         public List<Student> GetStudentByUserID(string userID)
@@ -174,14 +188,11 @@ namespace Prometheus.BusinessLayer
             try
             {
                 teacherList = new TeacherRepo().GetTeachers();
-                User user = new User();
-                if (user.Role.Equals("teacher"))
-                {
-                    if (teacherList.Any())
+                if (teacherList.Any())
                     {
                         return teacherList;
                     }
-                }
+                
                 else
                 {
                     throw new PrometheusException("No Teachers Found!");
@@ -192,7 +203,7 @@ namespace Prometheus.BusinessLayer
 
                 throw new PrometheusException(ex.Message);
             }
-            return teacherList;
+            
         }
 
         public List<Teacher> GetTeachersByUserID(string userID)
@@ -216,7 +227,6 @@ namespace Prometheus.BusinessLayer
             {
                 throw;
             }
-
         }
 
         public bool ForgotPassword(User user)
@@ -248,11 +258,11 @@ namespace Prometheus.BusinessLayer
             }
         }
 
-        public bool ChangePassword(User user, string UserId, string Password)
+        public bool ChangePassword(User user)
         {
             try
             {
-                UserRepo userRepo = new UserRepo();
+               UserRepo userRepo = new UserRepo();
                 User guest = new User { UserID =user.UserID, Password = user.Password};
                 
                 if(user != null)
@@ -273,5 +283,123 @@ namespace Prometheus.BusinessLayer
             }
             return false;
         }
+
+        public bool ValidateUser(User user)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            bool validUser = true;
+            if (user.UserID == string.Empty)
+            {
+                validUser = false;
+                stringBuilder.Append(Environment.NewLine + "Cannot Pass Empty UserID");
+
+            }
+            if (user.Password == string.Empty)
+            {
+                validUser = false;
+                stringBuilder.Append(Environment.NewLine + "Not a Valid Password");
+
+            }
+            if (user.Role == string.Empty)
+                validUser = false;
+                stringBuilder.Append(Environment.NewLine + "Not a user");
+            if (validUser == false)
+                throw new Exception(stringBuilder.ToString());//when  it is not false
+            return validUser;
+        }
+
+        public bool ValidateStudent(Student student)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            bool validStudent = true;
+            if (student.UserID == string.Empty)
+            {
+                validStudent = false;
+                stringBuilder.Append(Environment.NewLine + "Cannot Pass Empty UserID");
+
+            }
+            if (student.FName == string.Empty)
+            {
+                validStudent = false;
+                stringBuilder.Append(Environment.NewLine + "Not a Valid Password");
+
+            }
+            if (student.LName == string.Empty)
+            {
+                validStudent = false;
+                stringBuilder.Append(Environment.NewLine + "Not a user");
+            }
+            if (student.DOB == DateTime.Now)
+            {
+                validStudent = false;
+                stringBuilder.Append(Environment.NewLine + "Not a user");
+            }
+            if (student.City == string.Empty)
+            {
+                validStudent = false;
+                stringBuilder.Append(Environment.NewLine + "Not a user");
+            }
+            if (student.Address == string.Empty)
+            {
+                validStudent = false;
+                stringBuilder.Append(Environment.NewLine + "Not a user");
+            }
+            if (student.MobileNo == string.Empty)
+            {
+                validStudent = false;
+                stringBuilder.Append(Environment.NewLine + "Not a user");
+            }
+            if (validStudent == false)
+                throw new Exception(stringBuilder.ToString());//when  it is not false
+            return validStudent;
+        }
+
+        public bool ValidateTeacher(Teacher teacher)
+        {
+            StringBuilder stringBuilder = new StringBuilder();
+            bool validTeacher = true;
+            if (teacher.UserID == string.Empty)
+            {
+                validTeacher = false;
+                stringBuilder.Append(Environment.NewLine + "Cannot Pass Empty UserID");
+
+            }
+            if (teacher.FName == string.Empty)
+            {
+                validTeacher = false;
+                stringBuilder.Append(Environment.NewLine + "Not a Valid Password");
+
+            }
+            if (teacher.LName == string.Empty)
+            {
+                validTeacher = false;
+                stringBuilder.Append(Environment.NewLine + "Not a user");
+            }
+            if (teacher.DOB == DateTime.Now)
+            {
+                validTeacher = false;
+                stringBuilder.Append(Environment.NewLine + "Not a user");
+            }
+            if (teacher.City == string.Empty)
+            {
+                validTeacher = false;
+                stringBuilder.Append(Environment.NewLine + "Not a user");
+            }
+            if (teacher.Address == string.Empty)
+            {
+                validTeacher = false;
+                stringBuilder.Append(Environment.NewLine + "Not a user");
+            }
+            if (teacher.MobileNo == string.Empty)
+            {
+                validTeacher = false;
+                stringBuilder.Append(Environment.NewLine + "Not a user");
+            }
+            if (validTeacher == false)
+                throw new Exception(stringBuilder.ToString());//when  it is not false
+            return validTeacher;
+        }
+
     }
 }
+

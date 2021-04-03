@@ -51,7 +51,7 @@ namespace Prometheus.PresentationLayer.AdminWPF
             student.UserID = txtUserName.Text.ToString();
             AdminBL adminBL = new AdminBL();
             User user = new User();
-            grid.ItemsSource = adminBL.GetStudentByUserID(user.UserID);
+            grid.ItemsSource = adminBL.GetStudentByUserID(student.UserID);
         }
     }
 }

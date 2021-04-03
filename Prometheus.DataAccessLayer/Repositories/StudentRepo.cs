@@ -161,13 +161,13 @@ namespace Prometheus.DataAccessLayer.Repositories
                         objDA.Fill(dataSet);
                     }
                 }
-                students = dataSet.Tables["Student"].AsEnumerable()
+                students = dataSet.Tables["Table"].AsEnumerable()
                                 .Select(dataRow => new Student
                                 {
                                     StudentID = dataRow.Field<int>("StudentID"),
                                     FName = dataRow.Field<string>("FName"),
                                     LName = dataRow.Field<string>("LName"),
-                                    UserID = dataRow.Field<string>("UserName"),
+                                    UserID = dataRow.Field<string>("UserID"),
                                     Address = dataRow.Field<string>("Address"),
                                     DOB = dataRow.Field<DateTime>("DOB"),
                                     City = dataRow.Field<string>("City"),

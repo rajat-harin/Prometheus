@@ -35,14 +35,20 @@ namespace Prometheus.PresentationLayer.AdminWPF
         {
             User user = new User();
             user.UserID = txtUserName.Text.ToString();
+            Teacher teacher = new Teacher();
+            Student student = new Student();
+            
             AdminBL adminBL = new AdminBL();
-
             bool result = adminBL.ForgotPassword(user);
-            if (result)
+            if (result == true)
             {
                 MessageBox.Show("Match Found");
                 UserChangePassword userChangePassword = new UserChangePassword();
                 userChangePassword.Show();
+            }
+            else
+            {
+                MessageBox.Show("Match not Found");
             }
         }
 
@@ -53,6 +59,11 @@ namespace Prometheus.PresentationLayer.AdminWPF
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txtmbl_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }

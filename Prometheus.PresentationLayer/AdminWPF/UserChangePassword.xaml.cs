@@ -31,7 +31,7 @@ namespace Prometheus.PresentationLayer.AdminWPF
             user.UserID = txtUserName.Text.ToString();
             user.Password = txtPassword.Password.ToString();
             AdminBL adminBL = new AdminBL();
-            bool result = adminBL.ChangePassword(user, user.UserID, user.Password);
+            bool result = adminBL.ChangePassword(user);
             if (result == true)
             {
                 MessageBox.Show("Change Successfully");
@@ -46,6 +46,11 @@ namespace Prometheus.PresentationLayer.AdminWPF
         }
 
         private void txtUsername_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Date_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }

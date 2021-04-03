@@ -29,6 +29,7 @@ namespace Prometheus.Entities
             City = String.Empty;
             MobileNo = String.Empty;
         }
+
         public Student(int id, string fName, string lName, string userId, string address, DateTime dOB, string city, string mobileNo)
         {
             StudentID = id;

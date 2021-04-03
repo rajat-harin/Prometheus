@@ -24,6 +24,8 @@ namespace Prometheus.DataAccessLayer
         public const string UPDATETEACHER = "UpdateTeacher";
         public const string GETTEACHERS = "GetTeachers";
         public const string GETTEACHERBYID = "GetTeacherByUserID";
+        public const string GETSTUDENTS = "GetStudents";
+        public const string GETSTUDENTSBYID = "GetStudentByUserID";
         public const string DELETETEACHER = "DeleteTeacher";
 
 
@@ -31,7 +33,7 @@ namespace Prometheus.DataAccessLayer
         //public const string INSERTSTUDENT = "AddNewCourse";
         public const string UPDATESTUDENT = "UpdateStudent";
         public const string DELETESTUDENT = "DeleteStudent";
-        public const string GETSTUDENTS = "GetStudents";
+        //public const string GETSTUDENTS = "GetStudents";
         public const string SEARCHSTUDENT = "SearchStudent";
         public const string GETCOURSESOFSTUDENT = "GetCoursesOfStudent";
 
