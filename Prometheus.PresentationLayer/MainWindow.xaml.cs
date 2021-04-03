@@ -34,10 +34,19 @@ namespace Prometheus.PresentationLayer
             this.Hide();
         }
 
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            User_Login_Page newform = new User_Login_Page();
+            newform.Show();
+        }
+
         private void btnAdmin_Click(object sender, RoutedEventArgs e)
         {
             Login login = new Login();
             login.Show();
+
         }
+
     }
 }

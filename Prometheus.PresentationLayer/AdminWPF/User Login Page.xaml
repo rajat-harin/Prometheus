@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:Prometheus.PresentationLayer.AdminWPF"
         mc:Ignorable="d"
         Background="BlanchedAlmond"
-        Title="Teacher_Login_Page" Height="450" Width="800">
+        Title="User_Login_Page" Height="450" Width="800">
     <Grid>
         <Button Content="Login" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="242,338,0,0" VerticalAlignment="Top" Width="92" Height="43" FontWeight="Bold" Click="Button_Click_1" FontSize="14"/>
         <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="25" Margin="281,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="TextBox_TextChanged"/>
         <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" Margin="281,279,0,0" VerticalAlignment="Top" Width="223" Height="25"/>
-        <Label Content="TEACHER LOGIN PAGE" HorizontalAlignment="Left" Margin="220,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.802,-0.531" Width="304" FontWeight="Bold" FontSize="24" Height="57"/>
+        <Label Content="USER LOGIN PAGE" HorizontalAlignment="Left" Margin="220,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.802,-0.531" Width="304" FontWeight="Bold" FontSize="24" Height="57"/>
         <Label Content="Username" HorizontalAlignment="Left" Margin="195,229,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="0.554,1.766"/>
         <Button Content="Forget Password" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="377,338,0,0" VerticalAlignment="Top" Width="127" FontWeight="Bold" Height="43" Click="Button_Click_2" FontSize="14"/>
         <Label Content="Password" HorizontalAlignment="Left" Margin="200,279,0,0" VerticalAlignment="Top" FontWeight="Bold"/>

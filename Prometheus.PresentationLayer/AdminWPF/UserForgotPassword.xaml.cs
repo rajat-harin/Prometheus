@@ -36,7 +36,7 @@ namespace Prometheus.PresentationLayer.AdminWPF
             User user = new User();
             user.UserID = txtUserName.Text.ToString();
             AdminBL adminBL = new AdminBL();
-            
+
             bool result = adminBL.ForgotPassword(user);
             if (result)
             {

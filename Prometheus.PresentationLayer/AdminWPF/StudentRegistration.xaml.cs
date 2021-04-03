@@ -71,11 +71,11 @@ namespace Prometheus.PresentationLayer.AdminWPF
             student.Address = Address.Text.ToString();
             student.DOB = DatePicker.SelectedDate.GetValueOrDefault();
             student.City = City.Text.ToString();
-             string Password = txtPassword.Password.ToString();
+            string Password = txtPassword.Password.ToString();
             student.MobileNo = MobileNo.Text.ToString();
             MessageBox.Show(user.UserID);
             AdminBL bl = new AdminBL();
-            bool result = bl.RegisterStudent(student,Password);
+            bool result = bl.RegisterStudent(student, Password);
             if (result == true)
             {
                 MessageBox.Show("Student Added");

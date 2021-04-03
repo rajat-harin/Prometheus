@@ -61,9 +61,6 @@
     <Compile Include="AdminWPF\Admin Main Page.xaml.cs">
       <DependentUpon>Admin Main Page.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AdminWPF\AdminHomePage.xaml.cs">
-      <DependentUpon>AdminHomePage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="AdminWPF\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
@@ -122,52 +119,48 @@
       <DependentUpon>ViewStudentCourses.xaml</DependentUpon>
     </Compile>
     <Page Include="AdminWPF\Add Course Page.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AdminWPF\Admin Main Page.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="AdminWPF\AdminHomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AdminWPF\Login.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AdminWPF\StudentRegistration.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AdminWPF\TeacherRegistration.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AdminWPF\User Login Page.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AdminWPF\UserChangePassword.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AdminWPF\UserForgotPassword.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AdminWPF\ViewCoursePage.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AdminWPF\ViewStudentPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AdminWPF\ViewTeacherPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ButtonResourceDictionary.xaml">
       <SubType>Designer</SubType>
@@ -271,10 +264,19 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="AdminWPF\admin.jpg" />
     <Resource Include="AdminWPF\login.jpg" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="AdminWPF\Student clip art.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="AdminWPF\teacher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="AdminWPF\admin.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="student main screen.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
