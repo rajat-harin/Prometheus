@@ -26,6 +26,12 @@ namespace Prometheus.PresentationLayer.TeacherWPF
             InitializeComponent();
             
         }
+
+        //This was implemented using older method when I have created no repositores
+        //here we need to take data from repo and to show the students who have opted the course
+        //selected in the combobox and view ohter course button is implemented in the ViewStudentCourses.Xaml
+        //that file is also implemented using the older method logic is applied we need to implement using 
+        //repos and all
         public void GetAllCourses(int studentId)
         {
             //coursegrid.ItemsSource = new StudentOtherCoursesBL().Getstudent(studentId).DefaultView;        

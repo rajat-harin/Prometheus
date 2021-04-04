@@ -233,5 +233,35 @@ namespace Prometheus.DataAccessLayer.Repositories
             return teacher;
         }
 
+        //Enter Data in Teaches table
+        public bool TeacherCourses(int TeacherID, int CourseID)
+        {
+            try
+            {
+                if (TeacherID != 0 && CourseID != 0)
+                {
+                    using (SqlConnection connection = new SqlConnection())
+                    {
+                        using (SqlCommand objCmd = new SqlCommand("TeacherCourses", connection))
+                        {
+                            objCmd.CommandType = CommandType.StoredProcedure;
+                            objCmd.Parameters.AddWithValue("@TeacherID", TeacherID);
+                            objCmd.Parameters.AddWithValue("@CourseID", CourseID);
+                            int affectedRows = objCmd.ExecuteNonQuery();
+                            if (affectedRows > 0)
+                            {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            return false;
+        }
+
     }
 }

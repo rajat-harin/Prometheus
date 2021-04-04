@@ -7,31 +7,29 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using Prometheus.Entities;
+using Prometheus.Exceptions;
 
 namespace Prometheus.DataAccessLayer.Repositories
 {
     public class AssignmentRepo
     {
-        string ConnectionString = ConfigurationManager.ConnectionStrings["prometheusDb"].ConnectionString;
-
         public bool AddAssignment(Assignment assignment)
         {
             try
             {
-                if(assignment !=  null)
+                if (assignment != null)
                 {
-                    using(SqlConnection connection = new SqlConnection(ConnectionString))
+                    using (SqlConnection connection = new SqlConnection(Database.ConnectionString))
                     {
-                        using(SqlCommand objCmd = new SqlCommand("AddAssignment",connection))
+                        using (SqlCommand objCmd = new SqlCommand("AddAssignment", connection))
                         {
                             connection.Open();
                             objCmd.CommandType = CommandType.StoredProcedure;
-                            objCmd.Parameters.AddWithValue("@AssignmentID", assignment.AssignmentID);
                             objCmd.Parameters.AddWithValue("@HomeWorkID", assignment.HomeWorkID);
                             objCmd.Parameters.AddWithValue("@TeacherID", assignment.TeacherID);
                             objCmd.Parameters.AddWithValue("@CourseID", assignment.CourseID);
                             int affectedRows = objCmd.ExecuteNonQuery();
-                            if(affectedRows > 0)
+                            if (affectedRows > 0)
                             {
                                 return true;
                             }
@@ -39,7 +37,7 @@ namespace Prometheus.DataAccessLayer.Repositories
                     }
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
@@ -52,7 +50,7 @@ namespace Prometheus.DataAccessLayer.Repositories
             {
                 if (assignment != null)
                 {
-                    using (SqlConnection connection = new SqlConnection(ConnectionString))
+                    using (SqlConnection connection = new SqlConnection(Database.ConnectionString))
                     {
                         using (SqlCommand objCmd = new SqlCommand("UpdateAssignment", connection))
                         {
@@ -78,19 +76,19 @@ namespace Prometheus.DataAccessLayer.Repositories
             return false;
         }
 
-        public bool DeleteAssignment(Assignment assignment)
+        public bool DeleteAssignment(int AssignmentID)
         {
             try
             {
-                if (assignment != null)
+                if (AssignmentID != 0)
                 {
-                    using (SqlConnection connection = new SqlConnection(ConnectionString))
+                    using (SqlConnection connection = new SqlConnection(Database.ConnectionString))
                     {
                         using (SqlCommand objCmd = new SqlCommand("DeleteAssignment", connection))
                         {
                             connection.Open();
                             objCmd.CommandType = CommandType.StoredProcedure;
-                            objCmd.Parameters.AddWithValue("@AssignmentID", assignment.AssignmentID);
+                            objCmd.Parameters.AddWithValue("@AssignmentID", AssignmentID);
                             int affectedRows = objCmd.ExecuteNonQuery();
                             if (affectedRows > 0)
                             {
@@ -107,40 +105,41 @@ namespace Prometheus.DataAccessLayer.Repositories
             return false;
         }
 
-        public List<Assignment> GetAllAssignment()
+        public List<Assignment> GetAllAssignments()
         {
-            List<Assignment> assignment = new List<Assignment>();
+            List<Assignment> assignmentList = new List<Assignment>();
             try
             {
-                if (assignment != null)
+                if (assignmentList != null)
                 {
-                    DataSet dataset = new DataSet();
-                    using (SqlConnection connection = new SqlConnection(ConnectionString))
+                    using (SqlConnection connection = new SqlConnection(Database.ConnectionString))
                     {
-                        using (SqlCommand objCmd = new SqlCommand("GetAssignments", connection))
+                        using (SqlCommand objCmd = new SqlCommand("GetAllAssignment", connection))
                         {
                             objCmd.CommandType = CommandType.StoredProcedure;
                             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(objCmd);
-                            sqlDataAdapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                            //sqlDataAdapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                            DataSet dataset = new DataSet();
                             sqlDataAdapter.Fill(dataset);
-                        }
-                    }
-                    assignment = dataset.Tables["Table"].AsEnumerable().Select(
+                            assignmentList = dataset.Tables[0].AsEnumerable().Select(
                             dataRow => new Assignment
                             {
                                 AssignmentID = dataRow.Field<int>("AssignmentID"),
-                                CourseID = dataRow.Field<int>("CourseID"),
                                 TeacherID = dataRow.Field<int>("TeacherID"),
+                                CourseID = dataRow.Field<int>("CourseID"),
                                 HomeWorkID = dataRow.Field<int>("HomeWorkID"),
 
                             }).ToList();
+                        }
+                    }
+
                 }
             }
             catch (Exception ex)
             {
                 throw ex;
             }
-            return assignment;
+            return assignmentList;
         }
 
         public Assignment SearchAssignmentById(int AssignmentID)
@@ -148,8 +147,7 @@ namespace Prometheus.DataAccessLayer.Repositories
             Assignment assignment;
             try
             {
-                DataSet dataset = new DataSet();
-                using (SqlConnection connection = new SqlConnection(ConnectionString))
+                using (SqlConnection connection = new SqlConnection(Database.ConnectionString))
                 {
                     using (SqlCommand objCmd = new SqlCommand("SearchAssignment", connection))
                     {
@@ -158,22 +156,23 @@ namespace Prometheus.DataAccessLayer.Repositories
                         objCmd.Parameters.AddWithValue("@AssignmentID", AssignmentID);
                         SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(objCmd);
                         sqlDataAdapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                        DataSet dataset = new DataSet();
                         sqlDataAdapter.Fill(dataset);
-                    }
-                }
-                DataRow RowOfAssignment = dataset.Tables["Assignment"].AsEnumerable().
+                        DataRow RowOfAssignment = dataset.Tables["Assignment"].AsEnumerable().
                             Single(Row => Row.Field<int>("AssignmentID") == AssignmentID
                             );
 
-                assignment = new Assignment
-                {
-                    AssignmentID = RowOfAssignment.Field<int>("AssignmentID"),
-                    HomeWorkID = RowOfAssignment.Field<int>("HomeWorkID"),
-                    CourseID = RowOfAssignment.Field<int>("CourseID"),
-                    TeacherID = RowOfAssignment.Field<int>("TeacherID")
-                };
+                        assignment = new Assignment
+                        {
+                            HomeWorkID = RowOfAssignment.Field<int>("HomeWorkID"),
+                            CourseID = RowOfAssignment.Field<int>("CourseID"),
+                            TeacherID = RowOfAssignment.Field<int>("TeacherID")
+                        };
+                    }
+                }
+
             }
-            catch(Exception)
+            catch (Exception)
             {
                 throw;
             }

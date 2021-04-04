@@ -109,7 +109,7 @@ namespace Prometheus.BusinessLayer
             try
             {
                 List<EnrolledCourse> enrolledCourses = GetCoursesByStudentID(id);
-                List<Assignment> assignments = new AssignmentRepo().GetAllAssignment();
+                List<Assignment> assignments = new AssignmentRepo().GetAllAssignments();
                 List<Homework> homeworks = new HomeworkRepo().GetAllHomework();
 
                 var result = from course in enrolledCourses
@@ -148,7 +148,7 @@ namespace Prometheus.BusinessLayer
             try
             {
                 
-                List<Assignment> assignments = new AssignmentRepo().GetAllAssignment();
+                List<Assignment> assignments = new AssignmentRepo().GetAllAssignments();
                 List<Homework> homeworks = new HomeworkRepo().GetAllHomework();
                 List<HomeworkPlan> homeworkPlans = new HomeworkPlanRepo().GetHomeworkPlans()
                     .Where(homeworkPlan=> homeworkPlan.StudentID == id).ToList();

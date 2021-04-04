@@ -12,19 +12,18 @@ namespace Prometheus.DataAccessLayer.Repositories
 {
     public class HomeworkRepo
     {
-        string ConnectionString = ConfigurationManager.ConnectionStrings["prometheusDb"].ConnectionString;
         public bool AddHomework(Homework homework)///nullor not
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(ConnectionString))
+                using (SqlConnection connection = new SqlConnection(Database.ConnectionString))
                 {
                     using (SqlCommand objCmd = new SqlCommand("AddHomeWork", connection))
                     {
                         connection.Open();
-
                         objCmd.CommandType = CommandType.StoredProcedure;
-                        objCmd.Parameters.AddWithValue("@Id", homework.HomeworkID);//homework is null or not
+
+                        objCmd.Parameters.AddWithValue("@HomeworkID", homework.HomeworkID);
                         objCmd.Parameters.AddWithValue("@Description", homework.Description);
                         objCmd.Parameters.AddWithValue("@Deadline", homework.Deadline);
                         objCmd.Parameters.AddWithValue("@LongDescription", homework.LongDescription);
@@ -48,7 +47,7 @@ namespace Prometheus.DataAccessLayer.Repositories
         {
             try
             {
-                using (SqlConnection connection = new SqlConnection(ConnectionString))
+                using (SqlConnection connection = new SqlConnection(Database.ConnectionString))
                 {
                     using (SqlCommand objCmd = new SqlCommand("UpdateHomeWork", connection))
                     {
@@ -76,14 +75,15 @@ namespace Prometheus.DataAccessLayer.Repositories
 
         public bool DeleteHomework(int homeworkId)
         {
-            if(homeworkId != 0)
+            if (homeworkId != 0)
             {
                 try
                 {
-                    using (SqlConnection connection = new SqlConnection(ConnectionString))
+                    using (SqlConnection connection = new SqlConnection(Database.ConnectionString))
                     {
                         using (SqlCommand objCmd = new SqlCommand("DeleteHomework", connection))
                         {
+                            connection.Open();
                             objCmd.CommandType = CommandType.StoredProcedure;
                             objCmd.Parameters.AddWithValue("@id", homeworkId);
                             int affectedRows = objCmd.ExecuteNonQuery();
@@ -99,7 +99,7 @@ namespace Prometheus.DataAccessLayer.Repositories
                     throw ex;
                 }
             }
-            
+
             return false;
         }
         public Homework SearchHomework(int HomeWorkID)
@@ -107,7 +107,7 @@ namespace Prometheus.DataAccessLayer.Repositories
             Homework homework;//
             try
             {
-                using (SqlConnection connection = new SqlConnection(ConnectionString))
+                using (SqlConnection connection = new SqlConnection(Database.ConnectionString))
                 {
                     using (SqlCommand objCmd = new SqlCommand("SearchHomeWork", connection))
                     {
@@ -122,7 +122,7 @@ namespace Prometheus.DataAccessLayer.Repositories
                         sqlDataAdapter.Fill(dataSet);
                         //null or not null
                         DataRow RowOfHomework = dataSet.Tables["Homework"].AsEnumerable()
-                            .SingleOrDefault(dataRow => dataRow.Field<int>("HomeworkID") == HomeWorkID);
+                            .Single(dataRow => dataRow.Field<int>("HomeworkID") == HomeWorkID);
 
                         homework = new Homework
                         {
@@ -138,38 +138,37 @@ namespace Prometheus.DataAccessLayer.Repositories
             catch (Exception ex)
             {
                 throw ex;// return error message
-            }       
+            }
             return homework;
         }
 
         public List<Homework> GetAllHomework()
         {
-            List<Homework> homeworkList;
-            homeworkList = new List<Homework>();
-            DataSet dataset = new DataSet();
+            List<Homework> homeworkList = new List<Homework>();
             try
             {
-                using (SqlConnection connection = new SqlConnection(ConnectionString))
+                using (SqlConnection connection = new SqlConnection(Database.ConnectionString))
                 {
-                    using (SqlCommand objCmd = new SqlCommand("GetHomeworks", connection))
+                    using (SqlCommand objCmd = new SqlCommand("GetAllHomework", connection))
                     {
                         objCmd.CommandType = CommandType.StoredProcedure;
                         connection.Open();
                         SqlDataAdapter sqldataAdapter = new SqlDataAdapter(objCmd);
+                        DataSet dataset = new DataSet();
                         sqldataAdapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
                         sqldataAdapter.Fill(dataset);
+                        homeworkList = dataset.Tables[0].AsEnumerable().Select(
+                        dataRow => new Homework
+                        {
+                            HomeworkID = dataRow.Field<int>("HomeworkID"),
+                            Description = dataRow.Field<string>("Description"),
+                            LongDescription = dataRow.Field<string>("LongDescription"),
+                            ReqTime = dataRow.Field<DateTime>("ReqTime"),
+                            Deadline = dataRow.Field<DateTime>("Deadline")
+                        }).ToList();
                     }
 
                 }
-                homeworkList = dataset.Tables["Table"].AsEnumerable().Select(
-                dataRow => new Homework
-                {
-                    HomeworkID = dataRow.Field<int>("HomeworkID"),
-                    Description = dataRow.Field<string>("Description"),
-                    LongDescription = dataRow.Field<string>("LongDescription"),
-                    Deadline = dataRow.Field<DateTime>("Deadline")
-                }).ToList();
-
             }
             catch (Exception ex)
             {

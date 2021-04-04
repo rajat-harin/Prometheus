@@ -8,10 +8,31 @@
         Title="ViewAllCourses" Height="450" Width="800" Background="BlanchedAlmond">
     <Grid>
         <Label Content="Prometheus"  Canvas.Left="10" Canvas.Top="10"  
-    FontSize="24" FontFamily="Georgia" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="295,10,0,0" Width="222"/>
+        FontSize="24" FontFamily="Georgia" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="295,10,0,0" Width="222"/>
         <Label Content="Courses Information"   FontFamily="Georgia" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,52,0,0" Width="298"/>
-        <DataGrid x:Name="grid" HorizontalAlignment="Left" Height="294" Margin="10,116,0,0" VerticalAlignment="Top" Width="774"/>
-        <Button Content="Show Courses" Name="ShowCourses"  FontSize="18" FontWeight="Bold" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="542,52,0,0" VerticalAlignment="Top" Width="178" RenderTransformOrigin="0.624,-0.266" Height="36" Click="ShowCourses_Click"/>
-
+        <DataGrid x:Name="courseGrid" FontSize="15" AutoGenerateColumns="False" CanUserAddRows="False"
+        Margin="10,141,-0.4,61" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+        RowBackground="white" FontWeight="Bold" 
+        ScrollViewer.CanContentScroll="True" MaxHeight="390"
+        AlternatingRowBackground="#f2f2f2" BorderBrush="#000" BorderThickness="1"
+        ScrollViewer.HorizontalScrollBarVisibility="Visible"
+        ScrollViewer.VerticalScrollBarVisibility="Auto">
+            <DataGrid.Columns>
+                <DataGridTextColumn FontSize="12" Header="Course Id" Binding="{Binding Path='CourseID'}" IsReadOnly="True" />
+                <DataGridTextColumn FontSize="12" Header="Course Name" Binding="{Binding Path='Name'}" IsReadOnly="True" />
+                <DataGridTextColumn FontSize="12" Header="Start Date" Binding="{Binding Path='StartDate'}" IsReadOnly="True" />
+                <DataGridTextColumn FontSize="12" Header="End Date" Binding="{Binding Path='EndDate'}" IsReadOnly="True" />
+                <!--CheckBoxColumnCode-->
+                <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Select Course">
+                    <DataGridCheckBoxColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="FontWeight" Value="Bold"></Setter>
+                        </Style>
+                    </DataGridCheckBoxColumn.HeaderStyle>
+                </DataGridCheckBoxColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Content="View All Courses" Name="ShowCourses" FontFamily="Georgia" FontSize="20" FontWeight="Bold" Background="white" HorizontalAlignment="Left" Margin="581,52,0,0" VerticalAlignment="Top" Width="203" RenderTransformOrigin="0.624,-0.266" Height="36" Click="ShowCourses_Click"/>
+        <Button Content="Show My Courses" HorizontalAlignment="Left" Margin="340,377,0,0" VerticalAlignment="Top" Width="118" Height="33"/>
     </Grid>
 </Window>
