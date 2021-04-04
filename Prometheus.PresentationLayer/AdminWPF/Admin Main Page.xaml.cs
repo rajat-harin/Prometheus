@@ -94,19 +94,19 @@ namespace Prometheus.PresentationLayer.AdminWPF
 
         private void Button_Click_9(object sender, RoutedEventArgs e)
         {
-            ViewMyStudents form3 = new ViewMyStudents();
+            ViewMyStudents form3 = new ViewMyStudents(txtUserName.Text);
             form3.Show();
         }
 
         private void Button_Click_10(object sender, RoutedEventArgs e)
         {
-            HomeworkActivity form4 = new HomeworkActivity();
+            HomePage form4 = new HomePage(txtUserName.Text);
             form4.Show();
         }
 
         private void Button_Click_11(object sender, RoutedEventArgs e)
         {
-            ViewAllCourses form2 = new ViewAllCourses();
+            ViewAllCourses form2 = new ViewAllCourses(txtUserName.Text);
             form2.Show();
         }
     }

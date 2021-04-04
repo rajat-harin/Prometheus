@@ -58,7 +58,7 @@ namespace Prometheus.PresentationLayer.TeacherWPF
             try
             {
                 DataRowView dataRowView = (DataRowView)((Button)e.Source).DataContext;
-                ViewStudentCourses form1 = new ViewStudentCourses();
+                ViewStudentCourses form1 = new ViewStudentCourses(txtUserName.Text);
                 int id = Convert.ToInt32(dataRowView[0].ToString());
                 string name = dataRowView[1].ToString() +" " +dataRowView[2].ToString();
                 form1.idtxt.Text = Convert.ToString(id);
