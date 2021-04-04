@@ -88,7 +88,7 @@
             
         </DataGrid>
         <Button x:Name="SaveButton" Content="Save Plan" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="664,344,0,0" VerticalAlignment="Top" Width="75" FontSize="14" FontWeight="Bold" Height="36" RenderTransformOrigin="0.54,-0.122" Click="SaveButton_Click"/>
-        <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="23" Margin="664,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" TextChanged="txtUserName_TextChanged"/>
+        <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="23" Margin="664,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" TextChanged="txtUserName_TextChanged" IsReadOnly="True"/>
 
     </Grid>
 </Window>

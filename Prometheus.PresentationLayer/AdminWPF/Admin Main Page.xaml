@@ -8,7 +8,7 @@
         Background="BlanchedAlmond"
         Title="Admin_Main_Page" Height="450" Width="800">
     <Grid>
-        <Button Content="LogOut" HorizontalAlignment="Left" Margin="709,10,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Height="30" Click="Button_Click_7"/>
+        <Button Content="Logout" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="709,10,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Height="30" Click="Button_Click_7" FontSize="14"/>
         <Button Content="ADD TEACHER" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" Width="330" Height="43" FontWeight="Bold" FontSize="14" Click="Button_Click_1"/>
         <Button Content="ADD STUDENT" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="10,177,0,0" VerticalAlignment="Top" Width="330" FontWeight="Bold" FontSize="14" Height="49" Click="Button_Click_2"/>
         <Button Content="ADD COURSE" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="10,286,0,0" VerticalAlignment="Top" Width="330" FontWeight="Bold" FontSize="14" Height="53" Click="Button_Click_3"/>
@@ -17,9 +17,9 @@
         <Button Content="View Students" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="10,226,0,0" VerticalAlignment="Top" Width="330" Height="60" FontWeight="Bold" FontSize="14" Click="Button_Click_5"/>
         <Button Content="View Course" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="10,335,0,0" VerticalAlignment="Top" Width="330" RenderTransformOrigin="0.468,1.95" Height="57" FontWeight="Bold" FontSize="14" Click="Button_Click_6"/>
         <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="30" Margin="597,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="85" TextChanged="txtUserName_TextChanged"/>
-        <Button Content="View My Students" HorizontalAlignment="Left" Margin="545,270,0,0" VerticalAlignment="Top" Width="178" Height="50" Click="Button_Click_9"/>
-        <Button Content="HomeWork Activity" HorizontalAlignment="Left" Margin="545,351,0,0" VerticalAlignment="Top" Width="178" Height="41" Click="Button_Click_10"/>
-        <Button Content="View My Courses" HorizontalAlignment="Left" Margin="545,195,0,0" VerticalAlignment="Top" Width="178" Height="46" Click="Button_Click_11"/>
+        <Button Content="View My Students" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="545,270,0,0" VerticalAlignment="Top" Width="178" Height="50" Click="Button_Click_9" FontSize="14" FontWeight="Bold"/>
+        <Button Content="HomeWork Activity" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="545,351,0,0" VerticalAlignment="Top" Width="178" Height="41" Click="Button_Click_10" FontWeight="Bold" FontSize="14"/>
+        <Button Content="View My Courses" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="545,195,0,0" VerticalAlignment="Top" Width="178" Height="46" Click="Button_Click_11" FontWeight="Bold" FontSize="14"/>
 
     </Grid>
 </Window>

@@ -29,7 +29,9 @@ namespace Prometheus.PresentationLayer.StudentWPF
         {
             InitializeComponent();
             studentBL = new StudentBL();
+            this.student = new Student();
             this.student = student;
+            txtUserName.Text = student.UserID;
             LoadEnrollCourseComboBox();
         }
         public void LoadEnrollCourseComboBox() //function to load the CourseID column values into the combobox. This function is called as soon as the EnrollForCourse Window is opened.
@@ -58,20 +60,31 @@ namespace Prometheus.PresentationLayer.StudentWPF
             //The following code takes data from the combobox and TextBox and inserts it into the SQL Enrollment Table.
             try
             {
-                int courseId = (int) EnrollCourseComboBox.SelectedValue;
-                bool isEnrolled = studentBL.EnrollInCourse(student.StudentID, courseId);
-                if(isEnrolled)
+                int courseId;
+                if (EnrollCourseComboBox.SelectedValue != null)
                 {
-                    MessageBox.Show("Enrolled Successfully");
+                    courseId = (int)EnrollCourseComboBox.SelectedValue;
+                    bool isEnrolled = studentBL.EnrollInCourse(student.StudentID, courseId);
+                    if (isEnrolled)
+                    {
+                        MessageBox.Show("Enrolled Successfully");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to enroll!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Failed to enroll!","Error",MessageBoxButton.OK,MessageBoxImage.Error);
+                    MessageBox.Show("Please Select A course!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
+                    
+                
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message,"Error", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                MessageBox.Show("Already Enrolled!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         private void BackButton_Click(object sender, RoutedEventArgs e) //implentation of Back Button
@@ -82,7 +95,7 @@ namespace Prometheus.PresentationLayer.StudentWPF
         private void Window_Closed(object sender, EventArgs e)//to implement: close buttons opens student main window.
         {
                 this.Close();
-                StudentMainWindow studentMainWindowobj = new StudentMainWindow(txtUserName.Text);
+                StudentMainWindow studentMainWindowobj = new StudentMainWindow(student.UserID);
                 studentMainWindowobj.Show();
             }
 

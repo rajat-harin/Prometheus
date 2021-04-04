@@ -31,7 +31,9 @@ namespace Prometheus.PresentationLayer.StudentWPF
         {
             InitializeComponent();
             objStudentBL = new StudentBL();
+            this.student = new Student();
             this.student = student;
+            txtUserName.Text = student.UserID;
             LoadMyCourses();
         }
         public void LoadMyCourses()//method to load my courses data grid on ViewMyCoursesWindow
@@ -69,7 +71,7 @@ namespace Prometheus.PresentationLayer.StudentWPF
         private void Window_Closed(object sender, EventArgs e) // Pressing the close button takes us back to the student main window.
         {
                 this.Close();
-                StudentMainWindow studentMainWindowobj = new StudentMainWindow(txtUserName.Text);
+                StudentMainWindow studentMainWindowobj = new StudentMainWindow(student.UserID);
                 studentMainWindowobj.Show();
             }
 
