@@ -20,9 +20,10 @@ namespace Prometheus.PresentationLayer.StudentWPF
     public partial class StudentMainWindow : Window
     {
         //string connectionstring = "put connection string here; Integrated Security = True;" ;
-        public StudentMainWindow()
+        public StudentMainWindow(string UserName)
         {
             InitializeComponent();
+            txtUserName.Text = UserName;
         }
 
         private void ViewMyHomeworkBt_Click(object sender, RoutedEventArgs e) //opens ViewMyHomeworkWindow
@@ -62,6 +63,11 @@ namespace Prometheus.PresentationLayer.StudentWPF
             this.Hide();
             EnrollForCourseWindow CourseEnrollWindow = new EnrollForCourseWindow();
             CourseEnrollWindow.Show();
+        }
+
+        private void txtUserName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

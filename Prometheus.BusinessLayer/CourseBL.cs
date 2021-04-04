@@ -24,7 +24,7 @@ namespace Prometheus.BusinessLayer
                     }
                     else
                     {
-                        throw new PrometheusException("user registration failed");
+                        throw new PrometheusException("Insertion of Course Failed");
                     }
                 }
             }
@@ -48,13 +48,13 @@ namespace Prometheus.BusinessLayer
                 }
                 else
                 {
-                    throw new PrometheusException("No Course Found!");
+                    throw new PrometheusException("No Courses Found!");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
-                throw new PrometheusException(ex.Message);
+                throw;
             }
         }
 
@@ -72,7 +72,7 @@ namespace Prometheus.BusinessLayer
                 }
                 else
                 {
-                    throw new PrometheusException("No Courses Found!");
+                    throw new PrometheusException("No Course Found!");
                 }
             }
             catch (Exception)

@@ -55,7 +55,7 @@ namespace Prometheus.DataAccessLayer.Repositories
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }

@@ -12,5 +12,6 @@
         <TextBlock HorizontalAlignment="Left" Margin="298,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Width="175" FontSize="22"><Run FontWeight="Bold" Text="My Homeworks"/></TextBlock>
         <DataGrid x:Name="ViewHomeworkDG" HorizontalAlignment="Left" Height="234" Margin="93,129,0,0" VerticalAlignment="Top" Width="644" SelectionChanged="DataGrid_SelectionChanged" AlternatingRowBackground="Gray">
         </DataGrid>
+        <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="23" Margin="664,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" TextChanged="txtUserName_TextChanged"/>
     </Grid>
 </Window>

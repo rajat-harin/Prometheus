@@ -27,33 +27,43 @@ namespace Prometheus.PresentationLayer.AdminWPF
         }
         private void btnChPassword_Click(object sender, RoutedEventArgs e)
         {
+            this.Hide();
             UserChangePassword frm2 = new UserChangePassword();
             frm2.Show();
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            User user = new User();
-            user.UserID = txtUserName.Text.ToString();
-            Teacher teacher = new Teacher();
-            Student student = new Student();
-            
-            AdminBL adminBL = new AdminBL();
-            bool result = adminBL.ForgotPassword(user);
-            if (result == true)
+
+            try
             {
-                MessageBox.Show("Match Found");
-                UserChangePassword userChangePassword = new UserChangePassword();
-                userChangePassword.Show();
+                User guest = new User();
+                guest.UserID = txtUserName.Text.ToString();
+                guest.SecurityQuestion = comboSecurity.Text.ToString();
+                guest.SecurityAnswer = txtAnswer.Text.ToString();
+                AdminBL adminBL = new AdminBL();
+                bool result = adminBL.ForgotPassword(guest);
+                if (result == true)
+                {
+                    MessageBox.Show("Match Found");
+                    UserChangePassword userChangePassword = new UserChangePassword();
+                    userChangePassword.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Match not Found");
+                }
             }
-            else
+            catch (NullReferenceException nullReferenceException)
             {
-                MessageBox.Show("Match not Found");
+                MessageBox.Show("Do not leave course name empty");
+                throw nullReferenceException;
             }
         }
 
         private void btnReg_Click(object sender, RoutedEventArgs e)
         {
+            this.Hide();
             MainWindow form = new MainWindow();
             form.Show();
         }
@@ -64,6 +74,11 @@ namespace Prometheus.PresentationLayer.AdminWPF
         }
 
         private void txtmbl_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void txtAnswer_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }

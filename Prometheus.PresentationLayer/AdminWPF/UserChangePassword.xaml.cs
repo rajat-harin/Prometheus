@@ -27,17 +27,35 @@ namespace Prometheus.PresentationLayer.AdminWPF
         }
         private void btnChangePass_Click(object sender, RoutedEventArgs e)
         {
-            User user = new User();
-            user.UserID = txtUserName.Text.ToString();
-            user.Password = txtPassword.Password.ToString();
-            AdminBL adminBL = new AdminBL();
-            bool result = adminBL.ChangePassword(user);
-            if (result == true)
+
+            try
             {
-                MessageBox.Show("Change Successfully");
-                User_Login_Page t = new User_Login_Page();
-                t.Show();
+                User user = new User();
+                user.UserID = txtUserName.Text.ToString();
+                user.Password = txtPassword.Password.ToString();
+                AdminBL adminBL = new AdminBL();
+                bool result = adminBL.ChangePassword(user);
+                if (result == true)
+                {
+                    if (MessageBox.Show("Do you want Change Password?","Confirmation", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                    {
+                        MessageBox.Show("Change Successfully");
+                        this.Hide();
+                        User_Login_Page t = new User_Login_Page();
+                        t.Show();
+                    }
+                    else
+                    {
+                        this.Close();
+                    }
+                }
             }
+            catch (NullReferenceException nullReferenceException)
+            {
+                MessageBox.Show("Do not leave course name empty");
+                throw nullReferenceException;
+            }
+
         }
 
         private void btnReg_Click(object sender, RoutedEventArgs e)

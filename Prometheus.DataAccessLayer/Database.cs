@@ -15,7 +15,8 @@ namespace Prometheus.DataAccessLayer
         public const string USERLOGIN = "UserLogin";
         public const string USERUPDATEPASSWORD = "UserUpdatePassword";
         public const string GETALLUSERS = "GetAllUsers";
-        public const string GETUSERBYID = "SearchUser";
+        public const string GETUSERBYID = "GetUserByUserID";
+        public const string GETUSER = "SeachUser";
         public const string DELETEUSER = "DeleteUser";
         public const string INSERTCOURSE = "InsertCourse";
         public const string INSERTSTUDENT = "InsertStudent";

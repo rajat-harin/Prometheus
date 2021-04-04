@@ -22,9 +22,10 @@ namespace Prometheus.PresentationLayer.AdminWPF
     /// </summary>
     public partial class TeacherRegistration : Window
     {
-        public TeacherRegistration()
+        public TeacherRegistration(string UserName)
         {
             InitializeComponent();
+            txtUserName.Text = UserName;
         }
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -63,7 +64,8 @@ namespace Prometheus.PresentationLayer.AdminWPF
 
         private void btnHome_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow frm2 = new MainWindow();
+            this.Hide();
+            Admin_Main_Page frm2 = new Admin_Main_Page(txtUserName.Text);
             frm2.Show();
         }
 
@@ -72,6 +74,7 @@ namespace Prometheus.PresentationLayer.AdminWPF
             try
             {
                 Teacher teacher = new Teacher();
+                User user = new User();
                 teacher.FName = FName.Text.ToString();
                 teacher.LName = LName.Text.ToString();
                 teacher.UserID = UserName.Text.ToString();
@@ -81,15 +84,15 @@ namespace Prometheus.PresentationLayer.AdminWPF
                 string Password = txtPassword.Password.ToString();
                 teacher.MobileNo = MobileNo.Text.ToString();
                 teacher.IsAdmin = (bool)checkBoxIsAdmin.IsChecked;
-                User user = new User();
+                string SecurityQuestion = comboSecurity.Text.ToString();
+                string SecurityAnswer = txtAnswer.Text.ToString();
 
                 AdminBL bl = new AdminBL();
-                bool result = bl.RegisterTeacher(user, teacher, Password
-                    );
+                bool result = bl.RegisterTeacher(teacher, Password, SecurityQuestion, SecurityAnswer);
                 if (result == true)
                 {
                     MessageBox.Show("Teacher Added");
-                    Admin_Main_Page p = new Admin_Main_Page();
+                    Admin_Main_Page p = new Admin_Main_Page(txtUserName.Text);
                     p.Show();
                 }
                 else
@@ -97,10 +100,28 @@ namespace Prometheus.PresentationLayer.AdminWPF
                     MessageBox.Show("Teacher not Added");
                 }
             }
-            catch (Exception ex)
+            catch (NullReferenceException nullReferenceException)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Do not leave course name empty");
+                throw nullReferenceException;
             }
+            catch (Exception exception)
+            {
+
+                MessageBox.Show("Please select date as well for start and end course");
+                throw exception;
+
+            }
+        }
+        private void NumericOnly(System.Object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            e.Handled = IsTextNumeric(e.Text);
+        }
+
+        private static bool IsTextNumeric(string str)
+        {
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("[^0-9]");
+            return regex.IsMatch(str);
         }
 
         private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -109,6 +130,29 @@ namespace Prometheus.PresentationLayer.AdminWPF
         }
 
         private void checkBox_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            FName.Clear();
+            LName.Clear();
+            UserName.Clear();
+            Address.Clear();
+            City.Clear();
+            txtPassword.Clear();
+            MobileNo.Clear();
+        }
+
+        private void logout_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            User_Login_Page user_Login_Page = new User_Login_Page();
+            user_Login_Page.Show();
+        }
+
+        private void txtAnswer_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }

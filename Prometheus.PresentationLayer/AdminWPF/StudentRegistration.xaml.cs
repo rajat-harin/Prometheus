@@ -21,9 +21,10 @@ namespace Prometheus.PresentationLayer.AdminWPF
     /// </summary>
     public partial class StudentRegistration : Window
     {
-        public StudentRegistration()
+        public StudentRegistration(string UserName)
         {
             InitializeComponent();
+            txtUserName.Text = UserName;
         }
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -62,34 +63,64 @@ namespace Prometheus.PresentationLayer.AdminWPF
 
         private void btnSaveData_Click_1(object sender, RoutedEventArgs e)
         {
-            Student student = new Student();
+            try
+            {
+                Student student = new Student();
 
-            User user = new User();
-            student.FName = FName.Text.ToString();
-            student.LName = LName.Text.ToString();
-            student.UserID = UserName.Text.ToString();
-            student.Address = Address.Text.ToString();
-            student.DOB = DatePicker.SelectedDate.GetValueOrDefault();
-            student.City = City.Text.ToString();
-            string Password = txtPassword.Password.ToString();
-            student.MobileNo = MobileNo.Text.ToString();
-            
-            AdminBL bl = new AdminBL();
-            bool result = bl.RegisterStudent(student, Password, user);
-            if (result == true)
-            {
-                MessageBox.Show("Student Added");
-                
+                User user = new User();
+                student.FName = FName.Text.ToString();
+                student.LName = LName.Text.ToString();
+                student.UserID = UserName.Text.ToString();
+                student.Address = Address.Text.ToString();
+                student.DOB = DatePicker.SelectedDate.GetValueOrDefault();
+                student.City = City.Text.ToString();
+                string Password = txtPassword.Password.ToString();
+                student.MobileNo = MobileNo.Text.ToString();
+                string SecurityQuestion = comboSecurity.Text.ToString();
+                string SecurityAnswer = txtAnswer.Text.ToString();
+
+                AdminBL bl = new AdminBL();
+                bool result = bl.RegisterStudent(student,Password,SecurityQuestion,SecurityAnswer);
+                if (result == true)
+                {
+                    MessageBox.Show("Student Added");
+
+                }
+                else
+                {
+                    MessageBox.Show("Student not Added");
+                }
             }
-            else
+            catch (NullReferenceException nullReferenceException)
             {
-                MessageBox.Show("Student not Added");
+                MessageBox.Show("Do not leave course name empty");
+                throw nullReferenceException;
             }
+            catch (Exception exception)
+            {
+
+                MessageBox.Show("Please select date as well for start and end course");
+                throw exception;
+
+            }
+
+        }
+
+        private void NumericOnly(System.Object sender, System.Windows.Input.TextCompositionEventArgs e)
+        {
+            e.Handled = IsTextNumeric(e.Text);
+        }
+
+        private static bool IsTextNumeric(string str)
+        {
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex("[^0-9]");
+            return regex.IsMatch(str);
         }
 
         private void btnHome_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow frm2 = new MainWindow();
+            this.Hide();
+            Admin_Main_Page frm2 = new Admin_Main_Page(txtUserName.Text);
             frm2.Show();
         }
 
@@ -99,10 +130,26 @@ namespace Prometheus.PresentationLayer.AdminWPF
             LName.Clear();
             UserName.Clear();
             Address.Clear();
-            
             City.Clear();
             txtPassword.Clear();
             MobileNo.Clear();
+        }
+
+        private void txtUserName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void logout_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            User_Login_Page user_Login_Page = new User_Login_Page();
+            user_Login_Page.Show();
+        }
+
+        private void txtAnswer_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

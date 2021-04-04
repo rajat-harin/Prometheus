@@ -21,9 +21,10 @@ namespace Prometheus.PresentationLayer.AdminWPF
     /// </summary>
     public partial class ViewStudentPage : Window
     {
-        public ViewStudentPage()
+        public ViewStudentPage(string UserName)
         {
             InitializeComponent();
+            txtUserName.Text = UserName;
         }
         private void ViewStudentPage_Load(object sender, EventArgs e)
         {
@@ -31,6 +32,7 @@ namespace Prometheus.PresentationLayer.AdminWPF
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            
             AdminBL adminBL = new AdminBL();
             grid.ItemsSource = adminBL.GetStudents();
         }
@@ -47,11 +49,30 @@ namespace Prometheus.PresentationLayer.AdminWPF
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            
             Student student = new Student();
-            student.UserID = txtUserName.Text.ToString();
+            student.UserID = UserName.Text.ToString();
             AdminBL adminBL = new AdminBL();
             User user = new User();
             grid.ItemsSource = adminBL.GetStudentByUserID(student.UserID);
+        }
+
+        private void txtUserName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            Admin_Main_Page admin_Main_Page = new Admin_Main_Page(txtUserName.Text);
+            admin_Main_Page.Show();
+        }
+
+        private void logout_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            User_Login_Page user_Login_Page = new User_Login_Page();
+            user_Login_Page.Show();
         }
     }
 }

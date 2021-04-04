@@ -27,26 +27,11 @@ namespace Prometheus.PresentationLayer
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            StudentMainWindow obj = new StudentMainWindow();
-            obj.Show();
-            this.Hide();
-        }
-
-
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             User_Login_Page newform = new User_Login_Page();
             newform.Show();
 
         }
-
-        private void btnAdmin_Click(object sender, RoutedEventArgs e)
-        {
-            Login login = new Login();
-            login.Show();
-        }
-
     }
 }

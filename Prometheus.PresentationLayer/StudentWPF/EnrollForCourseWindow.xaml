@@ -22,6 +22,7 @@
                 </LinearGradientBrush>
             </ComboBox.Background>
         </ComboBox>
+        <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="23" Margin="664,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" TextChanged="txtUserName_TextChanged"/>
 
     </Grid>
 </Window>

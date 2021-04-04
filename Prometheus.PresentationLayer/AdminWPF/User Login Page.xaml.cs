@@ -26,52 +26,63 @@ namespace Prometheus.PresentationLayer.AdminWPF
         public User_Login_Page()
         {
             InitializeComponent();
+            
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            this.Hide();
             MainWindow from = new MainWindow();
             from.Show();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            User guest = new User();
-            guest.UserID = txtUserName.Text.ToString();
-            guest.Password = txtPassword.Password.ToString();
-            AdminBL adminBL = new AdminBL();
-            string role = adminBL.Login(guest);
-            if (string.IsNullOrEmpty(role))
+            try
             {
-                MessageBox.Show("Login Unsuccessfull....");
+                User guest = new User();
+                guest.UserID = txtUserName.Text.ToString();
+                guest.Password = txtPassword.Password.ToString();
+                AdminBL adminBL = new AdminBL();
+                string role = adminBL.Login(guest);
+                if (string.IsNullOrEmpty(role))
+                {
+                    MessageBox.Show("Login Unsuccessfull....");
 
-            }
-            else
-            {
-                MessageBox.Show("Login Successful....");
-                if (role.Equals("admin"))
-                {
-                    Admin_Main_Page adminHomePage = new Admin_Main_Page();
-                    adminHomePage.Show();
-                }
-                else if (role.Equals("teacher"))
-                {
-                    HomePage homePage = new HomePage();
-                    homePage.Show();
-                }
-                else if (role.Equals("student"))
-                {
-                    StudentMainWindow studentMainWindow = new StudentMainWindow();
-                    studentMainWindow.Show();
                 }
                 else
                 {
-                    MessageBox.Show("Something went wrong...");
+                    MessageBox.Show("Login Successful....");
+                    if (role.Equals("admin"))
+                    {
+                        Admin_Main_Page adminHomePage = new Admin_Main_Page(txtUserName.Text);
+                        adminHomePage.Show();
+                    }
+                    else if (role.Equals("teacher"))
+                    {
+                        HomePage homePage = new HomePage(txtUserName.Text);
+                        homePage.Show();
+                    }
+                    else if (role.Equals("student"))
+                    {
+                        StudentMainWindow studentMainWindow = new StudentMainWindow(txtUserName.Text);
+                        studentMainWindow.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Something went wrong...");
+                    }
                 }
+            }
+            catch (NullReferenceException nullReferenceException)
+            {
+                MessageBox.Show("Do not leave course name empty");
+                throw nullReferenceException;
             }
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            this.Hide();
             UserForgotPassword UserForgotPassword = new UserForgotPassword();
             UserForgotPassword.Show();
         }

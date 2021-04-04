@@ -9,7 +9,6 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="62,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="104" Width="731" FontFamily="Segoe UI Black" FontSize="36" Text="Welcome To Student Homework Planner!" FontWeight="Bold"/>
-        <Button Content="StudentMainWindow" HorizontalAlignment="Left" Margin="556,197,0,0" VerticalAlignment="Top" Width="137" Click="Button_Click" Height="41" FontWeight="Bold"/>
         <Image HorizontalAlignment="Left" Height="214" Margin="62,168,0,0" VerticalAlignment="Top" Width="416" Source="student main screen.png"/>
         <Button Content="Go To Login Page" HorizontalAlignment="Left" Margin="556,290,0,0" VerticalAlignment="Top" Width="137" FontWeight="Bold" Height="40" Click="Button_Click_1"/>
 

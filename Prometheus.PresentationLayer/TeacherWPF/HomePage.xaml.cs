@@ -19,9 +19,11 @@ namespace Prometheus.PresentationLayer.TeacherWPF
     /// </summary>
     public partial class HomePage : Window
     {
-        public HomePage()
+        public HomePage(string UserName)
         {
             InitializeComponent();
+            txtUserName.Text = UserName;
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -40,6 +42,11 @@ namespace Prometheus.PresentationLayer.TeacherWPF
         {
             HomeworkActivity form4 = new HomeworkActivity();
             form4.Show();
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

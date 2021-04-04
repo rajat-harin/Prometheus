@@ -10,9 +10,12 @@
     <Grid>
         <Button Content="View All Students" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="85,80,0,0" VerticalAlignment="Top" Width="153" Height="39" FontWeight="Bold" Click="Button_Click" FontSize="14"/>
         <Label Content="Search Student By ID" HorizontalAlignment="Left" Margin="110,168,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
-        <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="23" Margin="261,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" TextChanged="TextBox_TextChanged"/>
+        <TextBox x:Name="UserName" HorizontalAlignment="Left" Height="23" Margin="261,168,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="302" TextChanged="TextBox_TextChanged"/>
         <DataGrid x:Name="grid" HorizontalAlignment="Left" Height="184" Margin="28,210,0,0" VerticalAlignment="Top" Width="703" SelectionChanged="DataGrid_SelectionChanged"/>
         <Button Content="Search" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="586,168,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1" FontWeight="Bold" FontSize="14"/>
+        <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="23" Margin="662,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="txtUserName_TextChanged"/>
+        <Button Content="Back to Admin Page" HorizontalAlignment="Left" Margin="26,10,0,0" VerticalAlignment="Top" Width="114" Height="23" Click="Button_Click_2"/>
+        <Button x:Name="logout" Content="Logout" HorizontalAlignment="Left" Margin="662,86,0,0" VerticalAlignment="Top" Width="120" Height="35" Click="logout_Click"/>
 
     </Grid>
 </Window>
