@@ -30,8 +30,9 @@ namespace Prometheus.PresentationLayer.StudentWPF
             InitializeComponent();
             studentBL = new StudentBL();
             student = new Student();
-
+            
             student.UserID = UserName;
+            txtUserName.Text = UserName;
             LoadStudent();
         }
         private void LoadStudent()
@@ -93,6 +94,13 @@ namespace Prometheus.PresentationLayer.StudentWPF
         {
             this.Close();
             User_Login_Page newform = new User_Login_Page();
+            newform.Show();
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            UpdateStudentProfile newform = new UpdateStudentProfile(student);
             newform.Show();
         }
     }

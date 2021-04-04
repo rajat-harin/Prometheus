@@ -29,7 +29,9 @@ namespace Prometheus.PresentationLayer.StudentWPF
         {
             InitializeComponent();
             studentBL = new StudentBL();
+            this.student = new Student();
             this.student = student;
+            txtUserName.Text = student.UserID;
             LoadHomeworkGrid();    
         }
         public void LoadHomeworkGrid() //Creating a function to load homework grid.
@@ -58,7 +60,7 @@ namespace Prometheus.PresentationLayer.StudentWPF
         private void Window_Closed(object sender, EventArgs e)// pressing the close button takes us back to student main window
         {
             this.Close();
-            StudentMainWindow studentMainWindowobj = new StudentMainWindow(txtUserName.Text);
+            StudentMainWindow studentMainWindowobj = new StudentMainWindow(student.UserID);
             studentMainWindowobj.Show();
         }
 

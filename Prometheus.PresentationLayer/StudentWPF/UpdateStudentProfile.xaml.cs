@@ -27,7 +27,11 @@ namespace Prometheus.PresentationLayer.StudentWPF
         public UpdateStudentProfile(Student student)
         {
             InitializeComponent();
+            studentBL = new StudentBL();
+            this.student = new Student();
             this.student = student;
+            txtUserName.Text = student.UserID;
+            LoadData();
         }
         private void LoadData()
         {
@@ -58,7 +62,7 @@ namespace Prometheus.PresentationLayer.StudentWPF
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -94,14 +98,9 @@ namespace Prometheus.PresentationLayer.StudentWPF
 
         private void btnHome_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
-        }
-
-        private void Window_Closed(object sender, EventArgs e) // Pressing the close button takes us back to the student main window.
-        {
-            this.Close();
-            StudentMainWindow studentMainWindowobj = new StudentMainWindow(txtUserName.Text);
+            StudentMainWindow studentMainWindowobj = new StudentMainWindow(student.UserID);
             studentMainWindowobj.Show();
+            this.Close();
         }
 
         private void txtUserName_TextChanged(object sender, TextChangedEventArgs e)
@@ -119,8 +118,15 @@ namespace Prometheus.PresentationLayer.StudentWPF
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
+            
+            
         }
-
+        private void Window_Closed(object sender, EventArgs e)//to implement: close buttons opens student main window.
+        {
+            this.Close();
+            StudentMainWindow studentMainWindowobj = new StudentMainWindow(student.UserID);
+            studentMainWindowobj.Show();
+        }
         private void txtAnswer_TextChanged(object sender, TextChangedEventArgs e)
         {
 
