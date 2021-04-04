@@ -42,18 +42,32 @@ namespace Prometheus.PresentationLayer.AdminWPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
-            CourseBL course = new CourseBL();
-            grid.ItemsSource = course.GetCourses();
+            try
+            {
+                CourseBL course = new CourseBL();
+                grid.ItemsSource = course.GetCourses();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Course course = new Course();
-            course.Name = txtCName.Text.ToString();
-            CourseBL courseBL = new CourseBL();
-            User user = new User();
-            grid.ItemsSource = courseBL.GetCourseByName(course.Name);
+            try
+            {
+                Course course = new Course();
+                course.Name = txtCName.Text.ToString();
+                CourseBL courseBL = new CourseBL();
+                User user = new User();
+                grid.ItemsSource = courseBL.GetCourseByName(course.Name);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            
         }
 
         private void txtUserName_TextChanged(object sender, TextChangedEventArgs e)

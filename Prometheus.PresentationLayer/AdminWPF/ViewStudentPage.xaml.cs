@@ -32,9 +32,15 @@ namespace Prometheus.PresentationLayer.AdminWPF
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
-            AdminBL adminBL = new AdminBL();
-            grid.ItemsSource = adminBL.GetStudents();
+            try
+            {
+                AdminBL adminBL = new AdminBL();
+                grid.ItemsSource = adminBL.GetStudents();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -49,12 +55,18 @@ namespace Prometheus.PresentationLayer.AdminWPF
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            
-            Student student = new Student();
-            student.UserID = UserName.Text.ToString();
-            AdminBL adminBL = new AdminBL();
-            User user = new User();
-            grid.ItemsSource = adminBL.GetStudentByUserID(student.UserID);
+            try
+            {
+                Student student = new Student();
+                student.UserID = UserName.Text.ToString();
+                AdminBL adminBL = new AdminBL();
+                User user = new User();
+                grid.ItemsSource = adminBL.GetStudentByUserID(student.UserID);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void txtUserName_TextChanged(object sender, TextChangedEventArgs e)

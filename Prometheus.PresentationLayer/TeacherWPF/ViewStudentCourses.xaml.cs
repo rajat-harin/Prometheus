@@ -26,9 +26,10 @@ namespace Prometheus.PresentationLayer.TeacherWPF
     {
         StudentBL studentbl = new StudentBL();
         //DataTable dt = studentsOtherCourses.viewOtherCourse();
-        public ViewStudentCourses()
+        public ViewStudentCourses(string UserName)
         {
             InitializeComponent();
+            txtUserName.Text = UserName;
             
         }
         public void GetAllCourses(int studentId)
@@ -42,6 +43,11 @@ namespace Prometheus.PresentationLayer.TeacherWPF
                 MessageBox.Show("Student Does not Exists");
             }
                     
+        }
+
+        private void txtUserName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

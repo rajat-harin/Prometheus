@@ -40,5 +40,6 @@
         <Label Content="Search Homework By Homework ID:" Grid.Column="1"  FontSize="12" FontWeight="Bold" Margin="16.6,81,20.6,0" VerticalAlignment="Top"/>
         <TextBox x:Name="searchtxt" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="234.6,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="113" RenderTransformOrigin="0.465,0.017" Grid.ColumnSpan="2"/>
         <Button x:Name="deletebtn" Content="Delete" Grid.Column="2" HorizontalAlignment="Left" Margin="10.4,338,0,0" VerticalAlignment="Top" Width="75" Height="35" Click="deletebtn_Click_1"/>
+        <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.362,0.611" TextChanged="txtUserName_TextChanged"/>
     </Grid>
 </Window>

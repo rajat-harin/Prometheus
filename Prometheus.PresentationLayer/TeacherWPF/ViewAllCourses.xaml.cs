@@ -25,9 +25,10 @@ namespace Prometheus.PresentationLayer.TeacherWPF
     public partial class ViewAllCourses : Window
     {
         CourseBL courseblObj = new CourseBL();
-        public ViewAllCourses()
+        public ViewAllCourses(string UserName)
         {
             InitializeComponent();
+            txtUserName.Text = UserName;
         }
         private void ShowCourses_Click(object sender, RoutedEventArgs e)
         {
@@ -55,6 +56,11 @@ namespace Prometheus.PresentationLayer.TeacherWPF
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void txtUserName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -69,14 +69,13 @@ namespace Prometheus.PresentationLayer.AdminWPF
                     }
                     else
                     {
-                        MessageBox.Show("Something went wrong...");
+                        MessageBox.Show("Failed to Login!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
             }
-            catch (NullReferenceException nullReferenceException)
+            catch (Exception ex)
             {
-                MessageBox.Show("Do not leave course name empty");
-                throw nullReferenceException;
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

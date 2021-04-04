@@ -26,10 +26,11 @@ namespace Prometheus.PresentationLayer.TeacherWPF
         Homework homeworkEntity = new Homework();//Entity Initialize
         HomeworkBL homeworkBL = new HomeworkBL();//BLclass Initialize -take it into class level
         int courseID, teacherID;
-        public HomeworkActivity()
+        public HomeworkActivity(string UserName)
         {
             InitializeComponent();
             LoadCourseComboBox();
+            txtUserName.Text = UserName;
         }
         private void LoadCourseComboBox()
         {
@@ -157,6 +158,11 @@ namespace Prometheus.PresentationLayer.TeacherWPF
             {
                 MessageBox.Show("Homework not Deleted!");
             }
+        }
+
+        private void txtUserName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
 
         private void coursecmb_SelectionChanged(object sender, SelectionChangedEventArgs e)

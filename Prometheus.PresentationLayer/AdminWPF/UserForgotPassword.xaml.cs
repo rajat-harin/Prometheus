@@ -51,15 +51,14 @@ namespace Prometheus.PresentationLayer.AdminWPF
                 }
                 else
                 {
-                    MessageBox.Show("Match not Found");
+                    MessageBox.Show("Failed to Change Password!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-            catch (NullReferenceException nullReferenceException)
+            catch (Exception ex)
             {
-                MessageBox.Show("Do not leave course name empty");
-                throw nullReferenceException;
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
+}
 
         private void btnReg_Click(object sender, RoutedEventArgs e)
         {

@@ -24,10 +24,11 @@ namespace Prometheus.PresentationLayer.TeacherWPF
     {
         DataTable dt;
         //DataRow objFind;
-        public ViewMyStudents()
+        public ViewMyStudents(string UserName)
         {
             InitializeComponent();
             GetCourses(coursecmb);
+            txtUserName.Text = UserName;
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -70,6 +71,11 @@ namespace Prometheus.PresentationLayer.TeacherWPF
             {
                 MessageBox.Show(ex.Message.ToString());
             }
+        }
+
+        private void txtUserName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

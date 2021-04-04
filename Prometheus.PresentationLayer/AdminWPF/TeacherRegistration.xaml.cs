@@ -97,20 +97,12 @@ namespace Prometheus.PresentationLayer.AdminWPF
                 }
                 else
                 {
-                    MessageBox.Show("Teacher not Added");
+                    MessageBox.Show("Failed to register teacher!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-            catch (NullReferenceException nullReferenceException)
+            catch (Exception ex)
             {
-                MessageBox.Show("Do not leave course name empty");
-                throw nullReferenceException;
-            }
-            catch (Exception exception)
-            {
-
-                MessageBox.Show("Please select date as well for start and end course");
-                throw exception;
-
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
         private void NumericOnly(System.Object sender, System.Windows.Input.TextCompositionEventArgs e)

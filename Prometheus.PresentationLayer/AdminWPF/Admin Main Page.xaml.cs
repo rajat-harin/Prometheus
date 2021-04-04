@@ -91,5 +91,23 @@ namespace Prometheus.PresentationLayer.AdminWPF
            // ViewMyCourses viewMyCourses = new ViewMyCourses();
 
         }
+
+        private void Button_Click_9(object sender, RoutedEventArgs e)
+        {
+            ViewMyStudents form3 = new ViewMyStudents();
+            form3.Show();
+        }
+
+        private void Button_Click_10(object sender, RoutedEventArgs e)
+        {
+            HomeworkActivity form4 = new HomeworkActivity();
+            form4.Show();
+        }
+
+        private void Button_Click_11(object sender, RoutedEventArgs e)
+        {
+            ViewAllCourses form2 = new ViewAllCourses();
+            form2.Show();
+        }
     }
 }

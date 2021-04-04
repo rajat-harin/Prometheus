@@ -62,22 +62,12 @@ namespace Prometheus.PresentationLayer.AdminWPF
                 }
                 else
                 {
-                    MessageBox.Show("Course Not Added");
+                    MessageBox.Show("Course not Added", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
-            catch (NullReferenceException nullReferenceException)
+            catch (Exception ex)
             {
-
-                MessageBox.Show("Do not leave course name empty");
-                throw nullReferenceException;
-                
-            }
-            catch (Exception exception)
-            {
-
-                MessageBox.Show("Please select date as well for start and end course");
-                throw exception;
-
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
