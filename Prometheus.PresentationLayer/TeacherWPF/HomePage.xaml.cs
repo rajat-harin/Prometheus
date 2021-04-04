@@ -48,5 +48,12 @@ namespace Prometheus.PresentationLayer.TeacherWPF
         {
 
         }
+
+        private void UpdateProfile_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            TeacherProfileUpdate form5 = new TeacherProfileUpdate();
+            form5.Show();
+        }
     }
 }

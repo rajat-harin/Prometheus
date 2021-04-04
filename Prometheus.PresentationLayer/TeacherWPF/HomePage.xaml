@@ -6,13 +6,14 @@
         xmlns:local="clr-namespace:Prometheus.PresentationLayer.TeacherWPF"
         mc:Ignorable="d"
         Title="HomePage" Height="450" Width="800" Background="BlanchedAlmond">
-    <Grid>
+    <Grid RenderTransformOrigin="0.993,0.981">
         <Label Content="Prometheus"  Canvas.Left="10" Canvas.Top="10"  
     FontSize="24" FontFamily="Georgia" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="295,10,0,0" Width="222"/>
         <Label Content="Dear Teacher, Welcome!"    FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="259,57,0,0" Width="298"/>
-        <Button Content="View My Courses"   FontSize="18" Template="{StaticResource buttonTemplate}" Background="white" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Width="191" Margin="295,126,0,0" Height="41" Click="Button_Click"/>
-        <Button Content="View My Students"  FontSize="18" Template="{StaticResource buttonTemplate}" Background="white" FontWeight="Bold" HorizontalAlignment="Left" Margin="295,188,0,0" VerticalAlignment="Top" Width="191" Height="42" Click="Button_Click_1"/>
-        <Button Content="HomeWork Activity" HorizontalAlignment="Left" Margin="280,263,0,0"  FontSize="18" Template="{StaticResource buttonTemplate}" Background="white" FontWeight="Bold" VerticalAlignment="Top" Width="223" Height="45" Click="Button_Click_2"/>
+        <Button Content="View My Courses"   FontSize="18"  Background="white" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Width="191" Margin="295,126,0,0" Height="41" Click="Button_Click"/>
+        <Button Content="View My Students"  FontSize="18"  Background="white" FontWeight="Bold" HorizontalAlignment="Left" Margin="295,188,0,0" VerticalAlignment="Top" Width="191" Height="42" Click="Button_Click_1"/>
+        <Button Content="HomeWork Activity" HorizontalAlignment="Left" Margin="295,252,0,0"  FontSize="18"  Background="white" FontWeight="Bold" VerticalAlignment="Top" Width="191" Height="42" Click="Button_Click_2"/>
         <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="33" Margin="658,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+        <Button x:Name="UpdateProfile" Content="Update Profile" HorizontalAlignment="Left"  Background="white" Margin="295,318,0,0" VerticalAlignment="Top" Width="191" Height="42" FontSize="18" FontWeight="Bold" Click="UpdateProfile_Click"/>
     </Grid>
 </Window>
