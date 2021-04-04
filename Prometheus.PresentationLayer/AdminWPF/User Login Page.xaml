@@ -12,9 +12,9 @@
         <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="25" Margin="281,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="223" TextChanged="TextBox_TextChanged"/>
         <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" Margin="281,279,0,0" VerticalAlignment="Top" Width="223" Height="25"/>
         <Label Content="USER LOGIN PAGE" HorizontalAlignment="Left" Margin="220,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.802,-0.531" Width="304" FontWeight="Bold" FontSize="24" Height="57"/>
-        <Label Content="Username" HorizontalAlignment="Left" Margin="195,229,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="0.554,1.766"/>
+        <Label Content="Username" HorizontalAlignment="Left" Margin="195,229,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="0.554,1.766" FontSize="14"/>
         <Button Content="Forget Password" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="377,338,0,0" VerticalAlignment="Top" Width="127" FontWeight="Bold" Height="43" Click="Button_Click_2" FontSize="14"/>
-        <Label Content="Password" HorizontalAlignment="Left" Margin="200,279,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="200,279,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
         <Button Content="Back To Homepage" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top" Width="128" FontWeight="Bold" Height="40" Click="Button_Click" FontSize="14"/>
         <Image HorizontalAlignment="Left" Height="100" Margin="316,83,0,0" VerticalAlignment="Top" Width="105" Source="login.jpg"/>
     </Grid>

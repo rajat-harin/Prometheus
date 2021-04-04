@@ -10,10 +10,10 @@
         <Label Content="Prometheus"  Canvas.Left="10" Canvas.Top="10"  
     FontSize="24" FontFamily="Georgia" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="295,10,0,0" Width="222"/>
         <Label Content="Dear Teacher, Welcome to Students Courses Information!"   FontFamily="Georgia" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="75,52,0,0" Width="609"/>
-        <Label Content="Student Id:" FontSize="16" FontFamily="Georgia" FontWeight="Bold" HorizontalAlignment="Left" Margin="92,108,0,0" VerticalAlignment="Top" Width="148" RenderTransformOrigin="-0.031,0.693"/>
-        <Label Content="Student Name:" FontSize="16" FontFamily="Georgia" FontWeight="Bold" HorizontalAlignment="Left" Margin="386,108,0,0" VerticalAlignment="Top" Width="148" RenderTransformOrigin="-0.031,0.693"/>
+        <Label Content="Student Id:" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Margin="103,108,0,0" VerticalAlignment="Top" Width="148" RenderTransformOrigin="-0.031,0.693"/>
+        <Label Content="Student Name:" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left" Margin="397,108,0,0" VerticalAlignment="Top" Width="148" RenderTransformOrigin="-0.031,0.693"/>
         <TextBox x:Name="idtxt" HorizontalAlignment="Left" Height="29" Margin="201,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="nametxt" HorizontalAlignment="Left" Height="29" Margin="522,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="nametxt" HorizontalAlignment="Left" Height="29" Margin="522,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="162"/>
         <DataGrid x:Name="coursegrid" AutoGenerateColumns="True" HorizontalAlignment="Left" Height="233" Margin="10,177,0,0" VerticalAlignment="Top" Width="774"/>
         <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="23" Margin="662,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="txtUserName_TextChanged"/>
 

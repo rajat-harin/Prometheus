@@ -30,9 +30,9 @@
         <Label Content="Enter UserName" HorizontalAlignment="Left" Margin="173,176,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.786,-0.31" FontWeight="Bold" FontSize="14"/>
         <TextBox x:Name="UserName" HorizontalAlignment="Left" Height="23" Margin="311,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" TextChanged="TextBox_TextChanged_2"/>
         <DatePicker x:Name="DatePicker" HorizontalAlignment="Left" Margin="311,232,0,0" VerticalAlignment="Top" Width="201" Height="23"/>
-        <Button Content="Clear" HorizontalAlignment="Left" Margin="674,358,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.422,2.034" Height="42" Click="Button_Click"/>
+        <Button Content="Clear" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="674,358,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.422,2.034" Height="42" Click="Button_Click" FontWeight="Bold" FontSize="14"/>
         <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="37" Margin="659,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="123" TextChanged="txtUserName_TextChanged"/>
-        <Button x:Name="logout" Content="Logout" HorizontalAlignment="Left" Margin="659,86,0,0" VerticalAlignment="Top" Width="123" Height="35" Click="logout_Click"/>
+        <Button x:Name="logout" Content="Logout" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="659,86,0,0" VerticalAlignment="Top" Width="123" Height="35" Click="logout_Click" FontWeight="Bold" FontSize="14"/>
         <Label Content="Label" HorizontalAlignment="Left" Margin="163,345,0,0" VerticalAlignment="Top"/>
         <Label Content="Select Security Question" HorizontalAlignment="Left" Margin="159,345,0,0" VerticalAlignment="Top" Height="29" Width="148"/>
         <Label Content="Enter Security Answer" HorizontalAlignment="Left" Margin="163,374,0,0" VerticalAlignment="Top" Height="26"/>

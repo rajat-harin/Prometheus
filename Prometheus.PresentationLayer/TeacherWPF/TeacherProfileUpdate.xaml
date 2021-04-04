@@ -23,7 +23,7 @@
         <Label Content="Mobile Number" HorizontalAlignment="Left" Margin="253,258,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.789,1.192" FontSize="14" FontWeight="Bold"/>
         <TextBox x:Name="MobileNumber_txt" HorizontalAlignment="Left" Height="23" Margin="375,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="MobileNumber_txt_TextChanged"/>
         <Label Content="Update profile Section!" HorizontalAlignment="Left" Margin="277,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.789,1.192" FontSize="16" FontFamily="Georgia" FontWeight="Bold"/>
-        <Button x:Name="updateSub" Content="Update and Submit" HorizontalAlignment="Left" Margin="316,348,0,0" VerticalAlignment="Top" Width="122" Height="38" Background="#FFE45454" FontWeight="Bold" Click="updateSub_Click"/>
+        <Button x:Name="updateSub" Content="Update and Submit" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="316,348,0,0" VerticalAlignment="Top" Width="143" Height="38"  FontWeight="Bold" Click="updateSub_Click" FontSize="14"/>
         <TextBox x:Name="textUserName" HorizontalAlignment="Left" Height="23" Margin="683,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="67" TextChanged="textUserName_TextChanged"/>
 
     </Grid>
