@@ -12,7 +12,7 @@ namespace Prometheus.DataAccessLayer.Repositories
 {
     public class HomeworkRepo
     {
-        public bool AddHomework(Homework homework)///nullor not
+        public bool AddHomework(Homework homework)///null or not
         {
             try
             {

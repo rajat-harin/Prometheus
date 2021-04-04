@@ -53,8 +53,6 @@ namespace Prometheus.PresentationLayer.TeacherWPF
                 if (result == true)
                 {
                     MessageBox.Show("Profile Updated");
-
-
                 }
                 else
                 {

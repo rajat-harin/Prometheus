@@ -106,6 +106,9 @@
     <Compile Include="TeacherWPF\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TeacherWPF\TeacherHomeworkActivity.xaml.cs">
+      <DependentUpon>TeacherHomeworkActivity.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TeacherWPF\TeacherProfileUpdate.xaml.cs">
       <DependentUpon>TeacherProfileUpdate.xaml</DependentUpon>
     </Compile>
@@ -187,8 +190,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StudentWPF\UpdateStudentProfile.xaml">
-      <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StudentWPF\ViewMyCoursesWindow.xaml">
       <SubType>Designer</SubType>
@@ -199,6 +202,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TeacherWPF\HomePage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TeacherWPF\TeacherHomeworkActivity.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

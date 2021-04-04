@@ -115,5 +115,15 @@ namespace Prometheus.PresentationLayer.StudentWPF
             User_Login_Page newform = new User_Login_Page();
             newform.Show();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void txtAnswer_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
