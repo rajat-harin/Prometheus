@@ -13,6 +13,51 @@ namespace Prometheus.BusinessLayer
 {
     public class StudentBL
     {
+        public Student GetStudent(string userID)
+        {
+            
+            try
+            {
+                StudentRepo studentRepo = new StudentRepo();
+                List<Student> students = studentRepo.GetStudents();
+                if(students.Any())
+                {
+                    Student result = students.SingleOrDefault(item => item.UserID == userID);
+                    return result;
+                }
+                else
+                {
+                    throw new PrometheusException("No Students Found");
+                }
+                
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public bool UpdateStudent(Student student)
+        {
+
+            try
+            {
+                StudentRepo studentRepo = new StudentRepo();
+
+                bool result = studentRepo.UpdateStudent(student);
+                
+                return result;
+               
+                
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         //Get List of Courses in which student is Enrolled
         public List<EnrolledCourse> GetCoursesByStudentID(int id)
         {
@@ -77,25 +122,20 @@ namespace Prometheus.BusinessLayer
         }
 
         //Method to Enroll a student is a course
-        public bool EnrollInCourse(string studentId, int courseId)
+        public bool EnrollInCourse(int studentId, int courseId)
         {
             bool isEnrolled = false;
             try
             {
                
-                int sId;
-                if(string.IsNullOrEmpty(studentId))
-                {
-                    if (!Int32.TryParse(studentId, out sId))
-                    {
-                        throw new PrometheusException("Invalid Student ID!");
-                    }
+               
+                    
                     isEnrolled = new EnrollmentRepo().Insert(new Enrollment
                     {
-                        StudentID = sId,
+                        StudentID = studentId,
                         CourseID = courseId
                     });
-                }
+               
                     
             }
             catch (Exception ex)

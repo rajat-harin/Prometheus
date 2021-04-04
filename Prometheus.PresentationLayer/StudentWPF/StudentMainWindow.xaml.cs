@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Prometheus.BusinessLayer;
+using Prometheus.Entities;
+using Prometheus.PresentationLayer.AdminWPF;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,16 +23,29 @@ namespace Prometheus.PresentationLayer.StudentWPF
     public partial class StudentMainWindow : Window
     {
         //string connectionstring = "put connection string here; Integrated Security = True;" ;
+        private Student student;
+        private StudentBL studentBL;
         public StudentMainWindow(string UserName)
         {
             InitializeComponent();
-            txtUserName.Text = UserName;
+            studentBL = new StudentBL();
+            student.UserID = UserName;
         }
-
+        private void LoadStudent()
+        {
+            try
+            {
+                student = studentBL.GetStudent(student.UserID);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
         private void ViewMyHomeworkBt_Click(object sender, RoutedEventArgs e) //opens ViewMyHomeworkWindow
         {
             this.Hide();
-            ViewMyHomeworkWindow ViewMyHW = new ViewMyHomeworkWindow();
+            ViewMyHomeworkWindow ViewMyHW = new ViewMyHomeworkWindow(student);
             ViewMyHW.Show();
 
             //using (SqlConnection sqlcon = new SqlConnection(connectionstring);
@@ -47,27 +63,34 @@ namespace Prometheus.PresentationLayer.StudentWPF
         private void ViewMyCourseBt_Click(object sender, RoutedEventArgs e) //opens ViewMyCoursesWindow 
         {
             this.Hide();
-            ViewMyCoursesWindow ViewMyCourse = new ViewMyCoursesWindow();
+            ViewMyCoursesWindow ViewMyCourse = new ViewMyCoursesWindow(student);
             ViewMyCourse.Show();
         }
 
         private void DeviseHomeworkPlanBt_Click(object sender, RoutedEventArgs e) //opens DeviseHomeworkPlanWindow
         {
             this.Hide();
-            DeviseHomeworkPlanWindow DevisePlanWindow = new DeviseHomeworkPlanWindow();
+            DeviseHomeworkPlanWindow DevisePlanWindow = new DeviseHomeworkPlanWindow(student);
             DevisePlanWindow.Show();
         }
 
         private void CourseEnrollBt_Click(object sender, RoutedEventArgs e) //opens EnrollForCourseWindow
         {
             this.Hide();
-            EnrollForCourseWindow CourseEnrollWindow = new EnrollForCourseWindow();
+            EnrollForCourseWindow CourseEnrollWindow = new EnrollForCourseWindow(student);
             CourseEnrollWindow.Show();
         }
 
         private void txtUserName_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+            User_Login_Page newform = new User_Login_Page();
+            newform.Show();
         }
     }
 }

@@ -26,17 +26,19 @@ namespace Prometheus.PresentationLayer.StudentWPF
     public partial class ViewMyCoursesWindow : Window
     {
         private StudentBL objStudentBL;
-        public ViewMyCoursesWindow()
+        private Student student;
+        public ViewMyCoursesWindow(Student student)
         {
             InitializeComponent();
             objStudentBL = new StudentBL();
+            this.student = student;
             LoadMyCourses();
         }
         public void LoadMyCourses()//method to load my courses data grid on ViewMyCoursesWindow
         {
             try
             {
-                List<EnrolledCourse> enrolledCourses = objStudentBL.GetCoursesByStudentID(1);//id set to 1 just for testing
+                List<EnrolledCourse> enrolledCourses = objStudentBL.GetCoursesByStudentID(student.StudentID);//id set to 1 just for testing
                 if (enrolledCourses.Any())
                 {
                     ViewMyCoursesDG.ItemsSource = enrolledCourses;

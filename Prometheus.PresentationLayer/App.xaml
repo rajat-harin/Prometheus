@@ -8,7 +8,7 @@
             <ResourceDictionary>
                 <ResourceDictionary.MergedDictionaries>
                 <!--Paste the full path of ButtonResourceDictionary.xaml in Source below.-->
-                <ResourceDictionary Source = "C:\Users\satis\OneDrive\Desktop\Sprint Project\Prometheus\Prometheus.PresentationLayer\ButtonResourceDictionary.xaml" />
+                <ResourceDictionary Source = ".\ButtonResourceDictionary.xaml" />
                 
                 </ResourceDictionary.MergedDictionaries>
             </ResourceDictionary>

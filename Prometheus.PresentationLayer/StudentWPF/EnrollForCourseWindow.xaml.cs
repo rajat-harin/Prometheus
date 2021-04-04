@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Data;
 using Prometheus.BusinessLayer;
+using Prometheus.Entities;
 
 namespace Prometheus.PresentationLayer.StudentWPF
 {
@@ -22,11 +23,13 @@ namespace Prometheus.PresentationLayer.StudentWPF
     /// </summary>
     public partial class EnrollForCourseWindow : Window
     {
-        StudentBL studentBL;
-        public EnrollForCourseWindow()
+        private StudentBL studentBL;
+        private Student student;
+        public EnrollForCourseWindow(Student student)
         {
             InitializeComponent();
             studentBL = new StudentBL();
+            this.student = student;
             LoadEnrollCourseComboBox();
         }
         public void LoadEnrollCourseComboBox() //function to load the CourseID column values into the combobox. This function is called as soon as the EnrollForCourse Window is opened.
@@ -55,9 +58,8 @@ namespace Prometheus.PresentationLayer.StudentWPF
             //The following code takes data from the combobox and TextBox and inserts it into the SQL Enrollment Table.
             try
             {
-                string studentId = EnrollCourseStdID.Text;
                 int courseId = (int) EnrollCourseComboBox.SelectedValue;
-                bool isEnrolled = studentBL.EnrollInCourse(studentId, courseId);
+                bool isEnrolled = studentBL.EnrollInCourse(student.StudentID, courseId);
                 if(isEnrolled)
                 {
                     MessageBox.Show("Enrolled Successfully");

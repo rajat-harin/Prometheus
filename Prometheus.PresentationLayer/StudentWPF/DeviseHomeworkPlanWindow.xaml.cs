@@ -1,5 +1,6 @@
 ﻿using Prometheus.BusinessLayer;
 using Prometheus.BusinessLayer.Models;
+using Prometheus.Entities;
 using Prometheus.Exceptions;
 using System;
 using System.Collections.Generic;
@@ -23,11 +24,13 @@ namespace Prometheus.PresentationLayer.StudentWPF
     public partial class DeviseHomeworkPlanWindow : Window
     {
         StudentBL studentBL;
+        Student student;
         List<ExtendedHomeworkPlan> homeworkPlans;
-        public DeviseHomeworkPlanWindow()
+        public DeviseHomeworkPlanWindow(Student student)
         {
             InitializeComponent();
             studentBL = new StudentBL();
+            this.student = student;
             InitializeHomeworkList();
             LoadHomeworkGrid();
         }
@@ -36,7 +39,7 @@ namespace Prometheus.PresentationLayer.StudentWPF
         {
             try
             {
-                homeworkPlans = studentBL.GetExtendedHomeworkPlan(1);
+                homeworkPlans = studentBL.GetExtendedHomeworkPlan(student.StudentID);
             }
             catch(PrometheusException ex)
             {
@@ -56,7 +59,7 @@ namespace Prometheus.PresentationLayer.StudentWPF
             try
             {
 
-                studentBL.DeviseHomeworkPlanByDeadline(1);
+                studentBL.DeviseHomeworkPlanByDeadline(student.StudentID);
             }
             catch (Exception ex)
             {
@@ -100,7 +103,7 @@ namespace Prometheus.PresentationLayer.StudentWPF
                 {
                     extendedHomeworkPlans.Add(item);
                 }
-                if(studentBL.UpdateHomeworkPlanList(extendedHomeworkPlans, 1))
+                if(studentBL.UpdateHomeworkPlanList(extendedHomeworkPlans, student.StudentID))
                 {
                     MessageBox.Show("Homework Plan is Saved!", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 }

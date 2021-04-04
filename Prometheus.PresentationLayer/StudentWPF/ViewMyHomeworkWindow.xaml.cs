@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Data;
 using Prometheus.BusinessLayer;
+using Prometheus.Entities;
 
 namespace Prometheus.PresentationLayer.StudentWPF
 {
@@ -22,11 +23,13 @@ namespace Prometheus.PresentationLayer.StudentWPF
     /// </summary>
     public partial class ViewMyHomeworkWindow : Window
     {
-        StudentBL studentBL;
-        public ViewMyHomeworkWindow()
+        private StudentBL studentBL;
+        private Student student;
+        public ViewMyHomeworkWindow(Student student)
         {
             InitializeComponent();
             studentBL = new StudentBL();
+            this.student = student;
             LoadHomeworkGrid();    
         }
         public void LoadHomeworkGrid() //Creating a function to load homework grid.
@@ -34,7 +37,7 @@ namespace Prometheus.PresentationLayer.StudentWPF
             try
             {
                 
-                ViewHomeworkDG.ItemsSource = studentBL.GetAssignedHomework(1);
+                ViewHomeworkDG.ItemsSource = studentBL.GetAssignedHomework(student.StudentID);
             }
             catch (Exception ex)
             {

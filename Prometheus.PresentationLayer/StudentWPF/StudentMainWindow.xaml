@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Prometheus.PresentationLayer.StudentWPF"
         mc:Ignorable="d"
         Background="BlanchedAlmond"
-        Title="StudentMainWindow" Height="450" Width="800">
+        Title="Prometheus: Student" Height="450" Width="800">
     <Grid VerticalAlignment="Top">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="404*"/>
@@ -18,7 +18,8 @@
         <Button x:Name="ViewMyHomeworkBt" Content="View my Homeworks" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="211,214,0,-16.8" VerticalAlignment="Top" Width="322" Height="30" Click="ViewMyHomeworkBt_Click" Grid.ColumnSpan="2" FontWeight="Bold" Background="White"/>
         <Button x:Name="ViewMyCourseBt" Content="View my Courses" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="211,187,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" FontWeight="Bold" Click="ViewMyCourseBt_Click" Background="White" Height="30" Width="322"/>
         <TextBlock Grid.ColumnSpan="2" Height="29" Margin="270,56,312.6,0" TextWrapping="Wrap" Width="211" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left"><Run FontWeight="Bold" Text="Dear Student, Welcome!"/></TextBlock>
-        <TextBox x:Name="txtUserName" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="287,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" TextChanged="txtUserName_TextChanged"/>
+        <TextBox x:Name="txtUserName" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="167,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" TextChanged="txtUserName_TextChanged"/>
+        <Button x:Name="button" Content="Logout" Template="{StaticResource buttonTemplate}" Grid.Column="1" HorizontalAlignment="Left" Margin="289,20,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.279,0.557" Click="button_Click"/>
 
     </Grid>
 </Window>
