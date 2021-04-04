@@ -66,7 +66,7 @@ namespace Prometheus.PresentationLayer.TeacherWPF
         {
             int courseId;
             courseId = Convert.ToInt32(coursecmb.SelectedValue);
-            studentgrid.ItemsSource = StudentBL.SearchStudents(courseId);
+            studentgrid.ItemsSource = studentbl.GetStudentsByCourseId(courseId);
         }
 
         private void btnView_Click(object sender, RoutedEventArgs e)
