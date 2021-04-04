@@ -1,0 +1,30 @@
+﻿<Window x:Class="Prometheus.PresentationLayer.TeacherWPF.TeacherProfileUpdate"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Prometheus.PresentationLayer.TeacherWPF"
+        mc:Ignorable="d"
+        Title="TeacherProfileUpdate" Height="450" Width="800" Background="BlanchedAlmond">
+    <Grid>
+        <Label Content="Teacher ID" HorizontalAlignment="Left" Margin="253,85,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.789,1.192" FontSize="14" FontWeight="Bold"/>
+        <Label Content="First Name" HorizontalAlignment="Left" Margin="253,119,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.789,1.192" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Last Name" HorizontalAlignment="Left" Margin="253,153,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.789,1.192" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Address " HorizontalAlignment="Left" Margin="253,289,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.789,1.192" FontSize="14" FontWeight="Bold"/>
+        <Label Content="Prometheus" HorizontalAlignment="Left" Margin="316,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.789,1.192" FontSize="18" FontWeight="Bold" FontFamily="Georgia"/>
+        <TextBox x:Name="FirstName_txt" HorizontalAlignment="Left" Height="23" Margin="375,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="FirstName_txt_TextChanged"/>
+        <TextBox x:Name="TeacherID_txt" HorizontalAlignment="Left" Height="23" Margin="375,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TeacherID_txt_TextChanged"/>
+        <TextBox x:Name="LastName_txt" HorizontalAlignment="Left" Height="23" Margin="375,153,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="LastName_txt_TextChanged"/>
+        <TextBox x:Name="Address_txt" HorizontalAlignment="Left" Height="23" Margin="375,295,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="Address_txt_TextChanged"/>
+        <Label Content="Date Of Birth" HorizontalAlignment="Left" Margin="253,187,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.789,1.192" FontSize="14" FontWeight="Bold"/>
+        <DatePicker x:Name="DOB_txt" HorizontalAlignment="Left" Margin="375,190,0,0" VerticalAlignment="Top" Height="29" Width="120"/>
+        <Label Content="City" HorizontalAlignment="Left" Margin="253,224,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.789,1.192" FontSize="14" FontWeight="Bold"/>
+        <TextBox x:Name="City_txt" HorizontalAlignment="Left" Height="23" Margin="375,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="City_txt_TextChanged"/>
+        <Label Content="Mobile Number" HorizontalAlignment="Left" Margin="253,258,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.789,1.192" FontSize="14" FontWeight="Bold"/>
+        <TextBox x:Name="MobileNumber_txt" HorizontalAlignment="Left" Height="23" Margin="375,264,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="MobileNumber_txt_TextChanged"/>
+        <Label Content="Update profile Section!" HorizontalAlignment="Left" Margin="277,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.789,1.192" FontSize="16" FontFamily="Georgia" FontWeight="Bold"/>
+        <Button x:Name="updateSub" Content="Update and Submit" HorizontalAlignment="Left" Margin="316,348,0,0" VerticalAlignment="Top" Width="122" Height="38" Background="#FFE45454" FontWeight="Bold" Click="updateSub_Click"/>
+        <TextBox x:Name="textUserName" HorizontalAlignment="Left" Height="23" Margin="683,24,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="67" TextChanged="textUserName_TextChanged"/>
+
+    </Grid>
+</Window>
