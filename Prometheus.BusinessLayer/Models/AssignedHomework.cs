@@ -15,5 +15,7 @@ namespace Prometheus.BusinessLayer.Models
         public DateTime ReqTime { get; set; }
         public string LongDescription { get; set; }
         public string CourseName { get; set; }
+        public int TeacherID { get; set; }
+        public int CourseID { get; set; }
     }
 }

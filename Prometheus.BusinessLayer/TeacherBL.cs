@@ -60,6 +60,12 @@ namespace Prometheus.BusinessLayer
             return false;
 
         }
+
+        //Make function for adding courseID and TeacherID in the Teaches Table
+        //I have created function in TeacherRepo, Xaml file is created but having the issue
+        //in check boxes , after clicking checkbox in select course the teacher id and course id will be entered
+        //into teaches table and after clicking on mycourses it should shows the courses information of teacher
+
     }
   
 }

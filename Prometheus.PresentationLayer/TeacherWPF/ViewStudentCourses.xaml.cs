@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data;
+using Prometheus.BusinessLayer;
+using Prometheus.BusinessLayer.Models;
+using Prometheus.Entities;
+using Prometheus.Exceptions;
 
 namespace Prometheus.PresentationLayer.TeacherWPF
 {
@@ -20,6 +24,7 @@ namespace Prometheus.PresentationLayer.TeacherWPF
     /// </summary>
     public partial class ViewStudentCourses : Window
     {
+        StudentBL studentbl = new StudentBL();
         //DataTable dt = studentsOtherCourses.viewOtherCourse();
         public ViewStudentCourses()
         {
@@ -28,7 +33,15 @@ namespace Prometheus.PresentationLayer.TeacherWPF
         }
         public void GetAllCourses(int studentId)
         {
-            //coursegrid.ItemsSource = new StudentOtherCoursesBL().Getstudent(studentId).DefaultView;        
+            if(studentId != 0)
+            {
+                coursegrid.ItemsSource = studentbl.GetCoursesByStudentID(studentId);
+            }
+            else
+            {
+                MessageBox.Show("Student Does not Exists");
+            }
+                    
         }
     }
 }

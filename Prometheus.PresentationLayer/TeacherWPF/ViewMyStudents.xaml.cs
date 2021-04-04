@@ -39,22 +39,6 @@ namespace Prometheus.PresentationLayer.TeacherWPF
             cmbname.ItemsSource = dt.DefaultView;
             cmbname.DisplayMemberPath = dt.Columns["CourseName"].ToString();
             cmbname.SelectedValuePath = dt.Columns["CourseID"].ToString();
-            /*int courseId;
-            string conection = ConfigurationManager.ConnectionStrings["TeacherConnection"].ConnectionString;
-            SqlConnection objCon = new SqlConnection(conection);
-            SqlCommand objCom = new SqlCommand("GetAllStudent", objCon);
-            objCom.CommandType = CommandType.StoredProcedure;
-            courseId = Convert.ToInt32(coursecmb.SelectedValue);
-            objCom.Parameters.AddWithValue("@CourseID", courseId);
-            objCon.Open();
-            SqlDataAdapter objDR =  new SqlDataAdapter(objCom);
-            DataTable objDT = new DataTable();
-            objDR.Fill(objDT);
-            objCon.Close();
-            studentgrid.ItemsSource = objDT.DefaultView;         
-            //error: coursecmb.SelectedValue = objFind[0].ToString();
-            //dt = StudentCourse.studentCourse();
-            //when using dataset use dt.Tables[0].Columns["ZoneName"].ToString();*/
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -66,24 +50,6 @@ namespace Prometheus.PresentationLayer.TeacherWPF
         {
             int courseId;
             courseId = Convert.ToInt32(coursecmb.SelectedValue);
-            //studentgrid.ItemsSource = new MyStudentBL().Getstudent(courseId).DefaultView;
-            /*
-            string conection = ConfigurationManager.ConnectionStrings["TeacherConnection"].ConnectionString;
-            SqlConnection objCon = new SqlConnection(conection);
-            SqlCommand objCom = new SqlCommand("GetAllStudent", objCon);
-            objCom.CommandType = CommandType.StoredProcedure; 
-            int rowCount = studentgrid.Items.Count - 1;
-            // Get the no. of columns in the first row.
-            int colCount = studentgrid.Columns.Count;
-            MessageBox.Show(Convert.ToString(rowCount + "," + colCount));
-            // Create a Save button column
-            DataGrid d1 = new DataGrid();
-            DataGridTextColumn t1 = new DataGridTextColumn();
-            t1.Header = "View Other Course Information";
-            d1.Columns.Add(t1);*/
-            // Set column values
-            // columnSave.Name = "View Other Course Information";
-            //studentgrid.Columns.Insert((colCount + 1), columnSave);
         }
 
         private void btnView_Click(object sender, RoutedEventArgs e)
