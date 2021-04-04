@@ -12,6 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data;
+using Prometheus.BusinessLayer;
+using Prometheus.BusinessLayer.Models;
+using Prometheus.Entities;
+using Prometheus.Exceptions;
 
 namespace Prometheus.PresentationLayer.TeacherWPF
 {
@@ -20,21 +24,24 @@ namespace Prometheus.PresentationLayer.TeacherWPF
     /// </summary>
     public partial class ViewStudentCourses : Window
     {
+        StudentBL studentbl = new StudentBL();
         //DataTable dt = studentsOtherCourses.viewOtherCourse();
         public ViewStudentCourses()
         {
             InitializeComponent();
             
         }
-
-        //This was implemented using older method when I have created no repositores
-        //here we need to take data from repo and to show the students who have opted the course
-        //selected in the combobox and view ohter course button is implemented in the ViewStudentCourses.Xaml
-        //that file is also implemented using the older method logic is applied we need to implement using 
-        //repos and all
         public void GetAllCourses(int studentId)
         {
-            //coursegrid.ItemsSource = new StudentOtherCoursesBL().Getstudent(studentId).DefaultView;        
+            if(studentId != 0)
+            {
+                coursegrid.ItemsSource = studentbl.GetCoursesByStudentID(studentId);
+            }
+            else
+            {
+                MessageBox.Show("Student Does not Exists");
+            }
+                    
         }
     }
 }
