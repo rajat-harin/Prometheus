@@ -29,7 +29,10 @@ namespace Prometheus.PresentationLayer.StudentWPF
         {
             InitializeComponent();
             studentBL = new StudentBL();
+            student = new Student();
+
             student.UserID = UserName;
+            LoadStudent();
         }
         private void LoadStudent()
         {

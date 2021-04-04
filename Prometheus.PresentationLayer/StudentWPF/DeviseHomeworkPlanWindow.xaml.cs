@@ -30,6 +30,7 @@ namespace Prometheus.PresentationLayer.StudentWPF
         {
             InitializeComponent();
             studentBL = new StudentBL();
+            student = new Student();
             this.student = student;
             InitializeHomeworkList();
             LoadHomeworkGrid();
@@ -41,12 +42,10 @@ namespace Prometheus.PresentationLayer.StudentWPF
             {
                 homeworkPlans = studentBL.GetExtendedHomeworkPlan(student.StudentID);
             }
-            catch(PrometheusException ex)
+            catch(Exception ex)
             {
-                if(ex.Message.Equals("No Homework Plans Found!"))
-                {
-                    DeviseHomeworkPlan();
-                }
+                  DeviseHomeworkPlan();
+               
             }
             
         }
