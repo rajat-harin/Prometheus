@@ -340,6 +340,36 @@ namespace Prometheus.BusinessLayer
             return flag;
         }
 
+        /*public List<Student> SearchStudents(int CourseID)
+        {
+            StudentRepo studentrepo = new StudentRepo();
+            List<Student> StudentList = studentrepo.GetStudents();
+            
+            //as we need to create list, we need collection that will only be generated from object
+            var result = studentList.Where(
+                item => item.HomeWorkID == CourseID
+            ).Join(
+                    homeworkList,
+                    assignment => assignment.HomeWorkID,
+                    homework => homework.HomeworkID,
+                    (assignment, homework) => new AssignedHomework
+                    {
+                        AssignmentID = assignment.AssignmentID,
+                        TeacherID = assignment.TeacherID,
+                        CourseID = assignment.CourseID,
+                        HomeworkID = homework.HomeworkID,
+                        Description = homework.Description,
+                        LongDescription = homework.LongDescription
+                    }
+                ).ToList();
+            if (result.Any())
+            {
+                return result;
+            }
+            else
+            {
+                throw new Exception("No Homeworks Found!");*/
+
 
         //Method for getting List of Student For a given course Id.
         public List<Student> GetStudentsByCourseId(int id)

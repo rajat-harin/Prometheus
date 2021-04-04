@@ -14,6 +14,10 @@ using System.Windows.Shapes;
 using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
+using Prometheus.BusinessLayer;
+using Prometheus.BusinessLayer.Models;
+using Prometheus.Exceptions;
+using Prometheus.Entities;
 
 namespace Prometheus.PresentationLayer.TeacherWPF
 {
@@ -22,8 +26,7 @@ namespace Prometheus.PresentationLayer.TeacherWPF
     /// </summary>
     public partial class ViewMyStudents : Window
     {
-        DataTable dt;
-        //DataRow objFind;
+        StudentBL studentbl = new StudentBL();
         public ViewMyStudents(string UserName)
         {
             InitializeComponent();
@@ -37,9 +40,21 @@ namespace Prometheus.PresentationLayer.TeacherWPF
         private void GetCourses(ComboBox cmbname)
         {
             //dt = new CoursesBL().viewCourse();//Make my course function here so that there will always be one course for one teacher
-            cmbname.ItemsSource = dt.DefaultView;
+            /*cmbname.ItemsSource = dt.DefaultView;
             cmbname.DisplayMemberPath = dt.Columns["CourseName"].ToString();
-            cmbname.SelectedValuePath = dt.Columns["CourseID"].ToString();
+            cmbname.SelectedValuePath = dt.Columns["CourseID"].ToString();*/
+            try
+            {
+                CourseBL courseBL = new CourseBL();
+                cmbname.ItemsSource = courseBL.GetCourses();
+                cmbname.SelectedValuePath = "CourseID";
+                cmbname.DisplayMemberPath = "Name";
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -51,6 +66,7 @@ namespace Prometheus.PresentationLayer.TeacherWPF
         {
             int courseId;
             courseId = Convert.ToInt32(coursecmb.SelectedValue);
+            studentgrid.ItemsSource = StudentBL.SearchStudents(courseId);
         }
 
         private void btnView_Click(object sender, RoutedEventArgs e)
