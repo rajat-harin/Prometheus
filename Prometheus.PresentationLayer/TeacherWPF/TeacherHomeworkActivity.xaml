@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Prometheus.PresentationLayer.TeacherWPF"
         mc:Ignorable="d"
           Title="HomeworkActivity" Height="582.5" Width="800.8"  Background="BlanchedAlmond">
-    <Grid RenderTransformOrigin="0.497,1.01" Margin="0,0,3.6,168.4">
+    <Grid RenderTransformOrigin="0.497,1.01" Margin="0,0,2,3">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="266*"/>
             <ColumnDefinition Width="255*"/>
@@ -18,9 +18,9 @@
         <DatePicker x:Name="Deadline_txt" HorizontalAlignment="Left" Margin="136,152,0,0" VerticalAlignment="Top" Width="120" Height="24"/>
         <Label Content="Title" HorizontalAlignment="Left" Margin="26,181,0,0" VerticalAlignment="Top" RenderTransformOrigin="-8.763,0.423" Height="30" Width="88" FontWeight="Bold" FontSize="14"/>
         <Label Content="Course Name" HorizontalAlignment="Left" Margin="28,70,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Height="29" Width="101"/>
-        <TextBox x:Name="HomeworkTitle_txt" HorizontalAlignment="Left" Height="23" Margin="137,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="HomeworkTitle_txt" HorizontalAlignment="Left" Height="23" Margin="137,188,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="HomeworkTitle_txt_TextChanged"/>
         <Label Content="Description" HorizontalAlignment="Left" Margin="26,216,0,0" VerticalAlignment="Top" RenderTransformOrigin="-6.395,2.731" FontSize="14" FontWeight="Bold"/>
-        <TextBox x:Name="HomeworkDescription_txt" HorizontalAlignment="Left" Height="118" Margin="26,265,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"/>
+        <TextBox x:Name="HomeworkDescription_txt" HorizontalAlignment="Left" Height="118" Margin="26,265,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" TextChanged="HomeworkDescription_txt_TextChanged"/>
         <DataGrid x:Name="homeworkGrid" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Column="1" BorderThickness="1" HorizontalAlignment="Left" Height="176" Margin="10.6,118,0,0" VerticalAlignment="Top" Width="506" Grid.ColumnSpan="5" SelectionChanged="homeworkGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn FontSize="12" Header="Assignment Id" Binding="{Binding Path='AssignmentID'}" IsReadOnly="True" />
@@ -36,11 +36,12 @@
         <Button Content="View Homework" x:Name="ViewHW"  FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Grid.Column="2" Margin="108.4,17,0,0" Height="30" FontFamily="Arial Black" Background="White" Click="ViewHW_Click" Grid.ColumnSpan="2"/>
         <ComboBox x:Name ="coursecmbbox" HorizontalAlignment="Left" Margin="137,70,0,0" VerticalAlignment="Top" Width="120" Height="29" SelectionChanged="coursecmb_SelectionChanged"/>
         <Label x:Name="Homework_ID" Content="Homework ID" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="23,111,0,0" VerticalAlignment="Top" Width="106"/>
-        <TextBox x:Name="homeworkId_txt" HorizontalAlignment="Left" Height="23" Margin="137,114,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="homeworkId_txt" HorizontalAlignment="Left" Height="23" Margin="137,114,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="homeworkId_txt_TextChanged"/>
         <Label Content="Search Homework By Homework ID:" Grid.Column="1"  FontSize="12" FontWeight="Bold" Margin="16.6,81,20.6,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="searchtxt" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="234.6,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="113" RenderTransformOrigin="0.465,0.017" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="searchtxt" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="234.6,84,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="113" RenderTransformOrigin="0.465,0.017" Grid.ColumnSpan="2" TextChanged="searchtxt_TextChanged"/>
         <Button x:Name="deletebtn" Content="Delete" Grid.Column="2" HorizontalAlignment="Left" Margin="120,338,0,0" VerticalAlignment="Top" Width="105" Height="35" Click="deletebtn_Click_1" Background="White" FontSize="14" FontWeight="Bold" FontFamily="Arial Black" Grid.ColumnSpan="2"/>
+		<TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="23" Margin="22,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
 
 
-    </Grid>
+	</Grid>
 </Window>
