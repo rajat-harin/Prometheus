@@ -339,6 +339,49 @@ namespace Prometheus.BusinessLayer
             }
             return flag;
         }
+
+
+        //Method for getting List of Student For a given course Id.
+        public List<Student> GetStudentsByCourseId(int id)
+        {
+            try
+            {
+                EnrollmentRepo enrollmentRepo = new EnrollmentRepo();
+                List<Enrollment> enrollments = enrollmentRepo.GetEnrollments().Where(item => item.CourseID == id).ToList();
+                StudentRepo studentRepo = new StudentRepo();
+                List<Student> students = studentRepo.GetStudents();
+
+                var result = enrollments.Join(
+                    students,
+                    enrollment => enrollment.StudentID,
+                    student => student.StudentID,
+                    
+                    (enrollment, student) => new Student
+                    {
+                        StudentID = enrollment.StudentID,
+                        FName = student.FName,
+                        LName = student.LName,
+                        Address = student.Address,
+                        DOB = student.DOB,
+                        City = student.City,
+                        UserID =student.UserID,
+                        MobileNo =student.MobileNo
+                    }
+                    ).ToList();
+                if (result.Any())
+                {
+                    return result;
+                }
+                else
+                {
+                    throw new PrometheusException("No Enrolled Student Found!");
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
 
