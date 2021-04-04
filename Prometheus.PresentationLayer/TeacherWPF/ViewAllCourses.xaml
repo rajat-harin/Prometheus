@@ -10,7 +10,7 @@
         <Label Content="Prometheus"  Canvas.Left="10" Canvas.Top="10"  
         FontSize="24" FontFamily="Georgia" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="295,10,0,0" Width="222"/>
         <Label Content="Courses Information"   FontFamily="Georgia" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,52,0,0" Width="298"/>
-        <DataGrid x:Name="courseGrid" FontSize="15" AutoGenerateColumns="False" CanUserAddRows="False"
+        <DataGrid x:Name="courseGrid" ItemsSource="{Binding courses}" FontSize="15" AutoGenerateColumns="False" CanUserAddRows="False"
         Margin="10,141,-0.4,61" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
         RowBackground="white" FontWeight="Bold" 
         ScrollViewer.CanContentScroll="True" MaxHeight="390"
@@ -18,12 +18,12 @@
         ScrollViewer.HorizontalScrollBarVisibility="Visible"
         ScrollViewer.VerticalScrollBarVisibility="Auto">
             <DataGrid.Columns>
-                <DataGridTextColumn FontSize="12" Header="Course Id" Binding="{Binding Path='CourseID'}" IsReadOnly="True" />
-                <DataGridTextColumn FontSize="12" Header="Course Name" Binding="{Binding Path='Name'}" IsReadOnly="True" />
-                <DataGridTextColumn FontSize="12" Header="Start Date" Binding="{Binding Path='StartDate'}" IsReadOnly="True" />
-                <DataGridTextColumn FontSize="12" Header="End Date" Binding="{Binding Path='EndDate'}" IsReadOnly="True" />
+                <DataGridTextColumn x:Name="CourseID"  FontSize="12" Header="Course Id" Binding="{Binding CourseID}" IsReadOnly="True" />
+                <DataGridTextColumn x:Name="Name" FontSize="12" Header="Course Name" Binding="{Binding Name}" IsReadOnly="True" />
+                <DataGridTextColumn x:Name="StartDate" FontSize="12" Header="Start Date" Binding="{Binding StartDate}" IsReadOnly="True" />
+                <DataGridTextColumn x:Name="EndDate" FontSize="12" Header="End Date" Binding="{Binding EndDate}" IsReadOnly="True" />
                 <!--CheckBoxColumnCode-->
-                <DataGridCheckBoxColumn Binding="{x:Null}" ClipboardContentBinding="{x:Null}" Header="Select Course">
+                <DataGridCheckBoxColumn x:Name="isSelected" Binding="{Binding isSelected}" ClipboardContentBinding="{x:Null}" Header="Select Course">
                     <DataGridCheckBoxColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontWeight" Value="Bold"></Setter>
@@ -35,5 +35,6 @@
         <Button Content="View All Courses" Name="ShowCourses" FontSize="14" FontWeight="Bold" Background="white" HorizontalAlignment="Left" Margin="591,62,0,0" VerticalAlignment="Top" Width="153" RenderTransformOrigin="0.624,-0.266" Height="32" Click="ShowCourses_Click"/>
         <Button Content="Show My Courses" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="340,377,0,0" VerticalAlignment="Top" Width="137" Height="33" FontWeight="Bold" FontSize="14"/>
         <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="23" Margin="664,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="txtUserName_TextChanged"/>
+        <Button x:Name="Save" Content="Save" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="627,385,0,0" VerticalAlignment="Top" Width="75" Click="Save_Click"/>
     </Grid>
 </Window>
