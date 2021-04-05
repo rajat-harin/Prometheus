@@ -131,5 +131,10 @@ namespace Prometheus.PresentationLayer.StudentWPF
         {
 
         }
+
+        private void DOB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

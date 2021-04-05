@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prometheus.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,7 @@ namespace Prometheus.PresentationLayer.TeacherWPF
     /// </summary>
     public partial class HomePage : Window
     {
+        private Teacher teacher;
         public HomePage(string UserName)
         {
             InitializeComponent();
@@ -52,7 +54,7 @@ namespace Prometheus.PresentationLayer.TeacherWPF
         private void UpdateProfile_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            TeacherProfileUpdate form5 = new TeacherProfileUpdate();
+            TeacherProfileUpdate form5 = new TeacherProfileUpdate(teacher);
             form5.Show();
         }
     }

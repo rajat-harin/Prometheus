@@ -25,7 +25,7 @@ namespace Prometheus.BusinessLayer
                     if (userRepo.InsertTeacher(user))
                     {
                         TeachesRepo teachesRepo = new TeachesRepo();
-                        teachesRepo.InsertTeaches(user.TeacherID,courseID);
+                        teachesRepo.InsertTeaches(TeacherID, courseId);
 
                         return true;
                         var result = assignmentList.Join(
