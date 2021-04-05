@@ -34,7 +34,7 @@ namespace Prometheus.BusinessLayer
 
             }
             int result = DateTime.Compare(homework.Deadline, homework.ReqTime);
-            if (result < 0 )
+            if (result > 0 )
             {
                 sb.Append(Environment.NewLine + "Required Time cannot be Less than DeadLine");
             }
