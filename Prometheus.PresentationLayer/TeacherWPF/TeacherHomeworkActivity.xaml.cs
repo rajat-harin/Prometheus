@@ -236,6 +236,17 @@ namespace Prometheus.PresentationLayer.TeacherWPF
 
         }
 
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void Window_Closed(object sender, EventArgs e) // Pressing the close button takes us back to the student main window.
+        {
+            this.Close();
+            HomePage teacherMainWindowobj = new HomePage(teacher.UserID);
+            teacherMainWindowobj.Show();
+        }
         private void ViewHW_Click(object sender, RoutedEventArgs e)
         {
             //homeworkGrid.ItemsSource = homeworkBL.GetAllHomeworks();

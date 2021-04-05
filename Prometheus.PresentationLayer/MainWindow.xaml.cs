@@ -29,9 +29,16 @@ namespace Prometheus.PresentationLayer
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            this.Hide();
             User_Login_Page newform = new User_Login_Page();
             newform.Show();
 
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+
+            System.Windows.Application.Current.Shutdown();
         }
     }
 }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Prometheus.PresentationLayer.AdminWPF"
         mc:Ignorable="d"
         Background="BlanchedAlmond"
-        Title="Add_Course_Page" Height="450" Width="800">
+        Title="Add_Course_Page" Height="450" Width="800" Closed="Window_Closed">
     <Grid>
         <Label Content="ADD COURSE" HorizontalAlignment="Left" Margin="264,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22" Width="221"/>
         <Label Content="Course Name" HorizontalAlignment="Left" Margin="93,136,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
@@ -18,8 +18,8 @@
         <DatePicker x:Name="StartDate" HorizontalAlignment="Left" Margin="252,196,0,0" VerticalAlignment="Top" Width="182"/>
         <DatePicker x:Name="EndDate" HorizontalAlignment="Left" Margin="252,261,0,0" VerticalAlignment="Top" Width="182"/>
         <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="37" Margin="640,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="123" TextChanged="txtUserName_TextChanged"/>
-        <Button Content="Clear" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="663,352,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="Button_Click_2"/>
-        <Button x:Name="logout" Content="Logout" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="640,86,0,0" VerticalAlignment="Top" Width="123" Height="35" Click="logout_Click"/>
+        <Button Content="Clear" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="663,352,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="Button_Click_2" FontWeight="Bold" FontSize="14"/>
+        <Button x:Name="logout" Content="Logout" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="640,86,0,0" VerticalAlignment="Top" Width="123" Height="35" Click="logout_Click" FontWeight="Bold" FontSize="14"/>
     </Grid>
 </Window>
 

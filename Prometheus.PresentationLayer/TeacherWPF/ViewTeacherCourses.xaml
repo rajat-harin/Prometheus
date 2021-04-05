@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Prometheus.PresentationLayer.TeacherWPF"
         mc:Ignorable="d"
-        Title="Prometheus: Teacher" Height="450" Width="800">
+        Title="Prometheus: Teacher" Height="450" Width="800" Background="BlanchedAlmond" Closed="Window_Closed">
     <Grid>
         <Button x:Name="BackButton" Content="Go Back" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="64,29,0,0" VerticalAlignment="Top" Width="75" FontSize="14" FontWeight="Bold" Click="BackButton_Click"/>
-        <TextBlock HorizontalAlignment="Left" Margin="322,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Width="133" FontSize="22"><Run FontWeight="Bold" Text="My Courses"/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Margin="349,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Width="133" FontSize="22"><Run FontWeight="Bold" Text="My Courses"/></TextBlock>
         <DataGrid x:Name="ViewMyCoursesDG" HorizontalAlignment="Left" Height="277" Margin="40,86,0,0" VerticalAlignment="Top" Width="706" SelectionChanged="DataGrid_SelectionChanged" AlternatingRowBackground="DarkGray"/>
         <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="23" Margin="664,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" TextChanged="txtUserName_TextChanged"/>
     </Grid>

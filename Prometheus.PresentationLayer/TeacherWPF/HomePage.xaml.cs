@@ -42,18 +42,23 @@ namespace Prometheus.PresentationLayer.TeacherWPF
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            this.Hide();
+
             ViewAllCourses form2 = new ViewAllCourses(teacher);
             form2.Show();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+            this.Hide();
+
             ViewMyStudents form3 = new ViewMyStudents(teacher);
             form3.Show();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            this.Hide();
             TeacherHomeworkActivity form4 = new TeacherHomeworkActivity(teacher);
             form4.Show();
         }
@@ -68,6 +73,20 @@ namespace Prometheus.PresentationLayer.TeacherWPF
             this.Hide();
             TeacherProfileUpdate form5 = new TeacherProfileUpdate(teacher);
             form5.Show();
+        }
+
+        private void logout_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+            Prometheus.PresentationLayer.AdminWPF.User_Login_Page user_Login_Page = new Prometheus.PresentationLayer.AdminWPF.User_Login_Page();
+            user_Login_Page.Show();
+        }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            this.Hide();
+            Prometheus.PresentationLayer.MainWindow objMainWindow = new Prometheus.PresentationLayer.MainWindow();
+            objMainWindow.Show();
         }
     }
 }

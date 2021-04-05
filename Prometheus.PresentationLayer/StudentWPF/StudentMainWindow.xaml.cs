@@ -103,5 +103,12 @@ namespace Prometheus.PresentationLayer.StudentWPF
             UpdateStudentProfile newform = new UpdateStudentProfile(student);
             newform.Show();
         }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            this.Hide();
+            Prometheus.PresentationLayer.AdminWPF.User_Login_Page objLoginPage = new Prometheus.PresentationLayer.AdminWPF.User_Login_Page();
+            objLoginPage.Show();
+        }
     }
 }

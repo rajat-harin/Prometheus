@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Prometheus.PresentationLayer.AdminWPF"
         mc:Ignorable="d"
         Background="BlanchedAlmond"
-        Title="Admin_Main_Page" Height="450" Width="800">
+        Title="Admin_Main_Page" Height="450" Width="800" Closed="Window_Closed">
     <Grid>
         <Button Content="Logout" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="709,10,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Height="30" Click="Button_Click_7" FontSize="14"/>
         <Button Content="ADD TEACHER" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top" Width="330" Height="43" FontWeight="Bold" FontSize="14" Click="Button_Click_1"/>

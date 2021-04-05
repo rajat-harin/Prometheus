@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Prometheus.PresentationLayer.AdminWPF"
         mc:Ignorable="d"
         Background="BlanchedAlmond"
-        Title="TeacherRegistration" Height="450" Width="800">
+        Title="TeacherRegistration" Height="450" Width="800" Closed="Window_Closed">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="219,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="37" Width="442" FontSize="22" Text="NEW TEACHER REGISTRATION" FontWeight="Bold"/>
 

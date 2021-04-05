@@ -66,6 +66,12 @@ namespace Prometheus.PresentationLayer.AdminWPF
             MainWindow form = new MainWindow();
             form.Show();
         }
+        private void Window_Closed(object sender, EventArgs e) // pressing close button takes us back to student main window.
+        {
+            this.Close();
+            Admin_Main_Page adminMainWindowobj = new Admin_Main_Page(txtUserName.Text);
+            adminMainWindowobj.Show();
+        }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {

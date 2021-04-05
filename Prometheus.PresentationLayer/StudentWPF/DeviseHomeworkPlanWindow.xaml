@@ -9,12 +9,17 @@
         Title="Prometheus: Student" Height="450" Width="800" Closed="Window_Closed">
 
     <Grid>
-        <Button x:Name="BackButton" Content="Go Back" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="64,29,0,0" VerticalAlignment="Top" Width="75" FontSize="14" FontWeight="Bold" Click="BackButton_Click"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="779*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="14*"/>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="BackButton" Content="Go Back" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="64,29,0,0" VerticalAlignment="Top" Width="75" FontSize="14" FontWeight="Bold" Click="BackButton_Click" Height="22"/>
         <TextBlock HorizontalAlignment="Left" Height="26" Margin="260,10,0,0" TextWrapping="Wrap" Text="Devised Homework Plan" VerticalAlignment="Top" Width="259" FontSize="22" FontWeight="Bold"/>
         <DataGrid x:Name="DeviseHomeworkPlanDG" ItemsSource ="{Binding homeworkPlans}"  HorizontalAlignment="Left" Height="223" Margin="25,103,0,0" VerticalAlignment="Top" Width="714" AlternatingRowBackground="DarkGray" SelectionChanged="DeviseHomeworkPlanDG_SelectionChanged" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
 
-                <DataGridTextColumn Binding="{Binding HomeworkID}" ClipboardContentBinding="{x:Null}" FontWeight="Bold" FontSize="14" Header="Homework ID" IsReadOnly ="True">
+                <DataGridTextColumn Binding="{Binding HomeworkID}" ClipboardContentBinding="{x:Null}" FontWeight="Bold" FontSize="14" Header="Homework ID  " IsReadOnly ="True">
                     <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="Background" Value="BurlyWood"/>
@@ -26,7 +31,7 @@
                 </DataGridTextColumn>
 
                 <!--Description Column Code-->
-                <DataGridTextColumn Binding="{Binding Description}" ClipboardContentBinding="{x:Null}" Header="Description" IsReadOnly ="True" Width="150">
+                <DataGridTextColumn Binding="{Binding Description}" ClipboardContentBinding="{x:Null}" Header="Description   " IsReadOnly ="True" Width="150">
                     <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="Background" Value="BurlyWood"/>
@@ -40,7 +45,7 @@
                 </DataGridTextColumn>
 
                 <!--Deadline Column Code-->
-                <DataGridTextColumn Binding="{Binding ReqTime}" ClipboardContentBinding="{x:Null}" Header="Deadline" IsReadOnly ="True">
+                <DataGridTextColumn Binding="{Binding ReqTime}" ClipboardContentBinding="{x:Null}" Header="Deadline   " IsReadOnly ="True">
                     <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="Background" Value="BurlyWood"/>
@@ -52,7 +57,7 @@
                 </DataGridTextColumn>
 
                 <!--Required Time Column Code-->
-                <DataGridTextColumn Binding="{Binding Deadline}" ClipboardContentBinding="{x:Null}" Header="Required Time" IsReadOnly ="True">
+                <DataGridTextColumn Binding="{Binding Deadline}" ClipboardContentBinding="{x:Null}" Header="Required Time  " IsReadOnly ="True">
                     <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="Background" Value="BurlyWood"/>
@@ -63,7 +68,7 @@
                     </DataGridTextColumn.HeaderStyle>
                 </DataGridTextColumn>
 
-                <DataGridTextColumn Binding="{Binding PriorityLevel}" ClipboardContentBinding="{x:Null}" FontWeight="Bold" Header="Priority Level">
+                <DataGridTextColumn Binding="{Binding PriorityLevel}" ClipboardContentBinding="{x:Null}" FontWeight="Bold"  Header="Priority Level  ">
                     <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="Background" Value="BurlyWood"/>
@@ -75,7 +80,7 @@
                 </DataGridTextColumn>
 
                 <!--CheckBoxColumnCode-->
-                <DataGridCheckBoxColumn Binding="{Binding isCompleted}" ClipboardContentBinding="{x:Null}" Header="Is Completed?">
+                <DataGridCheckBoxColumn Binding="{Binding isCompleted}" ClipboardContentBinding="{x:Null}" Header="Is Completed?  ">
                     <DataGridCheckBoxColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="Background" Value="BurlyWood"/>
@@ -89,16 +94,16 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <Button x:Name="SaveButton" Content="Save Plan" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="664,344,0,0" VerticalAlignment="Top" Width="75" FontSize="14" FontWeight="Bold" Height="36" RenderTransformOrigin="0.54,-0.122" Click="SaveButton_Click"/>
+        <Button x:Name="SaveButton" Content="Save Plan" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="557,350,0,0" VerticalAlignment="Top" Width="75" FontSize="14" FontWeight="Bold" Height="36" RenderTransformOrigin="0.54,-0.122" Click="SaveButton_Click"/>
         <Label 
             x:Name="txtUserName" 
             HorizontalAlignment="Left" 
-            Height="38" Margin="600,13,0,0"  
+            Height="38" Margin="363,41,0,0"  
             VerticalAlignment="Top" 
             Width="156" 
-            FontSize="17"
-            Content="Hello!"/>
-        <Button x:Name="Reload" Content="Reload" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="560,344,0,0" VerticalAlignment="Top" Width="75" FontSize="14" FontWeight="Bold" Height="36" RenderTransformOrigin="0.54,-0.122" Click="Reload_Click"/>
+            FontSize="20"
+            Content="Hello!" FontWeight="Bold"/>
+        <Button x:Name="Reload" Content="Reload" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="434,350,0,0" VerticalAlignment="Top" Width="75" FontSize="14" FontWeight="Bold" Height="36" RenderTransformOrigin="0.54,-0.122" Click="Reload_Click"/>
 
     </Grid>
 </Window>
