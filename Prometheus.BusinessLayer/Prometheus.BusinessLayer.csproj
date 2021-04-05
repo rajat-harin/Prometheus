@@ -47,6 +47,7 @@
     <Compile Include="Models\EnrolledCourse.cs" />
     <Compile Include="HomeworkBL.cs" />
     <Compile Include="Models\ExtendedHomeworkPlan.cs" />
+    <Compile Include="Models\SelectedCourse.cs" />
     <Compile Include="Models\TeacherCourses.cs" />
     <Compile Include="StudentBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
