@@ -85,7 +85,7 @@ namespace Prometheus.PresentationLayer.StudentWPF
         private void Window_Closed(object sender, EventArgs e) // pressing close button takes us back to student main window.
         {
             this.Close();
-            StudentMainWindow studentMainWindowobj = new StudentMainWindow(txtUserName.Text);
+            StudentMainWindow studentMainWindowobj = new StudentMainWindow(student.UserID);
             studentMainWindowobj.Show();
         }
 

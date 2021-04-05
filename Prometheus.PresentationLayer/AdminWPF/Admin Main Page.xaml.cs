@@ -110,7 +110,7 @@ namespace Prometheus.PresentationLayer.AdminWPF
 
         private void Button_Click_10(object sender, RoutedEventArgs e)
         {
-            HomePage form4 = new HomePage(txtUserName.Text);
+            TeacherHomeworkActivity form4 = new TeacherHomeworkActivity(teacher);
             form4.Show();
         }
 
