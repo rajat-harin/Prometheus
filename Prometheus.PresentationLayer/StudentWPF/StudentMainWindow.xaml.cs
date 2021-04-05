@@ -92,7 +92,7 @@ namespace Prometheus.PresentationLayer.StudentWPF
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            this.Hide();
             User_Login_Page newform = new User_Login_Page();
             newform.Show();
         }
@@ -107,7 +107,7 @@ namespace Prometheus.PresentationLayer.StudentWPF
         private void Window_Closed(object sender, EventArgs e)
         {
             this.Hide();
-            Prometheus.PresentationLayer.AdminWPF.User_Login_Page objLoginPage = new Prometheus.PresentationLayer.AdminWPF.User_Login_Page();
+            User_Login_Page objLoginPage = new User_Login_Page();
             objLoginPage.Show();
         }
     }
