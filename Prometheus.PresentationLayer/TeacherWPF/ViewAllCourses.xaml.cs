@@ -124,6 +124,13 @@ namespace Prometheus.PresentationLayer.TeacherWPF
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ViewTeacherCourses viewTeacherCourses = new ViewTeacherCourses(teacher);
+            viewTeacherCourses.Show();
+            this.Close();
+        }
     }
 }
  

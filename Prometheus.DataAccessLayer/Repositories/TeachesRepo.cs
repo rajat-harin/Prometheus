@@ -123,7 +123,7 @@ namespace Prometheus.DataAccessLayer.Repositories
             return false;
         }
 
-    /*    public List<Teaches> GetAllTeaches()
+        public List<Teaches> GetAllTeaches()
         {
             List<Teaches> userList;
             try
@@ -133,7 +133,7 @@ namespace Prometheus.DataAccessLayer.Repositories
                 //SqlConnection connection;
                 using (var connection = new SqlConnection(Database.ConnectionString))
                 {
-                    using (SqlCommand sqlCommand = new SqlCommand(Database.GETALLUSERS, connection))
+                    using (SqlCommand sqlCommand = new SqlCommand(Database.GETEACHES, connection))
                     {
                         //setting command type to stored procedure
                         sqlCommand.CommandType = CommandType.StoredProcedure;
@@ -148,9 +148,10 @@ namespace Prometheus.DataAccessLayer.Repositories
                 userList = dataSet.Tables["Table"].AsEnumerable()
                                 .Select(dataRow => new Teaches
                                 {
-                                    TeacherID = dataRow.Field<string>("TeacherID"),
-                                    CourseID = dataRow.Field<string>("CourseID")
+                                    TeacherID = dataRow.Field<int>("TeacherID"),
+                                    CourseID = dataRow.Field<int>("CourseID")
                                 }).ToList();
+                
             }
             catch (Exception)
             {
@@ -158,7 +159,7 @@ namespace Prometheus.DataAccessLayer.Repositories
             }
             return userList;
         }
-
+        /*
         public User GetTeachesByID(string id)
         {
             User user;
