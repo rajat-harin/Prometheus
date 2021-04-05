@@ -37,49 +37,49 @@ namespace Prometheus.PresentationLayer.AdminWPF
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+            this.Hide();
             MainWindow from = new MainWindow();
             from.Show();
         }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            
+            this.Hide();
             TeacherRegistration from = new TeacherRegistration(txtUserName.Text);
             from.Show();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            
+            this.Hide();
             StudentRegistration from = new StudentRegistration(txtUserName.Text);
             from.Show();
         }
 
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            
+            this.Hide();
             Add_Course_Page form = new Add_Course_Page(txtUserName.Text);
             form.Show();
         }
 
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            
+            this.Hide();
             ViewTeacherPage form = new ViewTeacherPage(txtUserName.Text);
             form.Show();
         }
 
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
-            
+            this.Hide();
             ViewStudentPage form = new ViewStudentPage(txtUserName.Text);
             form.Show();
         }
 
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {
-            
+            this.Hide();
             ViewCoursePage form = new ViewCoursePage(txtUserName.Text);
             form.Show();
         }
@@ -104,20 +104,34 @@ namespace Prometheus.PresentationLayer.AdminWPF
 
         private void Button_Click_9(object sender, RoutedEventArgs e)
         {
+            this.Hide();
             ViewMyStudents form3 = new ViewMyStudents(teacher);
             form3.Show();
         }
 
         private void Button_Click_10(object sender, RoutedEventArgs e)
         {
+            this.Hide();
             TeacherHomeworkActivity form4 = new TeacherHomeworkActivity(teacher);
             form4.Show();
         }
 
         private void Button_Click_11(object sender, RoutedEventArgs e)
         {
+            this.Hide();
             ViewAllCourses form2 = new ViewAllCourses(teacher);
             form2.Show();
+        }
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            this.Hide();
+            Prometheus.PresentationLayer.MainWindow obj = new Prometheus.PresentationLayer.MainWindow();
+            obj.Show();
+        }
+
+        private void Window(object sender, EventArgs e)
+        {
+
         }
     }
 }

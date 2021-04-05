@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Prometheus.PresentationLayer.TeacherWPF"
         mc:Ignorable="d"
-        Title="Prometheus: Teacher" Height="450" Width="800" Background="BlanchedAlmond">
+        Title="Prometheus: Teacher" Height="450" Width="800" Background="BlanchedAlmond" Closed="Window_Closed">
     <Grid>
         <TextBlock HorizontalAlignment="Center" Margin="310.2,17,280.8,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="201" FontFamily="Segoe UI Black" FontSize="22" Text="Student Profile" FontWeight="Bold"/>
         <Label Content="First Name" HorizontalAlignment="Left" Margin="170,119,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
@@ -20,7 +20,7 @@
         <Button x:Name="btnHome" Content="Back" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="164" Click="btnHome_Click" Height="31" FontWeight="Bold" FontSize="14"/>
         <Button x:Name="btnSaveData" Content="Save Changes" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="529,358,0,0" VerticalAlignment="Top" Width="116" Click="btnSaveData_Click_1" Height="42" FontWeight="Bold" FontSize="14"/>
         <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="37" Margin="659,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="123" TextChanged="txtUserName_TextChanged"/>
-        <Button x:Name="logout" Content="Logout" HorizontalAlignment="Left" Margin="659,86,0,0" VerticalAlignment="Top" Width="123" Height="35" Click="logout_Click"/>
+        <Button x:Name="logout" Content="Logout" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="659,86,0,0" VerticalAlignment="Top" Width="123" Height="35" Click="logout_Click" FontWeight="Bold" FontSize="14"/>
         <TextBox x:Name="DOB" HorizontalAlignment="Left" Height="23" Margin="311,232,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="201" IsReadOnly="True" TextChanged="DOB_TextChanged"/>
     </Grid>
 </Window>

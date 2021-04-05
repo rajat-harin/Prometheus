@@ -77,8 +77,15 @@ namespace Prometheus.PresentationLayer.AdminWPF
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
+            this.Hide();
             Admin_Main_Page admin_Main_Page = new Admin_Main_Page(txtUserName.Text);
             admin_Main_Page.Show();
+        }
+        private void Window_Closed(object sender, EventArgs e) // pressing close button takes us back to student main window.
+        {
+            this.Close();
+            Admin_Main_Page adminMainWindowobj = new Admin_Main_Page(txtUserName.Text);
+            adminMainWindowobj.Show();
         }
 
         private void logout_Click(object sender, RoutedEventArgs e)

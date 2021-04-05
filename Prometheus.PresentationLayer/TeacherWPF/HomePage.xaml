@@ -5,11 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Prometheus.PresentationLayer.TeacherWPF"
         mc:Ignorable="d"
-        Title="Prometheus: Teacher" Height="450" Width="800" Background="BlanchedAlmond">
+        Title="Prometheus: Teacher" Height="450" Width="800" Background="BlanchedAlmond" Closed="Window_Closed">
     <Grid RenderTransformOrigin="0.993,0.981">
         <Label Content="Prometheus"  Canvas.Left="10" Canvas.Top="10"  
     FontSize="24" FontFamily="Georgia" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="295,10,0,0" Width="222"/>
         <Label Content="Dear Teacher, Welcome!"    FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="259,57,0,0" Width="298"/>
+        <Button x:Name="logout" Content="Logout" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="640,86,0,0" VerticalAlignment="Top" Width="123" Height="35" Click="logout_Click" FontWeight="Bold" FontSize="14"/>
+
         <Button Content="View My Courses"   FontSize="18"  Background="white" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Width="191" Margin="295,126,0,0" Height="41" Click="Button_Click"/>
         <Button Content="View My Students"  FontSize="18"  Background="white" FontWeight="Bold" HorizontalAlignment="Left" Margin="295,188,0,0" VerticalAlignment="Top" Width="191" Height="42" Click="Button_Click_1"/>
         <Button Content="HomeWork Activity" HorizontalAlignment="Left" Margin="295,252,0,0"  FontSize="18"  Background="white" FontWeight="Bold" VerticalAlignment="Top" Width="191" Height="42" Click="Button_Click_2"/>

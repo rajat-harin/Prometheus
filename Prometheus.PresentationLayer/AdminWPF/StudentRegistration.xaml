@@ -6,38 +6,39 @@
         xmlns:local="clr-namespace:Prometheus.PresentationLayer.AdminWPF"
         mc:Ignorable="d"
         Background="BlanchedAlmond"
-        Title="StudentRegistration" Height="450" Width="800">
+        Title="StudentRegistration" Height="450" Width="800" Closed="Window_Closed">
     <Grid Margin="0,0,-0.4,-20">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="109*"/>
+            <ColumnDefinition Width="288*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock HorizontalAlignment="Left" Margin="201,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="442" FontFamily="Segoe UI Black" FontSize="22" Text="NEW STUDENT REGISTRATION" FontWeight="Bold"/>
-        <Label Content="Enter First Name" HorizontalAlignment="Left" Margin="170,119,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-        <Label Content="Enter Last Name" HorizontalAlignment="Left" Margin="173,147,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.786,-0.31" FontWeight="Bold" FontSize="14"/>
-        <Label Content="Enter Address" HorizontalAlignment="Left" Margin="186,204,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.037,-0.607" FontWeight="Bold" FontSize="14"/>
-        <Label Content="Enter DOB" HorizontalAlignment="Left" Margin="203,232,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.037,-0.596" FontWeight="Bold" FontSize="14" Height="26"/>
-        <Label Content="Enter City" HorizontalAlignment="Left" Margin="207,258,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.397,0.994" FontWeight="Bold" FontSize="14" Height="30" Width="74"/>
-        <Label Content="Create Password" HorizontalAlignment="Left" Margin="163,283,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.482,0.623" FontWeight="Bold" FontSize="14"/>
-        <Label Content="Enter Mobile No." HorizontalAlignment="Left" Margin="159,311,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.25,-0.038" FontWeight="Bold" FontSize="14"/>
-        <TextBox x:Name="FName" HorizontalAlignment="Left" Height="23" Margin="311,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" TextChanged="TextBox_TextChanged_1"/>
-        <TextBox x:Name="LName" HorizontalAlignment="Left" Height="23" Margin="311,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" TextChanged="TextBox_TextChanged_2"/>
-        <TextBox x:Name="Address" HorizontalAlignment="Left" Height="23" Margin="311,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" RenderTransformOrigin="0.5,0.5" TextChanged="TextBox_TextChanged_3"/>
-        <TextBox x:Name="City" HorizontalAlignment="Left" Height="24" Margin="311,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" TextChanged="TextBox_TextChanged_5"/>
-        <TextBox x:Name="MobileNo" PreviewTextInput="NumericOnly" HorizontalAlignment="Left" Height="23" Margin="311,317,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" TextChanged="TextBox_TextChanged_7"/>
-        <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" Margin="311,289,0,0" VerticalAlignment="Top" Width="201" Height="23"/>
+        <TextBlock HorizontalAlignment="Left" Margin="201,17,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="442" FontFamily="Segoe UI Black" FontSize="22" Text="NEW STUDENT REGISTRATION" FontWeight="Bold" Grid.ColumnSpan="2"/>
+        <Label Content="Enter First Name" HorizontalAlignment="Left" Margin="170,119,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Grid.ColumnSpan="2"/>
+        <Label Content="Enter Last Name" HorizontalAlignment="Left" Margin="173,147,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.786,-0.31" FontWeight="Bold" FontSize="14" Grid.ColumnSpan="2"/>
+        <Label Content="Enter Address" HorizontalAlignment="Left" Margin="186,204,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.037,-0.607" FontWeight="Bold" FontSize="14" Grid.ColumnSpan="2"/>
+        <Label Content="Enter DOB" HorizontalAlignment="Left" Margin="203,232,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.037,-0.596" FontWeight="Bold" FontSize="14" Height="26" Grid.ColumnSpan="2"/>
+        <Label Content="Enter City" HorizontalAlignment="Left" Margin="207,258,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.397,0.994" FontWeight="Bold" FontSize="14" Height="30" Width="74" Grid.ColumnSpan="2"/>
+        <Label Content="Create Password" HorizontalAlignment="Left" Margin="163,283,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.482,0.623" FontWeight="Bold" FontSize="14" Grid.ColumnSpan="2"/>
+        <Label Content="Enter Mobile No." HorizontalAlignment="Left" Margin="159,311,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.25,-0.038" FontWeight="Bold" FontSize="14" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="FName" HorizontalAlignment="Left" Height="23" Margin="93.1,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" TextChanged="TextBox_TextChanged_1" Grid.Column="1"/>
+        <TextBox x:Name="LName" HorizontalAlignment="Left" Height="23" Margin="93.1,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" TextChanged="TextBox_TextChanged_2" Grid.Column="1"/>
+        <TextBox x:Name="Address" HorizontalAlignment="Left" Height="23" Margin="93.1,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" RenderTransformOrigin="0.5,0.5" TextChanged="TextBox_TextChanged_3" Grid.Column="1"/>
+        <TextBox x:Name="City" HorizontalAlignment="Left" Height="24" Margin="93.1,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" TextChanged="TextBox_TextChanged_5" Grid.Column="1"/>
+        <TextBox x:Name="MobileNo" PreviewTextInput="NumericOnly" HorizontalAlignment="Left" Height="23" Margin="93.1,317,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" TextChanged="TextBox_TextChanged_7" Grid.Column="1"/>
+        <PasswordBox x:Name="txtPassword" HorizontalAlignment="Left" Margin="93.1,289,0,0" VerticalAlignment="Top" Width="201" Height="23" Grid.Column="1"/>
         <Button x:Name="btnHome" Content="Back To Adminpage" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="164" Click="btnHome_Click" Height="31" FontWeight="Bold" FontSize="14"/>
-        <Button x:Name="btnSaveData" Content="Save Details" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="553,358,0,0" VerticalAlignment="Top" Width="90" Click="btnSaveData_Click_1" Height="42" FontWeight="Bold" FontSize="14"/>
-        <Label Content="Enter UserName" HorizontalAlignment="Left" Margin="173,176,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.786,-0.31" FontWeight="Bold" FontSize="14"/>
-        <TextBox x:Name="UserName" HorizontalAlignment="Left" Height="23" Margin="311,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" TextChanged="TextBox_TextChanged_2"/>
-        <DatePicker x:Name="DatePicker" HorizontalAlignment="Left" Margin="311,232,0,0" VerticalAlignment="Top" Width="201" Height="23"/>
-        <Button Content="Clear" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="674,358,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.422,2.034" Height="42" Click="Button_Click" FontWeight="Bold" FontSize="14"/>
-        <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="37" Margin="659,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="123" TextChanged="txtUserName_TextChanged"/>
-        <Button x:Name="logout" Content="Logout" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="659,86,0,0" VerticalAlignment="Top" Width="123" Height="35" Click="logout_Click" FontWeight="Bold" FontSize="14"/>
+        <Button x:Name="btnSaveData" Content="Save Details" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="335.1,358,0,0" VerticalAlignment="Top" Width="90" Click="btnSaveData_Click_1" Height="42" FontWeight="Bold" FontSize="14" Grid.Column="1"/>
+        <Label Content="Enter UserName" HorizontalAlignment="Left" Margin="173,176,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.786,-0.31" FontWeight="Bold" FontSize="14" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="UserName" HorizontalAlignment="Left" Height="23" Margin="93.1,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" TextChanged="TextBox_TextChanged_2" Grid.Column="1"/>
+        <DatePicker x:Name="DatePicker" HorizontalAlignment="Left" Margin="93.1,232,0,0" VerticalAlignment="Top" Width="201" Height="23" Grid.Column="1"/>
+        <Button Content="Clear" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="456.1,358,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.422,2.034" Height="42" Click="Button_Click" FontWeight="Bold" FontSize="14" Grid.Column="1"/>
+        <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="37" Margin="441.1,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="123" TextChanged="txtUserName_TextChanged" Grid.Column="1"/>
+        <Button x:Name="logout" Content="Logout" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="441.1,86,0,0" VerticalAlignment="Top" Width="123" Height="35" Click="logout_Click" FontWeight="Bold" FontSize="14" Grid.Column="1"/>
         <Label Content="Label" HorizontalAlignment="Left" Margin="163,345,0,0" VerticalAlignment="Top"/>
-        <Label Content="Select Security Question" HorizontalAlignment="Left" Margin="159,345,0,0" VerticalAlignment="Top" Height="29" Width="148"/>
-        <Label Content="Enter Security Answer" HorizontalAlignment="Left" Margin="163,374,0,0" VerticalAlignment="Top" Height="26"/>
-        <TextBox x:Name="txtAnswer" HorizontalAlignment="Left" Height="23" Margin="312,374,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextChanged="txtAnswer_TextChanged"/>
-        <ComboBox x:Name="comboSecurity" HorizontalAlignment="Left" Margin="312,345,0,0" VerticalAlignment="Top" Width="200">
+        <Label Content="Select Security Question" HorizontalAlignment="Left" Margin="159,345,0,0" VerticalAlignment="Top" Height="29" Width="148" Grid.ColumnSpan="2"/>
+        <Label Content="Enter Security Answer" HorizontalAlignment="Left" Margin="163,374,0,0" VerticalAlignment="Top" Height="26" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtAnswer" HorizontalAlignment="Left" Height="23" Margin="94.1,374,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextChanged="txtAnswer_TextChanged" Grid.Column="1"/>
+        <ComboBox x:Name="comboSecurity" HorizontalAlignment="Left" Margin="94.1,345,0,0" VerticalAlignment="Top" Width="200" Grid.Column="1">
             <ComboBoxItem Content="What is your NickName?"/>
             <ComboBoxItem Content="What is your PetName?"/>
             <ComboBoxItem Content="What is Your HighSchool Name?"/>

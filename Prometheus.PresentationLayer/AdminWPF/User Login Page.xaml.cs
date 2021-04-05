@@ -34,6 +34,12 @@ namespace Prometheus.PresentationLayer.AdminWPF
             MainWindow from = new MainWindow();
             from.Show();
         }
+        private void Window_Closed(object sender, EventArgs e) // pressing close button takes us back to student main window.
+        {
+            this.Close();
+            MainWindow adminMainWindowobj = new MainWindow();
+            adminMainWindowobj.Show();
+        }
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
@@ -47,6 +53,7 @@ namespace Prometheus.PresentationLayer.AdminWPF
                 if (string.IsNullOrEmpty(role))
                 {
                     MessageBox.Show("Login Unsuccessfull....");
+                    
 
                 }
                 else
@@ -71,6 +78,7 @@ namespace Prometheus.PresentationLayer.AdminWPF
                     {
                         MessageBox.Show("Failed to Login!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
+                    this.Hide();
                 }
             }
             catch (Exception ex)

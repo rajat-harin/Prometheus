@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Prometheus.PresentationLayer.TeacherWPF"
         mc:Ignorable="d"
-        Title="Prometheus: Teacher" Height="450" Width="800" Background="BlanchedAlmond">
+        Title="Prometheus: Teacher" Height="450" Width="800" Background="BlanchedAlmond" Closed="Window_Closed">
     <Grid>
         <Label Content="Prometheus"  Canvas.Left="10" Canvas.Top="10"  
         FontSize="24" FontFamily="Georgia" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="295,10,0,0" Width="222"/>
@@ -32,9 +32,11 @@
                 </DataGridCheckBoxColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="View All Courses" Name="ShowCourses" FontSize="14" FontWeight="Bold" Background="white" HorizontalAlignment="Left" Margin="591,62,0,0" VerticalAlignment="Top" Width="153" RenderTransformOrigin="0.624,-0.266" Height="32" Click="ShowCourses_Click"/>
-        <Button Content="Show My Courses" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="340,377,0,10" Width="137" FontWeight="Bold" FontSize="14" Click="Button_Click"/>
+        <Button Content="View All Courses" Name="ShowCourses" FontSize="14" FontWeight="Bold" Background="white" HorizontalAlignment="Left" Margin="591,52,0,0" VerticalAlignment="Top" Width="153" RenderTransformOrigin="0.624,-0.266" Height="32" Click="ShowCourses_Click"/>
+        <Button Content="Show My Courses" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="591,103,0,284" Width="153" FontWeight="Bold" FontSize="14" Click="Button_Click"/>
         <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="23" Margin="664,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="txtUserName_TextChanged"/>
-        <Button x:Name="Save" Content="Save" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="627,385,0,0" VerticalAlignment="Top" Width="75" Click="Save_Click"/>
+        <Button x:Name="BackButton" Content="Go Back" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="26,20,0,0" VerticalAlignment="Top" Width="75" FontSize="14" FontWeight="Bold" Click="BackButton_Click"/>
+
+        <Button x:Name="Save" Content="Save" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="343,364,0,0" VerticalAlignment="Top" Width="109" Click="Save_Click" FontWeight="Bold" FontSize="14" Height="31"/>
     </Grid>
 </Window>
