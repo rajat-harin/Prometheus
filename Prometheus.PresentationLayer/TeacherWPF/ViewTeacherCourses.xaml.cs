@@ -30,6 +30,7 @@ namespace Prometheus.PresentationLayer.TeacherWPF
             InitializeComponent();
             teacherBL = new TeacherBL();
             this.teacher = new Teacher();
+            txtUserName.Text = teacher.UserID;
             this.teacher = teacher;
             LoadMyCourses();
         }
@@ -58,6 +59,21 @@ namespace Prometheus.PresentationLayer.TeacherWPF
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+
+        }
+
+        private void courseGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void txtUserName_TextChanged(object sender, TextChangedEventArgs e)
+        {
 
         }
     }

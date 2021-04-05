@@ -26,10 +26,10 @@ namespace Prometheus.PresentationLayer.TeacherWPF
     {
         StudentBL studentbl = new StudentBL();
         //DataTable dt = studentsOtherCourses.viewOtherCourse();
-        public ViewStudentCourses(string UserName)
+        public ViewStudentCourses(Teacher teacher)
         {
             InitializeComponent();
-            txtUserName.Text = UserName;
+            txtUserName.Text = teacher.UserID;
             
         }
         public void GetAllCourses(int studentId)

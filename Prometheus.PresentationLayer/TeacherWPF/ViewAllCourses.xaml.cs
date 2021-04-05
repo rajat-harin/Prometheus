@@ -35,6 +35,7 @@ namespace Prometheus.PresentationLayer.TeacherWPF
             this.teacher = new Teacher();
             this.teacher = teacher;
             this.teachesBL = new TeachesBL();
+            txtUserName.Text = teacher.UserID;
         }
         private void ShowCourses_Click(object sender, RoutedEventArgs e)
         {

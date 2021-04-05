@@ -104,7 +104,7 @@ namespace Prometheus.PresentationLayer.AdminWPF
 
         private void Button_Click_9(object sender, RoutedEventArgs e)
         {
-            ViewMyStudents form3 = new ViewMyStudents(txtUserName.Text);
+            ViewMyStudents form3 = new ViewMyStudents(teacher);
             form3.Show();
         }
 

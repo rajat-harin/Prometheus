@@ -134,6 +134,8 @@ namespace Prometheus.BusinessLayer
                         TeacherID = assignment.TeacherID,
                         CourseID = assignment.CourseID,
                         HomeworkID = homework.HomeworkID,
+                        Deadline = homework.Deadline,
+                        ReqTime = homework.ReqTime,
                         Description = homework.Description,
                         LongDescription = homework.LongDescription
                     }
