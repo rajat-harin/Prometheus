@@ -25,12 +25,16 @@ namespace Prometheus.PresentationLayer.TeacherWPF
     public partial class ViewAllCourses : Window
     {
         CourseBL courseblObj = new CourseBL();
+        private Teacher teacher;
+        private TeachesBL teachesBL;
         List<SelectedCourse> courses; 
-        public ViewAllCourses(string UserName)
+        public ViewAllCourses(Teacher teacher)
         {
             InitializeComponent();
             courses = new List<SelectedCourse>();
-            txtUserName.Text = UserName;
+            this.teacher = new Teacher();
+            this.teacher = teacher;
+            this.teachesBL = new TeachesBL();
         }
         private void ShowCourses_Click(object sender, RoutedEventArgs e)
         {
@@ -87,7 +91,7 @@ namespace Prometheus.PresentationLayer.TeacherWPF
         }
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            int TeacherID  = 1;
+            //int TeacherID  = 1;
             
             try
             {
@@ -100,9 +104,9 @@ namespace Prometheus.PresentationLayer.TeacherWPF
                         
                         
                     }
-                    //courseblObj.GetCourses(item.CourseID,TeacherID);
 
                 }
+                teachesBL.AddTeachesList(selectedCourses, teacher.TeacherID);
                 //Now you can pass list selected courses to BL for adding in Database
                 //Your Code here  --  mujhe selected courses teaches table ka jomodel hai usme bhejana hai and then mycourses me wo course id and teacher id se sare teacher courses dikhana hai
             }

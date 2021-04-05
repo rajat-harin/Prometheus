@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Prometheus.BusinessLayer;
+using Prometheus.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,16 +21,24 @@ namespace Prometheus.PresentationLayer.TeacherWPF
     /// </summary>
     public partial class HomePage : Window
     {
+        private Teacher teacher;
+        private TeacherBL teacherBL;
         public HomePage(string UserName)
         {
             InitializeComponent();
+            teacherBL = new TeacherBL();
             txtUserName.Text = UserName;
+            teacher.UserID = UserName;
+        }
 
+        private void LoadTeacher()
+        {
+            teacher = teacherBL.GetTeacher(teacher.UserID);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ViewAllCourses form2 = new ViewAllCourses(txtUserName.Text);
+            ViewAllCourses form2 = new ViewAllCourses(teacher);
             form2.Show();
         }
 

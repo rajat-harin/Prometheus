@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Prometheus.BusinessLayer;
+using Prometheus.Entities;
 using Prometheus.PresentationLayer.TeacherWPF;
 
 namespace Prometheus.PresentationLayer.AdminWPF
@@ -20,10 +22,18 @@ namespace Prometheus.PresentationLayer.AdminWPF
     /// </summary>
     public partial class Admin_Main_Page : Window
     {
+        private Teacher teacher;
+        private TeacherBL teacherBL;
         public Admin_Main_Page(string UserName)
         {
             InitializeComponent();
             txtUserName.Text = UserName;
+            this.teacher = new Teacher();
+            this.teacher.UserID = UserName;
+        }
+        private void LoadTeacher()
+        {
+            teacher = teacherBL.GetTeacher(teacher.UserID);
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -106,7 +116,7 @@ namespace Prometheus.PresentationLayer.AdminWPF
 
         private void Button_Click_11(object sender, RoutedEventArgs e)
         {
-            ViewAllCourses form2 = new ViewAllCourses(txtUserName.Text);
+            ViewAllCourses form2 = new ViewAllCourses(teacher);
             form2.Show();
         }
     }
