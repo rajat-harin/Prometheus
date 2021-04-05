@@ -125,6 +125,9 @@ namespace Prometheus.PresentationLayer.StudentWPF
         private void Reload_Click(object sender, RoutedEventArgs e)
         {
             DeviseHomeworkPlan();
+            InitializeHomeworkList();
+            LoadHomeworkGrid();
+
         }
     }  
 }
