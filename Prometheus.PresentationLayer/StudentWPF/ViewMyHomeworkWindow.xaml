@@ -10,7 +10,96 @@
     <Grid>
         <Button x:Name="BackButton" Content="Go Back" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="64,29,0,0" VerticalAlignment="Top" Width="75" FontSize="14" FontWeight="Bold" Click="BackButton_Click" Height="22"/>
         <TextBlock HorizontalAlignment="Left" Margin="298,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Width="175" FontSize="22"><Run FontWeight="Bold" Text="My Homeworks"/></TextBlock>
-        <DataGrid x:Name="ViewHomeworkDG" HorizontalAlignment="Left" Height="234" Margin="93,129,0,0" VerticalAlignment="Top" Width="644" SelectionChanged="DataGrid_SelectionChanged" AlternatingRowBackground="Gray">
+        <DataGrid x:Name="ViewHomeworkDG" HorizontalAlignment="Left" 
+                  Height="234" Margin="93,129,0,0" VerticalAlignment="Top" 
+                  Width="644" SelectionChanged="DataGrid_SelectionChanged" 
+                  AlternatingRowBackground="Gray"
+                  AutoGenerateColumns="False" CanUserAddRows="False"
+                  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding AssignmentID}" ClipboardContentBinding="{x:Null}" FontWeight="Bold" Header="Assignment ID">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="BurlyWood"/>
+                            <Setter Property="FontWeight" Value="Bold"></Setter>
+                            <Setter Property="BorderThickness" Value="1"></Setter>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Binding="{Binding HomeworkID}" ClipboardContentBinding="{x:Null}" FontWeight="Bold" FontSize="14" Header="Homework ID" IsReadOnly ="True">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="BurlyWood"/>
+                            <Setter Property="FontWeight" Value="Bold"></Setter>
+                            <Setter Property="BorderThickness" Value="1"></Setter>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+
+                <!--Description Column Code-->
+                <DataGridTextColumn Binding="{Binding Description}" ClipboardContentBinding="{x:Null}" Header="Description" IsReadOnly ="True">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="BurlyWood"/>
+                            <Setter Property="FontWeight" Value="Bold"></Setter>
+                            <Setter Property="BorderThickness" Value="1"></Setter>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+
+                <!--Deadline Column Code-->
+                <DataGridTextColumn Binding="{Binding Deadline}" ClipboardContentBinding="{x:Null}" Header="Deadline" IsReadOnly ="True">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="BurlyWood"/>
+                            <Setter Property="FontWeight" Value="Bold"></Setter>
+                            <Setter Property="BorderThickness" Value="1"></Setter>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+
+                <!--Required Time Column Code-->
+                <DataGridTextColumn Binding="{Binding ReqTime}" ClipboardContentBinding="{x:Null}" Header="Required Time" IsReadOnly ="True">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="BurlyWood"/>
+                            <Setter Property="FontWeight" Value="Bold"></Setter>
+                            <Setter Property="BorderThickness" Value="1"></Setter>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding LongDescription}" ClipboardContentBinding="{x:Null}" Header="Long Description" IsReadOnly ="True">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="BurlyWood"/>
+                            <Setter Property="FontWeight" Value="Bold"></Setter>
+                            <Setter Property="BorderThickness" Value="1"></Setter>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+
+                <DataGridTextColumn Binding="{Binding CourseName}" ClipboardContentBinding="{x:Null}" FontWeight="Bold" Header="Course Name">
+                    <DataGridTextColumn.HeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="Background" Value="BurlyWood"/>
+                            <Setter Property="FontWeight" Value="Bold"></Setter>
+                            <Setter Property="BorderThickness" Value="1"></Setter>
+                            <Setter Property="BorderBrush" Value="Black"/>
+                        </Style>
+                    </DataGridTextColumn.HeaderStyle>
+                </DataGridTextColumn>
+
+                <!--CheckBoxColumnCode-->
+                
+
+            </DataGrid.Columns>
         </DataGrid>
         <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="23" Margin="664,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" TextChanged="txtUserName_TextChanged"/>
     </Grid>

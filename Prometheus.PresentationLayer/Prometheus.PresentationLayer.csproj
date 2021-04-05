@@ -121,6 +121,9 @@
     <Compile Include="TeacherWPF\ViewStudentCourses.xaml.cs">
       <DependentUpon>ViewStudentCourses.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TeacherWPF\ViewTeacherCourses.xaml.cs">
+      <DependentUpon>ViewTeacherCourses.xaml</DependentUpon>
+    </Compile>
     <Page Include="AdminWPF\Add Course Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -224,6 +227,10 @@
     <Page Include="TeacherWPF\ViewStudentCourses.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="TeacherWPF\ViewTeacherCourses.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
