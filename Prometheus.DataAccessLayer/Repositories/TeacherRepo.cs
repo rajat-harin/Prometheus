@@ -84,6 +84,7 @@ namespace Prometheus.DataAccessLayer.Repositories
                             SqlParameter DOB = new SqlParameter("@DOB", teacher.DOB);
                             SqlParameter City = new SqlParameter("@City", teacher.City);
                             SqlParameter MobileNo = new SqlParameter("@MobileNo", teacher.MobileNo);
+                            SqlParameter IsAdmin = new SqlParameter("@IsAdmin", teacher.IsAdmin);
 
 
                             sqlCommand.Parameters.Add(FName);
@@ -94,6 +95,7 @@ namespace Prometheus.DataAccessLayer.Repositories
                             sqlCommand.Parameters.Add(FName);
                             sqlCommand.Parameters.Add(City);
                             sqlCommand.Parameters.Add(MobileNo);
+                            sqlCommand.Parameters.Add(IsAdmin);
 
                             connection.Open();
                             int affectedRows = sqlCommand.ExecuteNonQuery();
