@@ -44,6 +44,9 @@ namespace Prometheus.BusinessLayer
             try
             {
                 StudentRepo studentRepo = new StudentRepo();
+                if (string.IsNullOrEmpty(student.Address))
+                    if (string.IsNullOrEmpty(student.City))
+                        throw new PrometheusException("Please Enter Address And City!");
 
                 bool result = studentRepo.UpdateStudent(student);
                 
