@@ -29,7 +29,9 @@ namespace Prometheus.PresentationLayer.TeacherWPF
             InitializeComponent();
             teacherBL = new TeacherBL();
             txtUserName.Text = UserName;
+            this.teacher = new Teacher();
             teacher.UserID = UserName;
+            LoadTeacher();
         }
 
         private void LoadTeacher()

@@ -23,7 +23,11 @@ namespace Prometheus.BusinessLayer
                    /* CourseRepo studentRepo = new CourseRepo();*/
                     //Teacher user = new Teacher { TeacherID = teacher.TeacherID };
                     TeachesRepo teachesRepo = new TeachesRepo();
-                   teachesRepo.InsertTeaches(teacherID,course.CourseID);     
+                   bool isAdded = teachesRepo.InsertTeaches(teacherID,course.CourseID);
+                    if (isAdded)
+                    {
+                        return true;
+                    }
                 }
             }
             catch (Exception)
