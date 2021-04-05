@@ -58,16 +58,23 @@ namespace Prometheus.PresentationLayer.TeacherWPF
         {
             try
             {
-                int HomeworkID = int.Parse(searchtxt.Text);
-                object selectedValue = coursecmbbox.SelectedValue;
-                int courseID = (int)selectedValue;//if course ID not selected then it throws exception here only - 'Object reference not set to an instance of an object.'
-                if (HomeworkID != 0 && courseID != 0)
+                if (coursecmbbox.SelectedValue != null)
                 {
-                    homeworkGrid.ItemsSource = homeworkBL.SearchHomeworkByID(HomeworkID, courseID);
+                    int HomeworkID = int.Parse(searchtxt.Text);
+                    object selectedValue = coursecmbbox.SelectedValue;
+                    int courseID = (int)selectedValue;//if course ID not selected then it throws exception here only - 'Object reference not set to an instance of an object.'
+                    if (HomeworkID != 0 && courseID != 0)
+                    {
+                        homeworkGrid.ItemsSource = homeworkBL.SearchHomeworkByID(HomeworkID, courseID);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No Homework Found!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("No Homework Found!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Select Course From Courses List");
                 }
             }
 
@@ -136,18 +143,25 @@ namespace Prometheus.PresentationLayer.TeacherWPF
         {
             try
             {
-                homeworkEntity.HomeworkID = Convert.ToInt32(homeworkId_txt.Text);
-                homeworkEntity.Description = HomeworkTitle_txt.Text;
-                homeworkEntity.Deadline = Deadline_txt.SelectedDate.GetValueOrDefault();
-                homeworkEntity.LongDescription = HomeworkDescription_txt.Text;
-                bool HwUpdated = homeworkBL.updateHomework(homeworkEntity);
-                if (HwUpdated)
+                if (coursecmbbox.SelectedValue != null)
                 {
-                    MessageBox.Show("Homework Updated Successfully!");
+                    homeworkEntity.HomeworkID = Convert.ToInt32(homeworkId_txt.Text);
+                    homeworkEntity.Description = HomeworkTitle_txt.Text;
+                    homeworkEntity.Deadline = Deadline_txt.SelectedDate.GetValueOrDefault();
+                    homeworkEntity.LongDescription = HomeworkDescription_txt.Text;
+                    bool HwUpdated = homeworkBL.updateHomework(homeworkEntity);
+                    if (HwUpdated)
+                    {
+                        MessageBox.Show("Homework Updated Successfully!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Homework not Updated!");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Homework not Updated!");
+                    MessageBox.Show("Select Course From Courses List");
                 }
             }
             catch (Exception ex)
@@ -161,16 +175,23 @@ namespace Prometheus.PresentationLayer.TeacherWPF
         {
             try
             {
-                int homeworkID = Convert.ToInt32(homeworkId_txt.Text);
-                int AssignmentID = objModelClass.AssignmentID;
-                bool HwUpdated = homeworkBL.deleteHomework_Assignment(homeworkID, AssignmentID);
-                if (HwUpdated)
+                if (coursecmbbox.SelectedValue != null)
                 {
-                    MessageBox.Show("Homework Deleted Successfully!");
+                    int homeworkID = Convert.ToInt32(homeworkId_txt.Text);
+                    int AssignmentID = objModelClass.AssignmentID;
+                    bool HwUpdated = homeworkBL.deleteHomework_Assignment(homeworkID, AssignmentID);
+                    if (HwUpdated)
+                    {
+                        MessageBox.Show("Homework Deleted Successfully!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Homework not Deleted!");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Homework not Deleted!");
+                    MessageBox.Show("Select Course From Courses List");
                 }
             }
             catch (Exception ex)
@@ -247,6 +268,18 @@ namespace Prometheus.PresentationLayer.TeacherWPF
             HomePage teacherMainWindowobj = new HomePage(teacher.UserID);
             teacherMainWindowobj.Show();
         }
+
+        private void ClearButton_txt_Click(object sender, RoutedEventArgs e)
+        {
+            
+            homeworkId_txt.Clear();
+            Deadline_txt.SelectedDate.GetValueOrDefault();
+            Reqtime.SelectedDate.GetValueOrDefault();
+            HomeworkTitle_txt.Clear();
+            HomeworkDescription_txt.Clear();
+            searchtxt.Clear();
+        }
+
         private void ViewHW_Click(object sender, RoutedEventArgs e)
         {
             //homeworkGrid.ItemsSource = homeworkBL.GetAllHomeworks();
