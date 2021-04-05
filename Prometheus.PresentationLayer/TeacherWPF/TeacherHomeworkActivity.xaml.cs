@@ -22,15 +22,20 @@ namespace Prometheus.PresentationLayer.TeacherWPF
     /// </summary>
     public partial class TeacherHomeworkActivity : Window
     {
-        AssignedHomework objModelClass = new AssignedHomework();
+        List<AssignedHomework> assignedHomeworks;
+        AssignedHomework objModelClass;
+        private Teacher teacher;
         Homework homeworkEntity = new Homework();//Entity Initialize
         HomeworkBL homeworkBL = new HomeworkBL();//BLclass Initialize -take it into class level
         int courseID, teacherID;
-        public TeacherHomeworkActivity(string UserName)
+        public TeacherHomeworkActivity(Teacher teacher)
         {
             InitializeComponent();
             LoadCourseComboBox();
-            txtUserName.Text = UserName;
+            this.teacher = new Teacher();
+            this.teacher = teacher;
+            txtUserName.Text = teacher.UserID;
+            objModelClass = new AssignedHomework();
         }
         private void LoadCourseComboBox()
         {
@@ -56,6 +61,7 @@ namespace Prometheus.PresentationLayer.TeacherWPF
             int courseID = (int)selectedValue;//if course ID not selected then it throws exception here only - 'Object reference not set to an instance of an object.'
             if (HomeworkID != 0 && courseID != 0)
             {
+                
                 homeworkGrid.ItemsSource = homeworkBL.SearchHomeworkByID(HomeworkID, courseID);
             }
         }
@@ -66,7 +72,8 @@ namespace Prometheus.PresentationLayer.TeacherWPF
             {
                 //Adding HomeWork
                 homeworkEntity.HomeworkID = Convert.ToInt32(homeworkId_txt.Text);
-                homeworkEntity.Deadline = Deadline_txt.SelectedDate.Value;//DatePicker  Deadline_txt.Selecteddate.getValue.default()
+                homeworkEntity.Deadline = Deadline_txt.SelectedDate.Value;
+                homeworkEntity.ReqTime = Reqtime.SelectedDate.Value;//DatePicker  Deadline_txt.Selecteddate.getValue.default()
                 homeworkEntity.Description = HomeworkTitle_txt.Text;
                 homeworkEntity.LongDescription = HomeworkDescription_txt.Text; ;
 
@@ -79,6 +86,7 @@ namespace Prometheus.PresentationLayer.TeacherWPF
                     objModelClass.LongDescription = homeworkEntity.LongDescription;
                     objModelClass.Description = homeworkEntity.Description;
                     objModelClass.Deadline = homeworkEntity.Deadline;
+                    objModelClass.ReqTime = homeworkEntity.ReqTime;
                     objModelClass.TeacherID = 1;//will be set as per the login id of teacher 
                     objModelClass.CourseID = (int)coursecmbbox.SelectedValue;
                     courseID = objModelClass.CourseID;
@@ -108,7 +116,7 @@ namespace Prometheus.PresentationLayer.TeacherWPF
         {
             homeworkEntity.HomeworkID = Convert.ToInt32(homeworkId_txt.Text);
             homeworkEntity.Description = HomeworkTitle_txt.Text;
-            homeworkEntity.Deadline = Deadline_txt.SelectedDate.Value;
+            homeworkEntity.Deadline = Deadline_txt.SelectedDate.GetValueOrDefault();
             homeworkEntity.LongDescription = HomeworkDescription_txt.Text;
             bool HwUpdated = homeworkBL.updateHomework(homeworkEntity);
             if (HwUpdated)
@@ -143,11 +151,25 @@ namespace Prometheus.PresentationLayer.TeacherWPF
 
         private void homeworkGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            objModelClass = homeworkGrid.SelectedItem as AssignedHomework;
-            homeworkId_txt.Text = Convert.ToString(objModelClass.HomeworkID);
-            Deadline_txt.Text = Convert.ToString(objModelClass.Deadline);//Date Problem
-            HomeworkTitle_txt.Text = Convert.ToString(objModelClass.Description);
-            HomeworkDescription_txt.Text = Convert.ToString(objModelClass.LongDescription);
+            try
+            {
+                objModelClass = new AssignedHomework();
+                objModelClass = homeworkGrid.SelectedItem as AssignedHomework;
+                if (objModelClass != null)
+                {
+                    homeworkId_txt.Text = Convert.ToString(objModelClass.HomeworkID);
+                    Deadline_txt.Text = (objModelClass.Deadline.Date.ToString());//Date Problem
+                    Reqtime.Text = (objModelClass.ReqTime.Date.ToString());//Date Problem
+                    HomeworkTitle_txt.Text = Convert.ToString(objModelClass.Description);
+                    HomeworkDescription_txt.Text = Convert.ToString(objModelClass.LongDescription);
+                }
+                
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No row Selected");
+            }
+            
             /*DataGrid datagrid = (DataGrid)sender;
             DataRowView row_selected = homeworkGrid.SelectedItem as DataRowView;
             if (row_selected != null)
@@ -190,7 +212,11 @@ namespace Prometheus.PresentationLayer.TeacherWPF
 
         private void ViewHW_Click(object sender, RoutedEventArgs e)
         {
-            homeworkGrid.ItemsSource = homeworkBL.GetAllHomeworks();
+            //homeworkGrid.ItemsSource = homeworkBL.GetAllHomeworks();
+            assignedHomeworks = new List<AssignedHomework>();
+            assignedHomeworks = homeworkBL.GetAllHomeworks();
+            homeworkGrid.ItemsSource = assignedHomeworks;
+            
         }
     }
 }

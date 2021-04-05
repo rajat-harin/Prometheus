@@ -32,7 +32,7 @@ namespace Prometheus.PresentationLayer.StudentWPF
             studentBL = new StudentBL();
             this.student = new Student();
             this.student = student;
-            txtUserName.Text = this.student.UserID;
+            txtUserName.Content = "Hi! " + this.student.UserID ;
             InitializeHomeworkList();
             LoadHomeworkGrid();
         }

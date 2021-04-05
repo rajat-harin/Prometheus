@@ -26,6 +26,7 @@ namespace Prometheus.DataAccessLayer.Repositories
                         objCmd.Parameters.AddWithValue("@HomeworkID", homework.HomeworkID);
                         objCmd.Parameters.AddWithValue("@Description", homework.Description);
                         objCmd.Parameters.AddWithValue("@Deadline", homework.Deadline);
+                        objCmd.Parameters.AddWithValue("@Reqtime", homework.ReqTime);
                         objCmd.Parameters.AddWithValue("@LongDescription", homework.LongDescription);
                         int affectedRows = objCmd.ExecuteNonQuery();
                         //return null;//success
@@ -56,6 +57,7 @@ namespace Prometheus.DataAccessLayer.Repositories
                         objCmd.Parameters.AddWithValue("@Description", homework.Description);
                         objCmd.Parameters.AddWithValue("@Id", homework.HomeworkID);
                         objCmd.Parameters.AddWithValue("@Deadline", homework.Deadline);
+                        objCmd.Parameters.AddWithValue("@Reqtime", homework.ReqTime);
                         objCmd.Parameters.AddWithValue("@LongDescription", homework.LongDescription);
                         int affectedRows = objCmd.ExecuteNonQuery();
                         //return null;//success

@@ -77,24 +77,23 @@ namespace Prometheus.DataAccessLayer.Repositories
 
                             //Defining parameters for StoredProcedure
 
+                            SqlParameter ID = new SqlParameter("@TeacherId", teacher.TeacherID);
                             SqlParameter FName = new SqlParameter("@FName", teacher.FName);
                             SqlParameter LName = new SqlParameter("@Lname", teacher.LName);
-                            SqlParameter UserID = new SqlParameter("@UserID", teacher.UserID);
+                            
                             SqlParameter Address = new SqlParameter("@Address", teacher.Address);
                             SqlParameter DOB = new SqlParameter("@DOB", teacher.DOB);
                             SqlParameter City = new SqlParameter("@City", teacher.City);
                             SqlParameter MobileNo = new SqlParameter("@MobileNo", teacher.MobileNo);
-
-
+                            
+                            sqlCommand.Parameters.Add(ID);
                             sqlCommand.Parameters.Add(FName);
                             sqlCommand.Parameters.Add(LName);
-                            sqlCommand.Parameters.Add(UserID);
                             sqlCommand.Parameters.Add(Address);
                             sqlCommand.Parameters.Add(DOB);
-                            sqlCommand.Parameters.Add(FName);
                             sqlCommand.Parameters.Add(City);
                             sqlCommand.Parameters.Add(MobileNo);
-
+                            
                             connection.Open();
                             int affectedRows = sqlCommand.ExecuteNonQuery();
                             if (affectedRows > 0)

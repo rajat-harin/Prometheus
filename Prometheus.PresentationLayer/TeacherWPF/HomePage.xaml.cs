@@ -31,6 +31,7 @@ namespace Prometheus.PresentationLayer.TeacherWPF
             txtUserName.Text = UserName;
             this.teacher = new Teacher();
             teacher.UserID = UserName;
+            txtUserName.Text = UserName;
             LoadTeacher();
         }
 
@@ -47,13 +48,13 @@ namespace Prometheus.PresentationLayer.TeacherWPF
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            ViewMyStudents form3 = new ViewMyStudents(txtUserName.Text);
+            ViewMyStudents form3 = new ViewMyStudents(teacher);
             form3.Show();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            TeacherHomeworkActivity form4 = new TeacherHomeworkActivity(txtUserName.Text);
+            TeacherHomeworkActivity form4 = new TeacherHomeworkActivity(teacher);
             form4.Show();
         }
 

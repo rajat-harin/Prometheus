@@ -40,25 +40,20 @@ namespace Prometheus.BusinessLayer
         {
             try
             {
-                if (teacher != null)
-                {
-                    TeacherRepo teacherRepo = new TeacherRepo();
-                    if (teacherRepo.UpdateTeacher(teacher))
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        throw new PrometheusException("Teacher Updated");
-                    }
-                }
+                TeacherRepo teacherRepo = new TeacherRepo();
+
+                bool result = teacherRepo.UpdateTeacher(teacher);
+
+                return result;
+
+
+
             }
             catch (Exception)
             {
+
                 throw;
             }
-            return false;
-
         }
 
         public bool DeleteTeacher(Teacher teacher)
