@@ -1,4 +1,5 @@
-﻿using Prometheus.DataAccessLayer.Repositories;
+﻿using Prometheus.BusinessLayer.Models;
+using Prometheus.DataAccessLayer.Repositories;
 using Prometheus.Entities;
 using Prometheus.Exceptions;
 using System;
@@ -82,6 +83,44 @@ namespace Prometheus.BusinessLayer
                 throw;
             }
             return false;
+
+        }
+
+        public List<TeacherCourses> GetCoursesByTeacherID(int id)
+        {
+            try
+            {
+                TeachesRepo teachesRepo = new TeachesRepo();
+                List<Teaches> teachesList = teachesRepo.GetAllTeaches();
+                CourseRepo courseRepo = new CourseRepo();
+                List<Course> courses = courseRepo.GetCourses();
+
+                var result = teachesList.Where(item => item.TeacherID == id).Join(
+                    courses,
+                    teaches => teaches.CourseID,
+                    course => course.CourseID,
+                    (teaches, course) => new TeacherCourses
+                    {
+                        TeacherID = id,
+                        CourseID = teaches.CourseID,
+                        Name = course.Name,
+                        StartDate = course.StartDate,
+                        EndDate = course.EndDate
+                    }
+                    ).ToList();
+                if (result.Any())
+                {
+                    return result;
+                }
+                else
+                {
+                    throw new PrometheusException("No Enrollments Found!");
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
 
         }
 
