@@ -34,9 +34,8 @@
         <Button Content="Clear" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="456.1,358,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.422,2.034" Height="42" Click="Button_Click" FontWeight="Bold" FontSize="14" Grid.Column="1"/>
         <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="37" Margin="441.1,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="123" TextChanged="txtUserName_TextChanged" Grid.Column="1"/>
         <Button x:Name="logout" Content="Logout" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="441.1,86,0,0" VerticalAlignment="Top" Width="123" Height="35" Click="logout_Click" FontWeight="Bold" FontSize="14" Grid.Column="1"/>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="163,345,0,0" VerticalAlignment="Top"/>
-        <Label Content="Select Security Question" HorizontalAlignment="Left" Margin="159,345,0,0" VerticalAlignment="Top" Height="29" Width="148" Grid.ColumnSpan="2"/>
-        <Label Content="Enter Security Answer" HorizontalAlignment="Left" Margin="163,374,0,0" VerticalAlignment="Top" Height="26" Grid.ColumnSpan="2"/>
+        <Label Content="Select Security Question" HorizontalAlignment="Left" Margin="159,345,0,0" VerticalAlignment="Top" Height="29" Width="152" Grid.ColumnSpan="2" FontWeight="Bold"/>
+        <Label Content="Enter Security Answer" HorizontalAlignment="Left" Margin="163,374,0,0" VerticalAlignment="Top" Height="26" Grid.ColumnSpan="2" FontWeight="Bold"/>
         <TextBox x:Name="txtAnswer" HorizontalAlignment="Left" Height="23" Margin="94.1,374,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextChanged="txtAnswer_TextChanged" Grid.Column="1"/>
         <ComboBox x:Name="comboSecurity" HorizontalAlignment="Left" Margin="94.1,345,0,0" VerticalAlignment="Top" Width="200" Grid.Column="1">
             <ComboBoxItem Content="What is your NickName?"/>
