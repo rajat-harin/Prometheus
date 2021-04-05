@@ -11,12 +11,11 @@ namespace Prometheus.DataAccessLayer.Repositories
 {
     public class TeachesRepo
     {
-        public bool InsertTeaches(Teaches teaches, Course course)
+        public bool InsertTeaches(int teacherID, int courseID)
         {
             try
             {
-                if (teaches != null)
-                {
+                
                     //SqlConnection connection;
                     using (var connection = new SqlConnection(Database.ConnectionString))
                     {
@@ -27,12 +26,12 @@ namespace Prometheus.DataAccessLayer.Repositories
 
                             //Defining parameters for StoredProcedure
 
-                            SqlParameter teacherID = new SqlParameter("@TeacherID", teaches.TeacherID);
-                            SqlParameter courseID = new SqlParameter("@CourseID", teaches.CourseID);
+                            SqlParameter teacherIDParam = new SqlParameter("@TeacherID", teacherID);
+                            SqlParameter courseIDParam = new SqlParameter("@CourseID", courseID);
 
 
-                            sqlCommand.Parameters.Add(teacherID);
-                            sqlCommand.Parameters.Add(courseID); 
+                            sqlCommand.Parameters.Add(teacherIDParam);
+                            sqlCommand.Parameters.Add(courseIDParam); 
 
 
                             connection.Open();
@@ -41,7 +40,7 @@ namespace Prometheus.DataAccessLayer.Repositories
                                 return true;
                         }
                     }
-                }
+                
             }
             catch (Exception)
             {

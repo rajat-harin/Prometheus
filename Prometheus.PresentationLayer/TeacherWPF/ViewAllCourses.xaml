@@ -19,7 +19,7 @@
         ScrollViewer.VerticalScrollBarVisibility="Auto">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="CourseID"  FontSize="12" Header="Course Id" Binding="{Binding CourseID}" IsReadOnly="True" />
-                <DataGridTextColumn x:Name="Name" FontSize="12" Header="Course Name" Binding="{Binding Name}" IsReadOnly="True" />
+                <DataGridTextColumn x:Name="CourseName" FontSize="12" Header="Course Name" Binding="{Binding Name}" IsReadOnly="True" />
                 <DataGridTextColumn x:Name="StartDate" FontSize="12" Header="Start Date" Binding="{Binding StartDate}" IsReadOnly="True" />
                 <DataGridTextColumn x:Name="EndDate" FontSize="12" Header="End Date" Binding="{Binding EndDate}" IsReadOnly="True" />
                 <!--CheckBoxColumnCode-->

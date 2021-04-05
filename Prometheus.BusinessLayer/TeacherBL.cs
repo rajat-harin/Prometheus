@@ -11,6 +11,30 @@ namespace Prometheus.BusinessLayer
 {
     public class TeacherBL
     {
+        public Teacher GetTeacher(string userID)
+        {
+
+            try
+            {
+                TeacherRepo teacherRepo = new TeacherRepo();
+                List<Teacher> teachers = teacherRepo.GetTeachers();
+                if (teachers.Any())
+                {
+                    Teacher result = teachers.SingleOrDefault(item => item.UserID == userID);
+                    return result;
+                }
+                else
+                {
+                    throw new PrometheusException("No Teachers Found");
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public bool UpdateTeacher(Teacher teacher)
         {
             try
