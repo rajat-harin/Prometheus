@@ -26,13 +26,15 @@
                 </DataGridTextColumn>
 
                 <!--Description Column Code-->
-                <DataGridTextColumn Binding="{Binding Description}" ClipboardContentBinding="{x:Null}" Header="Description" IsReadOnly ="True">
+                <DataGridTextColumn Binding="{Binding Description}" ClipboardContentBinding="{x:Null}" Header="Description" IsReadOnly ="True" Width="150">
                     <DataGridTextColumn.HeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="Background" Value="BurlyWood"/>
                             <Setter Property="FontWeight" Value="Bold"></Setter>
                             <Setter Property="BorderThickness" Value="1"></Setter>
                             <Setter Property="BorderBrush" Value="Black"/>
+                            <Setter Property="HorizontalAlignment" Value="Center"/>
+                            <Setter Property="Width" Value="150"/>
                         </Style>
                     </DataGridTextColumn.HeaderStyle>
                 </DataGridTextColumn>
@@ -91,11 +93,12 @@
         <Label 
             x:Name="txtUserName" 
             HorizontalAlignment="Left" 
-            Height="38" Margin="645,13,0,0"  
+            Height="38" Margin="600,13,0,0"  
             VerticalAlignment="Top" 
-            Width="111" 
-            FontSize="16"
-            Content="Something"/>
+            Width="156" 
+            FontSize="17"
+            Content="Hello!"/>
+        <Button x:Name="Reload" Content="Reload" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="560,344,0,0" VerticalAlignment="Top" Width="75" FontSize="14" FontWeight="Bold" Height="36" RenderTransformOrigin="0.54,-0.122" Click="Reload_Click"/>
 
     </Grid>
 </Window>
