@@ -96,7 +96,6 @@ namespace Prometheus.PresentationLayer.AdminWPF
                 MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
         private void NumericOnly(System.Object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
             e.Handled = IsTextNumeric(e.Text);
