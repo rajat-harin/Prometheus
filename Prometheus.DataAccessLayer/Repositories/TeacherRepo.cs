@@ -233,8 +233,8 @@ namespace Prometheus.DataAccessLayer.Repositories
             return teacher;
         }
 
-        //Enter Data in Teaches table
-        public bool TeacherCourses(int TeacherID, int CourseID)
+     /*   //Enter Data in Teaches table
+        public List<Teacher> TeacherCourses(int TeacherID, int CourseID)
         {
             try
             {
@@ -262,6 +262,7 @@ namespace Prometheus.DataAccessLayer.Repositories
             }
             return false;
         }
+     */
 
     }
 }

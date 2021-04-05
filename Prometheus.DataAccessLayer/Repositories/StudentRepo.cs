@@ -74,7 +74,7 @@ namespace Prometheus.DataAccessLayer.Repositories
                             sqlCommand.CommandType = CommandType.StoredProcedure;
 
                             //Defining parameters for StoredProcedure
-                            SqlParameter ID = new SqlParameter("@Id", student.StudentID);
+                            SqlParameter ID = new SqlParameter("@StudentId", student.StudentID);
                             SqlParameter FName = new SqlParameter("@FName", student.FName);
                             SqlParameter LName = new SqlParameter("@Lname", student.LName);
                         

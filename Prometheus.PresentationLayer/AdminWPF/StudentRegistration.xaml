@@ -38,7 +38,7 @@
         <Label Content="Enter Security Answer" HorizontalAlignment="Left" Margin="163,374,0,0" VerticalAlignment="Top" Height="26"/>
         <TextBox x:Name="txtAnswer" HorizontalAlignment="Left" Height="23" Margin="312,374,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" TextChanged="txtAnswer_TextChanged"/>
         <ComboBox x:Name="comboSecurity" HorizontalAlignment="Left" Margin="312,345,0,0" VerticalAlignment="Top" Width="200">
-            <ComboBoxItem Content="What is you NickName?"/>
+            <ComboBoxItem Content="What is your NickName?"/>
             <ComboBoxItem Content="What is your PetName?"/>
             <ComboBoxItem Content="What is Your HighSchool Name?"/>
         </ComboBox>

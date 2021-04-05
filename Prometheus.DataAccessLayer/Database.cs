@@ -28,7 +28,7 @@ namespace Prometheus.DataAccessLayer
         public const string GETSTUDENTS = "GetStudents";
         public const string GETSTUDENTSBYID = "GetStudentByUserID";
         public const string DELETETEACHER = "DeleteTeacher";
-
+        public const string GETTEACHERID = "GetTeacherID";
 
         //Stored Procedures related to Student
         //public const string INSERTSTUDENT = "AddNewCourse";

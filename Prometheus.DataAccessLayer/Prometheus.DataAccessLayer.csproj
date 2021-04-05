@@ -51,6 +51,8 @@
     <Compile Include="Repositories\HomeworkRepo.cs" />
     <Compile Include="Repositories\StudentRepo.cs" />
     <Compile Include="Repositories\TeacherRepo.cs" />
+    <Compile Include="Repositories\TeachesRepo.cs" />
+    <Compile Include="Repositories\TeachingCourse.cs" />
     <Compile Include="Repositories\UserRepo.cs" />
   </ItemGroup>
   <ItemGroup>
