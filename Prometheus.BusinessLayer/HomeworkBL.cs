@@ -33,13 +33,19 @@ namespace Prometheus.BusinessLayer
                 sb.Append(Environment.NewLine + "Description Required");
 
             }
-            int result = DateTime.Compare(homework.Deadline, homework.ReqTime);
+            if (homework.HomeworkID ==0)
+            {
+                validHomework = false;
+                sb.Append(Environment.NewLine + "Homework ID Required");
+
+            }
+            /*int result = DateTime.Compare(homework.Deadline, homework.ReqTime);
             if (result > 0 )
             {
-                sb.Append(Environment.NewLine + "Required Time cannot be Less than DeadLine");
-            }
+                sb.Append(Environment.NewLine + "Required cannot be Less than DeadLine");
+            }*/
             if (validHomework == false)
-                throw new Exception(sb.ToString());
+                throw new PrometheusException(sb.ToString());
             return validHomework;
         }
 
@@ -112,7 +118,7 @@ namespace Prometheus.BusinessLayer
                 }
                 else
                 {
-                    throw new Exception("No Homeworks Found!");
+                    throw new PrometheusException("No Homeworks Found!");
                 }
             }
             catch (Exception)
@@ -150,7 +156,7 @@ namespace Prometheus.BusinessLayer
                 }
                 else
                 {
-                    throw new Exception("No Homeworks Found!");
+                    throw new PrometheusException("No Homeworks Found!");
                 }
             }
             catch (Exception)

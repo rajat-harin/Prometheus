@@ -91,41 +91,50 @@ namespace Prometheus.PresentationLayer.TeacherWPF
             {
                 if (coursecmbbox.SelectedValue != null)
                 {
+                    bool ishomeworkAdded;
                     //Adding HomeWork
                     homeworkEntity.HomeworkID = Convert.ToInt32(homeworkId_txt.Text);
                     homeworkEntity.Deadline = Deadline_txt.SelectedDate.Value;
                     homeworkEntity.ReqTime = Reqtime.SelectedDate.Value;//DatePicker  Deadline_txt.Selecteddate.getValue.default()
                     homeworkEntity.Description = HomeworkTitle_txt.Text;
                     homeworkEntity.LongDescription = HomeworkDescription_txt.Text; ;
-
-                    bool ishomeworkAdded = homeworkBL.AddHomeworkBL(homeworkEntity);
-                    if (ishomeworkAdded)
+                    if(homeworkEntity.Deadline != System.DateTime.Now)
                     {
-                        MessageBox.Show("Homework Added Successfully");
-                        //Assign Assignment
-                        objModelClass.HomeworkID = homeworkEntity.HomeworkID;
-                        objModelClass.LongDescription = homeworkEntity.LongDescription;
-                        objModelClass.Description = homeworkEntity.Description;
-                        objModelClass.Deadline = homeworkEntity.Deadline;
-                        objModelClass.ReqTime = homeworkEntity.ReqTime;
-                        objModelClass.TeacherID = 1;//will be set as per the login id of teacher 
-                        objModelClass.CourseID = (int)coursecmbbox.SelectedValue;
-                        courseID = objModelClass.CourseID;
-                        teacherID = objModelClass.TeacherID;
-                        bool ishomeworkAssigned = homeworkBL.AssignedHomework(objModelClass);
-                        if (ishomeworkAssigned)
+                        ishomeworkAdded = homeworkBL.AddHomeworkBL(homeworkEntity);
+                        if (ishomeworkAdded)
                         {
-                            MessageBox.Show("Homework Assigned Successfully");
+                            MessageBox.Show("Homework Added Successfully");
+                            //Assign Assignment
+                            objModelClass.HomeworkID = homeworkEntity.HomeworkID;
+                            objModelClass.LongDescription = homeworkEntity.LongDescription;
+                            objModelClass.Description = homeworkEntity.Description;
+                            objModelClass.Deadline = homeworkEntity.Deadline;
+                            objModelClass.ReqTime = homeworkEntity.ReqTime;
+                            objModelClass.TeacherID = 1;//will be set as per the login id of teacher 
+                            objModelClass.CourseID = (int)coursecmbbox.SelectedValue;
+                            courseID = objModelClass.CourseID;
+                            teacherID = objModelClass.TeacherID;
+                            bool ishomeworkAssigned = homeworkBL.AssignedHomework(objModelClass);
+                            if (ishomeworkAssigned)
+                            {
+                                MessageBox.Show("Homework Assigned Successfully");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Failed to Assign Homework!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Failed to Assign Homework!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            MessageBox.Show("Failed to Add Homework!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Failed to Add Homework!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show("DeadLine cannot be the Created Date!");
                     }
+                    
+                    
                 }
                 else
                 {
