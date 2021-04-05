@@ -39,51 +39,33 @@ namespace Prometheus.PresentationLayer.TeacherWPF
         }
         private void ShowCourses_Click(object sender, RoutedEventArgs e)
         {
-            if (courseblObj != null)
+            try
             {
-                //old line below
-                //courseGrid.ItemsSource = courseblObj.GetCourses();
-
-                //code by rajat
-                courses = courseblObj.GetCourses().Select(item => new SelectedCourse
+                if (courseblObj != null)
                 {
-                    CourseID = item.CourseID,
-                    StartDate =item.StartDate,
-                    EndDate = item.EndDate,
-                    Name = item.Name,
-                    isSelected = false
-                }).ToList();
-                courseGrid.ItemsSource = courses;
-                //
+                    courses = courseblObj.GetCourses().Select(item => new SelectedCourse
+                    {
+                        CourseID = item.CourseID,
+                        StartDate = item.StartDate,
+                        EndDate = item.EndDate,
+                        Name = item.Name,
+                        isSelected = false
+                    }).ToList();
+                    courseGrid.ItemsSource = courses;
+                }
+                else
+                {
+                    MessageBox.Show("No Courses Found!");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("No Courses Found!");
-            }
+                MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }  
         }
 
         private void courseGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //Code commented by rajat
-            /*
-            try
-            {
-                
-                DataRowView dataRowView = (DataRowView)((Button)e.Source).DataContext;
-                int CourseId = Convert.ToInt32(dataRowView[0].ToString());
-                int TeacherID = 1;
-                //Write logic here for checking if checkbox is clicked then move the data into teaches table
-                //and then after clicking on mycourses retrive the data from teaches and courses join
-                
-
-
-
-        }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            */
         }
 
         private void txtUserName_TextChanged(object sender, TextChangedEventArgs e)
@@ -101,9 +83,7 @@ namespace Prometheus.PresentationLayer.TeacherWPF
                 {
                     if(item.isSelected)
                     {
-                        selectedCourses.Add(item);
-                        
-                        
+                        selectedCourses.Add(item);    
                     }
 
                 }
@@ -116,8 +96,6 @@ namespace Prometheus.PresentationLayer.TeacherWPF
                 {
                     MessageBox.Show("Not Added");
                 }
-                //Now you can pass list selected courses to BL for adding in Database
-                //Your Code here  --  mujhe selected courses teaches table ka jomodel hai usme bhejana hai and then mycourses me wo course id and teacher id se sare teacher courses dikhana hai
             }
             catch (Exception ex)
             {

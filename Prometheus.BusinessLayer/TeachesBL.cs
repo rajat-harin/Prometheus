@@ -19,9 +19,6 @@ namespace Prometheus.BusinessLayer
                 if (course != null)
                 {
                     TeacherRepo userRepo = new TeacherRepo();
-                    
-                   /* CourseRepo studentRepo = new CourseRepo();*/
-                    //Teacher user = new Teacher { TeacherID = teacher.TeacherID };
                     TeachesRepo teachesRepo = new TeachesRepo();
                    bool isAdded = teachesRepo.InsertTeaches(teacherID,course.CourseID);
                     if (isAdded)
