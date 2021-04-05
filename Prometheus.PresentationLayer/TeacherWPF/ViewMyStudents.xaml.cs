@@ -66,21 +66,22 @@ namespace Prometheus.PresentationLayer.TeacherWPF
         {
             int courseId;
             courseId = Convert.ToInt32(coursecmb.SelectedValue);
-            studentgrid.ItemsSource = StudentBL.SearchStudents(courseId);
+            studentgrid.ItemsSource = studentbl.GetStudentsByCourseId(courseId);
         }
 
         private void btnView_Click(object sender, RoutedEventArgs e)
         {
             try
-            {
+            {   
+                //usko bol maine sb comment kr diya except woh line
                 DataRowView dataRowView = (DataRowView)((Button)e.Source).DataContext;
-                ViewStudentCourses form1 = new ViewStudentCourses(txtUserName.Text);
+                /*ViewStudentCourses form1 = new ViewStudentCourses(txtUserName.Text);
                 int id = Convert.ToInt32(dataRowView[0].ToString());
                 string name = dataRowView[1].ToString() +" " +dataRowView[2].ToString();
                 form1.idtxt.Text = Convert.ToString(id);
                 form1.nametxt.Text = name;
                 form1.Show();
-                form1.GetAllCourses(id);
+                form1.GetAllCourses(id);*/
                 //This is the code which will show the button click row data. Thank you.
             }
             catch (Exception ex)

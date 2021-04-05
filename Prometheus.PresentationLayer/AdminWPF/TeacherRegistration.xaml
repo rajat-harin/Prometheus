@@ -39,7 +39,7 @@
         <ComboBox x:Name="comboSecurity" HorizontalAlignment="Left" Margin="324,343,0,0" VerticalAlignment="Top" Width="200" RenderTransformOrigin="0.507,0.429">
             <ComboBoxItem Content="What is your NickName?"/>
             <ComboBoxItem Content="What is your PetName?"/>
-            <ComboBoxItem Content="What is your HighSchool?"/>
+            <ComboBoxItem Content="What is your HighSchool Name?"/>
         </ComboBox>
 
 
