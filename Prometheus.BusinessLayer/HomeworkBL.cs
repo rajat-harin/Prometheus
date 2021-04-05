@@ -17,8 +17,6 @@ namespace Prometheus.BusinessLayer
         AssignmentRepo assignmentRepo = new AssignmentRepo();
         AssignedHomework assignedcourse = new AssignedHomework();
 
-        //put conditions of if Course ID is not Selected then do not do anything
-
         bool HwAdded = false;
         public bool ValidateHomework(Homework homework)
         {
@@ -35,8 +33,13 @@ namespace Prometheus.BusinessLayer
                 sb.Append(Environment.NewLine + "Description Required");
 
             }
+            int result = DateTime.Compare(homework.Deadline, homework.ReqTime);
+            if (result < 0 )
+            {
+                sb.Append(Environment.NewLine + "Required Time cannot be Less than DeadLine");
+            }
             if (validHomework == false)
-                throw new Exception(sb.ToString());// when it is not false then handle by this way also
+                throw new Exception(sb.ToString());
             return validHomework;
         }
 
@@ -50,9 +53,9 @@ namespace Prometheus.BusinessLayer
                     HwAdded = HWRepo.AddHomework(newHomework);
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;//if datetime is not correct format and implement duplicate constraint over homework ID
+                throw;
             }
             return HwAdded;
         }
@@ -71,9 +74,9 @@ namespace Prometheus.BusinessLayer
                     });
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                throw new PrometheusException(ex.Message);
+                throw;
             }
             return isAssigned;
         }
@@ -120,49 +123,60 @@ namespace Prometheus.BusinessLayer
 
         public List<AssignedHomework> GetAllHomeworks()
         {
-            List<Assignment> assignmentList = assignmentRepo.GetAllAssignments();
-            List<Homework> homeworkList = HWRepo.GetAllHomework();//Creating the collection over Entity
+            try
+            {
+                List<Assignment> assignmentList = assignmentRepo.GetAllAssignments();
+                List<Homework> homeworkList = HWRepo.GetAllHomework();//Creating the collection over Entity
 
-            //as we need to create list, we need collection that will only be generated from object
-            var result = assignmentList.Join(
-                    homeworkList,
-                    assignment => assignment.HomeWorkID,
-                    homework => homework.HomeworkID,
-                    (assignment, homework) => new AssignedHomework
-                    {
-                        AssignmentID = assignment.AssignmentID,
-                        TeacherID = assignment.TeacherID,
-                        CourseID = assignment.CourseID,
-                        HomeworkID = homework.HomeworkID,
-                        Deadline = homework.Deadline,
-                        ReqTime = homework.ReqTime,
-                        Description = homework.Description,
-                        LongDescription = homework.LongDescription
-                    }
-                ).ToList();
-            if (result.Any())
-            {
-                return result;
+                var result = assignmentList.Join(
+                        homeworkList,
+                        assignment => assignment.HomeWorkID,
+                        homework => homework.HomeworkID,
+                        (assignment, homework) => new AssignedHomework
+                        {
+                            AssignmentID = assignment.AssignmentID,
+                            TeacherID = assignment.TeacherID,
+                            CourseID = assignment.CourseID,
+                            HomeworkID = homework.HomeworkID,
+                            Deadline = homework.Deadline,
+                            ReqTime = homework.ReqTime,
+                            Description = homework.Description,
+                            LongDescription = homework.LongDescription
+                        }
+                    ).ToList();
+                if (result.Any())
+                {
+                    return result;
+                }
+                else
+                {
+                    throw new Exception("No Homeworks Found!");
+                }
             }
-            else
+            catch (Exception)
             {
-                //Homework is not deleted from the Homework Table but it is deleted from
-                //Assignment Table hence when I tried to show in the grid it shows nothing
-                //but this exception
-                throw new Exception("No Homeworks Found!");
+                throw;
             }
+            
         }
 
         public bool updateHomework(Homework homework)
         {
-            if (homework.HomeworkID != 0)
+            try
             {
-                if (HWRepo.UpdateHomework(homework))
+                if (homework.HomeworkID != 0)
                 {
-                    return true;
+                    if (HWRepo.UpdateHomework(homework))
+                    {
+                        return true;
+                    }
                 }
+                return false;
             }
-            return false;
+            catch (Exception)
+            {
+                throw;
+            }
         }
 
         public bool deleteHomework_Assignment(int HomeworkId, int AssignmentID)
@@ -172,15 +186,6 @@ namespace Prometheus.BusinessLayer
                 bool isHwDeleted = HWRepo.DeleteHomework(HomeworkId);
                 if (isHwDeleted)
                 {
-                    /*bool isAssignmentDeleted = assignmentRepo.DeleteAssignment(AssignmentID);
-                    if(isAssignmentDeleted)
-                    {
-                        return true;
-                    }
-                    else
-                    {
-                        return false;
-                    }*/
                     return true;
                 }
                 else
@@ -190,10 +195,8 @@ namespace Prometheus.BusinessLayer
             }
             catch
             {
-                throw;// PrometheusException();//check if there is connection error in Repo
-                //check whether the constraint 
+                throw;
             }
-
         }
     }
 }
