@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-using Prometheus.BusinessLayer;
-using Prometheus.Entities;
-=======
 ﻿using Prometheus.BusinessLayer;
 using Prometheus.Entities;
->>>>>>> e2126b46d75c2074ad71d32794945513eb7e75d7
 using System;
 using System.Collections.Generic;
 using System.Linq;
