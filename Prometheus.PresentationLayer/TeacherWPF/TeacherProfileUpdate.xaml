@@ -5,22 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Prometheus.PresentationLayer.TeacherWPF"
         mc:Ignorable="d"
-        Title="Prometheus: Teacher" Height="450" Width="800" Background="BlanchedAlmond" Closed="Window_Closed">
+        Title="Prometheus: Teacher" Height="700" Width="1300" WindowStartupLocation="CenterScreen" Background="BlanchedAlmond" Closed="Window_Closed">
     <Grid>
         <TextBlock HorizontalAlignment="Center" Margin="310.2,17,280.8,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="43" Width="201" FontFamily="Segoe UI Black" FontSize="22" Text="Teacher Profile" FontWeight="Bold"/>
-        <Label Content="First Name" HorizontalAlignment="Left" Margin="170,119,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
-        <Label Content="Last Name" HorizontalAlignment="Left" Margin="173,147,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.786,-0.31" FontWeight="Bold" FontSize="14"/>
-        <Label Content="Address" HorizontalAlignment="Left" Margin="186,204,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.037,-0.607" FontWeight="Bold" FontSize="14"/>
-        <Label Content="DOB" HorizontalAlignment="Left" Margin="203,232,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.037,-0.596" FontWeight="Bold" FontSize="14" Height="26"/>
-        <Label Content="City" HorizontalAlignment="Left" Margin="207,258,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.397,0.994" FontWeight="Bold" FontSize="14" Height="30" Width="74"/>
-        <TextBox x:Name="FName" HorizontalAlignment="Left" Height="23" Margin="311,119,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" TextChanged="TextBox_TextChanged_1" IsReadOnly="True"/>
-        <TextBox x:Name="LName" HorizontalAlignment="Left" Height="23" Margin="311,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" TextChanged="TextBox_TextChanged_2" IsReadOnly="True"/>
-        <TextBox x:Name="Address" HorizontalAlignment="Left" Height="23" Margin="311,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" RenderTransformOrigin="0.5,0.5" TextChanged="TextBox_TextChanged_3"/>
-        <TextBox x:Name="City" HorizontalAlignment="Left" Height="24" Margin="311,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" TextChanged="TextBox_TextChanged_5"/>
-        <Button x:Name="btnHome" Content="Back" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="164" Click="btnHome_Click" Height="31" FontWeight="Bold" FontSize="14"/>
-        <Button x:Name="btnSaveData" Content="Save Changes" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="529,358,0,0" VerticalAlignment="Top" Width="116" Click="btnSaveData_Click_1" Height="42" FontWeight="Bold" FontSize="14"/>
-        <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="37" Margin="659,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="123" TextChanged="txtUserName_TextChanged"/>
-        <Button x:Name="logout" Content="Logout" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="659,86,0,0" VerticalAlignment="Top" Width="123" Height="35" Click="logout_Click" FontWeight="Bold" FontSize="14"/>
-        <TextBox x:Name="DOB" HorizontalAlignment="Left" Height="23" Margin="311,232,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="201" IsReadOnly="True" TextChanged="DOB_TextChanged"/>
+        <Label Content="First Name" HorizontalAlignment="Left" Margin="420,197,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Last Name" HorizontalAlignment="Left" Margin="423,225,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.786,-0.31" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Address" HorizontalAlignment="Left" Margin="436,255,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.037,-0.607" FontWeight="Bold" FontSize="14"/>
+        <Label Content="DOB" HorizontalAlignment="Left" Margin="453,283,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.037,-0.596" FontWeight="Bold" FontSize="14" Height="26"/>
+        <Label Content="City" HorizontalAlignment="Left" Margin="457,309,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.397,0.994" FontWeight="Bold" FontSize="14" Height="30" Width="74"/>
+        <TextBox x:Name="FName" HorizontalAlignment="Left" Height="23" Margin="561,197,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" TextChanged="TextBox_TextChanged_1" IsReadOnly="True"/>
+        <TextBox x:Name="LName" HorizontalAlignment="Left" Height="23" Margin="561,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" TextChanged="TextBox_TextChanged_2" IsReadOnly="True"/>
+        <TextBox x:Name="Address" HorizontalAlignment="Left" Height="23" Margin="561,255,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" RenderTransformOrigin="0.5,0.5" TextChanged="TextBox_TextChanged_3"/>
+        <TextBox x:Name="City" HorizontalAlignment="Left" Height="24" Margin="561,311,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="201" TextChanged="TextBox_TextChanged_5"/>
+        <Button x:Name="btnHome" Content="Back" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="73,65,0,0" VerticalAlignment="Top" Width="164" Click="btnHome_Click" Height="31" FontWeight="Bold" FontSize="14"/>
+        <Button x:Name="btnSaveData" Content="Save Changes" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="598,401,0,0" VerticalAlignment="Top" Width="116" Click="btnSaveData_Click_1" Height="42" FontWeight="Bold" FontSize="14"/>
+        <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="37" Margin="1038,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="123" TextChanged="txtUserName_TextChanged"/>
+        <Button x:Name="logout" Content="Logout" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="1038,107,0,0" VerticalAlignment="Top" Width="123" Height="35" Click="logout_Click" FontWeight="Bold" FontSize="14"/>
+        <TextBox x:Name="DOB" HorizontalAlignment="Left" Height="23" Margin="561,283,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="201" IsReadOnly="True" TextChanged="DOB_TextChanged"/>
     </Grid>
 </Window>

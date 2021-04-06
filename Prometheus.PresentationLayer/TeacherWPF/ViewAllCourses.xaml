@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Prometheus.PresentationLayer.TeacherWPF"
         mc:Ignorable="d"
-        Title="Prometheus: Teacher" Height="450" Width="800" Background="BlanchedAlmond" Closed="Window_Closed">
+        Title="Prometheus: Teacher" Height="700" Width="1300" WindowStartupLocation="CenterScreen" Background="BlanchedAlmond" Closed="Window_Closed">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="28*"/>
@@ -13,10 +13,10 @@
             <ColumnDefinition Width="289*"/>
         </Grid.ColumnDefinitions>
         <Label Content="Prometheus"  
-        FontSize="24" FontFamily="Georgia" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="81,10,0,0" Width="222" Grid.Column="2"/>
-        <Label Content="Courses Information"   FontFamily="Georgia" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,52,0,0" Width="298" Grid.ColumnSpan="3"/>
+        FontSize="24" FontFamily="Georgia" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="201.4,10,0,0" Width="222" Grid.Column="2"/>
+        <Label Content="Courses Information"   FontFamily="Georgia" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="125.4,111,0,0" Width="298" Grid.Column="2"/>
         <DataGrid x:Name="courseGrid" ItemsSource="{Binding courses}" FontSize="15" AutoGenerateColumns="False" CanUserAddRows="False"
-        Margin="10,141,0,61" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+        Margin="7,148,3.6,53.4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
         RowBackground="white" FontWeight="Bold" 
         ScrollViewer.CanContentScroll="True" MaxHeight="390"
         AlternatingRowBackground="#f2f2f2" BorderBrush="#000" BorderThickness="1"
@@ -37,11 +37,11 @@
                 </DataGridCheckBoxColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="View All Courses" Name="ShowCourses" FontSize="14" FontWeight="Bold" Background="white" HorizontalAlignment="Left" Margin="377,52,0,0" VerticalAlignment="Top" Width="153" RenderTransformOrigin="0.624,-0.266" Height="32" Click="ShowCourses_Click" Grid.Column="2"/>
-        <Button Content="Show My Courses" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="377,104,0,283" Width="153" FontWeight="Bold" FontSize="14" Click="Button_Click" Grid.Column="2"/>
-        <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="23" Margin="450,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="txtUserName_TextChanged" Grid.Column="2"/>
-        <Button x:Name="BackButton" Content="Go Back" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="26,20,0,0" VerticalAlignment="Top" Width="75" FontSize="14" FontWeight="Bold" Click="BackButton_Click" Grid.ColumnSpan="2"/>
+        <Button Content="View All Courses" Name="ShowCourses" FontSize="14" FontWeight="Bold" Background="white" HorizontalAlignment="Left" Margin="489.4,59,0,0" VerticalAlignment="Top" Width="153" RenderTransformOrigin="0.624,-0.266" Height="32" Click="ShowCourses_Click" Grid.Column="2"/>
+        <Button Content="Show My Courses" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="490.4,111,0,522.4" Width="153" FontWeight="Bold" FontSize="14" Click="Button_Click" Grid.Column="2"/>
+        <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="23" Margin="713.4,52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="txtUserName_TextChanged" Grid.Column="2"/>
+        <Button x:Name="BackButton" Content="Go Back" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="91,28,0,0" VerticalAlignment="Top" Width="89" FontSize="14" FontWeight="Bold" Click="BackButton_Click" Height="50" Grid.ColumnSpan="2"/>
 
-        <Button x:Name="Save" Content="Save" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="129,364,0,0" VerticalAlignment="Top" Width="109" Click="Save_Click" FontWeight="Bold" FontSize="14" Height="31" Grid.Column="2"/>
+        <Button x:Name="Save" Content="Save" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="233.4,588,0,0" VerticalAlignment="Top" Width="109" Click="Save_Click" FontWeight="Bold" FontSize="14" Height="31" Grid.Column="2"/>
     </Grid>
 </Window>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Prometheus.PresentationLayer.TeacherWPF"
         mc:Ignorable="d"
-          Title="Prometheus: Teacher" Height="600.5" Width="800.8"  Background="BlanchedAlmond" Closed="Window_Closed">
+          Title="Prometheus: Teacher" Height="700" Width="1300" WindowStartupLocation="CenterScreen"  Background="BlanchedAlmond" Closed="Window_Closed">
     <Grid RenderTransformOrigin="0.497,1.01" Margin="0,0,2.4,-0.2">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="266*"/>
@@ -13,15 +13,15 @@
             <ColumnDefinition Width="206*"/>
             <ColumnDefinition Width="63*"/>
         </Grid.ColumnDefinitions>
-        <Label  Content="Prometheus - HomeWork Activity" Margin="178,10,113.704,0" VerticalAlignment="Top" RenderTransformOrigin="1.132,0.538" Background="Transparent" FontSize="24" FontFamily="Georgia" FontWeight="Bold" Height="37" Grid.ColumnSpan="3"/>
-        <Label Content="DeadLine" HorizontalAlignment="Left" Margin="23,206,0,0" VerticalAlignment="Top" Height="36" Width="88" FontWeight="Bold" FontSize="14"/>
-        <DatePicker x:Name="Deadline_txt" HorizontalAlignment="Left" Margin="137,206,0,0" VerticalAlignment="Top" Width="120" Height="24"/>
-        <Label Content="Title" HorizontalAlignment="Left" Margin="23,247,0,0" VerticalAlignment="Top" RenderTransformOrigin="-8.763,0.423" Height="30" Width="88" FontWeight="Bold" FontSize="14"/>
-        <Label Content="Course Name" HorizontalAlignment="Left" Margin="18,118,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Height="29" Width="101"/>
-        <TextBox x:Name="HomeworkTitle_txt" HorizontalAlignment="Left" Height="23" Margin="136,247,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="HomeworkTitle_txt_TextChanged"/>
-        <Label Content="Description" HorizontalAlignment="Left" Margin="23,318,0,0" VerticalAlignment="Top" RenderTransformOrigin="-6.395,2.731" FontSize="14" FontWeight="Bold"/>
-        <TextBox x:Name="HomeworkDescription_txt" HorizontalAlignment="Left" Height="118" Margin="27,367,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" TextChanged="HomeworkDescription_txt_TextChanged"/>
-        <DataGrid x:Name="homeworkGrid" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Column="1" BorderThickness="1" HorizontalAlignment="Left" Height="260" Margin="9.6,168,0,0" VerticalAlignment="Top" Width="506" Grid.ColumnSpan="3" SelectionChanged="homeworkGrid_SelectionChanged">
+        <Label  Content="Prometheus - HomeWork Activity" Margin="16.6,33,-55.8,0" VerticalAlignment="Top" RenderTransformOrigin="1.132,0.538" Background="Transparent" FontSize="24" FontFamily="Georgia" FontWeight="Bold" Height="37" Grid.ColumnSpan="3" Grid.Column="1"/>
+        <Label Content="DeadLine" HorizontalAlignment="Left" Margin="132,228,0,0" VerticalAlignment="Top" Height="36" Width="88" FontWeight="Bold" FontSize="14"/>
+        <DatePicker x:Name="Deadline_txt" HorizontalAlignment="Left" Margin="246,228,0,0" VerticalAlignment="Top" Width="120" Height="24"/>
+        <Label Content="Title" HorizontalAlignment="Left" Margin="132,269,0,0" VerticalAlignment="Top" RenderTransformOrigin="-8.763,0.423" Height="30" Width="88" FontWeight="Bold" FontSize="14"/>
+        <Label Content="Course Name" HorizontalAlignment="Left" Margin="127,140,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="14" Height="29" Width="101"/>
+        <TextBox x:Name="HomeworkTitle_txt" HorizontalAlignment="Left" Height="23" Margin="245,270,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="HomeworkTitle_txt_TextChanged"/>
+        <Label Content="Description" HorizontalAlignment="Left" Margin="132,340,0,0" VerticalAlignment="Top" RenderTransformOrigin="-6.395,2.731" FontSize="14" FontWeight="Bold"/>
+        <TextBox x:Name="HomeworkDescription_txt" HorizontalAlignment="Left" Height="118" Margin="136,390,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="230" TextChanged="HomeworkDescription_txt_TextChanged"/>
+        <DataGrid x:Name="homeworkGrid" AutoGenerateColumns="False" CanUserAddRows="False" Grid.Column="1" BorderThickness="1" HorizontalAlignment="Left" Height="260" Margin="9.6,204,0,0" VerticalAlignment="Top" Width="506" Grid.ColumnSpan="2" SelectionChanged="homeworkGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn FontSize="12" Header="Assignment Id" Binding="{Binding Path='AssignmentID'}" IsReadOnly="True" />
                 <DataGridTextColumn FontSize="12" Header="Homework ID" Binding="{Binding Path='HomeworkID'}" IsReadOnly="True" />
@@ -30,22 +30,22 @@
                 <DataGridTextColumn FontSize="12" Header="Long Description" Binding="{Binding Path='LongDescription'}" IsReadOnly="True" />
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="AddHW_txt" FontSize="14" Content="ADD" Grid.Column="1" HorizontalAlignment="Left" Margin="16.6,450,0,0" VerticalAlignment="Top" Width="106" Height="35" FontFamily="Arial Black" Background="White" Click="Add_Homework"/>
-        <Button x:Name="UpdateHW"   FontSize="14" Content="Update" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97" Grid.Column="1" Margin="148.6,450,0,0" Height="35" FontFamily="Arial Black" Background="White" Click="UpdateHW_Click"/>
-        <Button x:Name="BackButton" Content="Go Back" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="18,16,0,0" VerticalAlignment="Top" Width="75" FontSize="14" FontWeight="Bold" Click="BackButton_Click" RenderTransformOrigin="0.507,0.522"/>
+        <Button x:Name="AddHW_txt" FontSize="14" Content="ADD" Grid.Column="1" HorizontalAlignment="Left" Margin="16.6,517,0,0" VerticalAlignment="Top" Width="106" Height="35" FontFamily="Arial Black" Background="White" Click="Add_Homework"/>
+        <Button x:Name="UpdateHW"   FontSize="14" Content="Update" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97" Grid.Column="1" Margin="198.6,517,0,0" Height="35" FontFamily="Arial Black" Background="White" Click="UpdateHW_Click"/>
+        <Button x:Name="BackButton" Content="Go Back" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="74,47,0,0" VerticalAlignment="Top" Width="75" FontSize="14" FontWeight="Bold" Click="BackButton_Click" RenderTransformOrigin="1.141,1.63" Height="49"/>
 
-        <Button Content="Search" x:Name="SearchHW" FontSize="14" Grid.Column="2" HorizontalAlignment="Left" Margin="166.6,126,0,0" VerticalAlignment="Top" Width="92" Height="31" FontFamily="Arial Black" Background="white" Click="SearchHW_Click" Grid.ColumnSpan="2" />
-        <Button Content="View Homework" x:Name="ViewHW"  FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Grid.Column="2" Margin="108.6,91,0,0" Height="30" FontFamily="Arial Black" Background="White" Click="ViewHW_Click" Grid.ColumnSpan="2"/>
-        <ComboBox x:Name ="coursecmbbox"   HorizontalAlignment="Left" Margin="136,118,0,0" VerticalAlignment="Top" Width="120" Height="29" SelectionChanged="coursecmb_SelectionChanged" AutomationProperties.IsRequiredForForm="True"/>
-        <Label x:Name="Homework_ID" Content="Homework ID" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="18,166,0,0" VerticalAlignment="Top" Width="106"/>
-        <TextBox x:Name="homeworkId_txt" HorizontalAlignment="Left" Height="23" Margin="137,172,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="homeworkId_txt_TextChanged"/>
+        <Button Content="Search" x:Name="SearchHW" FontSize="14" Grid.Column="2" HorizontalAlignment="Left" Margin="166.8,162,0,0" VerticalAlignment="Top" Width="92" Height="31" FontFamily="Arial Black" Background="white" Click="SearchHW_Click" />
+        <Button Content="View Homework" x:Name="ViewHW"  FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150" Grid.Column="2" Margin="108.8,127,0,0" Height="30" FontFamily="Arial Black" Background="White" Click="ViewHW_Click"/>
+        <ComboBox x:Name ="coursecmbbox"   HorizontalAlignment="Left" Margin="245,140,0,0" VerticalAlignment="Top" Width="120" Height="29" SelectionChanged="coursecmb_SelectionChanged" AutomationProperties.IsRequiredForForm="True"/>
+        <Label x:Name="Homework_ID" Content="Homework ID" FontSize="14" FontWeight="Bold" HorizontalAlignment="Left" Margin="127,188,0,0" VerticalAlignment="Top" Width="106"/>
+        <TextBox x:Name="homeworkId_txt" HorizontalAlignment="Left" Height="23" Margin="246,194,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="homeworkId_txt_TextChanged"/>
         <Label Content="Search Homework By Homework ID:" Grid.Column="1"  FontSize="12" FontWeight="Bold" Margin="16.6,129,20.4,0" VerticalAlignment="Top" RenderTransformOrigin="0.496,2.136"/>
         <TextBox x:Name="searchtxt" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="235.6,129,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="113" RenderTransformOrigin="0.465,0.017" Grid.ColumnSpan="2" TextChanged="searchtxt_TextChanged"/>
-        <Button x:Name="deletebtn" Content="Delete" Grid.Column="2" HorizontalAlignment="Left" Margin="30.6,450,0,0" VerticalAlignment="Top" Width="105" Height="35" Click="deletebtn_Click_1" Background="White" FontSize="14" FontWeight="Bold" FontFamily="Arial Black"/>
-        <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="23" Margin="138.6,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" Grid.ColumnSpan="2" Grid.Column="2"/>
-        <Label Content="Required" HorizontalAlignment="Left" Margin="23,282,0,0" VerticalAlignment="Top" Height="36" Width="88" FontWeight="Bold" FontSize="14"/>
-        <DatePicker x:Name="Reqtime" HorizontalAlignment="Left" Margin="136,286,0,0" VerticalAlignment="Top" Width="120" Height="24"/>
-        <Button x:Name="ClearButton_txt" Grid.ColumnSpan="2" Content="Clear" Grid.Column="2" HorizontalAlignment="Left" Margin="161.6,450,0,0" VerticalAlignment="Top" Width="97" Height="35" Background="White" FontFamily="Arial Black" FontWeight="Bold" FontSize="14" Click="ClearButton_txt_Click"/>
+        <Button x:Name="deletebtn" Content="Delete" Grid.Column="2" HorizontalAlignment="Left" Margin="9.8,517,0,0" VerticalAlignment="Top" Width="105" Height="35" Click="deletebtn_Click_1" Background="White" FontSize="14" FontWeight="Bold" FontFamily="Arial Black" RenderTransformOrigin="0.495,1.92"/>
+        <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="23" Margin="206.8,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" Grid.Column="2"/>
+        <Label Content="Required" HorizontalAlignment="Left" Margin="132,304,0,0" VerticalAlignment="Top" Height="36" Width="88" FontWeight="Bold" FontSize="14"/>
+        <DatePicker x:Name="Reqtime" HorizontalAlignment="Left" Margin="245,308,0,0" VerticalAlignment="Top" Width="120" Height="24"/>
+        <Button x:Name="ClearButton_txt" Content="Clear" Grid.Column="2" HorizontalAlignment="Left" Margin="161.8,517,0,0" VerticalAlignment="Top" Width="97" Height="35" Background="White" FontFamily="Arial Black" FontWeight="Bold" FontSize="14" Click="ClearButton_txt_Click"/>
 
 
     </Grid>

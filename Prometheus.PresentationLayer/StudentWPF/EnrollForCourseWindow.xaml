@@ -6,13 +6,13 @@
         xmlns:local="clr-namespace:Prometheus.PresentationLayer.StudentWPF"
         mc:Ignorable="d"
         Background="BlanchedAlmond"
-        Title="Prometheus: Student" Height="450" Width="800" Closed="Window_Closed">
+        Title="Prometheus: Student" Height="700" Width="1300" WindowStartupLocation="CenterScreen" Closed="Window_Closed">
     <Grid>
-        <Button x:Name="BackButton" Content="Go Back" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="64,29,0,0" VerticalAlignment="Top" Width="60" FontSize="14" FontWeight="Bold" Click="BackButton_Click" Height="26"/>
-        <TextBlock HorizontalAlignment="Left" Height="45" Margin="294,10,0,0" TextWrapping="Wrap" Text="Enroll to a Course" VerticalAlignment="Top" Width="177" FontSize="20" FontWeight="Bold"/>
-        <Label Content="Select a Course ID you want to Enroll" HorizontalAlignment="Left" Height="29" Margin="75,74,0,0" VerticalAlignment="Top" Width="256" FontWeight="Bold" FontSize="14"/>
-        <Button Content="Enroll" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="294,235,0,0" VerticalAlignment="Top" Width="160" Height="44" FontWeight="Bold" FontSize="16" Click="Button_Click"/>
-        <ComboBox x:Name="EnrollCourseComboBox" HorizontalAlignment="Left" Margin="364,74,0,0" VerticalAlignment="Top" Width="218" Height="29" BorderBrush="#FFF6F5F5" SelectionChanged="EnrollCourseComboBox_SelectionChanged">
+        <Button x:Name="BackButton" Content="Go Back" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="64,29,0,0" VerticalAlignment="Top" Width="95" FontSize="14" FontWeight="Bold" Click="BackButton_Click" Height="45"/>
+        <TextBlock HorizontalAlignment="Left" Height="45" Margin="589,184,0,0" TextWrapping="Wrap" Text="Enroll to a Course" VerticalAlignment="Top" Width="177" FontSize="20" FontWeight="Bold"/>
+        <Label Content="Select a Course ID you want to Enroll" HorizontalAlignment="Left" Height="29" Margin="370,248,0,0" VerticalAlignment="Top" Width="256" FontWeight="Bold" FontSize="14"/>
+        <Button Content="Enroll" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="589,409,0,0" VerticalAlignment="Top" Width="160" Height="44" FontWeight="Bold" FontSize="16" Click="Button_Click"/>
+        <ComboBox x:Name="EnrollCourseComboBox" HorizontalAlignment="Left" Margin="659,248,0,0" VerticalAlignment="Top" Width="218" Height="29" BorderBrush="#FFF6F5F5" SelectionChanged="EnrollCourseComboBox_SelectionChanged">
             <ComboBox.Background>
                 <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
                     <GradientStop Color="#FFF0F0F0" Offset="0"/>
@@ -20,7 +20,7 @@
                 </LinearGradientBrush>
             </ComboBox.Background>
         </ComboBox>
-        <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="23" Margin="664,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" TextChanged="txtUserName_TextChanged"/>
+        <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="23" Margin="1094,68,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" TextChanged="txtUserName_TextChanged"/>
 
     </Grid>
 </Window>

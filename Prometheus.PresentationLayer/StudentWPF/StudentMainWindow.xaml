@@ -6,21 +6,21 @@
         xmlns:local="clr-namespace:Prometheus.PresentationLayer.StudentWPF"
         mc:Ignorable="d"
         Background="BlanchedAlmond"
-        Title="Prometheus: Student" Height="450" Width="800" Closed="Window_Closed">
+        Title="Prometheus: Student" Height="700" Width="1300" WindowStartupLocation="CenterScreen" Closed="Window_Closed">
     <Grid VerticalAlignment="Top">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="404*"/>
             <ColumnDefinition Width="389*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock HorizontalAlignment="Left" Margin="307,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="148" Grid.ColumnSpan="2"><Run FontWeight="Bold" Text="Prometheus" FontSize="22"/></TextBlock>
-        <Button x:Name="CourseEnrollBt" Content="Enroll For Course" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="211,157,0,0" VerticalAlignment="Top" Width="322" Height="30" FontWeight="Bold" Click="CourseEnrollBt_Click" Background="#FFFCFCFC" Grid.ColumnSpan="2"/>
-        <Button x:Name="DeviseHomeworkPlanBt" Content="Devise Homework Plan" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="211,244,0,-46.8" VerticalAlignment="Top" Width="322" Height="30" Grid.ColumnSpan="2" FontWeight="Bold" Click="DeviseHomeworkPlanBt_Click" Background="White"/>
-        <Button x:Name="ViewMyHomeworkBt" Content="View my Homeworks" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="211,214,0,-16.8" VerticalAlignment="Top" Width="322" Height="30" Click="ViewMyHomeworkBt_Click" Grid.ColumnSpan="2" FontWeight="Bold" Background="White"/>
-        <Button x:Name="ViewMyCourseBt" Content="View my Courses" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="211,187,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" FontWeight="Bold" Click="ViewMyCourseBt_Click" Background="White" Height="30" Width="322"/>
-        <TextBlock Grid.ColumnSpan="2" Height="29" Margin="270,56,312.6,0" TextWrapping="Wrap" Width="211" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left"><Run FontWeight="Bold" Text="Dear Student, Welcome!"/></TextBlock>
-        <TextBox x:Name="txtUserName" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="167,16,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" TextChanged="txtUserName_TextChanged"/>
-        <Button x:Name="button" Content="Logout" Template="{StaticResource buttonTemplate}" Grid.Column="1" HorizontalAlignment="Left" Margin="289,41,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.279,0.557" Click="button_Click" FontWeight="Bold" FontSize="14"/>
-        <Button x:Name="button1" Content="Profile" Template="{StaticResource buttonTemplate}" Grid.Column="1" HorizontalAlignment="Left" Margin="289,16,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click" FontWeight="Bold" FontSize="14"/>
+        <TextBlock HorizontalAlignment="Left" Margin="597,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="148" Grid.ColumnSpan="2"><Run FontWeight="Bold" Text="Prometheus" FontSize="22"/></TextBlock>
+        <Button x:Name="CourseEnrollBt" Content="Enroll For Course" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="501,267,0,-101.8" VerticalAlignment="Top" Width="322" Height="62" FontWeight="Bold" Click="CourseEnrollBt_Click" Background="#FFFCFCFC" Grid.ColumnSpan="2"/>
+        <Button x:Name="DeviseHomeworkPlanBt" Content="Devise Homework Plan" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="501,388,0,-222.8" VerticalAlignment="Top" Width="322" Height="62" FontWeight="Bold" Click="DeviseHomeworkPlanBt_Click" Background="White" Grid.ColumnSpan="2"/>
+        <Button x:Name="ViewMyHomeworkBt" Content="View my Homeworks" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="501,450,0,-284.8" VerticalAlignment="Top" Width="322" Height="62" Click="ViewMyHomeworkBt_Click" FontWeight="Bold" Background="White" Grid.ColumnSpan="2"/>
+        <Button x:Name="ViewMyCourseBt" Content="View my Courses" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="501,329,0,-160.8" VerticalAlignment="Top" Grid.ColumnSpan="2" FontWeight="Bold" Click="ViewMyCourseBt_Click" Background="White" Height="59" Width="322"/>
+        <TextBlock Grid.ColumnSpan="2" Height="29" Margin="560,198,0,0" TextWrapping="Wrap" Width="211" FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Left"><Run FontWeight="Bold" Text="Dear Student, Welcome!"/></TextBlock>
+        <TextBox x:Name="txtUserName" Grid.Column="1" HorizontalAlignment="Left" Height="42" Margin="330.8,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" TextChanged="txtUserName_TextChanged"/>
+        <Button x:Name="button" Content="Logout" Template="{StaticResource buttonTemplate}" Grid.Column="1" HorizontalAlignment="Left" Margin="451.8,94,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.279,0.557" Click="button_Click" FontWeight="Bold" FontSize="14" Height="40"/>
+        <Button x:Name="button1" Content="Profile" Template="{StaticResource buttonTemplate}" Grid.Column="1" HorizontalAlignment="Left" Margin="451.8,49,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click" FontWeight="Bold" FontSize="14" Height="39"/>
 
     </Grid>
 </Window>

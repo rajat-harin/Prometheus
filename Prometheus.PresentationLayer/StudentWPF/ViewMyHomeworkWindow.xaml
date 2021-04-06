@@ -6,13 +6,13 @@
         xmlns:local="clr-namespace:Prometheus.PresentationLayer.StudentWPF"
         mc:Ignorable="d"
         Background="BlanchedAlmond"
-        Title="Prometheus: Student" Height="450" Width="800" Closed="Window_Closed">
+        Title="Prometheus: Student" Height="700" Width="1300" WindowStartupLocation="CenterScreen" Closed="Window_Closed">
     <Grid>
-        <Button x:Name="BackButton" Content="Go Back" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="64,29,0,0" VerticalAlignment="Top" Width="75" FontSize="14" FontWeight="Bold" Click="BackButton_Click" Height="22"/>
-        <TextBlock HorizontalAlignment="Left" Margin="298,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Width="175" FontSize="22"><Run FontWeight="Bold" Text="My Homeworks"/></TextBlock>
+        <Button x:Name="BackButton" Content="Go Back" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="81,60,0,0" VerticalAlignment="Top" Width="110" FontSize="14" FontWeight="Bold" Click="BackButton_Click" Height="44"/>
+        <TextBlock HorizontalAlignment="Left" Margin="566,201,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Width="175" FontSize="22"><Run FontWeight="Bold" Text="My Homeworks"/></TextBlock>
         <DataGrid x:Name="ViewHomeworkDG" HorizontalAlignment="Left" 
-                  Height="234" Margin="93,129,0,0" VerticalAlignment="Top" 
-                  Width="644" SelectionChanged="DataGrid_SelectionChanged" 
+                  Height="234" Margin="379,286,0,0" VerticalAlignment="Top" 
+                  Width="568" SelectionChanged="DataGrid_SelectionChanged" 
                   AlternatingRowBackground="Gray"
                   AutoGenerateColumns="False" CanUserAddRows="False"
                   >
@@ -97,10 +97,10 @@
                 </DataGridTextColumn>
 
                 <!--CheckBoxColumnCode-->
-                
+
 
             </DataGrid.Columns>
         </DataGrid>
-        <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="23" Margin="664,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" TextChanged="txtUserName_TextChanged"/>
+        <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="23" Margin="1056,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" TextChanged="txtUserName_TextChanged"/>
     </Grid>
 </Window>
