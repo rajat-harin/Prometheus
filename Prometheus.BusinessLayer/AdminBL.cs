@@ -259,10 +259,6 @@ namespace Prometheus.BusinessLayer
 
                         if (user != null)
                         {
-                            if (guest.UserID == user.UserID)
-                            {
-                                return false;
-                            }
                             if (userRepo.UpdateUser(user))
                             {
                                 return true;

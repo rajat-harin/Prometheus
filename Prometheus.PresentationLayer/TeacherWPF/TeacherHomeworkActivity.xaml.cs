@@ -264,7 +264,7 @@ namespace Prometheus.PresentationLayer.TeacherWPF
                 }
                 else
                 {
-                    MessageBox.Show("No row Selected");
+                    MessageBox.Show("Changes done in List");
                 }
                 
             }

@@ -48,7 +48,7 @@ namespace Prometheus.PresentationLayer.AdminWPF
                 else
                 {
                     this.Close();
-                    MessageBox.Show("Cannot Enter Old Password!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Change password Failed!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     
                 }
             }
