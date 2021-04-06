@@ -30,7 +30,7 @@
         <TextBox x:Name="UserName" HorizontalAlignment="Left" Height="23" Margin="324,145,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="216" TextChanged="TextBox_TextChanged_2" RenderTransformOrigin="0.466,-0.061"/>
         <DatePicker x:Name="DatePicker" HorizontalAlignment="Left" Margin="324,201,0,0" VerticalAlignment="Top" Width="216"/>
         <CheckBox x:Name="checkBoxIsAdmin" Content="Admin" HorizontalAlignment="Left" Margin="324,317,0,0" VerticalAlignment="Top" Checked="checkBox_Checked" IsThreeState="True" Height="29" Width="180"/>
-        <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="34" Margin="630,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137"/>
+        <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="34" Margin="630,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="137" IsReadOnly="True"/>
         <Button Content="Clear" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="674,358,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.422,2.034" Height="42" Click="Button_Click" FontWeight="Bold" FontSize="14"/>
         <Button x:Name="logout" Content="Logout" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="640,86,0,0" VerticalAlignment="Top" Width="123" Height="35" Click="logout_Click" FontSize="14" FontWeight="Bold"/>
         <Label Content="Select Security Question" HorizontalAlignment="Left" Margin="129,343,0,0" VerticalAlignment="Top" Height="29" Width="172" FontWeight="Bold" FontSize="14"/>

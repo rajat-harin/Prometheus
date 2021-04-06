@@ -312,6 +312,16 @@ namespace Prometheus.BusinessLayer
                 validStudent = false;
                 stringBuilder.Append(Environment.NewLine + "Cannot Pass Empty MobileNo");
             }
+            if (student.MobileNo.Length < 10)
+            {
+                validStudent = false;
+                stringBuilder.Append(Environment.NewLine + "Mobile should equal to 10");
+            }
+            if (student.MobileNo.Length > 10)
+            {
+                validStudent = false;
+                stringBuilder.Append(Environment.NewLine + "Mobile should equal to 10");
+            }
             if (validStudent == false)
                 throw new Exception(stringBuilder.ToString());//when  it is not false
             return validStudent;
@@ -353,10 +363,20 @@ namespace Prometheus.BusinessLayer
                 validTeacher = false;
                 stringBuilder.Append(Environment.NewLine + "Cannot Pass Empty Address");
             }
-            if (teacher.MobileNo == string.Empty)
+            if (teacher.MobileNo == string.Empty && teacher.MobileNo.Length != 10)
             {
                 validTeacher = false;
                 stringBuilder.Append(Environment.NewLine + "Cannot Pass Empty MobileNo");
+            }
+            if (teacher.MobileNo.Length < 10)
+            {
+                validTeacher = false;
+                stringBuilder.Append(Environment.NewLine + "Mobile should equal to 10");
+            }
+            if (teacher.MobileNo.Length > 10)
+            {
+                validTeacher = false;
+                stringBuilder.Append(Environment.NewLine + "Mobile should equal to 10");
             }
             if (validTeacher == false)
                 throw new Exception(stringBuilder.ToString());//when  it is not false
