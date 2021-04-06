@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:Prometheus.PresentationLayer.StudentWPF"
         mc:Ignorable="d"
         Background="BlanchedAlmond"
-        Title="Prometheus: Student" Height="450" Width="800" Closed="Window_Closed">
+        Title="Prometheus: Student" Height="700" Width="1300" WindowStartupLocation="CenterScreen" Closed="Window_Closed">
     <Grid>
-        <Button x:Name="BackButton" Content="Go Back" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="64,29,0,0" VerticalAlignment="Top" Width="75" FontSize="14" FontWeight="Bold" Click="BackButton_Click"/>
+        <Button x:Name="BackButton" Content="Go Back" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="64,29,0,0" VerticalAlignment="Top" Width="104" FontSize="14" FontWeight="Bold" Click="BackButton_Click" Height="50"/>
 
-        <TextBlock HorizontalAlignment="Left" Margin="322,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Width="133" FontSize="22"><Run FontWeight="Bold" Text="My Courses"/></TextBlock>
-        <DataGrid x:Name="ViewMyCoursesDG" HorizontalAlignment="Left" Height="277" Margin="40,86,0,0" VerticalAlignment="Top" Width="706" SelectionChanged="DataGrid_SelectionChanged" AlternatingRowBackground="DarkGray"/>
-        <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="23" Margin="664,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" TextChanged="txtUserName_TextChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="580,143,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="34" Width="133" FontSize="22"><Run FontWeight="Bold" Text="My Courses"/></TextBlock>
+        <DataGrid x:Name="ViewMyCoursesDG" HorizontalAlignment="Left" Height="277" Margin="298,219,0,0" VerticalAlignment="Top" Width="706" SelectionChanged="DataGrid_SelectionChanged" AlternatingRowBackground="DarkGray"/>
+        <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="23" Margin="1104,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="92" TextChanged="txtUserName_TextChanged"/>
     </Grid>
 </Window>

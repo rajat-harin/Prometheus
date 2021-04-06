@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Prometheus.PresentationLayer.StudentWPF"
         mc:Ignorable="d"
         Background="BlanchedAlmond"
-        Title="Prometheus: Student" Height="450" Width="800" Closed="Window_Closed">
+        Title="Prometheus: Student" Height="700" Width="1300" WindowStartupLocation="CenterScreen" Closed="Window_Closed">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -14,9 +14,9 @@
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="14*"/>
         </Grid.ColumnDefinitions>
-        <Button x:Name="BackButton" Content="Go Back" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="64,29,0,0" VerticalAlignment="Top" Width="75" FontSize="14" FontWeight="Bold" Click="BackButton_Click" Height="22"/>
-        <TextBlock HorizontalAlignment="Left" Height="26" Margin="260,10,0,0" TextWrapping="Wrap" Text="Devised Homework Plan" VerticalAlignment="Top" Width="259" FontSize="22" FontWeight="Bold"/>
-        <DataGrid x:Name="DeviseHomeworkPlanDG" ItemsSource ="{Binding homeworkPlans}"  HorizontalAlignment="Left" Height="223" Margin="25,103,0,0" VerticalAlignment="Top" Width="714" AlternatingRowBackground="DarkGray" SelectionChanged="DeviseHomeworkPlanDG_SelectionChanged" AutoGenerateColumns="False" CanUserAddRows="False">
+        <Button x:Name="BackButton" Content="Go Back" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="64,29,0,0" VerticalAlignment="Top" Width="97" FontSize="14" FontWeight="Bold" Click="BackButton_Click" Height="51"/>
+        <TextBlock HorizontalAlignment="Left" Height="26" Margin="530,122,0,0" TextWrapping="Wrap" Text="Devised Homework Plan" VerticalAlignment="Top" Width="259" FontSize="22" FontWeight="Bold"/>
+        <DataGrid x:Name="DeviseHomeworkPlanDG" ItemsSource ="{Binding homeworkPlans}"  HorizontalAlignment="Left" Height="223" Margin="382,215,0,0" VerticalAlignment="Top" Width="563" AlternatingRowBackground="DarkGray" SelectionChanged="DeviseHomeworkPlanDG_SelectionChanged" AutoGenerateColumns="False" CanUserAddRows="False">
             <DataGrid.Columns>
 
                 <DataGridTextColumn Binding="{Binding HomeworkID}" ClipboardContentBinding="{x:Null}" FontWeight="Bold" FontSize="14" Header="Homework ID  " IsReadOnly ="True">
@@ -94,16 +94,16 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <Button x:Name="SaveButton" Content="Save Plan" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="557,350,0,0" VerticalAlignment="Top" Width="75" FontSize="14" FontWeight="Bold" Height="36" RenderTransformOrigin="0.54,-0.122" Click="SaveButton_Click"/>
+        <Button x:Name="SaveButton" Content="Save Plan" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="686,468,0,0" VerticalAlignment="Top" Width="75" FontSize="14" FontWeight="Bold" Height="36" RenderTransformOrigin="0.54,-0.122" Click="SaveButton_Click"/>
         <Label 
             x:Name="txtUserName" 
             HorizontalAlignment="Left" 
-            Height="38" Margin="363,41,0,0"  
+            Height="38" Margin="633,153,0,0"  
             VerticalAlignment="Top" 
             Width="156" 
             FontSize="20"
             Content="Hello!" FontWeight="Bold"/>
-        <Button x:Name="Reload" Content="Reload" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="434,350,0,0" VerticalAlignment="Top" Width="75" FontSize="14" FontWeight="Bold" Height="36" RenderTransformOrigin="0.54,-0.122" Click="Reload_Click"/>
+        <Button x:Name="Reload" Content="Reload" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="563,468,0,0" VerticalAlignment="Top" Width="75" FontSize="14" FontWeight="Bold" Height="36" RenderTransformOrigin="0.54,-0.122" Click="Reload_Click"/>
 
     </Grid>
 </Window>
