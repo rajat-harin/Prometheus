@@ -90,11 +90,11 @@ namespace Prometheus.PresentationLayer.TeacherWPF
                 isAdded=teachesBL.AddTeachesList(selectedCourses, teacher.TeacherID);
                 if (isAdded)
                 {
-                    MessageBox.Show("Added");
+                    MessageBox.Show("Course Selected");
                 }
                 else
                 {
-                    MessageBox.Show("Not Added");
+                    MessageBox.Show("Course Not Selected");
                 }
             }
             catch (Exception ex)
