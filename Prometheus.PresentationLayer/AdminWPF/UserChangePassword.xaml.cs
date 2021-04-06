@@ -44,11 +44,12 @@ namespace Prometheus.PresentationLayer.AdminWPF
                         User_Login_Page t = new User_Login_Page();
                         t.Show();
                     }
-                    else
-                    {
-                        this.Close();
-                        MessageBox.Show("Failed to Login!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
+                }
+                else
+                {
+                    this.Close();
+                    MessageBox.Show("Cannot Enter Old Password!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    
                 }
             }
             catch (Exception ex)
@@ -67,8 +68,8 @@ namespace Prometheus.PresentationLayer.AdminWPF
         private void Window_Closed(object sender, EventArgs e) // pressing close button takes us back to student main window.
         {
             this.Close();
-            Admin_Main_Page adminMainWindowobj = new Admin_Main_Page(txtUserName.Text);
-            adminMainWindowobj.Show();
+            User_Login_Page from = new User_Login_Page();
+            from.Show();
         }
 
         private void txtUsername_TextChanged(object sender, TextChangedEventArgs e)
