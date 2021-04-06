@@ -18,29 +18,29 @@ namespace Prometheus.BusinessLayer
                 if (student != null)
                 {
                     if (ValidateStudent(student))
-                        {
-                            UserRepo userRepo = new UserRepo();
-                            StudentRepo studentRepo = new StudentRepo();
-                            User user = new User { UserID = student.UserID, Password = Password, Role = "student", SecurityQuestion = SecurityQuestion, SecurityAnswer = SecurityAnswer};
+                    {
+                        UserRepo userRepo = new UserRepo();
+                        StudentRepo studentRepo = new StudentRepo();
+                        User user = new User { UserID = student.UserID, Password = Password, Role = "student", SecurityQuestion = SecurityQuestion, SecurityAnswer = SecurityAnswer };
 
-                            if (userRepo.InsertUser(user))
+                        if (userRepo.InsertUser(user))
+                        {
+                            if (studentRepo.InsertStudent(student))
                             {
-                                if (studentRepo.InsertStudent(student))
-                                {
-                                    return true;
-                                }
-                                else
-                                {
-                                    userRepo.DeleteUser(user);
-                                    throw new PrometheusException("Student registration failed");
-                                }
+                                return true;
                             }
                             else
                             {
+                                userRepo.DeleteUser(user);
                                 throw new PrometheusException("Student registration failed");
                             }
                         }
+                        else
+                        {
+                            throw new PrometheusException("Student registration failed");
+                        }
                     }
+                }
             }
             catch (Exception)
             {
@@ -221,20 +221,24 @@ namespace Prometheus.BusinessLayer
         {
             try
             {
-                UserRepo userRepo = new UserRepo();
-                User user = new User();
-                user = userRepo.GetUser(guest.UserID);
-                if (user != null)
+                if (guest != null)
                 {
-                    if (user.SecurityQuestion.Equals(guest.SecurityQuestion) && user.SecurityAnswer.Equals(guest.SecurityAnswer))
-                    {
-                        return true;
-                    }
+                    UserRepo userRepo = new UserRepo();
+                        User user = new User();
+                        user = userRepo.GetUser(guest.UserID);
+                        if (user != null)
+                        {
+                            if (user.SecurityQuestion.Equals(guest.SecurityQuestion) && user.SecurityAnswer.Equals(guest.SecurityAnswer))
+                            {
+                                return true;
+                            }
+
+                        }
+                        else
+                        {
+                            return false;
+                        }
                     
-                }
-                else
-                {
-                    return false;
                 }
             }
             catch (Exception)
@@ -248,25 +252,27 @@ namespace Prometheus.BusinessLayer
         {
             try
             {
-               UserRepo userRepo = new UserRepo();
-                    User guest = new User { UserID = user.UserID, Password = user.Password };
+                if (user != null)
+                {
+                    UserRepo userRepo = new UserRepo();
+                        User guest = new User { UserID = user.UserID, Password = user.Password };
 
-                    if (user != null)
-                    {
-                        if (guest.UserID==user.UserID)
+                        if (user != null)
                         {
-                            return false;
+                            if (guest.UserID == user.UserID)
+                            {
+                                return false;
+                            }
+                            if (userRepo.UpdateUser(user))
+                            {
+                                return true;
+                            }
                         }
-                        if (userRepo.UpdateUser(user))
+                        else
                         {
-                            return true;
+                            throw new PrometheusException("User does not exists!");
                         }
                     }
-                    else
-                    {
-                        throw new PrometheusException("User does not exists!");
-                    }
-                
             }
             catch (Exception)
             {
@@ -398,6 +404,12 @@ namespace Prometheus.BusinessLayer
 
             }
             if (user.Password == string.Empty)
+            {
+                validTeacher = false;
+                stringBuilder.Append(Environment.NewLine + "Not a Valid Password");
+
+            }
+            if (user.Password.Length >8)
             {
                 validTeacher = false;
                 stringBuilder.Append(Environment.NewLine + "Not a Valid Password");
