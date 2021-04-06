@@ -45,12 +45,7 @@ namespace Prometheus.PresentationLayer.TeacherWPF
             City.Text = teacher.City;
         }
 
-        /*  private void MobileNumber_txt_PreviewTextInput(object sender, TextCompositionEventArgs e)
-          {
-              Regex regex = new Regex("[^0-9]+");
-              e.Handled = regex.IsMatch(e.Text);
-          }
-        */
+        
         private void updateSub_Click(object sender, RoutedEventArgs e)
         {
         }
@@ -159,7 +154,7 @@ namespace Prometheus.PresentationLayer.TeacherWPF
             this.Close();
          }
 
-        private void Window_Closed(object sender, EventArgs e) // Pressing the close button takes us back to the student main window.
+        private void Window_Closed(object sender, EventArgs e) 
         {
             this.Close();
             HomePage teacherMainWindowobj = new HomePage(teacher.UserID);

@@ -116,7 +116,7 @@ namespace Prometheus.PresentationLayer.TeacherWPF
             HomePage teacherMainWindowobj = new HomePage(teacher.UserID);
             teacherMainWindowobj.Show();
         }
-        private void Window_Closed(object sender, EventArgs e) // Pressing the close button takes us back to the student main window.
+        private void Window_Closed(object sender, EventArgs e) 
         {
             this.Close();
             HomePage teacherMainWindowobj = new HomePage(teacher.UserID);

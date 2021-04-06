@@ -39,18 +39,18 @@ namespace Prometheus.PresentationLayer.TeacherWPF
         {
             this.Close();
         }
-        private void Window_Closed(object sender, EventArgs e) // Pressing the close button takes us back to the student main window.
+        private void Window_Closed(object sender, EventArgs e) 
         {
             this.Close();
             HomePage teacherMainWindowobj = new HomePage(teacher.UserID);
             teacherMainWindowobj.Show();
         }
 
-        public void LoadMyCourses()//method to load my courses data grid on ViewMyCoursesWindow
+        public void LoadMyCourses()
         {
             try
             {
-                List<TeacherCourses> teacherCourses = teacherBL.GetCoursesByTeacherID(teacher.TeacherID);//id set to 1 just for testing
+                List<TeacherCourses> teacherCourses = teacherBL.GetCoursesByTeacherID(teacher.TeacherID);
                 if (teacherCourses.Any())
                 {
                     ViewMyCoursesDG.ItemsSource = teacherCourses;

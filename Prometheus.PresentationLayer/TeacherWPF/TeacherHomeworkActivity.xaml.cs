@@ -25,8 +25,8 @@ namespace Prometheus.PresentationLayer.TeacherWPF
         List<AssignedHomework> assignedHomeworks;
         AssignedHomework objModelClass;
         private Teacher teacher;
-        Homework homeworkEntity = new Homework();//Entity Initialize
-        HomeworkBL homeworkBL = new HomeworkBL();//BLclass Initialize -take it into class level
+        Homework homeworkEntity = new Homework();
+        HomeworkBL homeworkBL = new HomeworkBL();
         int courseID, teacherID;
         public TeacherHomeworkActivity(Teacher teacher)
         {
@@ -62,7 +62,7 @@ namespace Prometheus.PresentationLayer.TeacherWPF
                 {
                     int HomeworkID = int.Parse(searchtxt.Text);
                     object selectedValue = coursecmbbox.SelectedValue;
-                    int courseID = (int)selectedValue;//if course ID not selected then it throws exception here only - 'Object reference not set to an instance of an object.'
+                    int courseID = (int)selectedValue;
                     if (HomeworkID != 0 && courseID != 0)
                     {
                         homeworkGrid.ItemsSource = homeworkBL.SearchHomeworkByID(HomeworkID, courseID);
@@ -95,7 +95,7 @@ namespace Prometheus.PresentationLayer.TeacherWPF
                     //Adding HomeWork
                     homeworkEntity.HomeworkID = Convert.ToInt32(homeworkId_txt.Text);
                     homeworkEntity.Deadline = Deadline_txt.SelectedDate.Value;
-                    homeworkEntity.ReqTime = Reqtime.SelectedDate.Value;//DatePicker  Deadline_txt.Selecteddate.getValue.default()
+                    homeworkEntity.ReqTime = Reqtime.SelectedDate.Value;
                     homeworkEntity.Description = HomeworkTitle_txt.Text;
                     homeworkEntity.LongDescription = HomeworkDescription_txt.Text; ;
                     if(homeworkEntity.Deadline != System.DateTime.Now)
@@ -110,7 +110,7 @@ namespace Prometheus.PresentationLayer.TeacherWPF
                             objModelClass.Description = homeworkEntity.Description;
                             objModelClass.Deadline = homeworkEntity.Deadline;
                             objModelClass.ReqTime = homeworkEntity.ReqTime;
-                            objModelClass.TeacherID = 1;//will be set as per the login id of teacher 
+                            objModelClass.TeacherID = 1;
                             objModelClass.CourseID = (int)coursecmbbox.SelectedValue;
                             courseID = objModelClass.CourseID;
                             teacherID = objModelClass.TeacherID;
@@ -223,8 +223,8 @@ namespace Prometheus.PresentationLayer.TeacherWPF
                 if (objModelClass != null)
                 {
                     homeworkId_txt.Text = Convert.ToString(objModelClass.HomeworkID);
-                    Deadline_txt.Text = (objModelClass.Deadline.Date.ToString());//Date Problem
-                    Reqtime.Text = (objModelClass.ReqTime.Date.ToString());//Date Problem
+                    Deadline_txt.Text = (objModelClass.Deadline.Date.ToString());
+                    Reqtime.Text = (objModelClass.ReqTime.Date.ToString());
                     HomeworkTitle_txt.Text = Convert.ToString(objModelClass.Description);
                     HomeworkDescription_txt.Text = Convert.ToString(objModelClass.LongDescription);
                 }
@@ -271,7 +271,7 @@ namespace Prometheus.PresentationLayer.TeacherWPF
             this.Close();
         }
 
-        private void Window_Closed(object sender, EventArgs e) // Pressing the close button takes us back to the student main window.
+        private void Window_Closed(object sender, EventArgs e) 
         {
             this.Close();
             HomePage teacherMainWindowobj = new HomePage(teacher.UserID);
@@ -280,10 +280,10 @@ namespace Prometheus.PresentationLayer.TeacherWPF
 
         private void ClearButton_txt_Click(object sender, RoutedEventArgs e)
         {
-            
+            coursecmbbox.SelectedIndex = -1;
             homeworkId_txt.Clear();
-            Deadline_txt.SelectedDate.GetValueOrDefault();
-            Reqtime.SelectedDate.GetValueOrDefault();
+            Deadline_txt.SelectedDate = DateTime.Now;
+            Reqtime.SelectedDate = DateTime.Now;
             HomeworkTitle_txt.Clear();
             HomeworkDescription_txt.Clear();
             searchtxt.Clear();
@@ -291,7 +291,7 @@ namespace Prometheus.PresentationLayer.TeacherWPF
 
         private void ViewHW_Click(object sender, RoutedEventArgs e)
         {
-            //homeworkGrid.ItemsSource = homeworkBL.GetAllHomeworks();
+           
             try
             {
                 assignedHomeworks = new List<AssignedHomework>();
