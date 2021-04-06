@@ -27,18 +27,6 @@ namespace Prometheus.BusinessLayer
                 validHomework = false;
                 sb.Append(Environment.NewLine + "Deadline cannot occur the created Date");
             }
-            if (homework.Description == string.Empty)
-            {
-                validHomework = false;
-                sb.Append(Environment.NewLine + "Description Required");
-
-            }
-            if (homework.HomeworkID ==0)
-            {
-                validHomework = false;
-                sb.Append(Environment.NewLine + "Homework ID Required");
-
-            }
             /*int result = DateTime.Compare(homework.Deadline, homework.ReqTime);
             if (result > 0 )
             {

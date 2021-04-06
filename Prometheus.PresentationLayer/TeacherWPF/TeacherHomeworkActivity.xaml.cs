@@ -60,17 +60,23 @@ namespace Prometheus.PresentationLayer.TeacherWPF
             {
                 if (coursecmbbox.SelectedValue != null)
                 {
-                    int HomeworkID = int.Parse(searchtxt.Text);
+                    int HomeworkID;
                     object selectedValue = coursecmbbox.SelectedValue;
                     int courseID = (int)selectedValue;
-                    if (HomeworkID != 0 && courseID != 0)
+                    if(searchtxt.Text == string.Empty)
                     {
+                        MessageBox.Show("Search ID cannot be empty"); 
+                    }
+                    else if (courseID != 0)
+                    {
+                        HomeworkID = int.Parse(searchtxt.Text);
                         homeworkGrid.ItemsSource = homeworkBL.SearchHomeworkByID(HomeworkID, courseID);
+                        if(HomeworkID == 0)
+                        {
+                                MessageBox.Show("No Homework Found!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("No Homework Found!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
+                   
                 }
                 else
                 {
@@ -92,49 +98,77 @@ namespace Prometheus.PresentationLayer.TeacherWPF
                 if (coursecmbbox.SelectedValue != null)
                 {
                     bool ishomeworkAdded;
-                    //Adding HomeWork
-                    homeworkEntity.HomeworkID = Convert.ToInt32(homeworkId_txt.Text);
-                    homeworkEntity.Deadline = Deadline_txt.SelectedDate.Value;
-                    homeworkEntity.ReqTime = Reqtime.SelectedDate.Value;
-                    homeworkEntity.Description = HomeworkTitle_txt.Text;
-                    homeworkEntity.LongDescription = HomeworkDescription_txt.Text; ;
-                    if(homeworkEntity.Deadline != System.DateTime.Now)
+                    if (homeworkId_txt.Text == string.Empty)
                     {
-                        ishomeworkAdded = homeworkBL.AddHomeworkBL(homeworkEntity);
-                        if (ishomeworkAdded)
-                        {
-                            MessageBox.Show("Homework Added Successfully");
-                            //Assign Assignment
-                            objModelClass.HomeworkID = homeworkEntity.HomeworkID;
-                            objModelClass.LongDescription = homeworkEntity.LongDescription;
-                            objModelClass.Description = homeworkEntity.Description;
-                            objModelClass.Deadline = homeworkEntity.Deadline;
-                            objModelClass.ReqTime = homeworkEntity.ReqTime;
-                            objModelClass.TeacherID = 1;
-                            objModelClass.CourseID = (int)coursecmbbox.SelectedValue;
-                            courseID = objModelClass.CourseID;
-                            teacherID = objModelClass.TeacherID;
-                            bool ishomeworkAssigned = homeworkBL.AssignedHomework(objModelClass);
-                            if (ishomeworkAssigned)
-                            {
-                                MessageBox.Show("Homework Assigned Successfully");
-                            }
-                            else
-                            {
-                                MessageBox.Show("Failed to Assign Homework!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Failed to Add Homework!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        }
+                        MessageBox.Show("Homework ID cannot be Empty!");
+                    }
+                    else if (Deadline_txt.SelectedDate == null)
+                    {
+                        MessageBox.Show("Deadline cannot be Empty!");
                     }
                     else
                     {
-                        MessageBox.Show("DeadLine cannot be the Created Date!");
-                    }
-                    
-                    
+                        homeworkEntity.HomeworkID = Convert.ToInt32(homeworkId_txt.Text);
+                        homeworkEntity.Deadline = Deadline_txt.SelectedDate.Value;
+                        string currentdate = DateTime.UtcNow.Date.ToString("dd/MM/yyyy");
+                        string deadline = Deadline_txt.SelectedDate.Value.ToString("dd/MM/yyyy");
+                        if(string.Equals(deadline,currentdate))
+                        {
+                            MessageBox.Show("DeadLine cannot be the Created Date");
+                        }
+                        else if (HomeworkTitle_txt.Text == string.Empty)
+                        {
+                            MessageBox.Show("Title cannot be Empty!");  
+                        }
+                        else if (Reqtime.SelectedDate == null)
+                        {
+                            MessageBox.Show("Required Date cannot be Empty!");
+                        }
+                        else if(Reqtime.SelectedDate > Deadline_txt.SelectedDate)
+                        {
+                            MessageBox.Show("Required Date cannot be beyond Deadline!");
+                        }
+                        else if (HomeworkDescription_txt.Text == string.Empty)
+                        {
+                            MessageBox.Show("Long Description cannot be Empty!");
+                        }
+                        else
+                        {
+                            homeworkEntity.Description = HomeworkTitle_txt.Text;
+                            homeworkEntity.ReqTime = Reqtime.SelectedDate.Value;
+                            //Adding HomeWork
+
+                            homeworkEntity.LongDescription = HomeworkDescription_txt.Text;
+                            ishomeworkAdded = homeworkBL.AddHomeworkBL(homeworkEntity);
+                            if (ishomeworkAdded)
+                            {
+                                MessageBox.Show("Homework Added Successfully");
+                                //Assign Assignment
+                                objModelClass.HomeworkID = homeworkEntity.HomeworkID;
+                                objModelClass.LongDescription = homeworkEntity.LongDescription;
+                                objModelClass.Description = homeworkEntity.Description;
+                                objModelClass.Deadline = homeworkEntity.Deadline;
+                                objModelClass.ReqTime = homeworkEntity.ReqTime;
+                                objModelClass.TeacherID = 1;
+                                objModelClass.CourseID = (int)coursecmbbox.SelectedValue;
+                                courseID = objModelClass.CourseID;
+                                teacherID = objModelClass.TeacherID;
+                                bool ishomeworkAssigned = homeworkBL.AssignedHomework(objModelClass);
+                                if (ishomeworkAssigned)
+                                {
+                                    MessageBox.Show("Homework Assigned Successfully");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("Failed to Assign Homework!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("Failed to Add Homework!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
+                        }
+                    }    
                 }
                 else
                 {
@@ -223,7 +257,7 @@ namespace Prometheus.PresentationLayer.TeacherWPF
                 if (objModelClass != null)
                 {
                     homeworkId_txt.Text = Convert.ToString(objModelClass.HomeworkID);
-                    Deadline_txt.Text = (objModelClass.Deadline.Date.ToString());
+                    Deadline_txt.Text = (objModelClass.Deadline.Date.ToString("dd/MM/yyyy"));
                     Reqtime.Text = (objModelClass.ReqTime.Date.ToString());
                     HomeworkTitle_txt.Text = Convert.ToString(objModelClass.Description);
                     HomeworkDescription_txt.Text = Convert.ToString(objModelClass.LongDescription);
