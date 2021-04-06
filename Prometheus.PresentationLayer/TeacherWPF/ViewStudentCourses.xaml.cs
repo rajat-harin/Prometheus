@@ -26,7 +26,7 @@ namespace Prometheus.PresentationLayer.TeacherWPF
     {
         StudentBL studentbl = new StudentBL();
         private Teacher teacher;
-        //DataTable dt = studentsOtherCourses.viewOtherCourse();
+      
         public ViewStudentCourses(Teacher teacher)
         {
             InitializeComponent();
@@ -55,13 +55,12 @@ namespace Prometheus.PresentationLayer.TeacherWPF
 
         private void BackButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
-        private void Window_Closed(object sender, EventArgs e) // Pressing the close button takes us back to the student main window.
+        private void Window_Closed(object sender, EventArgs e) 
         {
             this.Close();
-            HomePage teacherMainWindowobj = new HomePage(teacher.UserID);
-            teacherMainWindowobj.Show();
+            
         }
     }
 }

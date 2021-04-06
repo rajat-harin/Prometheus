@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Prometheus: Teacher" Height="450" Width="800" Background="BlanchedAlmond" Closed="Window_Closed">
     <Grid>
-        <Button x:Name="BackButton" Content="Go Back" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="64,29,0,0" VerticalAlignment="Top" Width="75" FontSize="14" FontWeight="Bold" Click="BackButton_Click"/>
+        <Button x:Name="BackButton" Content="Go Back" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="30,20,0,0" VerticalAlignment="Top" Width="74" FontSize="14" FontWeight="Bold" Click="BackButton_Click"/>
 
         <Label Content="Prometheus"  Canvas.Left="10" Canvas.Top="10"  
     FontSize="24" FontFamily="Georgia" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="295,10,0,0" Width="222"/>
@@ -21,7 +21,7 @@
         ScrollViewer.CanContentScroll="True" MaxHeight="390"
         AlternatingRowBackground="#f2f2f2" BorderBrush="#000" BorderThickness="1"
         ScrollViewer.HorizontalScrollBarVisibility="Visible"
-        ScrollViewer.VerticalScrollBarVisibility="Auto">    
+        ScrollViewer.VerticalScrollBarVisibility="Auto">
             <DataGrid.Columns>
                 <DataGridTextColumn FontSize="12" Header="Student Id" Binding="{Binding Path='StudentID'}" IsReadOnly="True" />
                 <DataGridTextColumn FontSize="12" Header="First Name" Binding="{Binding Path='FName'}" IsReadOnly="True" />

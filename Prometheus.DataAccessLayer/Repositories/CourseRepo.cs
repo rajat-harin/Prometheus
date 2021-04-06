@@ -120,7 +120,7 @@ namespace Prometheus.DataAccessLayer.Repositories
                         }
                     }
                 }
-                // NOTE: Ask if following should be done or not
+                
                 else
                 {
                     throw new PrometheusException("Can not delete null object!");

@@ -118,7 +118,7 @@ namespace Prometheus.DataAccessLayer.Repositories
                         {
                             objCmd.CommandType = CommandType.StoredProcedure;
                             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(objCmd);
-                            //sqlDataAdapter.MissingSchemaAction = MissingSchemaAction.AddWithKey;
+                            
                             DataSet dataset = new DataSet();
                             sqlDataAdapter.Fill(dataset);
                             assignmentList = dataset.Tables[0].AsEnumerable().Select(

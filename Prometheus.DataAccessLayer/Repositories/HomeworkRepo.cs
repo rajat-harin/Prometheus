@@ -12,7 +12,7 @@ namespace Prometheus.DataAccessLayer.Repositories
 {
     public class HomeworkRepo
     {
-        public bool AddHomework(Homework homework)///null or not
+        public bool AddHomework(Homework homework)
         {
             try
             {
@@ -29,7 +29,7 @@ namespace Prometheus.DataAccessLayer.Repositories
                         objCmd.Parameters.AddWithValue("@Reqtime", homework.ReqTime);
                         objCmd.Parameters.AddWithValue("@LongDescription", homework.LongDescription);
                         int affectedRows = objCmd.ExecuteNonQuery();
-                        //return null;//success
+                        
                         if (affectedRows > 0)
                         {
                             return true;//success
@@ -178,10 +178,7 @@ namespace Prometheus.DataAccessLayer.Repositories
             }
             return homeworkList;
         }
-        //GetHomeworks()- add here<LIST>
+       
     }
 }
-//use using to instantiate the sqlconnection and sqlcommand
-//donot use parameters
-//use try catch carefully at the starting itself
-//Check whether your object is null or not so that exception is handled properly
+
