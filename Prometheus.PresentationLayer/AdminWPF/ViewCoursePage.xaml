@@ -14,7 +14,7 @@
         </Grid.ColumnDefinitions>
         <Button Content="View All Courses" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="590,159,0,0" VerticalAlignment="Top" Width="152" Height="41" FontWeight="Bold" Click="Button_Click" FontSize="14" Grid.ColumnSpan="2"/>
         <TextBox x:Name="txtCName" HorizontalAlignment="Left" Height="24" Margin="477,230,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="348" TextChanged="TextBox_TextChanged" Grid.ColumnSpan="2"/>
-        <Label Content="Search Courses By ID" HorizontalAlignment="Left" Margin="300,223,0,0" VerticalAlignment="Top" Width="205" FontWeight="Bold" FontSize="14" Height="31"/>
+        <Label Content="Search Courses By CourseName" HorizontalAlignment="Left" Margin="228,223,0,0" VerticalAlignment="Top" Width="277" FontWeight="Bold" FontSize="14" Height="32"/>
         <DataGrid x:Name="grid" HorizontalAlignment="Left" Height="196" Margin="300,309,0,0" VerticalAlignment="Top" Width="704" SelectionChanged="DataGrid_SelectionChanged" Grid.ColumnSpan="2"/>
         <Button Content="Search" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="134,232,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1" FontWeight="Bold" FontSize="14" Grid.Column="1"/>
         <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="23" Margin="320,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="txtUserName_TextChanged" Grid.Column="1" IsReadOnly="True"/>

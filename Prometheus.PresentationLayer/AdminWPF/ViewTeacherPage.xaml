@@ -9,7 +9,7 @@
         Title="ViewTeacherPage" Height="700" Width="1300" WindowStartupLocation="CenterScreen" Closed="Window_Closed">
     <Grid>
         <Button Content="VIEW ALL TEACHERS" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="582,168,0,0" VerticalAlignment="Top" Width="154" Height="46" FontWeight="Bold" Click="Button_Click" FontSize="14"/>
-        <Label Content="Search Teacher By ID" HorizontalAlignment="Left" Margin="335,261,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="28" Width="135"/>
+        <Label Content="Search Teacher By UserName" HorizontalAlignment="Left" Margin="274,261,0,0" VerticalAlignment="Top" FontWeight="Bold" Height="24" Width="196"/>
         <TextBox x:Name="UserName" HorizontalAlignment="Left" Height="25" Margin="475,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" TextChanged="TextBox_TextChanged"/>
         <DataGrid x:Name="grid" HorizontalAlignment="Left" Height="209" Margin="269,307,0,0" VerticalAlignment="Top" Width="774" RenderTransformOrigin="0.5,0.5" SelectionChanged="grid_SelectionChanged">
             <DataGrid.RenderTransform>

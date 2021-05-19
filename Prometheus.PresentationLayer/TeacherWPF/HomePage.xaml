@@ -8,22 +8,22 @@
         Title="Prometheus: Teacher" Height="700" Width="1300" WindowStartupLocation="CenterScreen" Background="BlanchedAlmond" Closed="Window_Closed">
     <Grid RenderTransformOrigin="0.993,0.981">
         <Label Content="Prometheus"  Canvas.Left="10" Canvas.Top="10"  
-    FontSize="24" FontFamily="Georgia" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="574,165,0,0" Width="222"/>
-        <Label Content="Dear Teacher, Welcome!"    FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="538,212,0,0" Width="298"/>
-        <Button x:Name="logout" Content="Logout" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="1043,141,0,0" VerticalAlignment="Top" Width="123" Height="35" Click="logout_Click" FontWeight="Bold" FontSize="14"/>
+    FontSize="24" FontFamily="Georgia" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="566,51,0,0" Width="222"/>
+        <Label Content="Dear Teacher, Welcome!"    FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="530,141,0,0" Width="298"/>
+        <Button x:Name="logout" Content="Logout" Template="{StaticResource buttonTemplate}" HorizontalAlignment="Left" Margin="1096,118,0,0" VerticalAlignment="Top" Width="123" Height="35" Click="logout_Click" FontWeight="Bold" FontSize="14" RenderTransformOrigin="1.118,0.898"/>
 
-<<<<<<< HEAD
+<!--<<<<<<< HEAD
         <Button Content="View My Courses"   FontSize="18"  Background="white" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Width="191" Margin="574,417,0,0" Height="41" Click="Button_Click"/>
         <Button Content="View My Students"  FontSize="18"  Background="white" FontWeight="Bold" HorizontalAlignment="Left" Margin="574,351,0,0" VerticalAlignment="Top" Width="191" Height="42" Click="Button_Click_1"/>
         <Button Content="HomeWork Activity" HorizontalAlignment="Left" Margin="574,489,0,0"  FontSize="18"  Background="white" FontWeight="Bold" VerticalAlignment="Top" Width="191" Height="42" Click="Button_Click_2"/>
         <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="33" Margin="1043,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
         <Button x:Name="UpdateProfile" Content="Update Profile" HorizontalAlignment="Left"  Background="white" Margin="574,280,0,0" VerticalAlignment="Top" Width="191" Height="42" FontSize="18" FontWeight="Bold" Click="UpdateProfile_Click"/>
-=======
-        <Button Content="View Courses"   FontSize="18"  Background="white" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Width="191" Margin="295,262,0,0" Height="41" Click="Button_Click"/>
-        <Button Content="View My Students"  FontSize="18"  Background="white" FontWeight="Bold" HorizontalAlignment="Left" Margin="295,196,0,0" VerticalAlignment="Top" Width="191" Height="42" Click="Button_Click_1"/>
-        <Button Content="HomeWork Activity" HorizontalAlignment="Left" Margin="295,334,0,0"  FontSize="18"  Background="white" FontWeight="Bold" VerticalAlignment="Top" Width="191" Height="42" Click="Button_Click_2"/>
-        <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="33" Margin="640,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-        <Button x:Name="UpdateProfile" Content="Update Profile" HorizontalAlignment="Left"  Background="white" Margin="295,125,0,0" VerticalAlignment="Top" Width="191" Height="42" FontSize="18" FontWeight="Bold" Click="UpdateProfile_Click"/>
->>>>>>> 5f28f79eb37f3b3ff62547d3b77b73bde7ada8e4
+=======-->
+        <Button Content="View Courses"   FontSize="18"  Background="white" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Top" Width="191" Margin="566,433,0,0" Height="41" Click="Button_Click"/>
+        <Button Content="View My Students"  FontSize="18"  Background="white" FontWeight="Bold" HorizontalAlignment="Left" Margin="566,340,0,0" VerticalAlignment="Top" Width="191" Height="42" Click="Button_Click_1"/>
+        <Button Content="HomeWork Activity" HorizontalAlignment="Left" Margin="566,523,0,0"  FontSize="18"  Background="white" FontWeight="Bold" VerticalAlignment="Top" Width="191" Height="42" Click="Button_Click_2"/>
+        <TextBox x:Name="txtUserName" HorizontalAlignment="Left" Height="33" Margin="1096,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
+        <Button x:Name="UpdateProfile" Content="Update Profile" HorizontalAlignment="Left"  Background="white" Margin="566,243,0,0" VerticalAlignment="Top" Width="191" Height="42" FontSize="18" FontWeight="Bold" Click="UpdateProfile_Click"/>
+
     </Grid>
 </Window>
